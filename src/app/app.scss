@@ -1,0 +1,202 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-app.ios,
+ion-app.md {
+    //ion-title {
+    //    background: url('../assets/img/musicoin-dark.png');
+    //    background-position: bottom 1.4rem center;
+    //    background-repeat: no-repeat;
+    //    background-size: 120px;
+    //    text-indent: -9999px;
+    //}
+
+    font-size: 10px !important;
+
+    .spinner-wrapper {
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        //border-bottom: .2rem $musicoin-yellow solid;
+        color: $musicoin-dark-grey;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0 1.6rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+        //margin-top: 0;
+
+        span {
+            //border-bottom: .2rem solid $musicoin-yellow;
+            //border-bottom: .2rem solid $musicoin-gradient;
+            //border-image-source: linear-gradient(to right, #ffc000, #ff9000);
+            //border-image-slice: 2;
+            padding-bottom: .4rem;
+            padding-right: 2rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                height: .2rem;
+                position: absolute;
+                background: $musicoin-gradient;
+                left: 0;
+                right: 0;
+                bottom: -.2rem;
+
+            }
+        }
+
+    }
+
+    h2 {
+
+    }
+
+    .toolbar-background {
+        border-bottom: none;
+    }
+
+    ion-header {
+        //box-shadow: 0 0 2rem rgba($musicoin-dark-grey, .1);
+        //overflow: visible;
+
+        &::after {
+            background-image: none;
+            height: 0;
+        }
+
+        ion-navbar.toolbar {
+            //box-shadow: 0 .2rem 0 $rbar-blue;
+
+            .bar-button {
+                //color: white;
+            }
+
+            .toolbar-background {
+                border: none;
+                background-image: url('../assets/img/musicoin-dark.png');
+                background-repeat: no-repeat;
+                background-position: bottom 1.4rem center;
+                background-size: 12rem;
+                box-shadow: 0 0 2rem rgba($musicoin-dark-grey, .1);
+            }
+
+            .toolbar-content {
+                text-indent: -999rem;
+            }
+        }
+    }
+
+    .loading {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .ion-page {
+        //
+
+        .content {
+            //background: #151515;
+
+            .scroll-content {
+                background: linear-gradient(to bottom, $musicoin-lighter-grey 0%, $musicoin-white 66%);
+
+                //margin-bottom: 12rem !important;
+                //margin-bottom: calc(env(safe-area-inset-bottom) + 12rem) !important;
+            }
+        }
+    }
+
+    ion-list {
+        .item-block {
+            &:first-child {
+                border-top: none;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .item-inner {
+                border-bottom: none;
+            }
+        }
+
+        margin-bottom: 1rem;
+    }
+
+    .back-button {
+        font-weight: bold;
+        text-transform: uppercase;
+
+        .back-button-icon {
+            font-size: 2rem;
+            min-width: 1.2rem;
+        }
+    }
+
+    dt {
+        color: $musicoin-grey;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    dd {
+        margin-bottom: 1rem;
+    }
+
+    .tabbar {
+        box-shadow: 0 0 2rem rgba($musicoin-dark-grey, .2);
+
+        .tab-button-icon {
+            font-size: 3rem;
+            padding: 0;
+            transition: none;
+            transform: none;
+        }
+    }
+
+    button[ion-button][block] {
+        background: $musicoin-gradient;
+        font-weight: bold;
+        text-shadow: 0 -1px 0 rgba(black, .2);
+        text-transform: uppercase;
+    }
+
+    ul.errors {
+        background: #c30;
+        border: 1px solid #c30;
+        border-radius: 4px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            color: white;
+            font-size: 1.4rem;
+            margin: 1.4rem;
+        }
+    }
+
+    video#video {
+        position: fixed;
+        height: 0;
+        z-index: 0;
+    }
+}

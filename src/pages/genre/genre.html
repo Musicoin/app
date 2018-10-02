@@ -1,0 +1,24 @@
+<!--
+  Generated template for the GenrePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title></ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <banner [title]="genre"></banner>
+
+    <h1><span>Top Tracks</span></h1>
+
+    <track-list [tracks]="topTracks" [loading]="topTracksLoading" (trackClickEvent)="onTrackClick($event)"></track-list>
+
+</ion-content>

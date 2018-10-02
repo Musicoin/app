@@ -1,0 +1,170 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+// Colors
+
+$musicoin-light-yellow: #ffd500;
+$musicoin-light-yellow: #f9ba05;
+$musicoin-dark-yellow: #f3921B;
+$musicoin-dark-yellow: #fe8f01;
+$musicoin-yellow: mix($musicoin-light-yellow, $musicoin-dark-yellow);
+$musicoin-gradient: linear-gradient(90deg, $musicoin-light-yellow 0%, $musicoin-dark-yellow 100%);
+$musicoin-grey: mix($musicoin-yellow, #888, 4%);
+$musicoin-light-grey: mix($musicoin-grey, #fff, 33%);
+$musicoin-lighter-grey: mix($musicoin-grey, #fff, 20%);
+$musicoin-dark-grey: mix($musicoin-grey, #000, 33%);
+$musicoin-white: #f8f8f8;
+$musicoin-black: #000;
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+//$background-color: #151515;
+//$background-color: #f8f8f8;
+//$musicoin-lighter-grey;
+$background-color: transparent;
+
+$font-size-root: 10px;
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+    primary: $musicoin-yellow,
+    secondary: #32db64,
+    danger: #f53d3d,
+    light: #f4f4f4,
+    grey: $musicoin-grey,
+    dark: $musicoin-dark-grey,
+    warning: $musicoin-yellow
+);
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+$card-ios-background-color: $musicoin-white;
+$card-ios-border-radius: 0;
+
+$list-ios-margin-bottom: 0;
+
+$navbar-ios-height: 6rem;
+
+$searchbar-ios-input-background-color: $musicoin-light-grey;
+$searchbar-ios-toolbar-input-background: $musicoin-white;
+
+$spinner-ios-crescent-color: $musicoin-dark-grey;
+
+//$tabs-ios-background: $musicoin-dark-grey;
+$tabs-ios-background: $musicoin-gradient;
+$tabs-ios-border: none;
+$tabs-ios-tab-color-active: $musicoin-white;
+$tabs-ios-tab-color-inactive: rgba($musicoin-black, 0.25);
+$tabs-ios-tab-font-size: .8rem;
+$tabs-ios-tab-font-weight: bold;
+$tabs-ios-tab-min-height: 6rem;
+
+$toggle-ios-background-color-off: $musicoin-white;
+
+$toolbar-ios-button-color: $musicoin-dark-grey;
+$toolbar-ios-button-color: $musicoin-yellow;
+$toolbar-ios-button-font-size: 1.2rem;
+$toolbar-ios-height: 6rem;
+$toolbar-ios-text-color: $musicoin-grey;
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+$card-md-background-color: $musicoin-white;
+$card-md-border-radius: 0;
+
+$list-md-margin-bottom: 0;
+$list-md-border-color: $musicoin-grey;
+
+$navbar-md-height: 6rem;
+
+$searchbar-md-input-background-color: $musicoin-white;
+$searchbar-md-toolbar-input-background: $musicoin-white;
+
+$spinner-md-crescent-color: $musicoin-yellow;
+
+//$tabs-md-background: $musicoin-dark-grey;
+$tabs-md-background: $musicoin-gradient;
+//$tabs-md-tab-color-active: $musicoin-yellow;
+$tabs-md-tab-color-active: $musicoin-white;
+//$tabs-md-tab-color-active: $musicoin-black;
+//$tabs-md-tab-color-inactive: $musicoin-grey;
+$tabs-md-tab-color-inactive: #b98011;
+$tabs-md-tab-font-size: .8rem;
+$tabs-md-tab-font-size-active: .8rem;
+$tabs-md-tab-font-weight: bold;
+$tabs-md-tab-min-height: 6rem;
+
+$toggle-md-background-color-off: $musicoin-white;
+$toggle-md-handle-background-color-off: $musicoin-white;
+$toggle-md-handle-background-color-on: $musicoin-yellow;
+$toggle-md-track-background-color-off: $musicoin-light-grey;
+
+$toolbar-md-button-color: $musicoin-dark-grey;
+$toolbar-md-button-color: $musicoin-yellow;
+$toolbar-md-button-font-size: 1.2rem;
+$toolbar-md-height: 6rem;
+$toolbar-md-text-color: $musicoin-grey;
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+// Fonts
+// --------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+
+$font-family-base: 'Ubuntu', sans-serif;
+$font-family-ios-base: 'Ubuntu', sans-serif;
+$font-family-md-base: 'Ubuntu', sans-serif;
+
+$font-size-root: 10px !default;
+$font-size-ios-root: 10px !default;
+$font-size-md-root: 10px !default;
+$font-size-base: 10px !default;
+$font-size-ios-base: 10px !default;
+$font-size-md-base: 10px !default;

@@ -1,0 +1,14 @@
+banner {
+    .banner {
+        height: 4.4rem;
+        line-height: 4.4rem;
+        background: $musicoin-gradient;
+        background: $musicoin-dark-grey;
+        font-size: 1.4rem;
+        padding-left: 1.4rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        text-shadow: 0 0 2rem rgba($musicoin-dark-grey, .2);
+    }
+}

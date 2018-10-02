@@ -1,0 +1,14 @@
+<div *ngIf="loading === true" class="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+</div>
+
+<ion-list *ngIf="loading === false && tracks">
+    <ion-item *ngFor="let track of tracks" (click)="onTrackClick(track)">
+        <ion-thumbnail item-start>
+            <div [ngStyle]="{'background-image': 'url(' + track.imageSrc + ')'}"></div>
+        </ion-thumbnail>
+
+        <p class="title">{{ track.title }}</p>
+        <p class="artist">{{ track.author }}</p>
+    </ion-item>
+</ion-list>

@@ -1,0 +1,25 @@
+<div class="mini-player-wrapper" [ngClass]="{'has-track': track, 'hide-mini-player': hideMiniPlayer}" (click)="miniPlayerClicked()">
+
+    <div class="artwork" [ngStyle]="{'background-image': 'url(' + track?.imageSrc + ')' }" [ngClass]="{'blank' : !track?.imageSrc }"></div>
+
+    <div class="track-name">{{ track?.title || '-' }}</div>
+    <div class="artist-name">{{ track?.artistName || '-' }}</div>
+
+    <button class="button play-button" (click)="playClicked($event)" *ngIf="isPaused">
+        <ion-icon name="md-play"></ion-icon>
+    </button>
+    <button class="button pause-button" (click)="pauseClicked($event)" *ngIf="isPlaying">
+        <ion-icon name="md-pause"></ion-icon>
+    </button>
+    <button class="button download-button" *ngIf="isLoading">
+        <ion-icon name="md-download"></ion-icon>
+    </button>
+
+    <div class="progress">
+        <!--<div class="loading-bar"></div>-->
+        <div class="loading-bar" *ngIf="isLoading"></div>
+        <div class="load-progress" [ngStyle]="{width: loadProgress + '%'}"></div>
+        <div class="play-progress" [ngStyle]="{width: playProgress + '%'}"></div>
+    </div>
+
+</div>

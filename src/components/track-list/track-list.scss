@@ -1,0 +1,39 @@
+track-list {
+    ion-spinner {
+        margin-top: 1rem;
+    }
+
+    ion-thumbnail > div {
+        background-color: $musicoin-light-grey;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+    }
+
+    ion-item {
+
+        .title,
+        .artist {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .title {
+            color: $musicoin-black;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            margin-bottom: .4rem;
+        }
+
+        .artist {
+            color: $musicoin-grey;
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1.6rem;
+            text-transform: uppercase;
+        }
+    }
+}

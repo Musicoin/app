@@ -1,0 +1,20 @@
+{
+    "name": "musicoin-mobile-app",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "ionic-angular",
+    "proxies": [
+        {
+            "path": "/api-testing/",
+            "proxyUrl": "http://35.232.77.81:3000/",
+            "proxyNoAgent": true
+        },
+        {
+            "path": "/api-streaming/",
+            "proxyUrl": "http://51.38.49.153:8080/",
+            "proxyNoAgent": true
+        }
+    ],
+    "pro_id": "bd62253c"
+}

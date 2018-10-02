@@ -1,0 +1,81 @@
+page-track {
+    .scroll-content {
+        //background: white;
+    }
+
+    .artwork {
+        background-color: grey;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+        padding-bottom: 100%;
+        position: relative;
+
+        button {
+            background: $musicoin-gradient;
+            //background: transparent;
+            border: .2rem solid $musicoin-yellow;
+            border-radius: 50%;
+            box-shadow: 0 .1rem .5rem rgba($musicoin-black, .2);
+            color: $musicoin-dark-grey;
+            font-size: 2.4rem;
+            position: absolute;
+            top: calc(50% - 3rem);
+            left: calc(50% - 3rem);
+            width: 6rem;
+            height: 6rem;
+
+            .icon {
+                margin-left: .175em;
+            }
+        }
+    }
+
+    .title {
+        color: $musicoin-black;
+        font-size: 1.6rem;
+        margin-bottom: .4rem;
+        text-align: left;
+    }
+
+    .artist {
+        color: $musicoin-grey;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        text-transform: uppercase;
+    }
+
+    .card {
+        box-shadow: 0 0 2rem rgba($musicoin-dark-grey, .2);
+        //width: 30rem;
+        //margin: 1.4rem auto;
+
+        .card-content {
+            position: relative;
+        }
+    }
+
+    .play-count,
+    .tip-count {
+        text-transform: uppercase;
+        font-size: 1rem;
+        text-align: right;
+        color: $musicoin-dark-grey;
+        font-weight: bold;
+        background: $musicoin-light-grey;
+        //border: .1rem solid $musicoin-dark-grey;
+        display: inline-block;
+        line-height: 1.8rem;
+        border-radius: 1rem;
+        padding: 0 .75rem;
+        position: absolute;
+        top: 1.2rem;
+        right: 1.2rem;
+    }
+
+    .tip-count {
+        top: 3.8rem;
+        background: $musicoin-gradient;
+    }
+}

@@ -1,0 +1,37 @@
+<!--
+  Generated template for the TrackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Track</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-card *ngIf="track">
+        <div class="artwork" [ngStyle]="{'background-image': 'url(' + track.imageSrc + ')'}">
+            <button ion-button (click)="playTrack()">
+                <ion-icon name="play"></ion-icon>
+            </button>
+        </div>
+
+        <ion-card-content text-center>
+            <p class="title">{{ track.title }}</p>
+            <p class="artist">{{ track.author }}</p>
+            <p class="play-count" *ngIf="track.directPlayCount">{{ track.directPlayCount }} plays</p>
+            <p class="tip-count" *ngIf="track.directTipCount">{{ track.directTipCount }} tips</p>
+        </ion-card-content>
+    </ion-card>
+
+    <div padding>
+        <button ion-button (tap)="navToArtist(track.artistAddress)">View Artist</button>
+    </div>
+
+</ion-content>

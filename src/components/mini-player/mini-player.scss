@@ -1,0 +1,150 @@
+mini-player {
+
+    .mini-player-wrapper {
+        background: $musicoin-white;
+        background: $musicoin-dark-grey;
+        bottom: 6rem;
+        bottom: calc(env(safe-area-inset-bottom) + 6rem);
+        box-shadow: 0 0 2rem rgba($musicoin-dark-grey, .2);
+        display: none;
+        height: 6rem;
+        position: absolute;
+        width: 100%;
+        color: white;
+        z-index: 10;
+        top: auto;
+
+        &.hide-mini-player {
+            display: none !important;
+        }
+
+        &.has-track {
+            display: block;
+
+        }
+    }
+
+    .artwork {
+        background-color: mix(white, #242424, 10%);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 5.8rem;
+        position: absolute;
+        width: 5.8rem;
+        top: .2rem;
+
+        &.blank {
+            background-image: url('../assets/img/blank-light.png') !important;
+        }
+    }
+
+    .artist-name,
+    .track-name {
+        margin-left: 7.2rem;
+        margin-right: 5.8rem;
+        display: block;
+    }
+    .track-name {
+        //color: $musicoin-black;
+        color: $musicoin-white;
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        line-height: 2.2rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .artist-name {
+        color: $musicoin-grey;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 1.6rem;
+        margin-top: .2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .button {
+        //background: $musicoin-yellow;
+        background: $musicoin-gradient;
+        border-radius: 50%;
+        border: 1px solid $musicoin-yellow;
+        //color: white;
+        color: $musicoin-dark-grey;
+        font-size: 1.6rem;
+        height: 3.8rem;
+        padding: 0;
+        position: absolute;
+        right: 1rem;
+        text-align: center;
+        top: 1.2rem;
+        width: 3.8rem;
+    }
+    .play-button {
+        .icon {
+            margin-left: 0.175em;
+        }
+    }
+
+    .progress,
+    .load-progress,
+    .play-progress,
+    .loading-bar {
+        top: 0;
+        left: 0;
+        height: .2rem;
+        position: absolute;
+    }
+
+    .progress {
+        background: $musicoin-dark-grey;
+        //background: red;
+        right: 0;
+
+        .load-progress {
+            background: $musicoin-grey;
+        }
+        .play-progress {
+            background: $musicoin-gradient;
+
+            &::after {
+                content: '';
+                height: .8rem;
+                width: .8rem;
+                background: $musicoin-gradient;
+                position: absolute;
+                right: -.4rem;
+                top: -.4rem;
+                border-radius: .5rem;
+                border: 1px solid $musicoin-yellow;
+                box-shadow: 0 .1rem .2rem rgba($musicoin-black, .2);
+            }
+        }
+
+        .loading-bar {
+            width: 100%;
+
+            background-image: repeating-linear-gradient(
+                    -90deg,
+                    $musicoin-light-yellow,
+                    $musicoin-light-yellow 3px,
+                    $musicoin-dark-yellow 3px,
+                    $musicoin-dark-yellow 6px
+            );
+            background-size: 18px 18px;
+            animation: move .5s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 0;
+            }
+        }
+    }
+}

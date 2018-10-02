@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Musicoin</ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="closeClick()">
+                <ion-icon name="md-arrow-round-down"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="player-modal-wrapper">
+        <ion-card *ngIf="track">
+            <div class="artwork" [ngStyle]="{'background-image': 'url(' + track.imageSrc + ')'}"></div>
+
+            <ion-card-content text-center>
+                <p class="title">{{ track.title }}</p>
+                <p class="artist">{{ track.artistName }}</p>
+            </ion-card-content>
+        </ion-card>
+
+        <div class="progress">
+            <div class="loading-bar" *ngIf="isLoading"></div>
+            <div class="load-progress" [ngStyle]="{width: loadProgress + '%'}"></div>
+            <div class="play-progress" [ngStyle]="{width: playProgress + '%'}"></div>
+        </div>
+
+        <div class="progress-times">
+            <div class="current">{{ formattedMmSs(currentTime) }}</div>
+            <div class="total">{{ formattedMmSs(duration) }}</div>
+        </div>
+
+        <div class="controls" [ngClass]="{loading: isLoading}">
+            <button class="button skip-backward-button">
+                <ion-icon name="md-skip-backward"></ion-icon>
+            </button>
+            <button class="button play-button" (click)="playClicked($event)" *ngIf="isPaused">
+                <ion-icon name="md-play"></ion-icon>
+            </button>
+            <button class="button pause-button" (click)="pauseClicked($event)" *ngIf="isPlaying">
+                <ion-icon name="md-pause"></ion-icon>
+            </button>
+            <button class="button download-button" *ngIf="isLoading">
+                <ion-icon name="md-download"></ion-icon>
+            </button>
+            <button class="button skip-forward-button">
+                <ion-icon name="md-skip-forward"></ion-icon>
+            </button>
+        </div>
+    </div>
+</ion-content>
