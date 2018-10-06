@@ -14,7 +14,33 @@
 
 
 <ion-content>
-    <banner title="Queue"></banner>
+    <div class="queue-wrapper">
+        <banner title="Queue"></banner>
 
+        <ion-list *ngIf="queue.length > 0">
+            <ion-item-sliding *ngFor="let track of queue; index as i" [attr.data-index]="i">
+                <ion-item (tap)="onTrackTap(i)" [ngClass]="{selected: queueIndex === i}">
+                    <ion-thumbnail item-start>
+                        <div [ngClass]="{ 'no-artwork': !track.imageSrc }" [ngStyle]="{'background-image': 'url(' + (track.imageSrc || '') + ')'}"></div>
+                    </ion-thumbnail>
 
+                    <p class="title">{{ track.title }}</p>
+                    <p class="artist">{{ track.author }}</p>
+                </ion-item>
+
+                <!--<ion-item-options side="left">-->
+                    <!--<button ion-button (click)="favorite(item)">Favorite</button>-->
+                    <!--<button ion-button color="danger" (click)="share(item)">Share</button>-->
+                <!--</ion-item-options>-->
+
+                <ion-item-options side="right">
+                    <button ion-button color="danger" expandable (click)="remove(i)"><ion-icon name="md-trash"></ion-icon></button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+
+        <div class="no-results" *ngIf="queue.length === 0" padding>
+            No tracks found
+        </div>
+    </div>
 </ion-content>

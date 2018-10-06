@@ -24,17 +24,31 @@ export class MiniPlayerComponent {
     currentTime: number = 0;
     duration: number = 0;
 
-    hideMiniPlayer: boolean;
+    hideMiniPlayer: boolean = true;
 
-    constructor(public events: Events, public player: PlayerProvider, public modalCtrl: ModalController, public keyboard: Keyboard) {
-
+    constructor(public events: Events,
+                public player: PlayerProvider,
+                public modalCtrl: ModalController,
+                public keyboard: Keyboard
+    ) {
         keyboard.willShow.subscribe(() => {
-            this.hideMiniPlayer = true;
+            this.events.publish('miniplayer.hide');
         });
         keyboard.willHide.subscribe(() => {
             setTimeout(() => {
-                this.hideMiniPlayer = false;
+                if (this.track) {
+                    this.events.publish('miniplayer.show');
+                }
             }, 50);
+        });
+
+        this.events.subscribe('miniplayer.show', () => {
+            // console.log('MiniPlayerComponent miniplayer.show');
+            this.hideMiniPlayer = false;
+        });
+        this.events.subscribe('miniplayer.hide', () => {
+            // console.log('MiniPlayerComponent miniplayer.hide');
+            this.hideMiniPlayer = true;
         });
 
         this.events.subscribe('track.load', (track) => {
@@ -42,6 +56,7 @@ export class MiniPlayerComponent {
             this.playProgress = 0;
             this.loadProgress = 0;
             this.track = track;
+            this.events.publish('miniplayer.show');
         });
         this.events.subscribe('track.load.progress', (percentage) => {
             // this.isLoading = true;
@@ -96,47 +111,3 @@ export class MiniPlayerComponent {
         playerModal.present();
     }
 }
-
-
-// this.audio.addEventListener('error', () => {
-//     console.log('error.code', this.audio.error.code);
-//     switch (this.audio.error.code) {
-//         case this.audio.error.MEDIA_ERR_NETWORK:
-//             console.log('MEDIA_ERR_NETWORK');
-//             break;
-//         case this.audio.error.MEDIA_ERR_ABORTED:
-//             console.log('MEDIA_ERR_ABORTED');
-//             break;
-//         case this.audio.error.MEDIA_ERR_DECODE:
-//             console.log('MEDIA_ERR_DECODE');
-//             break;
-//         case this.audio.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-//             console.log('MEDIA_ERR_SRC_NOT_SUPPORTED');
-//             break;
-//         case this.audio.error.MS_MEDIA_ERR_ENCRYPTED:
-//             console.log('MS_MEDIA_ERR_ENCRYPTED');
-//             break;
-//         default:
-//             console.log('UNKNOWN');
-//             break;
-//     }
-//
-//     console.log('networkState', this.audio.networkState);
-//     switch (this.audio.networkState) {
-//         case this.audio.NETWORK_EMPTY:
-//             console.log('NETWORK_EMPTY');
-//             break;
-//         case this.audio.NETWORK_IDLE:
-//             console.log('NETWORK_IDLE');
-//             break;
-//         case this.audio.NETWORK_LOADING:
-//             console.log('NETWORK_LOADING');
-//             break;
-//         case this.audio.NETWORK_NO_SOURCE:
-//             console.log('NETWORK_NO_SOURCE');
-//             break;
-//         default:
-//             console.log('UNKNOWN');
-//             break;
-//     }
-// });

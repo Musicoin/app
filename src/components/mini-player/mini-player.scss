@@ -20,7 +20,6 @@ mini-player {
 
         &.has-track {
             display: block;
-
         }
     }
 
@@ -35,7 +34,7 @@ mini-player {
         top: .2rem;
 
         &.blank {
-            background-image: url('../assets/img/blank-light.png') !important;
+            background-image: url('../assets/img/blank-dark.png') !important;
         }
     }
 

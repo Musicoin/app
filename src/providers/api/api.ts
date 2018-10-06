@@ -22,6 +22,8 @@ export class ApiProvider {
         accessToken: string;
     };
 
+    headers: {};
+
     constructor(private ngHttp: HttpClient,
                 private nativeHttp: HTTP,
                 private platform: Platform,
@@ -34,50 +36,12 @@ export class ApiProvider {
             email: '',
             accessToken: ''
         };
+
+        this.headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Cache-Control': 'no-cache'
+        }
     }
-
-    /**
-     *
-     * @param {string} uri
-     * @returns {Observable<Object>|Observable<Array<Object>>}
-     */
-    // private get(uri: string) {
-    //     let url = this.apiUri + uri;
-    //
-    //     if (this.platform.is('cordova')) {
-    //         return from(this.nativeHttp.get(url, {}, this.headers())).map(response => {
-    //             return JSON.parse(response.data);
-    //         });
-    //     }
-    //
-    //     return this.ngHttp.get(url, {
-    //         headers: this.headers(),
-    //         responseType: 'json',
-    //         withCredentials: false
-    //     });
-    // }
-
-    /**
-     *
-     */
-    // artistProfile() {
-    //     this.get('artist/profile/0xa50e63ff1ef89a5411cf6db32d27f0ff19ef68ae').subscribe(
-    //         data => {
-    //             console.log(data);
-    //         }
-    //     );
-    // }
-
-    /**
-     *
-     */
-    // licenceDetail() {
-    //     this.get('licence/detail/0x2738bf8e8c350acd35b7a7b7313b9b0faceddc2a').subscribe(
-    //         data => {
-    //             console.log(data);
-    //         }
-    //     );
-    // }
 
     /**
      *
@@ -85,59 +49,9 @@ export class ApiProvider {
      * @returns {Observable<Track>}
      */
     getTrack(trackAddress: string) {
-        return this.getWithCredentials('release/details/' + trackAddress).map(track => {
-            return new Track().deserialize(track);
+        return this.getWithCredentials('release/details/' + trackAddress).map((response: any) => {
+            return new Track().deserialize(response.data);
         });
-    }
-
-    /**
-     *
-     * @param {string} uri
-     * @param query
-     * @returns {Observable<Object>}
-     */
-    getWithCredentials(uri: string, query = {}) {
-        let params = this.credentialsHttpParams(this.getCredentials());
-
-        Object.keys(query).forEach((key) => {
-            console.log(key, query[key]);
-            params = params.append(key, query[key]);
-        });
-
-        let headers = this.urlEncodedHttpHeaders();
-
-        return this.ngHttp.get(
-            this.apiUri + uri,
-            {
-                headers: headers,
-                params: params
-            }
-        );
-    }
-
-    /**
-     *
-     * @param {string} uri
-     * @returns {Observable<Object>}
-     */
-    postWithCredentials(uri: string, query = {}) {
-        let params = new HttpParams({ encoder: new NativeEncoder() });
-
-        Object.keys(query).forEach((key) => {
-            console.log(key, query[key]);
-            params = params.append(key, query[key]);
-        });
-
-        let headers = this.urlEncodedHttpHeaders();
-
-        return this.ngHttp.post(
-            this.apiUri + uri,
-            params.toString(),
-            {
-                headers: headers,
-                params: this.credentialsHttpParams(this.getCredentials())
-            }
-        );
     }
 
     getGenres() {
@@ -150,7 +64,10 @@ export class ApiProvider {
      */
     getTopTracks() {
         return this.getWithCredentials('release/top').map((response: any) => {
-            return response.data.map(track => new Track().deserialize(track));
+            if (response.success) {
+                return response.data.map(track => new Track().deserialize(track));
+            }
+            return [];
         });
     }
 
@@ -169,7 +86,7 @@ export class ApiProvider {
      * @param artistName
      */
     getTopTracksForArtist(artistName: string) {
-        return this.postWithCredentials('getsongsbya', { 'artistName': artistName }).map((response: any) => {
+        return this.postWithCredentials('getsongsbya', null, { 'artistName': artistName }).map((response: any) => {
             console.log(response);
             return [];
         })
@@ -205,6 +122,15 @@ export class ApiProvider {
     /**
      *
      * @param trackAddress
+     */
+    encodeTrack(trackAddress: string) {
+        let url = this.pppUri + 'encode-track/' + trackAddress;
+        return this.get(url);
+    }
+
+    /**
+     *
+     * @param trackAddress
      * @returns {string}
      */
     getTrackPlaylistFileUrl(trackAddress: string) {
@@ -213,24 +139,16 @@ export class ApiProvider {
 
     /**
      *
-     * @param {string} email
-     * @param {string} clientSecret
-     * @returns {Observable<authTokenResponse>}
+     * @param trackAddress
      */
-    authToken(email: string, clientSecret: string) {
-        let params = new HttpParams({ encoder: new NativeEncoder() })
-            .set('email', email)
-            .set('clientSecret', clientSecret);
-
-        let headers = this.urlEncodedHttpHeaders();
-
-        return this.ngHttp.post<authTokenResponse>(
-            this.apiUri + 'authtoken',
-            params.toString(),
-            {
-                headers: headers
-            }
-        );
+    getTrackPlaylistFileBlob(trackAddress: string) {
+        this.get(this.getTrackPlaylistFileUrl(trackAddress)).map(response => {
+            // console.log(response);
+            let blob = new Blob([response], { type: 'application/vnd.apple.mpegurl' });
+            let url = URL.createObjectURL(blob);
+            // console.log('Blob URL', url);
+            return url;
+        });
     }
 
     /**
@@ -244,54 +162,155 @@ export class ApiProvider {
 
     /**
      *
+     * @param url
+     * @param params
+     * @param headers
+     */
+    get(url: string, params: any = {}, headers: any = this.headers) {
+        if (this.platform.is('cordova')) {
+            console.log('nativeHttp.get', url, params, headers);
+            return from(this.nativeHttp.get(url, params, headers)).map((response) => {
+
+                let key = Object.keys(response.headers).find((header) => {
+                    return header.match(/content-type/i) !== null;
+                });
+                if (key) {
+                    if (response.headers[key].match(/application\/json/i) !== null) {
+                        return JSON.parse(response.data);
+                    }
+                }
+                return response.data;
+            });
+        }
+        else {
+            console.log('ngHttp.get', url, params, headers);
+            return this.ngHttp.get(
+                url,
+                {
+                    headers: this.urlEncodedHttpHeaders(headers),
+                    params: this.urlEncodedHttpParams(params)
+                }
+            );
+        }
+    }
+
+    /**
+     *
+     * @param url
+     * @param params
+     * @param body
+     * @param headers
+     */
+    post(url: string, params: any = null, body: any = null, headers: any = this.headers) {
+        if (params) {
+            url = url + '?' + this.urlEncodedHttpParams(params);
+        }
+        if (this.platform.is('cordova')) {
+            console.log('nativeHttp.post', url, body, headers);
+            return from(this.nativeHttp.post(url, body, headers)).map((response) => {
+                return JSON.parse(response.data);
+            });
+        }
+        else {
+            console.log('ngHttp.post', url, body, headers);
+            return this.ngHttp.post(
+                url,
+                this.urlEncodedHttpParams(body),
+                {
+                    headers: this.urlEncodedHttpHeaders(headers),
+                }
+            );
+        }
+    }
+
+    /**
+     *
+     * @param {string} uri
+     * @param params
+     * @returns {Observable<Object>}
+     */
+    getWithCredentials(uri: string, params = null) {
+        let url = this.apiUri + uri;
+
+        if (!params) {
+            params = {};
+        }
+        params['email'] = this.credentials.email;
+        params['accessToken'] = this.credentials.accessToken;
+
+        return this.get(url, params);
+    }
+
+    /**
+     *
+     * @param {string} uri
+     * @param params
+     * @param body
+     * @returns {Observable<Object>}
+     */
+    postWithCredentials(uri: string, params = null, body = null) {
+        let url = this.apiUri + uri;
+
+        if (!params) {
+            params = {};
+        }
+        params['email'] = this.credentials.email;
+        params['accessToken'] = this.credentials.accessToken;
+
+        return this.post(url, params, body);
+    }
+
+    /**
+     *
      * @param email
      * @param password
      * @param username
      * @returns {Observable<signupResponse>}
      */
     signup(email, password, username) {
-        let params = new HttpParams({ encoder: new NativeEncoder() })
-            .set('email', email)
-            .set('password', password)
-            .set('username', username);
+        let url = this.apiUri + 'signup';
 
-        let headers = this.urlEncodedHttpHeaders();
+        let body = {
+            'email': email,
+            'password': password,
+            'username': username
+        };
 
-        return this.ngHttp.post<signupResponse>(
-            this.apiUri + 'signup',
-            params.toString(),
-            {
-                'headers': headers
-            }
-        );
+        return this.post(url, null, body);
     }
 
     /**
      *
-     * @returns {Observable<Object>}
+     * @param {string} email
+     * @param password
+     * @returns {Observable<clientSecretResponse>}
      */
-    // userStats() {
-    //     return this.getWithCredentials('user/stats');
-    // }
+    clientSecret(email: string, password: any) {
+        let url = this.apiUri + 'clientsecret';
 
-    /**
-     *
-     * @param credentials
-     */
-    private credentialsHttpParams(credentials) {
-        return new HttpParams({ encoder: new NativeEncoder() })
-            .set('email', credentials.email)
-            .set('accessToken', credentials.accessToken);
+        let body = {
+            'email': email,
+            'password': password
+        };
+
+        return this.post(url, null, body);
     }
 
     /**
      *
-     * @returns {HttpHeaders}
+     * @param {string} email
+     * @param {string} clientSecret
+     * @returns {Observable<authTokenResponse>}
      */
-    private urlEncodedHttpHeaders() {
-        return new HttpHeaders()
-            .set('Content-Type', 'application/x-www-form-urlencoded')
-            .set('Cache-Control', 'no-cache');
+    authToken(email: string, clientSecret: string) {
+        let url = this.apiUri + 'authtoken';
+
+        let body = {
+            'email': email,
+            'clientSecret': clientSecret
+        };
+
+        return this.post(url, null, body);
     }
 
     /**
@@ -316,24 +335,32 @@ export class ApiProvider {
 
     /**
      *
-     * @param {string} email
-     * @param password
-     * @returns {Observable<clientSecretResponse>}
+     * @param params
      */
-    clientSecret(email: string, password: any) {
-        let params = new HttpParams({ encoder: new NativeEncoder() })
-            .set('email', email)
-            .set('password', password);
+    private urlEncodedHttpParams(params: any) {
+        let httpParams = new HttpParams({ encoder: new NativeEncoder() });
 
-        let headers = this.urlEncodedHttpHeaders();
+        Object.keys(params).forEach((key) => {
+            console.log(key, params[key]);
+            httpParams = httpParams.append(key, params[key]);
+        });
 
-        return this.ngHttp.post<clientSecretResponse>(
-            this.apiUri + 'clientsecret',
-            params.toString(),
-            {
-                'headers': headers
-            }
-        );
+        return httpParams;
+    }
+
+    /**
+     *
+     * @returns {HttpHeaders}
+     */
+    private urlEncodedHttpHeaders(headers: any) {
+        let httpHeaders = new HttpHeaders();
+
+        Object.keys(headers).forEach((key) => {
+            console.log(key, headers[key]);
+            httpHeaders = httpHeaders.append(key, headers[key]);
+        });
+
+        return httpHeaders;
     }
 }
 

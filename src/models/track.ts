@@ -19,6 +19,7 @@ export class Track implements Deserializable<Track> {
     artistAddress: string;
     // trackAddress: string;
     link: string;
+    isSelected: boolean = false;
 
     deserialize(input: any): Track {
         Object.assign(this, input);

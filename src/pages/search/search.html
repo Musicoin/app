@@ -24,12 +24,18 @@
     </ion-toolbar>
 
     <div *ngIf="query">
-        <h1 *ngIf="searching === false"><span>Tracks</span></h1>
+        <section-header title="Tracks" *ngIf="searching === false" [showMore]="true"></section-header>
 
         <track-list [tracks]="searchTracks" [loading]="searching" (trackClickEvent)="onTrackClick($event)"></track-list>
 
-        <div *ngIf="searching === false && searchTracks.length === 0" padding>
+        <div *ngIf="searching === false && searchTracks.length === 0" padding class="no-results">
             No tracks found
+        </div>
+
+        <section-header title="Artists" *ngIf="searching === false"></section-header>
+
+        <div *ngIf="searching === false && searchArtists.length === 0" padding class="no-results">
+            No artists found
         </div>
     </div>
 

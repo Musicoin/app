@@ -1,32 +1,23 @@
-<!--
-  Generated template for the ArtistPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
     <ion-navbar>
         <ion-title>artist</ion-title>
     </ion-navbar>
-
 </ion-header>
 
-
 <ion-content>
-
-    <div class="spinner-wrapper" *ngIf="loading === true">
-        <ion-spinner name="crescent"></ion-spinner>
+    <div class="artist-header">
+        <div class="header-image"></div>
+        <div class="profile-image"></div>
+        <banner [title]="artist?.artistName || ''"></banner>
     </div>
+
+    <spinner *ngIf="loading === true"></spinner>
 
     <div class="artist-wrapper" *ngIf="loading === false">
-        <!--<h1><span>{{ artist.artistName }}</span></h1>-->
-        <div class="profile-image"></div>
+        <section-header title="Top Tracks" [showMore]="topTracks.length > 3"></section-header>
+        <track-list [tracks]="topTracks" [loading]="topTracksLoading" [showNoTracksMessage]="true"></track-list>
 
-        <banner [title]="artist.artistName"></banner>
-
-        <h1><span>Top Tracks</span></h1>
-        <track-list [tracks]="topTracks" [loading]="topTracksLoading"></track-list>
+        <section-header title="Latest Releases" [showMore]="topTracks.length > 3"></section-header>
+        <track-list [tracks]="topTracks" [loading]="topTracksLoading" [showNoTracksMessage]="true"></track-list>
     </div>
-
 </ion-content>

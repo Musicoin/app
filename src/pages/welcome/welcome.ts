@@ -89,6 +89,12 @@ export class WelcomePage {
         });
     }
 
+    /**
+     *
+     * @param email
+     * @param password
+     * @param username
+     */
     private signup(email: string, password: string, username: string) {
         this.api.signup(email, password, username).subscribe((response) => {
             if (response.success) {
@@ -97,19 +103,27 @@ export class WelcomePage {
                 });
             }
             else {
+                console.log(response);
                 this.loading = false;
             }
-        }, () => {
+        }, (error) => {
+            console.log(error);
             this.loading = false;
         });
     }
 
+    /**
+     *
+     * @param email
+     * @param password
+     */
     private clientSecret(email: string, password: string) {
         this.api.clientSecret(email, password).subscribe((response) => {
             if (response.success) {
                 this.authToken(email, response.clientSecret)
             }
             else {
+                console.log(response);
                 this.loading = false;
             }
         }, () => {
@@ -117,6 +131,11 @@ export class WelcomePage {
         });
     }
 
+    /**
+     *
+     * @param email
+     * @param clientSecret
+     */
     private authToken(email: string, clientSecret: string) {
         this.api.authToken(email, clientSecret).subscribe((response) => {
             if (response.success) {
@@ -127,6 +146,7 @@ export class WelcomePage {
                 });
             }
             else {
+                console.log(response);
                 this.loading = false;
             }
         }, () => {

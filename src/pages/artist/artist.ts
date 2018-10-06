@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from "../../providers/api/api";
 import { Track } from "../../models/track";
 import { Artist } from "../../models/artist";
+import "rxjs/add/operator/delay";
 
 /**
  * Generated class for the ArtistPage page.
@@ -30,6 +31,8 @@ export class ArtistPage {
                 public api: ApiProvider) {
 
         this.loading = true;
+
+        this.topTracks = [];
         this.topTracksLoading = true;
 
         let artistAddress = this.navParams.get('address');
@@ -40,10 +43,13 @@ export class ArtistPage {
 
             console.log(artist);
 
-            this.api.getTopTracksForArtist(artist.artistName).subscribe((tracks) => {
-               this.topTracks = tracks;
-               this.topTracksLoading = false;
-            });
+            setTimeout(() => {
+                this.api.getTopTracksForArtist(artist.artistName).subscribe((tracks) => {
+                    this.topTracks = tracks;
+                    this.topTracksLoading = false;
+                });
+            }, 2000);
+
         });
     }
 

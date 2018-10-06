@@ -3,7 +3,7 @@
     <div class="artwork" [ngStyle]="{'background-image': 'url(' + track?.imageSrc + ')' }" [ngClass]="{'blank' : !track?.imageSrc }"></div>
 
     <div class="track-name">{{ track?.title || '-' }}</div>
-    <div class="artist-name">{{ track?.artistName || '-' }}</div>
+    <div class="artist-name">{{ track?.author || '-' }}</div>
 
     <button class="button play-button" (click)="playClicked($event)" *ngIf="isPaused">
         <ion-icon name="md-play"></ion-icon>

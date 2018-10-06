@@ -12,7 +12,7 @@
         },
         {
             "path": "/api-streaming/",
-            "proxyUrl": "http://51.38.49.153:8080/",
+            "proxyUrl": "https://a.musicoin.org/",
             "proxyNoAgent": true
         }
     ],

@@ -1,16 +1,26 @@
 track-list {
+
     ion-spinner {
         margin-top: 1rem;
     }
 
-    ion-thumbnail > div {
-        background-color: $musicoin-light-grey;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
+    ion-thumbnail {
+        height: 4rem !important;
+        width: 4rem !important;
+
+        & > div {
+            background-color: $musicoin-light-grey;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            padding-bottom: 100%;
+            position: relative;
+
+            &.no-artwork {
+                background-image: url('../assets/img/blank-dark.png') !important;
+            }
+        }
     }
 
     ion-item {
@@ -35,5 +45,20 @@ track-list {
             line-height: 1.6rem;
             text-transform: uppercase;
         }
+    }
+
+    .no-results {
+        color: $musicoin-grey;
+        font-size: 1.2rem;
+    }
+
+    .add-all {
+        background: $musicoin-yellow;
+        margin-left: 1.6rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $musicoin-dark-grey;
     }
 }

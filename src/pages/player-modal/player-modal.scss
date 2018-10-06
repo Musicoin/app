@@ -1,9 +1,5 @@
 page-player-modal {
-
-    .player-modal-wrapper {
-        width: 30rem;
-        margin: 0 auto;
-    }
+    background-color: $musicoin-dark-grey;
 
     .header {
         .toolbar-background {
@@ -20,6 +16,31 @@ page-player-modal {
         margin-bottom: 0;
     }
 
+
+
+    .player-modal-wrapper {
+        width: 100%;
+        max-width: 32rem;
+        margin: 0 auto;
+    }
+
+    .player-modal {
+        &.track-loading {
+            .progress {
+                .loading-bar {
+                    display: block !important;
+                }
+                .play-progress {
+                    display: none;
+                }
+            }
+
+            .progress-times {
+                color: $musicoin-dark-grey;
+            }
+        }
+    }
+
     .artwork {
         background-color: grey;
         background-position: center;
@@ -27,6 +48,10 @@ page-player-modal {
         box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
         padding-bottom: 100%;
         position: relative;
+
+        &.no-artwork {
+            background-image: url('../assets/img/blank-dark.png') !important;
+        }
     }
 
     .title {
@@ -40,7 +65,7 @@ page-player-modal {
     }
 
     .artist {
-        color: $musicoin-grey;
+        color: $musicoin-yellow;//light-grey;
         font-size: 1.2rem;
         font-weight: bold;
         //text-align: left;
@@ -59,7 +84,7 @@ page-player-modal {
         .card-content {
             position: relative;
             text-align: center;
-            padding: 1.4rem 0;
+            padding: 1rem 0;
         }
     }
 
@@ -81,58 +106,74 @@ page-player-modal {
 
     .controls {
         height: 6rem;
-        margin-top: 2.4rem;
+        margin-top: 2rem;
         text-align: center;
 
-        &.loading {
-            button {
-                background: $musicoin-light-grey;
+        .button {
+            background: $musicoin-gradient;
+            border-radius: 50%;
+            border: 1px solid $musicoin-yellow;
+            color: $musicoin-dark-grey;
+            font-size: 1.6rem;
+            height: 4rem;
+            padding: 0;
+            position: relative;
+            text-align: center;
+            width: 4rem;
+        }
+
+        .button {
+            &.play-button,
+            &.pause-button {
+                height: 6rem;
+                width: 6rem;
+                .icon {
+                    font-size: 3.2rem;
+                    margin-left: .2em;
+                }
+            }
+            &.pause-button {
+                .icon {
+                    margin-left: 0;
+                }
+            }
+
+            & + .button {
+                margin-left: 1.2rem;
+            }
+
+            &.skip-forward-button,
+            &.skip-backward-button {
+                background: $musicoin-grey;
+                border-color: $musicoin-grey;
+                //opacity: .25;
+            }
+
+            .icon {
+                text-shadow: 0 -.1rem 0 rgba($musicoin-white, .1);
             }
         }
 
-        button {
-            background: $musicoin-gradient;
-            border: .2rem solid $musicoin-yellow;
-            border-radius: 3rem;
-            color: $musicoin-dark-grey;
-            font-size: 2.4rem;
-            height: 6rem;
-            width: 6rem;
-            //text-align: center;
-
-            //.icon {
-            //    text-shadow: 0 -.1rem 0 $musicoin-light-yellow;
-            //    //text-align: center;
-            //    display:block;
-            //    left: -.4rem;
-            //    position: relative;
-            //    width: 0;
-            //}
-
-            &.play-button .icon {
-                margin-left: .175rem;
+        &.can-skip-forward {
+            .button.skip-forward-button {
+                background: $musicoin-gradient;
+                border-color: $musicoin-yellow;
             }
-            &.pause-button .icon {
-                //margin-left: .025rem;
-            }
-            &.skip-forward-button,
-            &.skip-backward-button {
-                height: 4rem;
-                width: 4rem;
-                font-size: 1.6rem;
-            }
+        }
 
-            & + button {
-                margin-left: 1.2rem;
+        &.can-skip-backward {
+            .button.skip-backward-button {
+                background: $musicoin-gradient;
+                border-color: $musicoin-yellow;
             }
         }
     }
 
     .progress-times {
         color: $musicoin-white;
-        position: relative;
         font-size: 1.2rem;
         font-weight: bold;
+        position: relative;
 
         .current,
         .total {
@@ -149,22 +190,6 @@ page-player-modal {
         }
     }
 
-    //.close {
-    //    color: $musicoin-grey;
-    //    //background: $musicoin-dark-grey;
-    //    //background: $musicoin-gradient;
-    //    text-align: center;
-    //    padding: 1rem;
-    //    font-weight: bold;
-    //    font-size: 1.2rem;
-    //    text-transform: uppercase;
-    //    position: absolute;
-    //    bottom: 0;
-    //    left: 0;
-    //    right: 0;
-    //}
-
-
     .progress,
     .load-progress,
     .play-progress,
@@ -176,14 +201,15 @@ page-player-modal {
     }
 
     .progress {
-        background: $musicoin-light-grey;
-        right: 0;
-        position: relative;
+        background: $musicoin-grey;
         margin: 1.4rem 0;
+        position: relative;
+        right: 0;
 
         .load-progress {
             background: $musicoin-grey;
         }
+
         .play-progress {
             background: $musicoin-gradient;
 
@@ -213,6 +239,7 @@ page-player-modal {
             );
             background-size: 18px 18px;
             animation: move .5s linear infinite;
+            display: none;
         }
 
         @keyframes move {

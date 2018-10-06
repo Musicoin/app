@@ -26,48 +26,6 @@ ion-app.md {
 
     font-size: 10px !important;
 
-    .spinner-wrapper {
-        padding: 20px;
-        text-align: center;
-    }
-
-    h1 {
-        //border-bottom: .2rem $musicoin-yellow solid;
-        color: $musicoin-dark-grey;
-        font-weight: bold;
-        text-transform: uppercase;
-        padding: 0 1.6rem;
-        font-size: 1.6rem;
-        margin-bottom: 1.6rem;
-        //margin-top: 0;
-
-        span {
-            //border-bottom: .2rem solid $musicoin-yellow;
-            //border-bottom: .2rem solid $musicoin-gradient;
-            //border-image-source: linear-gradient(to right, #ffc000, #ff9000);
-            //border-image-slice: 2;
-            padding-bottom: .4rem;
-            padding-right: 2rem;
-            position: relative;
-
-            &::after {
-                content: '';
-                height: .2rem;
-                position: absolute;
-                background: $musicoin-gradient;
-                left: 0;
-                right: 0;
-                bottom: -.2rem;
-
-            }
-        }
-
-    }
-
-    h2 {
-
-    }
-
     .toolbar-background {
         border-bottom: none;
     }
@@ -116,11 +74,17 @@ ion-app.md {
 
             .scroll-content {
                 background: linear-gradient(to bottom, $musicoin-lighter-grey 0%, $musicoin-white 66%);
+                //padding-bottom: 6rem;
 
                 //margin-bottom: 12rem !important;
                 //margin-bottom: calc(env(safe-area-inset-bottom) + 12rem) !important;
             }
         }
+    }
+
+    .has-miniplayer .ion-page .content .scroll-content {
+        margin-bottom: 12rem !important;
+        margin-bottom: calc(env(safe-area-inset-bottom) + 12rem) !important;
     }
 
     ion-list {
@@ -139,6 +103,7 @@ ion-app.md {
         }
 
         margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     .back-button {

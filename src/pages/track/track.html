@@ -14,24 +14,26 @@
 
 
 <ion-content>
+    <spinner *ngIf="loading === true"></spinner>
 
-    <ion-card *ngIf="track">
-        <div class="artwork" [ngStyle]="{'background-image': 'url(' + track.imageSrc + ')'}">
-            <button ion-button (click)="playTrack()">
-                <ion-icon name="play"></ion-icon>
-            </button>
-        </div>
+    <div class="track-wrapper" *ngIf="loading === false">
+        <ion-card *ngIf="track">
+            <div class="artwork" [ngStyle]="{'background-image': 'url(' + (track.imageSrc || '') + ')'}" [ngClass]="{'no-artwork': !track.imageSrc}">
+                <button ion-button (click)="playTrack()">
+                    <ion-icon name="play"></ion-icon>
+                </button>
+            </div>
 
-        <ion-card-content text-center>
-            <p class="title">{{ track.title }}</p>
-            <p class="artist">{{ track.author }}</p>
-            <p class="play-count" *ngIf="track.directPlayCount">{{ track.directPlayCount }} plays</p>
-            <p class="tip-count" *ngIf="track.directTipCount">{{ track.directTipCount }} tips</p>
-        </ion-card-content>
-    </ion-card>
+            <ion-card-content text-center>
+                <p class="title">{{ track.title }}</p>
+                <p class="artist">{{ track.author }}</p>
+                <p class="play-count" *ngIf="track.directPlayCount">{{ track.directPlayCount }} plays</p>
+                <p class="tip-count" *ngIf="track.directTipCount">{{ track.directTipCount }} tips</p>
+            </ion-card-content>
+        </ion-card>
 
-    <div padding>
-        <button ion-button (tap)="navToArtist(track.artistAddress)">View Artist</button>
+        <ion-list>
+            <button ion-item (tap)="navToArtist(track.artistAddress)">View Artist</button>
+        </ion-list>
     </div>
-
 </ion-content>

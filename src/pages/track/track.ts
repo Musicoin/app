@@ -16,44 +16,36 @@ import { Track } from "../../models/track";
     templateUrl: 'track.html',
 })
 export class TrackPage {
-    loader: any;
+    public loading: boolean;
     public trackAddress: string;
     public track: Track;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public apiProvider: ApiProvider,
-                public loadingCtrl: LoadingController,
                 public events: Events) {
 
-        this.track = navParams.get('track');
+        this.loading = true;
 
-        console.log(this.track);
+        this.track = navParams.get('track') || false;
 
         if (!this.track) {
-            this.loader = this.loadingCtrl.create({
-                content: "Loading...",
-                // duration: 3000
-            });
-            this.loader.present();
-
             this.trackAddress = navParams.get('address');
 
-            this.apiProvider.getTrack(this.trackAddress).subscribe(track => {
-                this.track = new Track().deserialize(track);
-                this.loader.dismiss();
-                console.log(track);
+            this.apiProvider.getTrack(this.trackAddress).subscribe((track: Track) => {
+                this.track = track;
+                this.loading = false;
             }, error => {
-                this.loader.dismiss();
+                this.navCtrl.pop();
             });
         }
         else {
-            console.log(this.track);
+            this.loading = false;
         }
     }
 
     playTrack() {
-        this.events.publish('play', this.track);
+        this.events.publish('queue.track', this.track);
     }
 
     navToArtist(artistAddress: string) {

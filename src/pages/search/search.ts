@@ -4,6 +4,7 @@ import { Track } from "../../models/track";
 import { ApiProvider } from "../../providers/api/api";
 import { Subscription } from "rxjs/Subscription";
 import { query } from "@angular/core/src/animation/dsl";
+import { Artist } from "../../models/artist";
 
 /**
  * Generated class for the SearchPage page.
@@ -21,6 +22,7 @@ export class SearchPage {
     query: string;
     queryInput: string;
     searchTracks: Array<Track> = [];
+    searchArtists: Array<Artist> = [];
     searching: boolean = false;
     private searchingSubscription: Subscription;
 
@@ -40,7 +42,7 @@ export class SearchPage {
 
         this.searching = true;
         this.searchingSubscription = this.api.searchTracks(this.query).subscribe((tracks) => {
-            this.searchTracks = tracks;
+            this.searchTracks = tracks.splice(0, 3);
             this.searching = false;
         });
     }

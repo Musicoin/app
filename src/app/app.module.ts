@@ -15,6 +15,8 @@ import { HTTP } from '@ionic-native/http';
 import { MusicControls } from "@ionic-native/music-controls";
 import { IonicStorageModule } from "@ionic/storage";
 import { StorageProvider } from '../providers/storage/storage';
+import { StreamingMedia } from "@ionic-native/streaming-media";
+import { Media } from "@ionic-native/media";
 
 // import { NativeHttpBackend, NativeHttpFallback, NativeHttpModule } from "ionic-native-http-connection-backend";
 
@@ -58,7 +60,9 @@ import { StorageProvider } from '../providers/storage/storage';
         AppVersion,
         HTTP,
         MusicControls,
-        StorageProvider
+        StorageProvider,
+        StreamingMedia,
+        Media
     ]
 })
 export class AppModule {

@@ -14,10 +14,15 @@ export class PlayerModalPage {
     isPaused: boolean = false;
     isLoading: boolean = true;
 
+    isQueueVisible: boolean = false;
+
     loadProgress: any = 0;
     playProgress: any = 0;
     private currentTime: number = 0;
     private duration: number = 0;
+
+    private canSkipForward: boolean;
+    private canSkipBackward: boolean;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public events: Events) {
         this.track = navParams.get('track');
@@ -35,21 +40,21 @@ export class PlayerModalPage {
             this.loadProgress = 0;
             this.track = track;
         });
-        this.events.subscribe('track.load.progress', (percentage) => {
-            this.isLoading = true;
-            this.loadProgress = percentage;
-        });
-        this.events.subscribe('track.load.completed', (track) => {
-            this.isLoading = false;
-        });
+        // this.events.subscribe('track.load.progress', (percentage) => {
+        //     this.isLoading = true;
+        //     this.loadProgress = percentage;
+        // });
+        // this.events.subscribe('track.load.completed', (track) => {
+        //     this.isLoading = false;
+        // });
 
         this.events.subscribe('track.ready', (track) => {
             console.log('MiniPlayer track.ready');
-            this.isPlaying = true;
             this.isPaused = false;
+            this.isPlaying = true;
         });
         this.events.subscribe('track.play', (track) => {
-            // this.track = track;
+            this.isLoading = false;
             this.isPaused = false;
             this.isPlaying = true;
         });
@@ -59,15 +64,19 @@ export class PlayerModalPage {
         });
         this.events.subscribe('track.progress', (progress) => {
             this.playProgress = progress.percentage;
-            // console.log(percentage);
-            this.isPlaying = true;
-            this.isPaused = false;
-            this.isLoading = false;
             this.currentTime = progress.currentTime;
             this.duration = progress.duration;
-            console.log(progress);
+        });
+        this.events.subscribe('track.stopped', () => {
+            this.isPlaying = false;
+            this.isPaused = true;
         });
 
+        this.events.subscribe('queue.update', (data) => {
+            this.canSkipForward = data.canSkipForward;
+            this.canSkipBackward = data.canSkipBackward;
+        });
+        this.events.publish('queue.publish');
 
     }
 
@@ -93,5 +102,27 @@ export class PlayerModalPage {
 
     strPadLeft(string, pad, length) {
         return (new Array(length + 1).join(pad) + string).slice(-length);
+    }
+
+    showQueue() {
+        this.isQueueVisible = true;
+    }
+
+    hideQueue() {
+        this.isQueueVisible = false;
+    }
+
+    toggleQueue() {
+        this.isQueueVisible = !this.isQueueVisible;
+    }
+
+    skipBackwardClicked($event) {
+        $event.stopPropagation();
+        this.events.publish('transport.skip-backward');
+    }
+
+    skipForwardClicked($event) {
+        $event.stopPropagation();
+        this.events.publish('transport.skip-forward');
     }
 }

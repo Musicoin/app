@@ -1,254 +1,300 @@
 import { Injectable } from '@angular/core';
 import { AlertController, Events, Platform } from "ionic-angular";
-import { HttpEventType } from "@angular/common/http";
 import { ApiProvider } from "../api/api";
 import "rxjs/add/observable/fromPromise";
 import { Track } from "../../models/track";
-import { Subscription } from "rxjs/Subscription";
 import { MusicControls } from "@ionic-native/music-controls";
-
-import Hls from 'hls.js';
+import { Media, MediaObject } from '@ionic-native/media';
 
 @Injectable()
 export class PlayerProvider {
-    // private audio: HTMLAudioElement;
-    private track: Track;
-    private getTrackSubscription: Subscription;
-    private downloadSubscription: Subscription;
-
-    private video;
-
+    private track: Track = null;
+    private player: MediaObject = null;
     private queue: Track[] = [];
+    private queueIndex: number = 0;
 
     constructor(public events: Events,
                 private api: ApiProvider,
                 private alertCtrl: AlertController,
                 private musicControls: MusicControls,
-                private platform: Platform
+                private platform: Platform,
+                private media: Media
     ) {
-
-        this.events.subscribe('play', (track: Track) => {
-            this.play(track);
+        this.events.subscribe('queue.track', (track: Track) => {
+            this.enqueueTrack(track);
+        });
+        this.events.subscribe('queue.tracks', (tracks: Track[]) => {
+            this.enqueueTracks(tracks);
+        });
+        this.events.subscribe('queue.remove', (index: number) => {
+            this.removeQueueIndex(index);
+        });
+        this.events.subscribe('queue.play', (index: number) => {
+            this.playQueueIndex(index);
+        });
+        this.events.subscribe('queue.publish', () => {
+           this.publishQueueData();
         });
 
         this.events.subscribe('transport.play', () => {
-            if (this.video) {
-                this.video.play();
-            }
+            this.play();
         });
         this.events.subscribe('transport.pause', () => {
-            if (this.video) {
-                this.video.pause();
-            }
+            this.pause();
+        });
+        this.events.subscribe('transport.skip-forward', () => {
+            this.skipForward();
+        });
+        this.events.subscribe('transport.skip-backward', () => {
+            this.skipBackward();
         });
 
-        this.video = document.getElementById('video');
+        setInterval(() => {
+            this.publishPlayProgress();
+        }, 25);
+    }
 
-        this.video.onplay = () => {
-            console.log('this.audio.onplay');
-            this.events.publish('track.play');
-
-            if (this.platform.is('cordova')) {
-                console.log('creating music controls...');
-                this.musicControls.create({
-                    track: this.track.title,        // optional, default : ''
-                    artist: this.track.author,                       // optional, default : ''
-                    //cover: this.track.imageSrc,      // optional, default : nothing
-                    //isPlaying: true,
-                    //hasPrev: false,      // show previous button, optional, default: true
-                    //hasNext: false,      // show next button, optional, default: true
-                }).then(() => {
-                    console.log('musicControls.success');
-                }).catch(() => {
-                    console.log('musicControls.error');
-                });
-                this.musicControls.listen(); // activates the observable above
-                this.musicControls.updateIsPlaying(true);
-            }
-        };
-
-        this.video.onplaying = () => {
-            console.log('this.audio.onplaying');
-            this.events.publish('track.play');
-        };
-
-        this.video.onpause = () => {
-            this.events.publish('track.pause');
-        };
-
-        this.video.onended = () => {
-            this.events.publish('track.ended');
-        };
-
-        this.video.ontimeupdate = () => {
-            this.playProgress();
-        };
-
-        this.video.onerror = () => {
-            console.log(this.video.error);
-        };
-
-        this.video.onprogress = (e) => {
-            console.log(e);
-            this.loadProgress(this.video.buffered.end(0), this.video.duration);
-            // this.events.publish('track.loaded')
+    /**
+     *
+     */
+    private play() {
+        if (this.player) {
+            this.player.play();
         }
     }
 
-    public enqueue(track: Track) {
-        this.queue.push(track);
+    /**
+     *
+     */
+    private pause() {
+        if (this.player) {
+            this.player.pause();
+        }
     }
 
-    public play(track: Track) {
-        // this.audio.pause();
-        // this.track = null;
-        // this.playProgress();
-        this.loadProgress(0, 0);
-        if (this.getTrackSubscription) {
-            this.getTrackSubscription.unsubscribe();
-        }
-        if (this.downloadSubscription) {
-            this.downloadSubscription.unsubscribe();
-        }
-
-
-        // this.getTrackSubscription = this.api.getTrack(trackAddress).subscribe(track => {
-        console.log('PlayerProvider.play', track);
-
+    /**
+     *
+     * @param track
+     */
+    private enqueueTrack(track: Track) {
         this.queue.push(track);
-        this.track = track;
 
-        this.events.publish('track.load', track);
-
-        // trigger encode on track if not already ready for streaming
-        this.api.downloadTrack(track.address).subscribe((response) => {
-            console.log(response);
-        });
-
-        if (Hls.isSupported()) {
-            console.log('Hls.isSupported === true');
-            let hls = new Hls();
-            hls.loadSource(this.api.getTrackPlaylistFileUrl(track.address));
-            hls.attachMedia(this.video);
-            this.video.load();
-            this.video.play();
-            // hls.on(Hls.Events.MANIFEST_PARSED, () => {
-            //     this.video.play();
-            // });
+        if (this.queue.length > 0 && this.track === null) {
+            this.queueIndex = 0;
+            this.playQueueIndex(this.queueIndex);
         }
-        else if (this.video.canPlayType('application/vnd.apple.mpegurl')) {
-            this.video.src = this.api.getTrackPlaylistFileUrl(track.address);
-            this.video.load();
-            this.video.play();
-            // this.video.addEventListener('canplay', () => {
-            //     this.video.play();
-            // });
+
+        this.publishQueueData();
+    }
+
+    /**
+     *
+     * @param tracks
+     */
+    private enqueueTracks(tracks: Track[]) {
+        for (let track of tracks) {
+            this.enqueueTrack(track);
+        }
+    }
+
+    /**
+     *
+     */
+    private skipBackward() {
+        if (this.canSkipBackward()) {
+            this.queueIndex -= 1;
+            console.log('skipBackward', this.queueIndex);
+            this.playQueueIndex(this.queueIndex);
         }
         else {
-            console.log("not supported");
+            console.log("Can't go previous");
         }
-
-        // this.downloadSubscription = this.api.downloadTrack(track.ppp).subscribe(event => {
-        //     console.log(event);
-        //
-        //     // if (event.status == 200) {
-        //     //     this.events.publish('track.load.completed');
-        //     //     this.playFromBlob(event.data, track.contentType);
-        //     // }
-        //
-        //     switch (event.type) {
-        //         case HttpEventType.ResponseHeader:
-        //             console.log('HttpEventType.ResponseHeader', event);
-        //             if (event.status === 200) {
-        //
-        //                 // this.track = track;
-        //                 //
-        //                 this.events.publish('track.load', track);
-        //             }
-        //             break;
-        //
-        //         case HttpEventType.DownloadProgress:
-        //             console.log('HttpEventType.DownloadProgress', event);
-        //             this.loadProgress(event.loaded, event.total);
-        //             break;
-        //
-        //         case HttpEventType.Response:
-        //             console.log('HttpEventType.Response', event);
-        //             console.log(event.headers);
-        //             this.events.publish('track.load.completed');
-        //             this.playFromBlob(event.body, track.contentType);
-        //             break;
-        //
-        //         default:
-        //             console.log('Default', event);
-        //             break;
-        //     }
-        // }, (error) => {
-        //     console.log('Error', error);
-        //     let alert = this.alertCtrl.create({
-        //         title: 'Cannot play track',
-        //         subTitle: 'Try again in 30 seconds',
-        //         buttons: ['OK']
-        //     });
-        //     alert.present();
-        //
-        //     this.queue.pop();
-        // });
-        // }, (error) => {
-        //     console.log('Error', error);
-        //     let alert = this.alertCtrl.create({
-        //         title: 'Error',
-        //         subTitle: error,
-        //         buttons: ['OK']
-        //     });
-        //     alert.present();
-        // });
     }
 
-    // private playFromM3u8
-
-    private playFromBlob(blobData, contentType) {
-        console.log('blobData', blobData);
-
-        // try {
-        //     // let blobObject = new Blob([blobData]);
-        //     // let blobUrl = URL.createObjectURL(blobObject);
-        //
-        //
-        //     let blobUrl = URL.createObjectURL(blobData);
-        //
-        //     this.audio.src = blobUrl;
-        //     this.audio.load();
-        //     this.audio.play().then(value => {
-        //         console.log('audio.play() success', value)
-        //     }, reason => {
-        //         console.log('audio.play() rejected', reason)
-        //     }).catch(reason => {
-        //         console.log('audio.play() catch', reason);
-        //     });
-        // }
-        // catch (e) {
-        //     console.log(e);
-        // }
+    /**
+     *
+     */
+    private canSkipBackward() {
+        return (this.queueIndex > 0);
     }
 
-    private playProgress() {
-        let percentage = '0.00';
-        if (this.video && this.video.currentTime && this.video.duration) {
-            percentage = ((this.video.currentTime / this.video.duration) * 100).toFixed(2);
+    /**
+     *
+     */
+    private skipForward() {
+        if (this.canSkipForward()) {
+            this.queueIndex += 1;
+            console.log('skipForward', this.queueIndex);
+            this.playQueueIndex(this.queueIndex);
         }
-        this.events.publish('track.progress', {
-            percentage: percentage,
-            currentTime: this.video.currentTime,
-            duration: this.video.duration
+        else {
+            console.log("Can't go next");
+        }
+    }
+
+    /**
+     *
+     */
+    private canSkipForward() {
+        return (this.queueIndex < this.queue.length - 1);
+    }
+
+    /**
+     *
+     * @param index
+     */
+    private playQueueIndex(index: number) {
+        console.log('player.playQueueIndex', index);
+
+        let track: Track = this.queue[index];
+
+        if (!track) return;
+
+        this.queueIndex = index;
+
+        this.publishQueueData();
+
+        this.track = track;
+
+        this.events.publish('track.load', this.track);
+
+        // trigger encode on track if not already ready for streaming
+        this.api.encodeTrack(track.address).subscribe((response) => {
+            // console.log(response);
+        }, (error) => {
+            // console.log(error);
         });
+
+        if (this.player) {
+            this.player.stop();
+            this.player.release();
+            this.player = null;
+        }
+
+        this.player = this.media.create(this.api.getTrackPlaylistFileUrl(track.address));
+
+        this.player.onError.subscribe(data => {
+            console.log('player.onError', data);
+            this.events.publish('track.error');
+        });
+
+        this.player.onStatusUpdate.subscribe(data => {
+            console.log('player.onStatusUpdate', data);
+            switch (data) {
+                case this.media.MEDIA_NONE: // 0
+                    break;
+
+                case this.media.MEDIA_STARTING: // 1
+                    break;
+
+                case this.media.MEDIA_RUNNING: // 2
+                    this.events.publish('track.play');
+                    // this.events.publish('track.playing');
+                    break;
+
+                case this.media.MEDIA_PAUSED: // 3
+                    this.events.publish('track.pause');
+                    break;
+
+                case this.media.MEDIA_STOPPED: // 4
+                    console.log('this.media.MEDIA_STOPPED');
+                    this.events.publish('track.stopped');
+                    break;
+
+                default:
+                    //
+                    break;
+            }
+        });
+
+        this.player.onSuccess.subscribe(data => {
+            console.log('player.onSuccess', data);
+            this.events.publish('track.ended');
+            // this.skipForward();
+        });
+
+        this.play();
     }
 
-    private loadProgress(loaded: number, total: number) {
-        let progress = '0.00';
-        if (this.video && total) {
-            progress = ((loaded / total) * 100).toFixed(2);
+    /**
+     *
+     */
+    private publishPlayProgress() {
+        if (this.player) {
+            Promise.all(
+                [
+                    this.player.getCurrentPosition(),
+                    this.player.getDuration(),
+                    this.player.getCurrentAmplitude()
+                ]
+            ).then((values) => {
+                // console.log(values);
+                let currentTime = values[0];
+                let duration = values[1]; // duration = -1 while loading
+                let currentAmplitutde = values[2];
+                let percentage = '0.00';
+
+                if (currentTime >= 0 && duration >= 0) {
+                    percentage = ((currentTime / duration) * 100).toFixed(2);
+                }
+                else {
+                    currentTime = 0;
+                    duration = 0;
+                }
+
+                this.events.publish('track.progress', {
+                    percentage: percentage,
+                    currentTime: currentTime,
+                    duration: duration
+                });
+            });
         }
-        this.events.publish('track.load.progress', progress);
+    }
+
+    /**
+     *
+     * @param index
+     */
+    private removeQueueIndex(index: number) {
+        this.queue.splice(index, 1);
+        if (this.queueIndex >= index) {
+            this.queueIndex -= 1;
+        }
+        this.publishQueueData();
+    }
+
+    /**
+     *
+     */
+    private publishQueueData() {
+        this.events.publish('queue.update', {
+            queue: this.queue,
+            queueIndex: this.queueIndex,
+            canSkipForward: this.canSkipForward(),
+            canSkipBackward: this.canSkipBackward()
+        })
+    }
+
+    /**
+     *
+     */
+    private updateMusicControls() {
+        if (this.platform.is('cordova')) {
+            console.log('creating music controls...');
+            this.musicControls.create({
+                track: this.track.title,        // optional, default : ''
+                artist: this.track.author,                       // optional, default : ''
+                //cover: this.track.imageSrc,      // optional, default : nothing
+                //isPlaying: true,
+                //hasPrev: false,      // show previous button, optional, default: true
+                //hasNext: false,      // show next button, optional, default: true
+            }).then(() => {
+                console.log('musicControls.success');
+            }).catch(() => {
+                console.log('musicControls.error');
+            });
+            this.musicControls.listen(); // activates the observable above
+            this.musicControls.updateIsPlaying(true);
+        }
     }
 }

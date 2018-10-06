@@ -19,6 +19,7 @@ import { Storage } from '@ionic/storage';
 })
 export class DebugPage {
     private apiUrl: string = '-';
+    private pppUrl: string = '-';
     private build: string = '-';
     private host: string = '-';
     private protocol: string = '-';
@@ -33,6 +34,7 @@ export class DebugPage {
                 public storage: Storage
     ) {
         this.apiUrl = ENV.API_URL;
+        this.pppUrl = ENV.PPP_URL;
         this.host = window.location.host;
         this.protocol = window.location.protocol;
 

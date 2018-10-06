@@ -1,0 +1,66 @@
+section-header {
+    .section-header-wrapper {
+        position: relative;
+    }
+
+    .title {
+        //border-bottom: .2rem $musicoin-yellow solid;
+        color: $musicoin-dark-grey;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0 1.6rem;
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+        margin-top: 1.6rem;
+        line-height: 2rem;
+
+        span {
+            //border-bottom: .2rem solid $musicoin-yellow;
+            //border-bottom: .2rem solid $musicoin-gradient;
+            //border-image-source: linear-gradient(to right, #ffc000, #ff9000);
+            //border-image-slice: 2;
+            padding-bottom: .4rem;
+            padding-right: 2rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                height: .2rem;
+                position: absolute;
+                background: $musicoin-gradient;
+                left: 0;
+                right: 0;
+                bottom: -.2rem;
+
+            }
+        }
+    }
+
+    .more {
+        position: absolute;
+        top: 0;
+        right: 0; //1.6rem;
+        height: 2.4rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: $musicoin-yellow;
+        text-transform: uppercase;
+        width: 3.6rem;
+
+        background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='%23c8c7cc'/></svg>");
+        padding-right: 0; //1.6rem;
+        background-position: right 14px center;
+        background-position: right calc(14px + constant(safe-area-inset-right)) center;
+        background-position: right calc(14px + env(safe-area-inset-right)) center;
+        background-repeat: no-repeat;
+        background-size: 14px 14px;
+
+        span {
+            vertical-align: middle;
+        }
+
+        ion-icon {
+            vertical-align: middle;
+        }
+    }
+}

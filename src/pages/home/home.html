@@ -22,11 +22,11 @@
 
 <ion-content>
 
-    <h1><span>Test Tracks</span></h1>
+    <section-header title="Test Tracks"></section-header>
 
     <track-list [tracks]="testTracks" (trackClickEvent)="onTrackClick($event)"></track-list>
 
-    <h1><span>Top Tracks</span></h1>
+    <section-header title="Top Tracks" [showMore]="true" (tap)="onTopTracksClick()"></section-header>
 
     <track-list [tracks]="topTracks" [loading]="topTracksLoading" (trackClickEvent)="onTrackClick($event)"></track-list>
 
