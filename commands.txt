@@ -1,0 +1,3 @@
+run andoid emulator from cmd
+
+/Users/bengyles/Library/Android/sdk/tools/emulator -avd Nexus_6_API_25 -netdelay none -netspeed full
