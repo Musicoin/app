@@ -48,11 +48,6 @@ export default class App extends React.Component {
               <View style={styles.container}>
                 {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
                 <AppNavigator/>
-                <View style={styles.playerContainer}>
-                  <TabBarIcon
-                      name={Platform.OS === 'ios' ? `ios-play${true ? '' : '-outline'}` : 'md-play'}
-                  />
-                </View>
               </View>
           </Provider>
       );
@@ -90,25 +85,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  playerContainer: {
-    position: 'absolute',
-    bottom: 50,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: {height: -3},
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
+  }
 });

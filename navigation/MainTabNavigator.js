@@ -7,7 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import PlayerScreen from '../screens/PlayerScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
-const HomeStack = createStackNavigator({
+export default HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
 
@@ -53,8 +53,6 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
-  HomeStack,
-  PlayerStack,
-  SettingsStack,
-});
+// export default createBottomTabNavigator({
+//   HomeStack,
+// });
