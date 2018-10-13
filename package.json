@@ -25,6 +25,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "jest-expo": "30.0.0"
+    "jest-expo": "30.0.0",
+    "react-native-dotenv": "^0.2.0"
   }
 }

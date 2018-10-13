@@ -1,5 +1,7 @@
 import React from 'react';
-import {Platform, StatusBar, StyleSheet, View} from 'react-native';
+import {Platform, Text, StatusBar, StyleSheet, View} from 'react-native';
+import TabBarIcon from './components/TabBarIcon';
+
 import {AppLoading, Asset, Font, Icon} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
@@ -20,6 +22,17 @@ export default class App extends React.Component {
     isLoadingComplete: false,
   };
 
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      store.dispatch(fetchReleases());
+      console.log('refresh releases');
+    }, 120000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -32,10 +45,15 @@ export default class App extends React.Component {
     } else {
       return (
           <Provider store={store}>
-            <View style={styles.container}>
-              {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-              <AppNavigator/>
-            </View>
+              <View style={styles.container}>
+                {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
+                <AppNavigator/>
+                <View style={styles.playerContainer}>
+                  <TabBarIcon
+                      name={Platform.OS === 'ios' ? `ios-play${true ? '' : '-outline'}` : 'md-play'}
+                  />
+                </View>
+              </View>
           </Provider>
       );
     }
@@ -72,5 +90,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  playerContainer: {
+    position: 'absolute',
+    bottom: 50,
+    left: 0,
+    right: 0,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: {height: -3},
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 20,
+      },
+    }),
+    alignItems: 'center',
+    backgroundColor: '#fbfbfb',
+    paddingVertical: 20,
   },
 });

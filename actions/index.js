@@ -1,4 +1,4 @@
-// import {request} from 'request';
+import {API_EMAIL, API_ENDPOINT, ACCESS_TOKEN} from 'react-native-dotenv';
 
 export const RECEIVE_RELEASES = 'RECEIVE_RELEASES';
 
@@ -13,21 +13,21 @@ function receiveReleases(json) {
 
 function fetchReleasesJson() {
 
-  var details = {
-    'email':'varunram1@musicoin.org',
-    'accessToken': '5ca0c527aa324d5231ab84490ee492d03def5195999435904554b67eb79b146195f8da55e2c22f77',
-    'limit': '10',
+  var params = {
+    'email':API_EMAIL,
+    'accessToken': ACCESS_TOKEN,
+    'limit': '5',
   };
 
   var formBody = [];
-  for (var property in details) {
+  for (var property in params) {
     var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(details[property]);
+    var encodedValue = encodeURIComponent(params[property]);
     formBody.push(encodedKey + "=" + encodedValue);
   }
   formBody = formBody.join("&");
 
-  return fetch('http://35.232.77.81:3000/release/recent?' + formBody, {
+  return fetch(API_ENDPOINT + 'release/recent?' + formBody, {
     method: 'GET',
     headers: {
       'cache-control': 'no-cache',
