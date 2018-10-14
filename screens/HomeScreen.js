@@ -184,9 +184,9 @@ const styles = StyleSheet.create({
     flex: 0.1,
   },
   individualPlayerButton: {
-    marginRight: 30,
+    marginRight: 10,
     paddingTop: 5,
-    flex: 0.1,
+    flex: 0.2,
   },
   albumArtContainer: {
     padding: 10,
