@@ -9,8 +9,10 @@ import {
   View,
   FlatList,
 } from 'react-native';
+import {Icon} from 'expo';
 import TabBarIcon from '../components/TabBarIcon';
 import {connect} from 'react-redux';
+import Colors from '../constants/Colors';
 
 let audioPlayer = new Expo.Audio.Sound();
 const trackPrefix = 'https://a.musicoin.org/tracks/';
@@ -23,7 +25,7 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {currentTrack: null};
+    this.state = {currentTrack: null, isPlaying: false};
   }
 
   render() {
@@ -37,7 +39,26 @@ class HomeScreen extends React.Component {
             />
           </ScrollView>
           {this.state.currentTrack ? <View style={styles.playerContainer}>
-            <Text>{this.state.currentTrack.artistName}</Text>
+
+            {this.state.isPlaying ? <TouchableOpacity>
+                  <Icon.Ionicons onPress={() => this.pauseTrack()}
+                                 name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
+                                 size={26}
+                                 color={Colors.tabIconSelected}
+                                 style={styles.playerButton}
+                  />
+                </TouchableOpacity> :
+                <TouchableOpacity onPress={() => this.resumeTrack()}>
+                  <Icon.Ionicons
+                      name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
+                      size={26}
+                      color={Colors.tabIconSelected}
+                      style={styles.playerButton}
+                  />
+                </TouchableOpacity>}
+            <View style={styles.songInfo}>
+              <Text>{this.state.currentTrack.artistName}</Text>
+            </View>
           </View> : null}
         </View>
     );
@@ -63,7 +84,7 @@ class HomeScreen extends React.Component {
 
   async loadAndPlayTrack(track) {
 
-    this.setState({currentTrack: track});
+    this.setState({currentTrack: track, isPlaying: true});
 
     //get track url, last part of trackURL is the ID
     let trackPartArray = track.trackURL.split('/');
@@ -81,6 +102,16 @@ class HomeScreen extends React.Component {
     await audioPlayer.playAsync();
 
   };
+
+  async pauseTrack() {
+    this.setState({isPlaying: false});
+    await audioPlayer.pauseAsync();
+  }
+
+  async resumeTrack() {
+    this.setState({isPlaying: true});
+    await audioPlayer.playAsync();
+  }
 }
 
 function mapStateToProps(state) {
@@ -108,6 +139,7 @@ const styles = StyleSheet.create({
     flex: 0.1,
   },
   playerContainer: {
+    flexDirection: 'row',
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -126,6 +158,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,
+  },
+  playerButton: {
+    padding: 10,
+    marginLeft: 10,
+    flex: 0.1,
+  },
+  songInfo: {
+    padding: 10,
+    marginRight: 10,
+    flex: 0.9,
   },
 });
 
