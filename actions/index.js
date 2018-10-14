@@ -40,18 +40,41 @@ function receiveReleases(json) {
   };
 }
 
-function fetchReleasesJson(token) {
+async function fetchReleasesJson(token) {
 
   var params = {
     'accessToken': token,
     'limit': '5',
   };
 
-  return fetchData('release/recent?', params);
+  let releases= await fetchGetData('release/recent?', params);
 
+  // if(releases.success && releases.data){
+  //   releases.data.forEach(async release=>{
+  //     //get track url, last part of trackURL is the ID
+  //     let trackPartArray = release.trackURL.split('/');
+  //     let trackId = trackPartArray[trackPartArray.length - 1];
+  //     let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
+  //     release.data = {...release.data, ...releaseDetails.data};
+  //     console.log(releaseDetails);
+  //   });
+  // }
+
+  return releases;
 }
 
-function fetchData(action, params) {
+async function fetchReleaseDetailsJson(token, trackId){
+  var params = {
+    'accessToken': token,
+  };
+
+  console.log(token);
+  let releaseDetails= await fetchGetData(`release/details/${trackId}?`, params);
+  console.log(releaseDetails);
+  return releaseDetails;
+}
+
+async function fetchGetData(action, params) {
   let newParams = {
     ...params,
     'email': API_EMAIL,
@@ -71,7 +94,9 @@ function fetchData(action, params) {
       'cache-control': 'no-cache',
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-  }).then(response => response.json());
+  }).then(response => {
+    // console.log(response);
+    return response.json()});
 }
 
 function fetchPostData(action, params) {
