@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_RELEASES} from '../actions';
+import {RECEIVE_RELEASES, RECEIVE_ACCESS_TOKEN} from '../actions';
 
 function releases(state = [], action) {
   switch (action.type) {
@@ -10,6 +10,15 @@ function releases(state = [], action) {
   }
 }
 
-const rootReducer = combineReducers({releases});
+function accessToken(state = {}, action){
+  switch(action.type){
+    case RECEIVE_ACCESS_TOKEN:
+      return action.accessToken?action.accessToken:state;
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({releases, accessToken});
 
 export default rootReducer;

@@ -11,11 +11,12 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 
-import {fetchReleases} from './actions';
+import {fetchReleases, fetchAccessToken} from './actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => console.log('store', store.getState()));
-store.dispatch(fetchReleases());
+store.dispatch(fetchAccessToken());
+setTimeout(() => store.dispatch(fetchReleases()), 500);
 
 export default class App extends React.Component {
   state = {
@@ -26,7 +27,7 @@ export default class App extends React.Component {
     this.interval = setInterval(() => {
       store.dispatch(fetchReleases());
       console.log('refresh releases');
-    }, 120000)
+    }, 120000);
   }
 
   componentWillUnmount() {
@@ -45,10 +46,10 @@ export default class App extends React.Component {
     } else {
       return (
           <Provider store={store}>
-              <View style={styles.container}>
-                {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
-                <AppNavigator/>
-              </View>
+            <View style={styles.container}>
+              {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
+              <AppNavigator/>
+            </View>
           </Provider>
       );
     }
@@ -85,5 +86,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  }
+  },
 });
