@@ -3,6 +3,7 @@ import {Platform, Text, StatusBar, StyleSheet, View} from 'react-native';
 import TabBarIcon from './components/TabBarIcon';
 
 import {AppLoading, Asset, Font, Icon} from 'expo';
+import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 
 import {createStore, applyMiddleware} from 'redux';
@@ -47,7 +48,7 @@ export default class App extends React.Component {
       return (
           <Provider store={store}>
             <View style={styles.container}>
-              {Platform.OS === 'ios' && <StatusBar barStyle="default"/>}
+              {Platform.OS === 'ios' && <StatusBar barStyle="light-content"/>}
               <AppNavigator/>
             </View>
           </Provider>
@@ -85,6 +86,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundColor,
   },
 });

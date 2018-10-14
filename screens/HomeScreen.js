@@ -10,7 +10,6 @@ import {
   FlatList,
 } from 'react-native';
 import {Icon} from 'expo';
-import TabBarIcon from '../components/TabBarIcon';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 
@@ -20,7 +19,14 @@ const trackSuffix = '/index.m3u8';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    headerTitle: <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
+      <Image resizeMode={'center'} style={{width: 150, height: 35.625, margin: 0, padding: 0}} source={require('../assets/images/logo.png')}/>
+    </View>,
+    headerStyle:
+        {
+          backgroundColor: Colors.backgroundColor,
+          borderBottomWidth: 0,
+        },
   };
 
   constructor(props) {
@@ -39,6 +45,14 @@ class HomeScreen extends React.Component {
             />
           </ScrollView>
           {this.state.currentTrack ? <View style={styles.playerContainer}>
+            <View style={styles.albumArtPlayerContainer}>
+              <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
+            </View>
+
+            <View style={styles.songInfo}>
+              <Text style={{color: Colors.fontColor}}>This is a good song</Text>
+              <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
+            </View>
 
             {this.state.isPlaying ? <TouchableOpacity>
                   <Icon.Ionicons onPress={() => this.pauseTrack()}
@@ -56,9 +70,6 @@ class HomeScreen extends React.Component {
                       style={styles.playerButton}
                   />
                 </TouchableOpacity>}
-            <View style={styles.songInfo}>
-              <Text>{this.state.currentTrack.artistName}</Text>
-            </View>
           </View> : null}
         </View>
     );
@@ -68,14 +79,22 @@ class HomeScreen extends React.Component {
 
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
-        <View style={styles.releaseTrackContainer}>
-          <Text>{item.artistName}</Text>
+        <View style={styles.albumArtContainer}>
+          <Image style={{width: 30, height: 30}} source={require('../assets/images/albumart.png')}/>
         </View>
 
-        <View style={styles.playButtonContainer}>
+        <View style={styles.releaseTrackContainer}>
+          <Text style={{color: Colors.fontColor}}>This is a good song</Text>
+          <Text style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
+        </View>
+
+        <View style={styles.individualPlayerButton}>
           <TouchableOpacity onPress={() => this.loadAndPlayTrack(item)}>
-            <TabBarIcon
-                name={Platform.OS === 'ios' ? `ios-play${false ? '' : '-outline'}` : 'md-play'}
+            <Icon.Ionicons
+                name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
+                size={18}
+                color={Colors.tabIconSelected}
+                style={styles.playerButton}
             />
           </TouchableOpacity>
         </View>
@@ -121,10 +140,10 @@ function mapStateToProps(state) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.backgroundColor,
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 0,
   },
   trackContainer: {
     flexDirection: 'row',
@@ -156,18 +175,31 @@ const styles = StyleSheet.create({
       },
     }),
     alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
+    backgroundColor: Colors.backgroundColor,
+    paddingVertical: 5,
   },
   playerButton: {
     padding: 10,
     marginLeft: 10,
     flex: 0.1,
   },
+  individualPlayerButton: {
+    marginRight: 30,
+    paddingTop: 5,
+    flex: 0.1,
+  },
+  albumArtContainer: {
+    padding: 10,
+    flex: 0.1,
+  },
+  albumArtPlayerContainer: {
+    padding: 10,
+    flex: 0.3,
+  },
   songInfo: {
     padding: 10,
     marginRight: 10,
-    flex: 0.9,
+    flex: 0.6,
   },
 });
 
