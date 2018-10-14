@@ -12,7 +12,7 @@ function receiveAccessToken(json) {
   };
 }
 
-function fetchAccessTokenJson() {
+async function fetchAccessTokenJson() {
 
   var params = {
     'password': API_PASSWORD,
@@ -44,10 +44,10 @@ async function fetchReleasesJson(token) {
 
   var params = {
     'accessToken': token,
-    'limit': '5',
+    'limit': '15',
   };
 
-  let releases= await fetchGetData('release/recent?', params);
+  let releases = await fetchGetData('release/recent?', params);
 
   // if(releases.success && releases.data){
   //   releases.data.forEach(async release=>{
@@ -63,13 +63,13 @@ async function fetchReleasesJson(token) {
   return releases;
 }
 
-async function fetchReleaseDetailsJson(token, trackId){
+async function fetchReleaseDetailsJson(token, trackId) {
   var params = {
     'accessToken': token,
   };
 
   console.log(token);
-  let releaseDetails= await fetchGetData(`release/details/${trackId}?`, params);
+  let releaseDetails = await fetchGetData(`release/details/${trackId}?`, params);
   console.log(releaseDetails);
   return releaseDetails;
 }
@@ -96,10 +96,11 @@ async function fetchGetData(action, params) {
     },
   }).then(response => {
     // console.log(response);
-    return response.json()});
+    return response.json();
+  });
 }
 
-function fetchPostData(action, params) {
+async function fetchPostData(action, params) {
   let newParams = {
     ...params,
     'email': API_EMAIL,
@@ -119,23 +120,21 @@ function fetchPostData(action, params) {
       'cache-control': 'no-cache',
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: formBody
+    body: formBody,
   }).then(response => response.json());
 }
 
-
 export function fetchReleases() {
   return function(dispatch, getState) {
-      let accessToken = getState().accessToken;
-      console.log(accessToken);
-      let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-      if (diff >= 58) {
-        // get a new token
-        dispatch(fetchAccessToken());
-        setTimeout(() => fetchReleasesJson(getState().accessToken.token).then(json => dispatch(receiveReleases(json))), 500);
+    let accessToken = getState().accessToken;
+    console.log(accessToken);
+    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
+    if (diff >= 58) {
+      // get a new token
+      dispatch(fetchAccessToken()).then(() => {return fetchReleasesJson(getState().accessToken.token).then(json => dispatch(receiveReleases(json)));});
 
-      } else {
-        return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
-      }
+    } else {
+      return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
+    }
   };
 }

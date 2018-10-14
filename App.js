@@ -16,8 +16,7 @@ import {fetchReleases, fetchAccessToken} from './actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => console.log('store', store.getState()));
-store.dispatch(fetchAccessToken());
-setTimeout(() => store.dispatch(fetchReleases()), 1000);
+store.dispatch(fetchAccessToken()).then(()=>store.dispatch(fetchReleases()));
 
 export default class App extends React.Component {
   state = {
