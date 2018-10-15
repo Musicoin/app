@@ -11,7 +11,8 @@ export default class DetailsScreen extends React.Component {
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.backgroundColor}}>
           <Image style={{width: 300, height: 300}} source={require('../assets/images/albumart.png')}/>
-          <Text style={{fontSize: 30}}>{track.artistName}</Text>
+          <Text style={{fontSize: 30, color: Colors.fontColor}}>{track.title}</Text>
+          <Text style={{color: Colors.fontColor}}>{track.trackDescription}</Text>
           <Button
               onPress={() => this.props.navigation.goBack()}
               title="Dismiss"

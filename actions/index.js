@@ -44,23 +44,31 @@ async function fetchReleasesJson(token) {
 
   var params = {
     'accessToken': token,
-    'limit': '15',
+    'limit': '10',
   };
 
   let releases = await fetchGetData('release/recent?', params);
 
-  // if(releases.success && releases.data){
-  //   releases.data.forEach(async release=>{
-  //     //get track url, last part of trackURL is the ID
-  //     let trackPartArray = release.trackURL.split('/');
-  //     let trackId = trackPartArray[trackPartArray.length - 1];
-  //     let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-  //     release.data = {...release.data, ...releaseDetails.data};
-  //     console.log(releaseDetails);
-  //   });
-  // }
+  if (releases.data != []) {
 
-  return releases;
+    for (let i=0; i < releases.data.length;i++) {
+      let trackPartArray = releases.data[i].trackURL.split('/');
+      let trackId = trackPartArray[trackPartArray.length - 1];
+      let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
+      releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
+    }
+
+    // await releases.data.forEach(async (release, index) => {
+    //   //get track url, last part of trackURL is the ID
+    //   let trackPartArray = release.trackURL.split('/');
+    //   let trackId = trackPartArray[trackPartArray.length - 1];
+    //   let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
+    //   releases.data[index] = releaseDetails.data;
+    // });
+    return releases;
+  } else {
+    return releases;
+  }
 }
 
 async function fetchReleaseDetailsJson(token, trackId) {
@@ -68,9 +76,7 @@ async function fetchReleaseDetailsJson(token, trackId) {
     'accessToken': token,
   };
 
-  console.log(token);
   let releaseDetails = await fetchGetData(`release/details/${trackId}?`, params);
-  console.log(releaseDetails);
   return releaseDetails;
 }
 
@@ -95,7 +101,6 @@ async function fetchGetData(action, params) {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
   }).then(response => {
-    // console.log(response);
     return response.json();
   });
 }
@@ -127,7 +132,6 @@ async function fetchPostData(action, params) {
 export function fetchReleases() {
   return function(dispatch, getState) {
     let accessToken = getState().accessToken;
-    console.log(accessToken);
     let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
     if (diff >= 58) {
       // get a new token

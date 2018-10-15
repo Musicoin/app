@@ -52,7 +52,7 @@ class HomeScreen extends React.Component {
                   </View>
 
                   <View style={styles.songInfo}>
-                    <Text style={{color: Colors.fontColor}}>This is a good song</Text>
+                    <Text style={{color: Colors.fontColor}}>{this.state.currentTrack.title}</Text>
                     <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
                   </View>
 
@@ -90,7 +90,7 @@ class HomeScreen extends React.Component {
     );
   }
 
-  _keyExtractor = (item, index) => item.trackURL;
+  _keyExtractor = (item, index) => item.trackId;
 
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
@@ -99,7 +99,7 @@ class HomeScreen extends React.Component {
         </View>
 
         <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
-          <Text style={{color: Colors.fontColor}}>This is a good song</Text>
+          <Text style={{color: Colors.fontColor}}>{item.title}</Text>
           <Text style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
         </TouchableOpacity>
 
@@ -125,8 +125,6 @@ class HomeScreen extends React.Component {
       }
 
       //get track url, last part of trackURL is the ID
-      let trackPartArray = track.trackURL.split('/');
-      let trackId = trackPartArray[trackPartArray.length - 1];
 
       let playbackState = await audioPlayer.getStatusAsync();
       console.log(playbackState);
@@ -138,8 +136,13 @@ class HomeScreen extends React.Component {
 
       this.setState({currentTrack: track, isLoaded: false});
 
-      await audioPlayer.loadAsync({uri: trackPrefix + trackId + trackSuffix}, {}, false);
-      await audioPlayer.playAsync();
+      try {
+        await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
+        await audioPlayer.playAsync();
+      }catch(e){
+        console.log('audio failed to play');
+        console.log(e);
+      }
     }
   };
 
