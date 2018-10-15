@@ -37,7 +37,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} refreshing={this.props.releases == []}>
             <FlatList
                 data={this.props.releases}
                 keyExtractor={this._keyExtractor}
@@ -83,10 +83,10 @@ class HomeScreen extends React.Component {
           <Image style={{width: 30, height: 30}} source={require('../assets/images/albumart.png')}/>
         </View>
 
-        <View style={styles.releaseTrackContainer}>
+        <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
           <Text style={{color: Colors.fontColor}}>This is a good song</Text>
           <Text style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.individualPlayerButton}>
           <TouchableOpacity onPress={() => this.loadAndPlayTrack(item)}>
