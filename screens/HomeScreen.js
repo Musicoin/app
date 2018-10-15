@@ -8,12 +8,13 @@ import {
   TouchableOpacity,
   View,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 
-let audioPlayer = new Expo.Audio.Sound();
+let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
 const trackSuffix = '/index.m3u8';
 
@@ -31,7 +32,7 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {currentTrack: null, isPlaying: false};
+    this.state = {currentTrack: null, isPlaying: false, isLoaded: true};
   }
 
   render() {
@@ -44,32 +45,46 @@ class HomeScreen extends React.Component {
                 renderItem={this._renderItem}
             />
           </ScrollView>
-          {this.state.currentTrack ? <View style={styles.playerContainer}>
-            <View style={styles.albumArtPlayerContainer}>
-              <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
-            </View>
+          {this.state.currentTrack ? <View>
+            {this.state.isLoaded ? <View style={styles.playerContainer}>
+                  <View style={styles.albumArtPlayerContainer}>
+                    <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
+                  </View>
 
-            <View style={styles.songInfo}>
-              <Text style={{color: Colors.fontColor}}>This is a good song</Text>
-              <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
-            </View>
+                  <View style={styles.songInfo}>
+                    <Text style={{color: Colors.fontColor}}>This is a good song</Text>
+                    <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
+                  </View>
 
-            {this.state.isPlaying ? <TouchableOpacity>
-                  <Icon.Ionicons onPress={() => this.pauseTrack()}
-                                 name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
-                                 size={26}
-                                 color={Colors.tabIconSelected}
-                                 style={styles.playerButton}
-                  />
-                </TouchableOpacity> :
-                <TouchableOpacity onPress={() => this.resumeTrack()}>
-                  <Icon.Ionicons
-                      name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
-                      size={26}
-                      color={Colors.tabIconSelected}
-                      style={styles.playerButton}
-                  />
-                </TouchableOpacity>}
+                  {this.state.isPlaying ? <TouchableOpacity>
+                        <Icon.Ionicons onPress={() => this.pauseTrack()}
+                                       name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
+                                       size={26}
+                                       color={Colors.tabIconSelected}
+                                       style={styles.playerButton}
+                        />
+                      </TouchableOpacity> :
+                      <TouchableOpacity onPress={() => this.resumeTrack()}>
+                        <Icon.Ionicons
+                            name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
+                            size={26}
+                            color={Colors.tabIconSelected}
+                            style={styles.playerButton}
+                        />
+                      </TouchableOpacity>}
+                </View> :
+                <View style={styles.playerContainer}>
+                  <View style={styles.albumArtPlayerContainer}>
+                    <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
+                  </View>
+
+                  <View style={styles.songInfo}>
+                    <Text style={{color: Colors.fontColor}}>Loading</Text>
+                  </View>
+
+                  <ActivityIndicator size="small" color={Colors.tintColor}/>
+                </View>
+            }
           </View> : null}
         </View>
     );
@@ -103,32 +118,49 @@ class HomeScreen extends React.Component {
 
   async loadAndPlayTrack(track) {
 
-    this.setState({currentTrack: track, isPlaying: true});
+    if (this.state.isLoaded) {
+      if (!audioPlayer) {
+        audioPlayer = new Expo.Audio.Sound();
+        audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
+      }
 
-    //get track url, last part of trackURL is the ID
-    let trackPartArray = track.trackURL.split('/');
-    let trackId = trackPartArray[trackPartArray.length - 1];
+      //get track url, last part of trackURL is the ID
+      let trackPartArray = track.trackURL.split('/');
+      let trackId = trackPartArray[trackPartArray.length - 1];
 
-    let playbackState = await audioPlayer.getStatusAsync();
-    console.log(playbackState);
+      let playbackState = await audioPlayer.getStatusAsync();
+      console.log(playbackState);
 
-    if (playbackState.isLoaded) {
-      await audioPlayer.stopAsync();
-      await audioPlayer.unloadAsync();
+      if (playbackState.isLoaded) {
+        await audioPlayer.stopAsync();
+        await audioPlayer.unloadAsync();
+      }
+
+      this.setState({currentTrack: track, isLoaded: false});
+
+      await audioPlayer.loadAsync({uri: trackPrefix + trackId + trackSuffix}, {}, false);
+      await audioPlayer.playAsync();
     }
-
-    await audioPlayer.loadAsync({uri: trackPrefix + trackId + trackSuffix}, {}, false);
-    await audioPlayer.playAsync();
-
   };
 
+  onPlaybackStatusUpdate(playbackstatus) {
+    console.log(playbackstatus);
+    if (this.state.isPlaying != playbackstatus.isPlaying) {
+      this.setState({isPlaying: playbackstatus.isPlaying});
+    }
+
+    if (this.state.isLoaded != playbackstatus.isLoaded) {
+      this.setState({isLoaded: playbackstatus.isLoaded});
+    }
+  }
+
   async pauseTrack() {
-    this.setState({isPlaying: false});
+    // this.setState({isPlaying: false});
     await audioPlayer.pauseAsync();
   }
 
   async resumeTrack() {
-    this.setState({isPlaying: true});
+    // this.setState({isPlaying: true});
     await audioPlayer.playAsync();
   }
 }
