@@ -9,7 +9,7 @@ export default class DetailsScreen extends React.Component {
     const {navigation} = this.props;
     const track = navigation.getParam('track', null);
     return (
-        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, padding: 10}}>
+        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, padding: 10, paddingBottom: 20}}>
           <View style={{flexDirection: 'row', backgroundColor: Colors.backgroundColor, margin: 0, paddingTop: 20}}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Icon.Ionicons
@@ -33,9 +33,9 @@ export default class DetailsScreen extends React.Component {
               />
             </TouchableOpacity>
 
-            <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join()}</Text>
+            <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join(', ')}</Text>
 
-            <Text style={{color: Colors.fontColor, fontSize: 12, paddingTop: 10}}>{track.trackDescription}</Text>
+            <Text style={{color: Colors.fontColor, fontSize: 12, paddingTop: 10, paddingBottom: 20}}>{track.trackDescription}</Text>
           </View>
         </ScrollView>
     );
