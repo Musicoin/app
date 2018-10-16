@@ -18,6 +18,8 @@ let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
 const trackSuffix = '/index.m3u8';
 
+Expo.Audio.setAudioModeAsync({playsInSilentModeIOS: true}).then(()=>console.log('silent mode activated'));
+
 class HomeScreen extends React.Component {
   static navigationOptions = {
     headerTitle: <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
@@ -95,7 +97,7 @@ class HomeScreen extends React.Component {
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
         <View style={styles.albumArtContainer}>
-          <Image style={{width: 40, height: 40}} source={require('../assets/images/albumart.png')}/>
+          <Image style={{width: 40, height: 40}} source={{uri: 'https://raulikidj.club/examples/ipfs/ipfsimg.html?HASH=QmXvm6BDMKVQjr1CD7zjisY7oi9QsDnfGWdtp3Kenn6faD'}}/>
         </View>
 
         <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
@@ -124,6 +126,7 @@ class HomeScreen extends React.Component {
         audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
       }
 
+      this.setState({currentTrack: track, isLoaded: false});
 
       let playbackState = await audioPlayer.getStatusAsync();
       console.log(playbackState);
@@ -133,12 +136,10 @@ class HomeScreen extends React.Component {
         await audioPlayer.unloadAsync();
       }
 
-      this.setState({currentTrack: track, isLoaded: false});
-
       try {
         await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
         await audioPlayer.playAsync();
-      }catch(e){
+      } catch (e) {
         console.log('audio failed to play');
         console.log(e);
       }

@@ -57,14 +57,6 @@ async function fetchReleasesJson(token) {
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
     }
-
-    // await releases.data.forEach(async (release, index) => {
-    //   //get track url, last part of trackURL is the ID
-    //   let trackPartArray = release.trackURL.split('/');
-    //   let trackId = trackPartArray[trackPartArray.length - 1];
-    //   let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-    //   releases.data[index] = releaseDetails.data;
-    // });
     return releases;
   } else {
     return releases;
