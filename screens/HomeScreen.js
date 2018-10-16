@@ -95,12 +95,12 @@ class HomeScreen extends React.Component {
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
         <View style={styles.albumArtContainer}>
-          <Image style={{width: 30, height: 30}} source={require('../assets/images/albumart.png')}/>
+          <Image style={{width: 40, height: 40}} source={require('../assets/images/albumart.png')}/>
         </View>
 
         <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
-          <Text style={{color: Colors.fontColor}}>{item.title}</Text>
-          <Text style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
+          <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
+          <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
         </TouchableOpacity>
 
         <View style={styles.individualPlayerButton}>
@@ -124,7 +124,6 @@ class HomeScreen extends React.Component {
         audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
       }
 
-      //get track url, last part of trackURL is the ID
 
       let playbackState = await audioPlayer.getStatusAsync();
       console.log(playbackState);
@@ -184,6 +183,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   releaseTrackContainer: {
+    paddingTop: 15,
     padding: 10,
     flex: 0.9,
   },
