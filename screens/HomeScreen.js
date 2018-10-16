@@ -18,7 +18,7 @@ let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
 const trackSuffix = '/index.m3u8';
 
-Expo.Audio.setAudioModeAsync({playsInSilentModeIOS: true}).then(()=>console.log('silent mode activated'));
+Expo.Audio.setAudioModeAsync({playsInSilentModeIOS: true}).then(() => console.log('silent mode activated'));
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -40,12 +40,14 @@ class HomeScreen extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} refreshing={this.props.releases == []}>
-            <FlatList
-                data={this.props.releases}
-                keyExtractor={this._keyExtractor}
-                renderItem={this._renderItem}
-            />
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            {this.props.releases.length > 0?
+                <FlatList
+                    data={this.props.releases}
+                    keyExtractor={this._keyExtractor}
+                    renderItem={this._renderItem}
+                />
+                : <ActivityIndicator size="small" color={Colors.tintColor}/>}
           </ScrollView>
           {this.state.currentTrack ? <View>
             {this.state.isLoaded ? <View style={styles.playerContainer}>
@@ -97,7 +99,7 @@ class HomeScreen extends React.Component {
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
         <View style={styles.albumArtContainer}>
-          <Image style={{width: 40, height: 40}} source={{uri: 'https://raulikidj.club/examples/ipfs/ipfsimg.html?HASH=QmXvm6BDMKVQjr1CD7zjisY7oi9QsDnfGWdtp3Kenn6faD'}}/>
+          <Image style={{width: 40, height: 40}} source={require('../assets/images/albumart.png')}/>
         </View>
 
         <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
