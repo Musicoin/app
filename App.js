@@ -24,10 +24,10 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    this.interval = setInterval(() => {
-      store.dispatch(fetchReleases());
-      console.log('refresh releases');
-    }, 120000);
+    // this.interval = setInterval(() => {
+    //   store.dispatch(fetchReleases());
+    //   console.log('refresh releases');
+    // }, 120000);
   }
 
   componentWillUnmount() {

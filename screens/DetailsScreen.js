@@ -18,10 +18,10 @@ export default class DetailsScreen extends React.Component {
                   color={Colors.fontColor}
               />
             </TouchableOpacity>
-            <Text numberOfLines={1} style={{flex: 1, fontSize: 20, color: Colors.fontColor, textAlign: 'center', paddingLeft: 10, paddingRight: 10}}>{track.author} - {track.title}</Text>
+            <Text numberOfLines={1} style={{flex: 1, fontSize: 20, color: Colors.fontColor, textAlign: 'center', paddingLeft: 10, paddingRight: 10}}>{track.artistName} - {track.title}</Text>
           </View>
           <View style={{alignItems: 'center'}}>
-            <Image style={{width: 300, height: 300, marginTop: 10}} source={require('../assets/images/albumart.png')}/>
+            <Image style={{width: 300, height: 300, marginTop: 10}} source={{uri: track.trackImg}}/>
 
             <Text numberOfLines={1} style={{color: Colors.fontColor}}>{track.directPlayCount?track.directPlayCount:0} PPP & {track.directTipCount?track.directTipCount:0} Tips</Text>
 

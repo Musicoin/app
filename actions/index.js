@@ -1,4 +1,5 @@
 import {API_EMAIL, API_PASSWORD, API_USERNAME, API_CLIENT_SECRET, API_ENDPOINT, ACCESS_TOKEN} from 'react-native-dotenv';
+import Data from '../constants/Data';
 
 export const RECEIVE_ACCESS_TOKEN = 'RECEIVE_ACCESS_TOKEN';
 export const RECEIVE_RELEASES = 'RECEIVE_RELEASES';
@@ -32,7 +33,7 @@ export function fetchAccessToken() {
 }
 
 function receiveReleases(json) {
-  const releases = json.data;
+  const releases = json;
 
   return {
     type: RECEIVE_RELEASES,
@@ -42,25 +43,26 @@ function receiveReleases(json) {
 
 async function fetchReleasesJson(token) {
 
-  var params = {
-    'accessToken': token,
-    'limit': '10',
-  };
-
-  let releases = await fetchGetData('release/recent?', params);
-
-  if (releases.data != []) {
-
-    for (let i=0; i < releases.data.length;i++) {
-      let trackPartArray = releases.data[i].trackURL.split('/');
-      let trackId = trackPartArray[trackPartArray.length - 1];
-      let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-      releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-    }
-    return releases;
-  } else {
-    return releases;
-  }
+  // var params = {
+  //   'accessToken': token,
+  //   'limit': '10',
+  // };
+  //
+  // let releases = await fetchGetData('release/recent?', params);
+  //
+  // if (releases.data != []) {
+  //
+  //   for (let i=0; i < releases.data.length;i++) {
+  //     let trackPartArray = releases.data[i].trackURL.split('/');
+  //     let trackId = trackPartArray[trackPartArray.length - 1];
+  //     let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
+  //     releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
+  //   }
+  //   return releases;
+  // } else {
+  //   return releases;
+  // }
+  return Data;
 }
 
 async function fetchReleaseDetailsJson(token, trackId) {

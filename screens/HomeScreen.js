@@ -41,7 +41,7 @@ class HomeScreen extends React.Component {
     return (
         <View style={styles.container}>
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            {this.props.releases.length > 0?
+            {this.props.releases.length > 0 ?
                 <FlatList
                     data={this.props.releases}
                     keyExtractor={this._keyExtractor}
@@ -52,7 +52,7 @@ class HomeScreen extends React.Component {
           {this.state.currentTrack ? <View>
             {this.state.isLoaded ? <View style={styles.playerContainer}>
                   <View style={styles.albumArtPlayerContainer}>
-                    <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
+                    <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
                   </View>
 
                   <View style={styles.songInfo}>
@@ -79,7 +79,7 @@ class HomeScreen extends React.Component {
                 </View> :
                 <View style={styles.playerContainer}>
                   <View style={styles.albumArtPlayerContainer}>
-                    <Image style={{width: 70, height: 70}} source={require('../assets/images/albumart.png')}/>
+                    <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
                   </View>
 
                   <View style={styles.songInfo}>
@@ -99,7 +99,7 @@ class HomeScreen extends React.Component {
   _renderItem = ({item}) => (
       <View style={styles.trackContainer}>
         <View style={styles.albumArtContainer}>
-          <Image style={{width: 40, height: 40}} source={require('../assets/images/albumart.png')}/>
+          <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
         </View>
 
         <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
