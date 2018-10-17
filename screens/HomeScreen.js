@@ -39,8 +39,8 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <View style={styles.songInfoContainer}>
+          <ScrollView style={{flex: 1}} contentContainerStyle={styles.contentContainer}>
             {this.props.releases.length > 0 ?
                 <FlatList
                     data={this.props.releases}
@@ -49,7 +49,7 @@ class HomeScreen extends React.Component {
                 />
                 : <ActivityIndicator size="small" color={Colors.tintColor}/>}
           </ScrollView>
-          {this.state.currentTrack ? <View>
+          {this.state.currentTrack ? <View style={{flex: 0.2}}>
             {this.state.isLoaded ? <View style={styles.playerContainer}>
                   <View style={styles.albumArtPlayerContainer}>
                     <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
@@ -175,7 +175,7 @@ function mapStateToProps(state) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  songInfoContainer: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
   },
