@@ -51,7 +51,7 @@ export default class PlayerScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  songInfoContainer: {
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',

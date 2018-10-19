@@ -11,12 +11,13 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
+import AlertProvider from './components/alert/alert.component';
 
 import {fetchReleases, fetchAccessToken} from './actions';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 // store.subscribe(() => console.log('store', store.getState()));
-store.dispatch(fetchAccessToken()).then(()=>store.dispatch(fetchReleases()));
+store.dispatch(fetchAccessToken()).then(() => store.dispatch(fetchReleases()));
 
 export default class App extends React.Component {
   state = {
@@ -46,10 +47,12 @@ export default class App extends React.Component {
     } else {
       return (
           <Provider store={store}>
-            <View style={styles.songInfoContainer}>
-              {Platform.OS === 'ios' && <StatusBar barStyle="light-content"/>}
-              <AppNavigator/>
-            </View>
+            <AlertProvider>
+              <View style={styles.songInfoContainer}>
+                {Platform.OS === 'ios' && <StatusBar barStyle="light-content"/>}
+                <AppNavigator/>
+              </View>
+            </AlertProvider>
           </Provider>
       );
     }

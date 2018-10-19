@@ -13,6 +13,7 @@ import {
 import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
+import connectAlert from '../components/alert/connectAlert.component';
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
@@ -122,7 +123,7 @@ class HomeScreen extends React.Component {
 
   async loadAndPlayTrack(track) {
 
-    if (this.state.isLoaded) {
+    // if (this.state.isLoaded) {
       if (!audioPlayer) {
         audioPlayer = new Expo.Audio.Sound();
         audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
@@ -144,12 +145,15 @@ class HomeScreen extends React.Component {
       } catch (e) {
         console.log('audio failed to play');
         console.log(e);
+        this.showAlert("File not playing", "The requested track failed to play, please try again later.");
+        await audioPlayer.stopAsync();
+        await audioPlayer.unloadAsync();
       }
-    }
+    // }
   };
 
   onPlaybackStatusUpdate(playbackstatus) {
-    console.log(playbackstatus);
+    // console.log(playbackstatus);
     if (this.state.isPlaying != playbackstatus.isPlaying) {
       this.setState({isPlaying: playbackstatus.isPlaying});
     }
@@ -167,6 +171,10 @@ class HomeScreen extends React.Component {
   async resumeTrack() {
     // this.setState({isPlaying: true});
     await audioPlayer.playAsync();
+  }
+
+  showAlert(title, text) {
+    this.props.alertWithType('error', title, text);
   }
 }
 
@@ -241,4 +249,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, null)(HomeScreen);
+export default connectAlert(connect(mapStateToProps, null)(HomeScreen));

@@ -84,7 +84,7 @@ const data = [
     trackImg: wavesImage,
     directPlayCount: 50,
     directTipCount: 10,
-    genres: ['Alternative Rock', 'Electronic', 'Indie'],
+    genres: ['Heavy Metal', 'Thrash Metal', '(Melodic) Death Metal', 'Industrial Metal'],
     trackDescription: '',
   },
   {
@@ -94,7 +94,7 @@ const data = [
     trackImg: wavesImage,
     directPlayCount: 50,
     directTipCount: 10,
-    genres: ['Alternative Rock', 'Electronic', 'Indie'],
+    genres: ['Heavy Metal', 'Thrash Metal', '(Melodic) Death Metal', 'Industrial Metal'],
     trackDescription: '',
   },
   {
@@ -104,7 +104,7 @@ const data = [
     trackImg: wavesImage,
     directPlayCount: 50,
     directTipCount: 10,
-    genres: ['Alternative Rock', 'Electronic', 'Indie'],
+    genres: ['Heavy Metal', 'Thrash Metal', '(Melodic) Death Metal', 'Industrial Metal'],
     trackDescription: '',
   },
 ];
