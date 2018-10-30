@@ -19,7 +19,15 @@ let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
 const trackSuffix = '/index.m3u8';
 
-Expo.Audio.setAudioModeAsync({playsInSilentModeIOS: true}).then(() => console.log('silent mode activated'));
+Expo.Audio.setAudioModeAsync(
+    {
+      playsInSilentModeIOS: true,
+      allowsRecordingIOS: false,
+      interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: true,
+    }).then(() => console.log('silent mode activated'));
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -124,31 +132,31 @@ class HomeScreen extends React.Component {
   async loadAndPlayTrack(track) {
 
     // if (this.state.isLoaded) {
-      if (!audioPlayer) {
-        audioPlayer = new Expo.Audio.Sound();
-        audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
-      }
+    if (!audioPlayer) {
+      audioPlayer = new Expo.Audio.Sound();
+      audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
+    }
 
-      this.setState({currentTrack: track, isLoaded: false});
+    this.setState({currentTrack: track, isLoaded: false});
 
-      let playbackState = await audioPlayer.getStatusAsync();
-      console.log(playbackState);
+    let playbackState = await audioPlayer.getStatusAsync();
+    console.log(playbackState);
 
-      if (playbackState.isLoaded) {
-        await audioPlayer.stopAsync();
-        await audioPlayer.unloadAsync();
-      }
+    if (playbackState.isLoaded) {
+      await audioPlayer.stopAsync();
+      await audioPlayer.unloadAsync();
+    }
 
-      try {
-        await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
-        await audioPlayer.playAsync();
-      } catch (e) {
-        console.log('audio failed to play');
-        console.log(e);
-        this.showAlert("File not playing", "The requested track failed to play, please try again later.");
-        await audioPlayer.stopAsync();
-        await audioPlayer.unloadAsync();
-      }
+    try {
+      await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
+      await audioPlayer.playAsync();
+    } catch (e) {
+      console.log('audio failed to play');
+      console.log(e);
+      this.showAlert('File not playing', 'The requested track failed to play, please try again later.');
+      await audioPlayer.stopAsync();
+      await audioPlayer.unloadAsync();
+    }
     // }
   };
 
