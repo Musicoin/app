@@ -111,7 +111,7 @@ class HomeScreen extends React.Component {
           <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
         </View>
 
-        <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {track: item})}>
+        <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {trackId: item.trackId})}>
           <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
           <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
         </TouchableOpacity>

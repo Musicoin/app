@@ -2,14 +2,17 @@ import React from 'react';
 import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, ImageBackground, Dimensions, StyleSheet} from 'react-native';
 import {Icon} from 'expo';
 import Colors from '../constants/Colors';
+import {connect} from 'react-redux';
+import {tipTrack} from '../actions';
 
 var {height, width} = Dimensions.get('window');
 
-export default class DetailsScreen extends React.Component {
+class DetailsScreen extends React.Component {
 
   render() {
     const {navigation} = this.props;
-    const track = navigation.getParam('track', null);
+    const trackId = navigation.getParam('trackId', null);
+    const track = this.props.releases.find(obj => obj.trackId === trackId);
     return (
         <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: 0, paddingBottom: 20}}>
 
@@ -29,11 +32,11 @@ export default class DetailsScreen extends React.Component {
                     <Text numberOfLines={1} style={{fontSize: 12, color: Colors.fontColor, textAlign: 'left'}}>{track.artistName}</Text>
                   </View>
                   <View style={{flex: 1, alignItems: 'center'}}>
-                    <TouchableOpacity style={{}} onPress={() => console.log('to be implemented')}>
+                    <TouchableOpacity style={{}} onPress={() => this.props.tipTrack(track.trackId)}>
                       {/*<Icon.Ionicons*/}
-                          {/*name={Platform.OS === 'ios' ? `ios-heart` : 'md-heart'}*/}
-                          {/*size={60}*/}
-                          {/*color={Colors.fontColor}*/}
+                      {/*name={Platform.OS === 'ios' ? `ios-heart` : 'md-heart'}*/}
+                      {/*size={60}*/}
+                      {/*color={Colors.fontColor}*/}
                       {/*/>*/}
                       <ImageBackground style={{width: 55, height: 49}} source={require('../assets/images/heart.png')}>
                         <Text style={{fontSize: 12, fontWeight: 'bold', color: Colors.fontColor, textAlign: 'center', marginTop: 15}}>{track.directTipCount}</Text>
@@ -67,6 +70,10 @@ export default class DetailsScreen extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return state;
+}
+
 const styles = StyleSheet.create({
   overlay: {
     backgroundColor: 'rgba(0, 0, 0,0.3)',
@@ -75,6 +82,8 @@ const styles = StyleSheet.create({
   infoContainer: {
     paddingHorizontal: 20,
     marginTop: 35,
-  }
+  },
 });
+
+export default connect(mapStateToProps, {tipTrack})(DetailsScreen);
 

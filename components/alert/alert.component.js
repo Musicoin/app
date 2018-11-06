@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {View, StatusBar} from 'react-native';
 import DropdownAlert from 'react-native-dropdownalert';
+import {connect} from 'react-redux';
+import {deleteAlert} from '../../actions';
 
 class AlertProvider extends Component {
   static get childContextTypes() {
@@ -15,6 +17,17 @@ class AlertProvider extends Component {
     return {
       children: PropTypes.any,
     };
+  }
+
+  componentDidUpdate(prev){
+    if (this.props.alert) {
+      if(this.props.alert){
+        let alert = this.props.alert;
+        this.dropdown.alertWithType(alert.type, alert.title, alert.message);
+        this.props.deleteAlert();
+      }
+    }
+
   }
 
   getChildContext() {
@@ -38,10 +51,15 @@ class AlertProvider extends Component {
                 paddingTop: StatusBar.currentHeight,
                 flexDirection: 'row',
               }}
+              renderImage={()=><View></View>}
           />
         </View>
     );
   }
 }
 
-export default AlertProvider;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, {deleteAlert})(AlertProvider);

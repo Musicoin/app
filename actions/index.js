@@ -1,7 +1,10 @@
-import {API_EMAIL, API_PASSWORD, API_USERNAME, API_CLIENT_SECRET, API_ENDPOINT, ACCESS_TOKEN} from 'react-native-dotenv';
+import {API_EMAIL, API_PASSWORD, API_USERNAME, API_CLIENT_SECRET, API_ENDPOINT} from 'react-native-dotenv';
 
 export const RECEIVE_ACCESS_TOKEN = 'RECEIVE_ACCESS_TOKEN';
 export const RECEIVE_RELEASES = 'RECEIVE_RELEASES';
+export const TIP_TRACK = 'TIP_TRACK';
+export const ADD_ALERT = 'ADD_ALERT';
+export const DELETE_ALERT = 'DELETE_ALERT';
 
 function receiveAccessToken(json) {
   const {accessToken} = json;
@@ -56,10 +59,9 @@ async function fetchReleasesJson(token) {
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-      console.log(releases.data[i].trackImg);
       let trackImgArray = releases.data[i].trackImg.split('/');
-      let trackImg =  await fetchTrackImageJson(trackImgArray[trackImgArray.length -1]);
-      releases.data[i].trackImg = "https://musicoin.org" + trackImg;
+      let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+      releases.data[i].trackImg = trackImg;
     }
     return releases;
   } else {
@@ -76,6 +78,20 @@ async function fetchReleaseDetailsJson(token, trackId) {
   return releaseDetails;
 }
 
+export function fetchReleases() {
+  return function(dispatch, getState) {
+    let accessToken = getState().accessToken;
+    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
+    if (diff >= 58) {
+      // get a new token
+      dispatch(fetchAccessToken()).then(() => {return fetchReleasesJson(getState().accessToken.token).then(json => dispatch(receiveReleases(json)));});
+
+    } else {
+      return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
+    }
+  };
+}
+
 async function fetchTrackImageJson(imageId) {
   return fetch(`https://musicoin.org/i2i/${imageId}`, {
     method: 'GET',
@@ -85,6 +101,63 @@ async function fetchTrackImageJson(imageId) {
   }).then(response => {
     return response.json();
   });
+}
+
+function addTip(trackId, json) {
+  return function(dispatch, getState) {
+    if (json.res == 200) {
+      dispatch(addAlert('success', 'thank you!', 'Tip will be added when the next block is mined'));
+    } else {
+      dispatch(addAlert('error', 'Something went wrong', 'Please try again later'));
+    }
+    dispatch({
+      type: TIP_TRACK,
+      trackId: trackId,
+    });
+  };
+}
+
+async function tipTrackJson(trackId, token) {
+  let params = {
+    'address': trackId,
+    'accessToken': token,
+  };
+
+  let tipTrack = await fetchGetData('license/tip?', params);
+  return tipTrack;
+
+}
+
+export function tipTrack(trackId) {
+  return function(dispatch, getState) {
+    let accessToken = getState().accessToken;
+    return tipTrackJson(trackId, accessToken.token).then(json => dispatch(addTip(trackId, json)));
+  };
+}
+
+function showAlert(alert) {
+  return {
+    type: ADD_ALERT,
+    alert: alert,
+  };
+}
+
+export function addAlert(type, title, message) {
+  return function(dispatch) {
+    return dispatch(showAlert({type, title, message}));
+  };
+}
+
+function hideAlert(alert) {
+  return {
+    type: DELETE_ALERT,
+  };
+}
+
+export function deleteAlert() {
+  return function(dispatch) {
+    return dispatch(hideAlert());
+  };
 }
 
 async function fetchGetData(action, params) {
@@ -109,7 +182,7 @@ async function fetchGetData(action, params) {
     },
   }).then(response => {
     return response.json();
-  });
+  }).catch(e => console.log(e));
 }
 
 async function fetchPostData(action, params) {
@@ -134,18 +207,4 @@ async function fetchPostData(action, params) {
     },
     body: formBody,
   }).then(response => response.json());
-}
-
-export function fetchReleases() {
-  return function(dispatch, getState) {
-    let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchReleasesJson(getState().accessToken.token).then(json => dispatch(receiveReleases(json)));});
-
-    } else {
-      return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
-    }
-  };
 }
