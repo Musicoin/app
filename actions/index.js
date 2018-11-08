@@ -196,7 +196,6 @@ async function fetchGetData(action, params) {
   } catch (e) {
     console.log(e);
   }
-
 }
 
 async function fetchPostData(action, params) {
@@ -222,7 +221,7 @@ async function fetchPostData(action, params) {
       },
       body: formBody,
     }).then(response => {
-      response.json();
+      return response.json();
     }).catch(e => {
       console.log(e);
     });
