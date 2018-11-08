@@ -26,7 +26,7 @@ Expo.Audio.setAudioModeAsync(
       interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
       interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
       shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: true,
+      playThroughEarpieceAndroid: false,
     }).then(() => console.log('silent mode activated'));
 
 class HomeScreen extends React.Component {
