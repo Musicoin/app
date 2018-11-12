@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, ImageBackground, Dimensions, StyleSheet} from 'react-native';
+import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, ImageBackground, Dimensions, StyleSheet, StatusBar} from 'react-native';
 import {Icon} from 'expo';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
@@ -14,7 +14,7 @@ class DetailsScreen extends React.Component {
     const trackId = navigation.getParam('trackId', null);
     const track = this.props.releases.find(obj => obj.trackId === trackId);
     return (
-        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: 0, paddingBottom: 20}}>
+        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20}}>
 
           <View style={{alignItems: 'center'}}>
             <ImageBackground style={{width: width, height: width}} source={{uri: track.trackImg}}>

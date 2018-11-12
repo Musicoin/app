@@ -49,7 +49,7 @@ export default class App extends React.Component {
           <Provider store={store}>
             <AlertProvider>
               <View style={styles.songInfoContainer}>
-                {Platform.OS === 'ios' && <StatusBar barStyle="light-content"/>}
+                <StatusBar barStyle="light-content"/>
                 <AppNavigator/>
               </View>
             </AlertProvider>
