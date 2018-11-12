@@ -33,11 +33,6 @@ class DetailsScreen extends React.Component {
                   </View>
                   <View style={{flex: 1, alignItems: 'center'}}>
                     <TouchableOpacity style={{}} onPress={() => this.props.tipTrack(track.trackId)}>
-                      {/*<Icon.Ionicons*/}
-                      {/*name={Platform.OS === 'ios' ? `ios-heart` : 'md-heart'}*/}
-                      {/*size={60}*/}
-                      {/*color={Colors.fontColor}*/}
-                      {/*/>*/}
                       <ImageBackground style={{width: 55, height: 49}} source={require('../assets/images/heart.png')}>
                         <Text style={{fontSize: 12, fontWeight: 'bold', color: Colors.fontColor, textAlign: 'center', marginTop: 15}}>{track.directTipCount}</Text>
                       </ImageBackground>

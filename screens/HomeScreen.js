@@ -14,6 +14,7 @@ import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
+import {tipTrack} from '../actions';
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
@@ -64,9 +65,22 @@ class HomeScreen extends React.Component {
                     <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
                   </View>
 
-                  <View style={styles.songInfo}>
-                    <Text style={{color: Colors.fontColor}}>{this.state.currentTrack.title}</Text>
-                    <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
+                  <TouchableOpacity style={styles.songInfo} onPress={() => this.props.navigation.navigate('ReleaseDetail', {trackId: this.state.currentTrack.trackId})}>
+                    <View>
+                      <Text style={{color: Colors.fontColor}}>{this.state.currentTrack.title}</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
+                    </View>
+                  </TouchableOpacity>
+
+                  <View>
+                    <TouchableOpacity>
+                      <Icon.FontAwesome onPress={() => this.props.tipTrack(this.state.currentTrack.trackId)}
+                                        name={Platform.OS === 'ios' ? `signing` : 'signing'}
+                                        size={26}
+                                        color={Colors.tabIconSelected}
+                                        style={{padding: 10, paddingTop: 2, flex: 0.1}}
+                      />
+                    </TouchableOpacity>
                   </View>
 
                   {this.state.isPlaying ? <TouchableOpacity>
@@ -95,7 +109,18 @@ class HomeScreen extends React.Component {
                     <Text style={{color: Colors.fontColor}}>Loading</Text>
                   </View>
 
-                  <ActivityIndicator size="small" color={Colors.tintColor}/>
+                  <View>
+                    <TouchableOpacity>
+                      <Icon.FontAwesome onPress={() => this.props.tipTrack(this.state.currentTrack.trackId)}
+                                        name={Platform.OS === 'ios' ? `signing` : 'signing'}
+                                        size={26}
+                                        color={Colors.tabIconSelected}
+                                        style={{padding: 10, paddingTop: 2, flex: 0.1}}
+                      />
+                    </TouchableOpacity>
+                  </View>
+
+                  <ActivityIndicator style={{padding: 10, paddingTop: 2, margin: 10, marginRight: 15, flex: 0.1}} size="small" color={Colors.tintColor}/>
                 </View>
             }
           </View> : null}
@@ -119,7 +144,7 @@ class HomeScreen extends React.Component {
         <View style={styles.individualPlayerButton}>
           <TouchableOpacity onPress={() => this.loadAndPlayTrack(item)}>
             <Icon.Ionicons
-                name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
+                name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
                 size={18}
                 color={Colors.tabIconSelected}
                 style={styles.playerButton}
@@ -257,4 +282,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, null)(HomeScreen));
+export default connectAlert(connect(mapStateToProps, {tipTrack})(HomeScreen));
