@@ -14,21 +14,7 @@ import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
-import {tipTrack} from '../actions';
-
-let audioPlayer = null;
-const trackPrefix = 'https://a.musicoin.org/tracks/';
-const trackSuffix = '/index.m3u8';
-
-Expo.Audio.setAudioModeAsync(
-    {
-      playsInSilentModeIOS: true,
-      allowsRecordingIOS: false,
-      interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
-      interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
-      shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: false,
-    }).then(() => console.log('silent mode activated'));
+import {tipTrack, playTrack} from '../actions';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -44,13 +30,12 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {currentTrack: null, isPlaying: false, isLoaded: true};
   }
 
   render() {
     return (
-        <View style={styles.songInfoContainer}>
-          <ScrollView style={{flex: 1}} contentContainerStyle={styles.contentContainer}>
+        <View style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
+          <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? 100 : 0}} contentContainerStyle={styles.contentContainer}>
             {this.props.releases.length > 0 ?
                 <FlatList
                     data={this.props.releases}
@@ -59,71 +44,7 @@ class HomeScreen extends React.Component {
                 />
                 : <ActivityIndicator size="small" color={Colors.tintColor}/>}
           </ScrollView>
-          {this.state.currentTrack ? <View style={{flex: 0.2}}>
-            {this.state.isLoaded ? <View style={styles.playerContainer}>
-                  <View style={styles.albumArtPlayerContainer}>
-                    <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
-                  </View>
 
-                  <TouchableOpacity style={styles.songInfo} onPress={() => this.props.navigation.navigate('ReleaseDetail', {trackId: this.state.currentTrack.trackId})}>
-                    <View>
-                      <Text style={{color: Colors.fontColor}}>{this.state.currentTrack.title}</Text>
-                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.state.currentTrack.artistName}</Text>
-                    </View>
-                  </TouchableOpacity>
-
-                  <View>
-                    <TouchableOpacity>
-                      <Icon.FontAwesome onPress={() => this.props.tipTrack(this.state.currentTrack.trackId)}
-                                        name={Platform.OS === 'ios' ? `signing` : 'signing'}
-                                        size={26}
-                                        color={Colors.tabIconSelected}
-                                        style={{padding: 10, paddingTop: 2, flex: 0.1}}
-                      />
-                    </TouchableOpacity>
-                  </View>
-
-                  {this.state.isPlaying ? <TouchableOpacity>
-                        <Icon.Ionicons onPress={() => this.pauseTrack()}
-                                       name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
-                                       size={26}
-                                       color={Colors.tabIconSelected}
-                                       style={styles.playerButton}
-                        />
-                      </TouchableOpacity> :
-                      <TouchableOpacity onPress={() => this.resumeTrack()}>
-                        <Icon.Ionicons
-                            name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
-                            size={26}
-                            color={Colors.tabIconSelected}
-                            style={styles.playerButton}
-                        />
-                      </TouchableOpacity>}
-                </View> :
-                <View style={styles.playerContainer}>
-                  <View style={styles.albumArtPlayerContainer}>
-                    <Image style={{width: 70, height: 70}} source={{uri: this.state.currentTrack.trackImg}}/>
-                  </View>
-
-                  <View style={styles.songInfo}>
-                    <Text style={{color: Colors.fontColor}}>Loading</Text>
-                  </View>
-
-                  <View>
-                    <TouchableOpacity>
-                      <Icon.FontAwesome onPress={() => this.props.tipTrack(this.state.currentTrack.trackId)}
-                                        name={Platform.OS === 'ios' ? `signing` : 'signing'}
-                                        size={26}
-                                        color={Colors.tabIconSelected}
-                                        style={{padding: 10, paddingTop: 2, flex: 0.1}}
-                      />
-                    </TouchableOpacity>
-                  </View>
-
-                  <ActivityIndicator style={{padding: 10, paddingTop: 2, margin: 10, marginRight: 15, flex: 0.1}} size="small" color={Colors.tintColor}/>
-                </View>
-            }
-          </View> : null}
         </View>
     );
   }
@@ -142,7 +63,7 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
 
         <View style={styles.individualPlayerButton}>
-          <TouchableOpacity onPress={() => this.loadAndPlayTrack(item)}>
+          <TouchableOpacity onPress={() => this.props.playTrack(item)}>
             <Icon.Ionicons
                 name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
                 size={18}
@@ -154,61 +75,6 @@ class HomeScreen extends React.Component {
       </View>
   );
 
-  async loadAndPlayTrack(track) {
-
-    // if (this.state.isLoaded) {
-    if (!audioPlayer) {
-      audioPlayer = new Expo.Audio.Sound();
-      audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
-    }
-
-    this.setState({currentTrack: track, isLoaded: false});
-
-    let playbackState = await audioPlayer.getStatusAsync();
-    console.log(playbackState);
-
-    if (playbackState.isLoaded) {
-      await audioPlayer.stopAsync();
-      await audioPlayer.unloadAsync();
-    }
-
-    try {
-      await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
-      await audioPlayer.playAsync();
-    } catch (e) {
-      console.log('audio failed to play');
-      console.log(e);
-      this.showAlert('File not playing', 'The requested track failed to play, please try again later.');
-      await audioPlayer.stopAsync();
-      await audioPlayer.unloadAsync();
-    }
-    // }
-  };
-
-  onPlaybackStatusUpdate(playbackstatus) {
-    // console.log(playbackstatus);
-    if (this.state.isPlaying != playbackstatus.isPlaying) {
-      this.setState({isPlaying: playbackstatus.isPlaying});
-    }
-
-    if (this.state.isLoaded != playbackstatus.isLoaded) {
-      this.setState({isLoaded: playbackstatus.isLoaded});
-    }
-  }
-
-  async pauseTrack() {
-    // this.setState({isPlaying: false});
-    await audioPlayer.pauseAsync();
-  }
-
-  async resumeTrack() {
-    // this.setState({isPlaying: true});
-    await audioPlayer.playAsync();
-  }
-
-  showAlert(title, text) {
-    this.props.alertWithType('error', title, text);
-  }
 }
 
 function mapStateToProps(state) {
@@ -282,4 +148,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {tipTrack})(HomeScreen));
+export default connectAlert(connect(mapStateToProps, {tipTrack, playTrack})(HomeScreen));

@@ -3,7 +3,7 @@ import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, Image
 import {Icon} from 'expo';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
-import {tipTrack} from '../actions';
+import {tipTrack, playTrack} from '../actions';
 
 var {height, width} = Dimensions.get('window');
 
@@ -26,7 +26,19 @@ class DetailsScreen extends React.Component {
                       color={Colors.fontColor}
                   />
                 </TouchableOpacity>
-                <View style={{flex: 1, flexDirection: 'row', paddingTop: width - 110}}>
+                <View style={{flex: 1, alignItems: 'center', marginTop: (width - 200) / 2}}>
+                  <TouchableOpacity onPress={() => this.props.playTrack(track)}>
+                    <View style={styles.backgroundCircle}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
+                          size={50}
+                          color={Colors.fontColor}
+                          style={{margin: 0, marginLeft: 8, padding: 0}}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View style={{flex: 1, flexDirection: 'row', marginTop: width - 275}}>
                   <View style={{flex: 1, paddingTop: 10}}>
                     <Text numberOfLines={1} style={{fontSize: 14, color: Colors.fontColor, textAlign: 'left'}}>{track.title}</Text>
                     <Text numberOfLines={1} style={{fontSize: 12, color: Colors.fontColor, textAlign: 'left'}}>{track.artistName}</Text>
@@ -78,7 +90,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 35,
   },
+  backgroundCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 80 / 2,
+    backgroundColor: 'rgba(0, 0, 0,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
-export default connect(mapStateToProps, {tipTrack})(DetailsScreen);
+export default connect(mapStateToProps, {tipTrack, playTrack})(DetailsScreen);
 

@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_RELEASES, RECEIVE_ACCESS_TOKEN, TIP_TRACK, ADD_ALERT, DELETE_ALERT} from '../actions';
+import {RECEIVE_RELEASES, RECEIVE_ACCESS_TOKEN, TIP_TRACK, ADD_ALERT, DELETE_ALERT} from '../constants/Actions';
+import currentTrack from './currentTrack';
 
 function releases(state = [], action) {
   switch (action.type) {
@@ -47,6 +48,10 @@ function alert(state = null, action) {
   }
 }
 
-const rootReducer = combineReducers({releases, accessToken, alert});
+function lastAction(state = {type: null}, action){
+  return action;
+}
+
+const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack});
 
 export default rootReducer;

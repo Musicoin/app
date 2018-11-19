@@ -1,10 +1,8 @@
 import {API_EMAIL, API_PASSWORD, API_USERNAME, API_CLIENT_SECRET, API_ENDPOINT} from 'react-native-dotenv';
 
-export const RECEIVE_ACCESS_TOKEN = 'RECEIVE_ACCESS_TOKEN';
-export const RECEIVE_RELEASES = 'RECEIVE_RELEASES';
-export const TIP_TRACK = 'TIP_TRACK';
-export const ADD_ALERT = 'ADD_ALERT';
-export const DELETE_ALERT = 'DELETE_ALERT';
+import {RECEIVE_ACCESS_TOKEN,RECEIVE_RELEASES,TIP_TRACK, ADD_ALERT, DELETE_ALERT} from '../constants/Actions';
+
+export * from './player';
 
 function receiveAccessToken(json) {
   const {accessToken} = json;

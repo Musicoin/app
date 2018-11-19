@@ -12,6 +12,9 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 import AlertProvider from './components/alert/alert.component';
+import PlayerComponent from './components/Player';
+
+import NavigationService from './services/NavigationService';
 
 import {fetchReleases, fetchAccessToken} from './actions';
 
@@ -50,7 +53,10 @@ export default class App extends React.Component {
             <AlertProvider>
               <View style={styles.songInfoContainer}>
                 <StatusBar barStyle="light-content"/>
-                <AppNavigator/>
+                <AppNavigator ref={navigatorRef => {
+                  NavigationService.setTopLevelNavigator(navigatorRef);
+                }}/>
+                <PlayerComponent/>
               </View>
             </AlertProvider>
           </Provider>
