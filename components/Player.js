@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   playerContainer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 0,
+    bottom: 49,
     left: 0,
     right: 0,
     ...Platform.select({

@@ -9,24 +9,16 @@ import {
   View,
   FlatList,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
 import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
 import {tipTrack, playTrack} from '../actions';
+import Layout from '../constants/Layout';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
-      <Image resizeMode={'center'} style={{width: 150, height: 35.625, margin: 0, padding: 0}} source={require('../assets/images/logo.png')}/>
-    </View>,
-    headerStyle:
-        {
-          backgroundColor: Colors.backgroundColor,
-          borderBottomWidth: 0,
-        },
-  };
 
   constructor(props) {
     super(props);
@@ -34,8 +26,8 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style={{flex: 1, backgroundColor: Colors.backgroundColor}}>
-          <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? 100 : 0}} contentContainerStyle={styles.contentContainer}>
+        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
+          <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}>
             {this.props.releases.length > 0 ?
                 <FlatList
                     data={this.props.releases}

@@ -4,6 +4,7 @@ import {Icon} from 'expo';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
 import {tipTrack, playTrack} from '../actions';
+import Layout from '../constants/Layout';
 
 var {height, width} = Dimensions.get('window');
 
@@ -14,9 +15,9 @@ class DetailsScreen extends React.Component {
     const trackId = navigation.getParam('trackId', null);
     const track = this.props.releases.find(obj => obj.trackId === trackId);
     return (
-        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20}}>
+        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
 
-          <View style={{alignItems: 'center'}}>
+          <View style={{alignItems: 'center', marginBottom: 20}}>
             <ImageBackground style={{width: width, height: width}} source={{uri: track.trackImg}}>
               <View style={[{paddingHorizontal: 10, paddingTop: 20, height: width}, styles.overlay]}>
                 <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
@@ -70,6 +71,7 @@ class DetailsScreen extends React.Component {
             <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join(', ')}</Text>
 
             <Text style={{color: Colors.fontColor, fontSize: 12, paddingTop: 10, paddingBottom: 20}}>{track.trackDescription}</Text>
+            <Text></Text>
           </View>
 
         </ScrollView>
