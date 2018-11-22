@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
-import {Icon} from 'expo';
 import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';

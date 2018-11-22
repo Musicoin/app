@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {tipTrack, playTrack} from '../actions';
 import Layout from '../constants/Layout';
 
-var {height, width} = Dimensions.get('window');
+var {width} = Dimensions.get('window');
 
 class DetailsScreen extends React.Component {
 

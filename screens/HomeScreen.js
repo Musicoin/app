@@ -1,20 +1,17 @@
 import React from 'react';
 import {
-  Image,
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
   FlatList,
   ActivityIndicator,
   StatusBar,
 } from 'react-native';
-import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
+import Track from '../components/track/track';
 import {tipTrack, playTrack} from '../actions';
 import Layout from '../constants/Layout';
 
@@ -44,27 +41,7 @@ class HomeScreen extends React.Component {
   _keyExtractor = (item, index) => item.trackId;
 
   _renderItem = ({item}) => (
-      <View style={styles.trackContainer}>
-        <View style={styles.albumArtContainer}>
-          <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
-        </View>
-
-        <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.navigation.navigate('ReleaseDetail', {trackId: item.trackId})}>
-          <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
-          <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
-        </TouchableOpacity>
-
-        <View style={styles.individualPlayerButton}>
-          <TouchableOpacity onPress={() => this.props.playTrack(item)}>
-            <Icon.Ionicons
-                name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                size={18}
-                color={Colors.tabIconSelected}
-                style={styles.playerButton}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Track track={item} />
   );
 
 }
@@ -80,14 +57,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 0,
-  },
-  trackContainer: {
-    flexDirection: 'row',
-  },
-  releaseTrackContainer: {
-    paddingTop: 15,
-    padding: 10,
-    flex: 0.9,
   },
   playButtonContainer: {
     padding: 0,
@@ -114,20 +83,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.backgroundColor,
     paddingVertical: 5,
-  },
-  playerButton: {
-    padding: 10,
-    marginLeft: 10,
-    flex: 0.1,
-  },
-  individualPlayerButton: {
-    marginRight: 10,
-    paddingTop: 5,
-    flex: 0.2,
-  },
-  albumArtContainer: {
-    padding: 10,
-    flex: 0.1,
   },
   albumArtPlayerContainer: {
     padding: 10,
