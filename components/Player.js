@@ -62,7 +62,7 @@ class PlayerComponent extends React.Component {
                       <Icon.FontAwesome onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}
                                         name={Platform.OS === 'ios' ? `signing` : 'signing'}
                                         size={26}
-                                        color={Colors.tabIconSelected}
+                                        color={Colors.tintColor}
                                         style={{padding: 10, paddingTop: 2, flex: 0.1}}
                       />
                     </TouchableOpacity>
@@ -72,7 +72,7 @@ class PlayerComponent extends React.Component {
                         <Icon.Ionicons onPress={() => this.pauseTrack()}
                                        name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
                                        size={26}
-                                       color={Colors.tabIconSelected}
+                                       color={Colors.tintColor}
                                        style={styles.playerButton}
                         />
                       </TouchableOpacity> :
@@ -80,7 +80,7 @@ class PlayerComponent extends React.Component {
                         <Icon.Ionicons
                             name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
                             size={26}
-                            color={Colors.tabIconSelected}
+                            color={Colors.tintColor}
                             style={styles.playerButton}
                         />
                       </TouchableOpacity>}
@@ -99,7 +99,7 @@ class PlayerComponent extends React.Component {
                       <Icon.FontAwesome onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}
                                         name={Platform.OS === 'ios' ? `signing` : 'signing'}
                                         size={26}
-                                        color={Colors.tabIconSelected}
+                                        color={Colors.tintColor}
                                         style={{padding: 10, paddingTop: 2, flex: 0.1}}
                       />
                     </TouchableOpacity>

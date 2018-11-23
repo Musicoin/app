@@ -39,9 +39,9 @@ HomeStack.navigationOptions = {
       />
   ),
   tabBarOptions: {
-    activeTintColor: Colors.tintColor,
+    activeTintColor: Colors.tabIconSelected,
     activeBackgroundColor: Colors.backgroundColor,
-    inactiveTintColor: Colors.fontColor,
+    inactiveTintColor: Colors.tabIconDefault,
     inactiveBackgroundColor: Colors.backgroundColor,
   },
   headerTitle: <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
@@ -82,9 +82,9 @@ DiscoverStack.navigationOptions = {
       />
   ),
   tabBarOptions: {
-    activeTintColor: Colors.tintColor,
+    activeTintColor: Colors.tabIconSelected,
     activeBackgroundColor: Colors.backgroundColor,
-    inactiveTintColor: Colors.fontColor,
+    inactiveTintColor: Colors.tabIconDefault,
     inactiveBackgroundColor: Colors.backgroundColor,
   },
   headerStyle:
@@ -121,9 +121,9 @@ LibraryStack.navigationOptions = {
       />
   ),
   tabBarOptions: {
-    activeTintColor: Colors.tintColor,
+    activeTintColor: Colors.tabIconSelected,
     activeBackgroundColor: Colors.backgroundColor,
-    inactiveTintColor: Colors.fontColor,
+    inactiveTintColor: Colors.tabIconDefault,
     inactiveBackgroundColor: Colors.backgroundColor,
   },
   headerStyle:

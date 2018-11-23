@@ -27,7 +27,7 @@ class Track extends Component {
               <Icon.Ionicons
                   name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
                   size={18}
-                  color={Colors.tabIconSelected}
+                  color={Colors.tintColor}
                   style={styles.playerButton}
               />
             </TouchableOpacity>
