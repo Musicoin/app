@@ -1,8 +1,8 @@
-import {RECEIVE_RELEASES, TIP_TRACK} from '../constants/Actions';
+import {RECEIVE_NEW_RELEASES_SUCCESS, TIP_TRACK} from '../constants/Actions';
 
 export default function releases(state = [], action) {
   switch (action.type) {
-    case RECEIVE_RELEASES:
+    case RECEIVE_NEW_RELEASES_SUCCESS:
       return action.releases ? action.releases : state;
     case TIP_TRACK: {
       //update tip count in store

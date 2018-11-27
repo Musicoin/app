@@ -1,12 +1,13 @@
 import {fetchAccessToken} from './index';
-import {RECEIVE_RELEASES} from '../constants/Actions';
+import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
+import Layout from '../constants/Layout';
 
 function receiveReleases(json) {
   const releases = json.data;
 
   return {
-    type: RECEIVE_RELEASES,
+    type: releases? RECEIVE_NEW_RELEASES_SUCCESS: RECEIVE_NEW_RELEASES_FAILURE,
     releases,
   };
 }
@@ -20,20 +21,24 @@ async function fetchReleasesJson(token) {
 
   let releases = await fetchGetData('release/recent?', params);
 
-  if (releases.data != []) {
+  if (releases.success && releases.data != []) {
 
     for (let i = 0; i < releases.data.length; i++) {
       let trackPartArray = releases.data[i].trackURL.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-      let trackImgArray = releases.data[i].trackImg.split('/');
-      let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-      releases.data[i].trackImg = trackImg;
+      if (releases.data[i].trackImg) {
+        let trackImgArray = releases.data[i].trackImg.split('/');
+        let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+        releases.data[i].trackImg = trackImg;
+      } else {
+        releases.data[i].trackImg = Layout.defaultTrackImage;
+      }
     }
     return releases;
   } else {
-    return releases;
+    return false;
   }
 }
 
@@ -48,6 +53,7 @@ export async function fetchReleaseDetailsJson(token, trackId) {
 
 export function fetchReleases() {
   return function(dispatch, getState) {
+    dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
     let accessToken = getState().accessToken;
     let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
     if (diff >= 58) {
@@ -71,7 +77,7 @@ export async function fetchTrackImageJson(imageId) {
       return response.json();
     }).catch(e => {
       console.log(e);
-      return 'https://i.redd.it/y2hj9ovrrne11.jpg';
+      return Layout.defaultTrackImage;
     });
   } catch (e) {
     console.log(e);

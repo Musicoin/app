@@ -1,18 +1,18 @@
 import React from 'react';
 import {
   Platform,
-  ScrollView,
   StyleSheet,
   View,
   FlatList,
-  ActivityIndicator,
   StatusBar,
+  RefreshControl,
+  Text,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
 import Track from '../components/track/track';
-import {tipTrack, playTrack} from '../actions';
+import {tipTrack, playTrack, fetchReleases} from '../actions';
 import Layout from '../constants/Layout';
 
 class HomeScreen extends React.Component {
@@ -24,24 +24,32 @@ class HomeScreen extends React.Component {
   render() {
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
-          <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}>
-            {this.props.releases.length > 0 ?
-                <FlatList
-                    data={this.props.releases}
-                    keyExtractor={this._keyExtractor}
-                    renderItem={this._renderItem}
+          <FlatList
+              data={this.props.releases}
+              keyExtractor={this._keyExtractor}
+              renderItem={this._renderItem}
+              onRefresh={() => this.props.fetchReleases()}
+              refreshing={this.props.loading.RECEIVE_NEW_RELEASES}
+              style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+              refreshControl={
+                <RefreshControl
+                    refreshing={this.props.loading.RECEIVE_NEW_RELEASES}
+                    onRefresh={() => this.props.fetchReleases()}
+                    tintColor={Colors.tintColor}
                 />
-                : <ActivityIndicator size="small" color={Colors.tintColor}/>}
-          </ScrollView>
-
+              }
+              ListEmptyComponent={!this.props.loading.RECEIVE_NEW_RELEASES ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
+                <Text style={{color: Colors.tabIconDefault}}>Something went wrong, please try again later</Text>
+              </View> : null}
+          />
         </View>
     );
   }
 
-  _keyExtractor = (item, index) => item.trackId;
+  _keyExtractor = (item, index) => index.toString();
 
   _renderItem = ({item}) => (
-      <Track track={item} origin="newReleases" />
+      <Track track={item} origin="newReleases"/>
   );
 
 }
@@ -95,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, playTrack})(HomeScreen));
+export default connectAlert(connect(mapStateToProps, {tipTrack, playTrack, fetchReleases})(HomeScreen));

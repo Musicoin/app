@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, ScrollView, FlatList, ActivityIndicator} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, RefreshControl} from 'react-native';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
 
@@ -27,7 +27,7 @@ class SearchScreen extends React.Component {
               onChangeText={(text) => {
                 this.text = text;
                 clearTimeout(this.timeout); // clears the old timer
-                this.timeout = setTimeout(() => this.search(this.text), 500);
+                this.timeout = setTimeout(() => this.search(), 500);
               }}
               onClear={() => this.clear()}
               onCancel={() => this.cancel()}
@@ -44,17 +44,22 @@ class SearchScreen extends React.Component {
               }}
           />
           {this.state.searching ?
-              <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}>
-                {this.props.searchResults.releases.length > 0 ?
-                    <FlatList
-                        data={this.props.searchResults.releases}
-                        keyExtractor={this._keyExtractor}
-                        renderItem={this._renderItem}
-                    />
-                    : <ActivityIndicator size="small" color={Colors.tintColor}/>}
-              </ScrollView>
-              :
-              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+              <FlatList
+                  data={this.props.searchResults.releases}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}
+                  style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+                  refreshControl={
+                    <RefreshControl
+                        refreshing={this.props.loading.SEARCH}
+                        onRefresh={() => this.search()}
+                        tintColor={Colors.tintColor}
+                    />}
+                  ListEmptyComponent={!this.props.loading.SEARCH?<View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
+                    <Text style={{color: Colors.tabIconDefault}}>Seems like you played the wrong note!</Text>
+                  </View>: null}
+              />
+              : <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text style={{color: 'white'}}>[Categories]</Text>
               </View>
           }
@@ -66,10 +71,10 @@ class SearchScreen extends React.Component {
     clearTimeout(this.timeout);
   }
 
-  search(text) {
-    if (text !== '') {
+  search() {
+    if (this.text !== '') {
       this.setState({searching: true});
-      this.props.getSearchResults(text);
+      this.props.getSearchResults(this.text);
     }
   }
 
@@ -83,7 +88,7 @@ class SearchScreen extends React.Component {
     this.setState({searching: false});
   }
 
-  _keyExtractor = (item, index) => item.trackId;
+  _keyExtractor = (item, index) => index.toString();
 
   _renderItem = ({item}) => (
       <Track track={item} origin="search"/>

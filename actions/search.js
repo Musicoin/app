@@ -1,14 +1,13 @@
 import {fetchAccessToken, fetchReleaseDetailsJson, fetchTrackImageJson} from './index';
-import {SEARCH} from '../constants/Actions';
+import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchPostFormData} from '../tools/util';
 import {API_EMAIL} from 'react-native-dotenv';
 
 function receiveSearchResults(json) {
-  console.log(json);
   const searchResults = json.data;
 
   return {
-    type: SEARCH,
+    type: json? SEARCH_SUCCESS: SEARCH_FAILURE,
     searchResults,
   };
 }
@@ -21,9 +20,7 @@ async function fetchSearchResultsJson(token, artistName) {
 
   let results = await fetchPostFormData(`search?email=${API_EMAIL}&accessToken=${token}&limit=2`, params);
 
-  //ToDo: more error handling e.g. when no results are returned
-
-  if (results.data.releases) {
+  if (results.success && results.data) {
 
     for (let i = 0; i < results.data.releases.length; i++) {
       let trackId = results.data.releases[i].pppLink;
@@ -36,12 +33,13 @@ async function fetchSearchResultsJson(token, artistName) {
 
     return results;
   } else {
-    return results;
+    return false;
   }
 }
 
 export function getSearchResults(artistName) {
   return function(dispatch, getState) {
+    dispatch({type: SEARCH_REQUEST})
     let accessToken = getState().accessToken;
     let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
     if (diff >= 58) {

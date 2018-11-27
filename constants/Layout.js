@@ -10,4 +10,5 @@ export default {
   },
   isSmallDevice: width < 375,
   playerHeight: 100,
+  defaultTrackImage: 'https://i.redd.it/y2hj9ovrrne11.jpg',
 };

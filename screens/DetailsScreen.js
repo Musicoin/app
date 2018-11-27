@@ -53,7 +53,7 @@ class DetailsScreen extends React.Component {
                 <View style={{flex: 1, flexDirection: 'row', marginTop: width - 275}}>
                   <View style={{flex: 1, paddingTop: 10}}>
                     <Text numberOfLines={1} style={{fontSize: 14, color: Colors.fontColor, textAlign: 'left'}}>{track.title}</Text>
-                    <Text numberOfLines={1} style={{fontSize: 12, color: Colors.fontColor, textAlign: 'left'}}>{track.artistName}</Text>
+                    <Text numberOfLines={1} style={{fontSize: 12, color: Colors.fontColor, textAlign: 'left'}}>{track.author}</Text>
                   </View>
                   <View style={{flex: 1, alignItems: 'center'}}>
                     <TouchableOpacity style={{}} onPress={() => this.props.tipTrack(track.trackId)}>
