@@ -37,7 +37,7 @@ async function fetchReleasesJson(token) {
   }
 }
 
-async function fetchReleaseDetailsJson(token, trackId) {
+export async function fetchReleaseDetailsJson(token, trackId) {
   var params = {
     'accessToken': token,
   };
@@ -60,7 +60,7 @@ export function fetchReleases() {
   };
 }
 
-async function fetchTrackImageJson(imageId) {
+export async function fetchTrackImageJson(imageId) {
   try {
     return fetch(`https://musicoin.org/i2i/${imageId}`, {
       method: 'GET',

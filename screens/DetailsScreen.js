@@ -13,7 +13,18 @@ class DetailsScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     const trackId = navigation.getParam('trackId', null);
-    const track = this.props.releases.find(obj => obj.trackId === trackId);
+    const origin = navigation.getParam('origin', null);
+    let track = {};
+    switch (origin) {
+      case 'search':
+        track = this.props.searchResults.releases.find(obj => obj.trackId === trackId);
+        break;
+      case 'newReleases':
+        track = this.props.releases.find(obj => obj.trackId === trackId);
+        break;
+      default:
+        track = {};
+    }
     return (
         <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
 

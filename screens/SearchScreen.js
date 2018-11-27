@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Platform, ScrollView, FlatList, ActivityIndicator} from 'react-native';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
 
 import {connect} from 'react-redux';
 import {getSearchResults} from '../actions';
+import Layout from '../constants/Layout';
+import Track from '../components/track/track';
 
 class SearchScreen extends React.Component {
   constructor(props) {
@@ -32,7 +34,7 @@ class SearchScreen extends React.Component {
               placeholder='Search'
               placeholderTextColor='#53626D'
               inputStyle={{
-                backgroundColor: "#30353B",
+                backgroundColor: '#30353B',
                 color: Colors.fontColor,
               }}
               containerStyle={{
@@ -42,9 +44,15 @@ class SearchScreen extends React.Component {
               }}
           />
           {this.state.searching ?
-              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: 'white'}}>[Search results]</Text>
-              </View>
+              <ScrollView style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}>
+                {this.props.searchResults.releases.length > 0 ?
+                    <FlatList
+                        data={this.props.searchResults.releases}
+                        keyExtractor={this._keyExtractor}
+                        renderItem={this._renderItem}
+                    />
+                    : <ActivityIndicator size="small" color={Colors.tintColor}/>}
+              </ScrollView>
               :
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text style={{color: 'white'}}>[Categories]</Text>
@@ -74,6 +82,13 @@ class SearchScreen extends React.Component {
     this.searchBox.clear();
     this.setState({searching: false});
   }
+
+  _keyExtractor = (item, index) => item.trackId;
+
+  _renderItem = ({item}) => (
+      <Track track={item} origin="search"/>
+  );
+
 }
 
 function mapStateToProps(state) {

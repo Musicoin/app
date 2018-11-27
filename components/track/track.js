@@ -11,13 +11,14 @@ class Track extends Component {
 
   render() {
     let item = this.props.track;
+    let origin = this.props.origin;
     return (
         <View style={styles.trackContainer}>
           <View style={styles.albumArtContainer}>
             <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
           </View>
 
-          <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: item.trackId})}>
+          <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: item.trackId, origin})}>
             <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
             <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
           </TouchableOpacity>

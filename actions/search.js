@@ -1,8 +1,10 @@
-import {fetchAccessToken} from './index';
+import {fetchAccessToken, fetchReleaseDetailsJson, fetchTrackImageJson} from './index';
 import {SEARCH} from '../constants/Actions';
-import {fetchPostData} from '../tools/util';
+import {fetchPostFormData} from '../tools/util';
+import {API_EMAIL} from 'react-native-dotenv';
 
 function receiveSearchResults(json) {
+  console.log(json);
   const searchResults = json.data;
 
   return {
@@ -14,29 +16,27 @@ function receiveSearchResults(json) {
 async function fetchSearchResultsJson(token, artistName) {
 
   var params = {
-    'accessToken': token,
-    'limit': '10',
     'artistName': artistName,
   };
 
-  let releases = await fetchPostData('search?', params);
+  let results = await fetchPostFormData(`search?email=${API_EMAIL}&accessToken=${token}&limit=2`, params);
 
-  if (releases.data != []) {
+  //ToDo: more error handling e.g. when no results are returned
 
-    // for (let i = 0; i < releases.data.releases.length; i++) {
-    //   let trackPartArray = releases.data.releases[i].trackURL.split('/');
-    //   let trackId = trackPartArray[trackPartArray.length - 1];
-    //   let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-    //   releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-    //   let trackImgArray = releases.data[i].trackImg.split('/');
-    //   let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-    //   releases.data[i].trackImg = trackImg;
-    // }
+  if (results.data.releases) {
 
-    console.log(releases);
-    return releases;
+    for (let i = 0; i < results.data.releases.length; i++) {
+      let trackId = results.data.releases[i].pppLink;
+      let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
+      results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
+      let trackImgArray = results.data.releases[i].trackImg.split('/');
+      let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+      results.data.releases[i].trackImg = trackImg;
+    }
+
+    return results;
   } else {
-    return releases;
+    return results;
   }
 }
 

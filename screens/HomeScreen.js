@@ -41,7 +41,7 @@ class HomeScreen extends React.Component {
   _keyExtractor = (item, index) => item.trackId;
 
   _renderItem = ({item}) => (
-      <Track track={item} />
+      <Track track={item} origin="newReleases" />
   );
 
 }

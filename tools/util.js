@@ -26,15 +26,15 @@ export async function fetchGetData(action, params) {
       'email': API_EMAIL,
     };
 
-    let formBody = [];
+    let getParams = [];
     for (let property in newParams) {
       let encodedKey = encodeURIComponent(property);
       let encodedValue = encodeURIComponent(newParams[property]);
-      formBody.push(encodedKey + '=' + encodedValue);
+      getParams.push(encodedKey + '=' + encodedValue);
     }
-    formBody = formBody.join('&');
+    getParams = getParams.join('&');
 
-    return fetch(API_ENDPOINT + action + formBody, {
+    return fetch(API_ENDPOINT + action + getParams, {
       method: 'GET',
       headers: {
         'cache-control': 'no-cache',
@@ -55,6 +55,37 @@ export async function fetchPostData(action, params) {
     let newParams = {
       ...params,
       'email': API_EMAIL,
+    };
+
+    let formBody = [];
+    for (let property in newParams) {
+      let encodedKey = encodeURIComponent(property);
+      let encodedValue = encodeURIComponent(newParams[property]);
+      formBody.push(encodedKey + '=' + encodedValue);
+    }
+    formBody = formBody.join('&');
+
+    return fetch(API_ENDPOINT + action, {
+      method: 'POST',
+      headers: {
+        'cache-control': 'no-cache',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formBody,
+    }).then(response => {
+      return response.json();
+    }).catch(e => {
+      console.log(e);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export async function fetchPostFormData(action, params) {
+  try {
+    let newParams = {
+      ...params,
     };
 
     let formBody = [];
