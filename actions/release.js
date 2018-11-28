@@ -35,6 +35,17 @@ async function fetchReleasesJson(token) {
       } else {
         releases.data[i].trackImg = Layout.defaultTrackImage;
       }
+      if(!releases.data[i].genres){
+        releases.data[i].genres = [];
+      }
+
+      if(!releases.data[i].directTipCount){
+        releases.data[i].directTipCount = 0;
+      }
+
+      if(!releases.data[i].directPlayCount){
+        releases.data[i].directPlayCount = 0;
+      }
     }
     return releases;
   } else {

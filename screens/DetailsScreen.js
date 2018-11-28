@@ -79,7 +79,7 @@ class DetailsScreen extends React.Component {
 
           <View style={styles.infoContainer}>
 
-            <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join(', ')}</Text>
+            {track.genres != [] ? <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join(', ')}</Text> : null}
 
             <Text style={{color: Colors.fontColor, fontSize: 12, paddingTop: 10, paddingBottom: 20}}>{track.trackDescription}</Text>
             <Text></Text>

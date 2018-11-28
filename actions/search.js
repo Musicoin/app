@@ -2,6 +2,7 @@ import {fetchAccessToken, fetchReleaseDetailsJson, fetchTrackImageJson} from './
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchPostFormData} from '../tools/util';
 import {API_EMAIL} from 'react-native-dotenv';
+import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
   const searchResults = json.data;
@@ -26,9 +27,24 @@ async function fetchSearchResultsJson(token, artistName) {
       let trackId = results.data.releases[i].pppLink;
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
-      let trackImgArray = results.data.releases[i].trackImg.split('/');
-      let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-      results.data.releases[i].trackImg = trackImg;
+      if (results.data.releases[i].trackImg) {
+        let trackImgArray = results.data.releases[i].trackImg.split('/');
+        let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+        results.data.releases[i].trackImg = trackImg;
+      } else {
+        results.data.releases[i].trackImg = Layout.defaultTrackImage;
+      }
+      if(!results.data.releases[i].genres){
+        results.data.releases[i].genres = [];
+      }
+
+      if(!results.data.releases[i].directTipCount){
+        results.data.releases[i].directTipCount = 0;
+      }
+
+      if(!results.data.releases[i].directPlayCount){
+        results.data.releases[i].directPlayCount = 0;
+      }
     }
 
     return results;
