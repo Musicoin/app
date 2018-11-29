@@ -19,7 +19,7 @@ async function fetchSearchResultsJson(token, artistName) {
     'artistName': artistName,
   };
 
-  let results = await fetchPostFormData(`search?email=${API_EMAIL}&accessToken=${token}&limit=2`, params);
+  let results = await fetchPostFormData(`search?email=${API_EMAIL}&accessToken=${token}`, params);
 
   if (results.success && results.data) {
 
@@ -46,6 +46,8 @@ async function fetchSearchResultsJson(token, artistName) {
       if(!results.data.releases[i].directPlayCount){
         results.data.releases[i].directPlayCount = 0;
       }
+
+      results.data.releases[i].origin= "search";
     }
 
     return results;

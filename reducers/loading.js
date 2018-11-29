@@ -1,5 +1,5 @@
 // api/loading.js
-export default function loading(state = {SEARCH: false, RECEIVE_NEW_RELEASES: true}, action) {
+export default function loading(state = {SEARCH: false, RECEIVE_NEW_RELEASES: true, SEARCH_BY_GENRE: true}, action) {
   const {type} = action;
   const matches = /(.*)_(REQUEST|SUCCESS|FAILURE)/.exec(type);
 

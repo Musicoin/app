@@ -19,8 +19,11 @@ class DetailsScreen extends React.Component {
       case 'search':
         track = this.props.searchResults.releases.find(obj => obj.trackId === trackId);
         break;
-      case 'newReleases':
+      case 'new':
         track = this.props.releases.find(obj => obj.trackId === trackId);
+        break;
+      case 'genre':
+        track = this.props.searchResultsByGenre.find(obj => obj.trackId === trackId);
         break;
       default:
         track = {};

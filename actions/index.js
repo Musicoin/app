@@ -4,3 +4,4 @@ export * from './release';
 export * from './auth';
 export * from './tip';
 export * from './search';
+export * from './searchGenre';

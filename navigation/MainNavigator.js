@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
+import GenreScreen from '../screens/GenreScreen';
 
 import Colors from '../constants/Colors';
 import {Platform} from 'react-native';
@@ -62,6 +63,9 @@ const DiscoverStack = createStackNavigator(
       ReleaseDetail: {
         screen: DetailsScreen,
       },
+      GenreScreen:{
+        screen: GenreScreen,
+      }
     },
     {
       mode: 'modal',

@@ -46,6 +46,8 @@ async function fetchReleasesJson(token) {
       if(!releases.data[i].directPlayCount){
         releases.data[i].directPlayCount = 0;
       }
+
+      releases.data[i].origin= "new";
     }
     return releases;
   } else {

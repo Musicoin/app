@@ -50,10 +50,10 @@ class PlayerComponent extends React.Component {
                     <Image style={{width: 70, height: 70}} source={{uri: this.props.currentTrack.trackImg}}/>
                   </View>
 
-                  <TouchableOpacity style={styles.songInfo} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId})}>
+                  <TouchableOpacity style={styles.songInfo} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: this.props.currentTrack.origin})}>
                     <View>
                       <Text style={{color: Colors.fontColor}}>{this.props.currentTrack.title}</Text>
-                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.props.currentTrack.artistName}</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{this.props.currentTrack.author}</Text>
                     </View>
                   </TouchableOpacity>
 

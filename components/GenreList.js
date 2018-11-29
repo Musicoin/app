@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet, StatusBar, Platform} from 'react-native';
+import {View, Text, FlatList, StyleSheet, StatusBar, Platform, TouchableOpacity} from 'react-native';
 import {genres} from '../constants/Data';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import {getColorCodeForString} from '../tools/util';
+import NavigationService from '../services/NavigationService';
+import {getSearchByGenreResults} from '../actions';
 
 class GenreList extends React.Component {
 
@@ -25,10 +27,17 @@ class GenreList extends React.Component {
   _keyExtractor = (item, index) => index.toString();
 
   _renderItem = ({item}) => (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 72, margin: 10, backgroundColor: getColorCodeForString(item)}}>
-        <Text style={{color: 'white', fontSize: 14}}>{item}</Text>
-      </View>
+      <TouchableOpacity style={{flex: 1}} onPress={()=>this.searchTracks(item)}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 72, margin: 10, backgroundColor: getColorCodeForString(item)}}>
+          <Text style={{color: 'white', fontSize: 14}}>{item}</Text>
+        </View>
+      </TouchableOpacity>
   );
+
+  searchTracks(genre){
+    this.props.getSearchByGenreResults(genre);
+    NavigationService.navigate('GenreScreen', {genre})
+  }
 }
 
 function mapStateToProps(state) {
@@ -43,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, {})(GenreList);
+export default connect(mapStateToProps, {getSearchByGenreResults})(GenreList);
