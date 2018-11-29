@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, StatusBar, Platform, FlatList, RefreshControl} from 'react-native';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
+import GenreList from '../components/GenreList';
 
 import {connect} from 'react-redux';
 import {getSearchResults} from '../actions';
@@ -55,13 +56,12 @@ class SearchScreen extends React.Component {
                         onRefresh={() => this.search()}
                         tintColor={Colors.tintColor}
                     />}
-                  ListEmptyComponent={!this.props.loading.SEARCH?<View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
+                  ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
                     <Text style={{color: Colors.tabIconDefault}}>Seems like you played the wrong note!</Text>
-                  </View>: null}
+                  </View> : null}
               />
-              : <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: 'white'}}>[Categories]</Text>
-              </View>
+              :
+              <GenreList/>
           }
         </View>
     );

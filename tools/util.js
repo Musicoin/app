@@ -1,4 +1,4 @@
-import {AsyncStorage, Platform, AppState} from 'react-native';
+import {AsyncStorage} from 'react-native';
 import {API_EMAIL, API_ENDPOINT} from 'react-native-dotenv';
 
 const ACCESS_TOKEN = 'ACCESS_TOKEN';
@@ -111,4 +111,24 @@ export async function fetchPostFormData(action, params) {
   } catch (e) {
     console.log(e);
   }
+}
+
+function hashCode(str) {
+  var hash = 0;
+  for (var i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return hash;
+}
+
+function intToRGB(i){
+  var c = (i & 0x00FFFFFF)
+  .toString(16)
+  .toUpperCase();
+
+  return "00000".substring(0, 6 - c.length) + c;
+}
+
+export function getColorCodeForString(string){
+  return '#' + intToRGB(hashCode(string));
 }

@@ -1,0 +1,46 @@
+import React from 'react';
+import {View, Text, FlatList, StyleSheet, StatusBar, Platform} from 'react-native';
+import {genres} from '../constants/Data';
+import Layout from '../constants/Layout';
+import {connect} from 'react-redux';
+import Colors from '../constants/Colors';
+import {getColorCodeForString} from '../tools/util';
+
+class GenreList extends React.Component {
+
+  render() {
+    return (
+        <FlatList
+            data={genres}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+            ListHeaderComponent={<View style={{marginTop: 30, marginBottom: 15, marginHorizontal: 10}}><Text style={{fontSize: 18, color: '#F4F7FB'}}>Discover</Text>
+              <Text style={{fontSize: 14, color: '#8897A2'}}>Explore your favorite genres</Text></View>}
+            numColumns={2}
+            style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+        />
+    );
+  }
+
+  _keyExtractor = (item, index) => index.toString();
+
+  _renderItem = ({item}) => (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 72, margin: 10, backgroundColor: getColorCodeForString(item)}}>
+        <Text style={{color: 'white', fontSize: 14}}>{item}</Text>
+      </View>
+  );
+}
+
+function mapStateToProps(state) {
+  return state;
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.backgroundColor,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
+  },
+});
+
+export default connect(mapStateToProps, {})(GenreList);
