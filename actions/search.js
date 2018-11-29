@@ -24,7 +24,8 @@ async function fetchSearchResultsJson(token, artistName) {
   if (results.success && results.data) {
 
     for (let i = 0; i < results.data.releases.length; i++) {
-      let trackId = results.data.releases[i].pppLink;
+      let trackPartArray = results.data.releases[i].link.split('/');
+      let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
       if (results.data.releases[i].trackImg) {
