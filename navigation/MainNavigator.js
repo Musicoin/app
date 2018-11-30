@@ -113,14 +113,14 @@ const LibraryStack = createStackNavigator(
 );
 
 LibraryStack.navigationOptions = {
-  tabBarLabel: 'Library',
+  tabBarLabel: 'Queue',
   tabBarIcon: ({focused}) => (
       <TabBarIcon
           focused={focused}
           name={
             Platform.OS === 'ios'
-                ? `ios-switch`
-                : 'md-switch'
+                ? `ios-musical-notes`
+                : 'md-musical-notes'
           }
       />
   ),

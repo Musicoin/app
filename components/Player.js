@@ -3,7 +3,7 @@ import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndic
 import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
-import {tipTrack} from '../actions';
+import {tipTrack, removeFromQueue} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
@@ -152,6 +152,12 @@ class PlayerComponent extends React.Component {
     if (this.state.isLoaded != playbackstatus.isLoaded) {
       this.setState({isLoaded: playbackstatus.isLoaded});
     }
+
+    if(playbackstatus.didJustFinish && this.props.queue.length > 0){
+      // start next track in queue
+      this.loadAndPlayTrack(this.props.queue[0]).then(this.props.removeFromQueue(this.props.queue[0].queueId));
+
+    }
   }
 
   async pauseTrack() {
@@ -220,4 +226,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connectAlert(connect(mapStateToProps, {tipTrack})(PlayerComponent));
+export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue})(PlayerComponent));

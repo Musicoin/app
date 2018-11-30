@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import {View, Text, Platform, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Icon} from 'expo';
 import {connect} from 'react-redux';
-import {playTrack} from '../../actions';
+import {playTrack, addToQueue, removeFromQueue} from '../../actions';
 import Colors from '../../constants/Colors';
-
-import NavigationService from '../../services/NavigationService';
 
 class Track extends Component {
 
@@ -14,25 +12,38 @@ class Track extends Component {
     let origin = this.props.origin;
     return (
         <View style={styles.trackContainer}>
-          <View style={styles.albumArtContainer}>
+          <TouchableOpacity style={styles.albumArtContainer} onPress={() => this.props.playTrack(item)}>
             <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
-          </View>
-
-          <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: item.trackId, origin})}>
-            <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
-            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.artistName}</Text>
           </TouchableOpacity>
 
-          <View style={styles.individualPlayerButton}>
-            <TouchableOpacity onPress={() => this.props.playTrack(item)}>
-              <Icon.Ionicons
-                  name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                  size={18}
-                  color={Colors.tintColor}
-                  style={styles.playerButton}
-              />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.playTrack(item)}>
+            <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
+            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.author}</Text>
+          </TouchableOpacity>
+
+          {origin !== 'queue' ?
+              <View style={styles.individualPlayerButton}>
+                <TouchableOpacity onPress={() => this.props.addToQueue(item)}>
+                  <Icon.Ionicons
+                      name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
+                      size={18}
+                      color={Colors.tintColor}
+                      style={styles.playerButton}
+                  />
+                </TouchableOpacity>
+              </View>
+              :
+              <View style={styles.individualPlayerButton}>
+                <TouchableOpacity onPress={() => this.props.removeFromQueue(item.queueId)}>
+                  <Icon.Ionicons
+                      name={Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'}
+                      size={18}
+                      color={Colors.tintColor}
+                      style={styles.playerButton}
+                  />
+                </TouchableOpacity>
+              </View>
+          }
         </View>
     );
   }
@@ -67,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, {playTrack})(Track);
+export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue})(Track);
