@@ -4,10 +4,13 @@ import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
 
 function receiveReleases(json) {
-  const releases = json.data;
+  let releases;
+  if (json.data) {
+    releases = json.data;
+  }
 
   return {
-    type: releases? RECEIVE_NEW_RELEASES_SUCCESS: RECEIVE_NEW_RELEASES_FAILURE,
+    type: releases ? RECEIVE_NEW_RELEASES_SUCCESS : RECEIVE_NEW_RELEASES_FAILURE,
     releases,
   };
 }
@@ -27,27 +30,33 @@ async function fetchReleasesJson(token) {
       let trackPartArray = releases.data[i].trackURL.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-      releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-      if (releases.data[i].trackImg) {
-        let trackImgArray = releases.data[i].trackImg.split('/');
-        let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-        releases.data[i].trackImg = trackImg;
-      } else {
-        releases.data[i].trackImg = Layout.defaultTrackImage;
+      if (releaseDetails) {
+        releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
+        if (releases.data[i].trackImg) {
+          let trackImgArray = releases.data[i].trackImg.split('/');
+          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+          releases.data[i].trackImg = trackImg;
+        } else {
+          releases.data[i].trackImg = Layout.defaultTrackImage;
+        }
       }
-      if(!releases.data[i].genres){
+      if (!releases.data[i].genres) {
         releases.data[i].genres = [];
       }
 
-      if(!releases.data[i].directTipCount){
+      if (!releases.data[i].directTipCount) {
         releases.data[i].directTipCount = 0;
       }
 
-      if(!releases.data[i].directPlayCount){
+      if (!releases.data[i].directPlayCount) {
         releases.data[i].directPlayCount = 0;
       }
 
-      releases.data[i].origin= "new";
+      if (!releases.data[i].trackImg) {
+        releases.data[i].trackImg = Layout.defaultTrackImage;
+      }
+
+      releases.data[i].origin = 'new';
     }
     return releases;
   } else {

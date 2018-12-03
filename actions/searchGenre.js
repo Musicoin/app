@@ -5,11 +5,15 @@ import {API_EMAIL} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
-  const data = json.data;
+  let searchResults;
+
+  if (json.data) {
+    searchResults = json.data;
+  }
 
   return {
-    type: json ? SEARCH_BY_GENRE_SUCCESS : SEARCH_BY_GENRE_FAILURE,
-    data,
+    type: searchResults ? SEARCH_BY_GENRE_SUCCESS : SEARCH_BY_GENRE_FAILURE,
+    data: searchResults,
   };
 }
 
@@ -28,13 +32,15 @@ async function fetchSearchResultsJson(token, genre) {
       let trackPartArray = results.data[i].link.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-      results.data[i] = {...releaseDetails.data, ...results.data[i], trackId};
-      if (results.data[i].trackImg) {
-        let trackImgArray = results.data[i].trackImg.split('/');
-        let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-        results.data[i].trackImg = trackImg;
-      } else {
-        results.data[i].trackImg = Layout.defaultTrackImage;
+      if (releaseDetails) {
+        results.data[i] = {...releaseDetails.data, ...results.data[i], trackId};
+        if (results.data[i].trackImg) {
+          let trackImgArray = results.data[i].trackImg.split('/');
+          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+          results.data[i].trackImg = trackImg;
+        } else {
+          results.data[i].trackImg = Layout.defaultTrackImage;
+        }
       }
       if (!results.data[i].genres) {
         results.data[i].genres = [];
@@ -46,6 +52,10 @@ async function fetchSearchResultsJson(token, genre) {
 
       if (!results.data[i].directPlayCount) {
         results.data[i].directPlayCount = 0;
+      }
+
+      if(results.data[i].trackImg.startsWith('ipfs://')){
+        results.data[i].trackImg = Layout.defaultTrackImage;
       }
 
       results.data[i].origin = 'genre';

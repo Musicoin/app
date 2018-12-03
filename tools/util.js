@@ -41,12 +41,20 @@ export async function fetchGetData(action, params) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     }).then(response => {
-      return response.json();
+      console.log(response);
+      try {
+        let result = response.json();
+        return result;
+      }catch(e){
+        console.log(response);
+        return false;
+      }
     }).catch(e => {
       console.log(e);
     });
   } catch (e) {
     console.log(e);
+    return false;
   }
 }
 
@@ -73,12 +81,20 @@ export async function fetchPostData(action, params) {
       },
       body: formBody,
     }).then(response => {
-      return response.json();
+      console.log(response);
+      try {
+        let result = response.json();
+        return result;
+      }catch(e){
+        console.log(response);
+        return false;
+      }
     }).catch(e => {
       console.log(e);
     });
   } catch (e) {
     console.log(e);
+    return false;
   }
 }
 

@@ -5,10 +5,14 @@ import {API_EMAIL} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
-  const searchResults = json.data;
+  let searchResults;
+
+  if (json.data) {
+    searchResults = json.data;
+  }
 
   return {
-    type: json? SEARCH_SUCCESS: SEARCH_FAILURE,
+    type: searchResults ? SEARCH_SUCCESS : SEARCH_FAILURE,
     searchResults,
   };
 }
@@ -27,27 +31,33 @@ async function fetchSearchResultsJson(token, artistName) {
       let trackPartArray = results.data.releases[i].link.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-      results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
-      if (results.data.releases[i].trackImg) {
-        let trackImgArray = results.data.releases[i].trackImg.split('/');
-        let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-        results.data.releases[i].trackImg = trackImg;
-      } else {
-        results.data.releases[i].trackImg = Layout.defaultTrackImage;
+      if (releaseDetails) {
+        results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
+        if (results.data.releases[i].trackImg) {
+          let trackImgArray = results.data.releases[i].trackImg.split('/');
+          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
+          results.data.releases[i].trackImg = trackImg;
+        } else {
+          results.data.releases[i].trackImg = Layout.defaultTrackImage;
+        }
       }
-      if(!results.data.releases[i].genres){
+      if (!results.data.releases[i].genres) {
         results.data.releases[i].genres = [];
       }
 
-      if(!results.data.releases[i].directTipCount){
+      if (!results.data.releases[i].directTipCount) {
         results.data.releases[i].directTipCount = 0;
       }
 
-      if(!results.data.releases[i].directPlayCount){
+      if (!results.data.releases[i].directPlayCount) {
         results.data.releases[i].directPlayCount = 0;
       }
 
-      results.data.releases[i].origin= "search";
+      if(results.data.releases[i].trackImg.startsWith('ipfs://')){
+        results.data.releases[i].trackImg = Layout.defaultTrackImage;
+      }
+
+      results.data.releases[i].origin = 'search';
     }
 
     return results;
@@ -58,7 +68,7 @@ async function fetchSearchResultsJson(token, artistName) {
 
 export function getSearchResults(artistName) {
   return function(dispatch, getState) {
-    dispatch({type: SEARCH_REQUEST})
+    dispatch({type: SEARCH_REQUEST});
     let accessToken = getState().accessToken;
     let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
     if (diff >= 58) {
