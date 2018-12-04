@@ -1,4 +1,4 @@
-import {fetchAccessToken} from './index';
+import {fetchAccessToken} from './auth';
 import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
@@ -96,12 +96,24 @@ export async function fetchTrackImageJson(imageId) {
         'cache-control': 'no-cache',
       },
     }).then(response => {
-      return response.json();
+      console.log(response);
+      try {
+        if (response.ok) {
+          let result = response.json();
+          return result;
+        } else {
+          return false;
+        }
+      } catch (e) {
+        console.log(response);
+        return false;
+      }
     }).catch(e => {
       console.log(e);
-      return Layout.defaultTrackImage;
+      return false;
     });
   } catch (e) {
     console.log(e);
+    return false;
   }
 }

@@ -1,4 +1,5 @@
-import {fetchAccessToken, fetchReleaseDetailsJson, fetchTrackImageJson} from './index';
+import {fetchAccessToken} from './auth';
+import {fetchReleaseDetailsJson, fetchTrackImageJson} from './release';
 import {SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import {API_EMAIL} from 'react-native-dotenv';

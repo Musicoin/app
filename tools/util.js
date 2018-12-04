@@ -41,16 +41,20 @@ export async function fetchGetData(action, params) {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     }).then(response => {
-      console.log(response);
       try {
-        let result = response.json();
-        return result;
-      }catch(e){
+        if (response.ok) {
+          let result = response.json();
+          return result;
+        } else {
+          return false;
+        }
+      } catch (e) {
         console.log(response);
         return false;
       }
     }).catch(e => {
       console.log(e);
+      return false;
     });
   } catch (e) {
     console.log(e);
@@ -83,14 +87,19 @@ export async function fetchPostData(action, params) {
     }).then(response => {
       console.log(response);
       try {
-        let result = response.json();
-        return result;
-      }catch(e){
+        if (response.ok) {
+          let result = response.json();
+          return result;
+        } else {
+          return false;
+        }
+      } catch (e) {
         console.log(response);
         return false;
       }
     }).catch(e => {
       console.log(e);
+      return false;
     });
   } catch (e) {
     console.log(e);
@@ -120,12 +129,25 @@ export async function fetchPostFormData(action, params) {
       },
       body: formBody,
     }).then(response => {
-      return response.json();
+      console.log(response);
+      try {
+        if (response.ok) {
+          let result = response.json();
+          return result;
+        } else {
+          return false;
+        }
+      } catch (e) {
+        console.log(response);
+        return false;
+      }
     }).catch(e => {
       console.log(e);
+      return false;
     });
   } catch (e) {
     console.log(e);
+    return false;
   }
 }
 
@@ -137,14 +159,12 @@ function hashCode(str) {
   return hash;
 }
 
-function intToRGB(i){
-  var c = (i & 0x00FFFFFF)
-  .toString(16)
-  .toUpperCase();
+function intToRGB(i) {
+  var c = (i & 0x00FFFFFF).toString(16).toUpperCase();
 
-  return "00000".substring(0, 6 - c.length) + c;
+  return '00000'.substring(0, 6 - c.length) + c;
 }
 
-export function getColorCodeForString(string){
+export function getColorCodeForString(string) {
   return '#' + intToRGB(hashCode(string));
 }
