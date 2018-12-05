@@ -46,6 +46,7 @@ export async function fetchGetData(action, params) {
           let result = response.json();
           return result;
         } else {
+          console.log(response);
           return false;
         }
       } catch (e) {
@@ -85,12 +86,12 @@ export async function fetchPostData(action, params) {
       },
       body: formBody,
     }).then(response => {
-      console.log(response);
       try {
         if (response.ok) {
           let result = response.json();
           return result;
         } else {
+          console.log(response);
           return false;
         }
       } catch (e) {
@@ -129,12 +130,12 @@ export async function fetchPostFormData(action, params) {
       },
       body: formBody,
     }).then(response => {
-      console.log(response);
       try {
         if (response.ok) {
           let result = response.json();
           return result;
         } else {
+          console.log(response);
           return false;
         }
       } catch (e) {

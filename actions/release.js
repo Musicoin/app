@@ -96,12 +96,12 @@ export async function fetchTrackImageJson(imageId) {
         'cache-control': 'no-cache',
       },
     }).then(response => {
-      console.log(response);
       try {
         if (response.ok) {
           let result = response.json();
           return result;
         } else {
+          console.log(response);
           return false;
         }
       } catch (e) {

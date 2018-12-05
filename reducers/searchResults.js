@@ -1,9 +1,10 @@
 import {SEARCH_REQUEST, SEARCH_FAILURE, SEARCH_SUCCESS, TIP_TRACK} from '../constants/Actions';
 
-export default function releases(state = {user: null, releases: []}, action) {
+export default function releases(state = {artists: [], releases: []}, action) {
   switch (action.type) {
     case SEARCH_SUCCESS:
-      return action.searchResults.user ? action.searchResults : state;
+      let {releases, artists} = action.searchResults;
+      return releases || artists ? {releases, artists} : state;
     case SEARCH_FAILURE, SEARCH_REQUEST:
       return {user: null, releases: []};
     case TIP_TRACK: {

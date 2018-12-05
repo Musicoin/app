@@ -8,8 +8,8 @@ import Layout from '../constants/Layout';
 function receiveSearchResults(json) {
   let searchResults;
 
-  if (json.data) {
-    searchResults = json.data;
+  if (json.releases || json.artists) {
+    searchResults = {releases: json.releases, artists: json.artists};
   }
 
   return {
@@ -18,47 +18,48 @@ function receiveSearchResults(json) {
   };
 }
 
-async function fetchSearchResultsJson(token, artistName) {
+async function fetchSearchResultsJson(token, keyword) {
 
   var params = {
-    'artistName': artistName,
+    'keyword': keyword,
+    'limit': 10
   };
 
-  let results = await fetchPostFormData(`search?email=${API_EMAIL}&accessToken=${token}`, params);
+  let results = await fetchPostFormData(`v1.0/search?email=${API_EMAIL}&accessToken=${token}`, params);
 
-  if (results.success && results.data) {
+  if (results.success && results.releases != []) {
 
-    for (let i = 0; i < results.data.releases.length; i++) {
-      let trackPartArray = results.data.releases[i].link.split('/');
+    for (let i = 0; i < results.releases.length; i++) {
+      let trackPartArray = results.releases[i].link.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       if (releaseDetails) {
-        results.data.releases[i] = {...releaseDetails.data, ...results.data.releases[i], trackId};
-        if (results.data.releases[i].trackImg) {
-          let trackImgArray = results.data.releases[i].trackImg.split('/');
+        results.releases[i] = {...releaseDetails.data, ...results.releases[i], trackId};
+        if (results.releases[i].trackImg) {
+          let trackImgArray = results.releases[i].trackImg.split('/');
           let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-          results.data.releases[i].trackImg = trackImg;
+          results.releases[i].trackImg = trackImg;
         } else {
-          results.data.releases[i].trackImg = Layout.defaultTrackImage;
+          results.releases[i].trackImg = Layout.defaultTrackImage;
         }
       }
-      if (!results.data.releases[i].genres) {
-        results.data.releases[i].genres = [];
+      if (!results.releases[i].genres) {
+        results.releases[i].genres = [];
       }
 
-      if (!results.data.releases[i].directTipCount) {
-        results.data.releases[i].directTipCount = 0;
+      if (!results.releases[i].directTipCount) {
+        results.releases[i].directTipCount = 0;
       }
 
-      if (!results.data.releases[i].directPlayCount) {
-        results.data.releases[i].directPlayCount = 0;
+      if (!results.releases[i].directPlayCount) {
+        results.releases[i].directPlayCount = 0;
       }
 
-      if(results.data.releases[i].trackImg.startsWith('ipfs://')){
-        results.data.releases[i].trackImg = Layout.defaultTrackImage;
+      if(results.releases[i].trackImg.startsWith('ipfs://')){
+        results.releases[i].trackImg = Layout.defaultTrackImage;
       }
 
-      results.data.releases[i].origin = 'search';
+      results.releases[i].origin = 'search';
     }
 
     return results;
@@ -67,17 +68,17 @@ async function fetchSearchResultsJson(token, artistName) {
   }
 }
 
-export function getSearchResults(artistName) {
+export function getSearchResults(keyword) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_REQUEST});
     let accessToken = getState().accessToken;
     let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
     if (diff >= 58) {
       // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchSearchResultsJson(getState().accessToken.token, artistName).then(json => dispatch(receiveSearchResults(json)));});
+      dispatch(fetchAccessToken()).then(() => {return fetchSearchResultsJson(getState().accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));});
 
     } else {
-      return fetchSearchResultsJson(accessToken.token, artistName).then(json => dispatch(receiveSearchResults(json)));
+      return fetchSearchResultsJson(accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));
     }
   };
 }
