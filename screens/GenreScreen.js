@@ -73,47 +73,8 @@ function mapStateToProps(state) {
 }
 
 const styles = StyleSheet.create({
-  songInfoContainer: {
-    flex: 1,
-    backgroundColor: Colors.backgroundColor,
-  },
   contentContainer: {
     paddingTop: 0,
-  },
-  playButtonContainer: {
-    padding: 0,
-    margin: 0,
-    flex: 0.1,
-  },
-  playerContainer: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: {height: -3},
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: Colors.backgroundColor,
-    paddingVertical: 5,
-  },
-  albumArtPlayerContainer: {
-    padding: 10,
-    flex: 0.3,
-  },
-  songInfo: {
-    padding: 10,
-    marginRight: 10,
-    flex: 0.6,
   },
 });
 

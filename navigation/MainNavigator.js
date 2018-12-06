@@ -41,9 +41,9 @@ HomeStack.navigationOptions = {
   ),
   tabBarOptions: {
     activeTintColor: Colors.tabIconSelected,
-    activeBackgroundColor: Colors.backgroundColor,
+    activeBackgroundColor: Colors.tabBar,
     inactiveTintColor: Colors.tabIconDefault,
-    inactiveBackgroundColor: Colors.backgroundColor,
+    inactiveBackgroundColor: Colors.tabBar,
   },
   headerTitle: <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
     <Image resizeMode={'center'} style={{width: 150, height: 35.625, margin: 0, padding: 0}} source={require('../assets/images/logo.png')}/>
@@ -87,9 +87,9 @@ DiscoverStack.navigationOptions = {
   ),
   tabBarOptions: {
     activeTintColor: Colors.tabIconSelected,
-    activeBackgroundColor: Colors.backgroundColor,
+    activeBackgroundColor: Colors.tabBar,
     inactiveTintColor: Colors.tabIconDefault,
-    inactiveBackgroundColor: Colors.backgroundColor,
+    inactiveBackgroundColor: Colors.tabBar,
   },
   headerStyle:
       {
@@ -126,9 +126,9 @@ LibraryStack.navigationOptions = {
   ),
   tabBarOptions: {
     activeTintColor: Colors.tabIconSelected,
-    activeBackgroundColor: Colors.backgroundColor,
+    activeBackgroundColor: Colors.tabBar,
     inactiveTintColor: Colors.tabIconDefault,
-    inactiveBackgroundColor: Colors.backgroundColor,
+    inactiveBackgroundColor: Colors.tabBar,
   },
   headerStyle:
       {

@@ -4,14 +4,17 @@ import {addAlert} from './alert';
 
 function addTip(trackId, json) {
   return function(dispatch, getState) {
+    let success = false;
     if (json.res == 200) {
       dispatch(addAlert('success', 'thank you!', 'Tip will be added when the next block is mined'));
+      success = true;
     } else {
       dispatch(addAlert('error', 'Something went wrong', 'Please try again later'));
     }
     dispatch({
       type: TIP_TRACK,
       trackId: trackId,
+      success,
     });
   };
 }

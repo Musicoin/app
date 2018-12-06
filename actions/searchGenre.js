@@ -8,7 +8,7 @@ import Layout from '../constants/Layout';
 function receiveSearchResults(json) {
   let searchResults;
 
-  if (json.data) {
+  if (json.success && json.data) {
     searchResults = json.data;
   }
 

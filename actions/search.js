@@ -2,7 +2,7 @@ import {fetchAccessToken} from './auth';
 import {fetchReleaseDetailsJson, fetchTrackImageJson} from './release';
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchPostFormData} from '../tools/util';
-import {API_EMAIL} from 'react-native-dotenv';
+import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
@@ -25,7 +25,7 @@ async function fetchSearchResultsJson(token, keyword) {
     'limit': 10
   };
 
-  let results = await fetchPostFormData(`v1.0/search?email=${API_EMAIL}&accessToken=${token}`, params);
+  let results = await fetchPostFormData(`search/${API_VERSION}?email=${API_EMAIL}&accessToken=${token}`, params);
 
   if (results.success && results.releases != []) {
 

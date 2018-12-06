@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     margin: 0,
     flex: 0.1,
   },
-  playerContainer: {
+  smallPlayerContainer: {
     flexDirection: 'row',
     position: 'absolute',
     bottom: 0,
