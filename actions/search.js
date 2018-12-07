@@ -35,13 +35,6 @@ async function fetchSearchResultsJson(token, keyword) {
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       if (releaseDetails) {
         results.releases[i] = {...releaseDetails.data, ...results.releases[i], trackId};
-        if (results.releases[i].trackImg) {
-          let trackImgArray = results.releases[i].trackImg.split('/');
-          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-          results.releases[i].trackImg = trackImg;
-        } else {
-          results.releases[i].trackImg = Layout.defaultTrackImage;
-        }
       }
       if (!results.releases[i].genres) {
         results.releases[i].genres = [];
@@ -55,7 +48,7 @@ async function fetchSearchResultsJson(token, keyword) {
         results.releases[i].directPlayCount = 0;
       }
 
-      if(results.releases[i].trackImg.startsWith('ipfs://')){
+      if(!results.releases[i].trackImg){
         results.releases[i].trackImg = Layout.defaultTrackImage;
       }
 
