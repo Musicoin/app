@@ -2,14 +2,14 @@ import {fetchAccessToken} from './auth';
 import {fetchReleaseDetailsJson, fetchTrackImageJson} from './release';
 import {SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_EMAIL} from 'react-native-dotenv';
+import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
   let searchResults;
 
-  if (json.success && json.data) {
-    searchResults = json.data;
+  if (json.success && json.releases) {
+    searchResults = json.releases;
   }
 
   return {
@@ -25,43 +25,37 @@ async function fetchSearchResultsJson(token, genre) {
     'accessToken': token,
   };
 
-  let results = await fetchGetData(`release/bygenre?`, params);
+  let results = await fetchGetData(`release/bygenre/${API_VERSION}?`, params);
 
-  if (results.success && results.data) {
+  console.log(results);
 
-    for (let i = 0; i < results.data.length; i++) {
-      let trackPartArray = results.data[i].link.split('/');
+  if (results.success && results.releases != []) {
+
+    for (let i = 0; i < results.releases.length; i++) {
+      let trackPartArray = results.releases[i].link.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       if (releaseDetails) {
-        results.data[i] = {...releaseDetails.data, ...results.data[i], trackId};
-        if (results.data[i].trackImg) {
-          let trackImgArray = results.data[i].trackImg.split('/');
-          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-          results.data[i].trackImg = trackImg;
-        } else {
-          results.data[i].trackImg = Layout.defaultTrackImage;
-        }
+        results.releases[i] = {...releaseDetails.data, ...results.releases[i], trackId};
       }
-      if (!results.data[i].genres) {
-        results.data[i].genres = [];
+      if (!results.releases[i].genres) {
+        results.releases[i].genres = [];
       }
 
-      if (!results.data[i].directTipCount) {
-        results.data[i].directTipCount = 0;
+      if (!results.releases[i].directTipCount) {
+        results.releases[i].directTipCount = 0;
       }
 
-      if (!results.data[i].directPlayCount) {
-        results.data[i].directPlayCount = 0;
+      if (!results.releases[i].directPlayCount) {
+        results.releases[i].directPlayCount = 0;
       }
 
-      if(results.data[i].trackImg.startsWith('ipfs://')){
-        results.data[i].trackImg = Layout.defaultTrackImage;
+      if (!results.releases[i].trackImg) {
+        results.releases[i].trackImg = Layout.defaultTrackImage;
       }
 
-      results.data[i].origin = 'genre';
+      results.releases[i].origin = 'genre';
     }
-    console.log(results);
     return results;
   } else {
     return false;

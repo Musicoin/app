@@ -2,11 +2,12 @@ import {fetchAccessToken} from './auth';
 import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
+import {API_VERSION} from 'react-native-dotenv';
 
 function receiveReleases(json) {
   let releases;
-  if (json.data) {
-    releases = json.data;
+  if (json.releases) {
+    releases = json.releases;
   }
 
   return {
@@ -22,43 +23,36 @@ async function fetchReleasesJson(token) {
     'limit': '10',
   };
 
-  let releases = await fetchGetData('release/recent?', params);
+  let results = await fetchGetData(`release/recent/${API_VERSION}?`, params);
 
-  if (releases.success && releases.data != []) {
+  if (results.success && results.releases != []) {
 
-    for (let i = 0; i < releases.data.length; i++) {
-      let trackPartArray = releases.data[i].trackURL.split('/');
+    for (let i = 0; i < results.releases.length; i++) {
+      let trackPartArray = results.releases[i].link.split('/');
       let trackId = trackPartArray[trackPartArray.length - 1];
       let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
       if (releaseDetails) {
-        releases.data[i] = {...releaseDetails.data, ...releases.data[i], trackId};
-        if (releases.data[i].trackImg) {
-          let trackImgArray = releases.data[i].trackImg.split('/');
-          let trackImg = await fetchTrackImageJson(trackImgArray[trackImgArray.length - 1]);
-          releases.data[i].trackImg = trackImg;
-        } else {
-          releases.data[i].trackImg = Layout.defaultTrackImage;
-        }
+        results.releases[i] = {...releaseDetails.data, ...results.releases[i], trackId};
       }
-      if (!releases.data[i].genres) {
-        releases.data[i].genres = [];
+      if (!results.releases[i].genres) {
+        results.releases[i].genres = [];
       }
 
-      if (!releases.data[i].directTipCount) {
-        releases.data[i].directTipCount = 0;
+      if (!results.releases[i].directTipCount) {
+        results.releases[i].directTipCount = 0;
       }
 
-      if (!releases.data[i].directPlayCount) {
-        releases.data[i].directPlayCount = 0;
+      if (!results.releases[i].directPlayCount) {
+        results.releases[i].directPlayCount = 0;
       }
 
-      if (!releases.data[i].trackImg) {
-        releases.data[i].trackImg = Layout.defaultTrackImage;
+      if (!results.releases[i].trackImg) {
+        results.releases[i].trackImg = Layout.defaultTrackImage;
       }
 
-      releases.data[i].origin = 'new';
+      results.releases[i].origin = 'new';
     }
-    return releases;
+    return results;
   } else {
     return false;
   }
