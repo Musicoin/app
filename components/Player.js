@@ -32,7 +32,7 @@ class PlayerComponent extends React.Component {
       currentTrack: null,
       isPlaying: false,
       isLoaded: true,
-      showExpandedPlayer: true,
+      showExpandedPlayer: false,
       currentPosition: 0,
       maxValue: 0,
     };
@@ -76,12 +76,11 @@ class PlayerComponent extends React.Component {
                   </TouchableOpacity>
 
                   <View>
-                    <TouchableOpacity>
-                      <Icon.FontAwesome onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}
-                                        name={Platform.OS === 'ios' ? `signing` : 'signing'}
-                                        size={Layout.playerIconSize}
-                                        color={Colors.fontColor}
-                                        style={styles.playerButton}
+                    <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={[{width: 20, height: 20}, styles.playerButton]}
                       />
                     </TouchableOpacity>
                   </View>
@@ -196,8 +195,8 @@ class PlayerComponent extends React.Component {
                       />
                     </TouchableOpacity>
                     <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
-                      <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? `ios-rewind` : 'md-rewind'}
+                      <Icon.MaterialIcons
+                          name="skip-previous"
                           size={40}
                           color={Colors.disabled}
                           style={styles.playerButton}
@@ -221,8 +220,8 @@ class PlayerComponent extends React.Component {
                           />
                         </TouchableOpacity>}
                     <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
-                      <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? `ios-fastforward` : 'md-fastforward'}
+                      <Icon.MaterialIcons
+                          name="skip-next"
                           size={40}
                           color={Colors.disabled}
                           style={styles.playerButton}
@@ -258,11 +257,10 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity
                         style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
                         onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
-                      <Icon.FontAwesome
-                          name={'signing'}
-                          size={20}
-                          color={Colors.fontColor}
-                          style={{marginRight: 5}}
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={{width: 16, height: 16, marginRight: 5}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
                     </TouchableOpacity>
@@ -280,7 +278,7 @@ class PlayerComponent extends React.Component {
         title: `${track.author} - ${track.title}`,
         dialogTitle: `${track.author} - ${track.title}`,
         message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.trackURL}`,
-        url: `${track.trackURL}`
+        url: `${track.trackURL}`,
       });
 
       if (result.action === Share.sharedAction) {
@@ -341,7 +339,6 @@ class PlayerComponent extends React.Component {
   };
 
   onPlaybackStatusUpdate(playbackstatus) {
-    console.log(playbackstatus);
     if (this.state.isPlaying != playbackstatus.isPlaying) {
       this.setState({isPlaying: playbackstatus.isPlaying});
     }
@@ -365,8 +362,13 @@ class PlayerComponent extends React.Component {
   }
 
   async resumeTrack() {
-    // this.setState({isPlaying: true});
-    await audioPlayer.playAsync();
+    // play again if track has finished playing
+
+    if (this.state.currentPosition == this.state.maxValue) {
+      await audioPlayer.replayAsync();
+    } else {
+      await audioPlayer.playAsync();
+    }
   }
 
   showAlert(title, text) {

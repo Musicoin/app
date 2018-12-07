@@ -63,9 +63,9 @@ const DiscoverStack = createStackNavigator(
       ReleaseDetail: {
         screen: DetailsScreen,
       },
-      GenreScreen:{
+      GenreScreen: {
         screen: GenreScreen,
-      }
+      },
     },
     {
       mode: 'modal',
@@ -115,13 +115,14 @@ const LibraryStack = createStackNavigator(
 LibraryStack.navigationOptions = {
   tabBarLabel: 'Queue',
   tabBarIcon: ({focused}) => (
-      <TabBarIcon
-          focused={focused}
-          name={
-            Platform.OS === 'ios'
-                ? `ios-musical-notes`
-                : 'md-musical-notes'
-          }
+      focused ? <Image
+          source={require('../assets/icons/library-white.png')}
+          fadeDuration={0}
+          style={[{width: 28.06, height: 20}]}
+      /> : <Image
+          source={require('../assets/icons/library-grey.png')}
+          fadeDuration={0}
+          style={[{width: 28.06, height: 20}]}
       />
   ),
   tabBarOptions: {
