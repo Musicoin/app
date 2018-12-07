@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
-import {tipTrack, removeFromQueue, addToQueue} from '../actions';
+import {tipTrack, removeFromQueue, addToQueue, playTrack} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
@@ -35,6 +35,7 @@ class PlayerComponent extends React.Component {
       showExpandedPlayer: false,
       currentPosition: 0,
       maxValue: 0,
+      repeat: false,
     };
   }
 
@@ -42,6 +43,7 @@ class PlayerComponent extends React.Component {
     if (prev.lastAction != this.props.lastAction) {
       switch (this.props.lastAction.type) {
         case PLAY_TRACK:
+          this.setState({currentPosition: 0})
           await this.loadAndPlayTrack(this.props.currentTrack);
           break;
         default:
@@ -186,11 +188,11 @@ class PlayerComponent extends React.Component {
                     </View>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-                    <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
+                    <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.setState({repeat: !this.state.repeat})}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
                           size={20}
-                          color={Colors.disabled}
+                          color={this.state.repeat ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
@@ -347,9 +349,16 @@ class PlayerComponent extends React.Component {
       this.setState({isLoaded: playbackstatus.isLoaded});
     }
 
-    if (playbackstatus.didJustFinish && this.props.queue.length > 0) {
-      // start next track in queue
-      this.loadAndPlayTrack(this.props.queue[0]).then(this.props.removeFromQueue(this.props.queue[0].queueId));
+    if (playbackstatus.didJustFinish) {
+      // replay if in repeat mode or start next track in queue
+      if (this.state.repeat) {
+        audioPlayer.replayAsync().then(console.log('repeat'));
+      } else {
+        if (this.props.queue.length > 0) {
+          this.props.playTrack(this.props.queue[0]);
+          this.props.removeFromQueue(this.props.queue[0].queueId);
+        }
+      }
     }
     if (playbackstatus.positionMillis && playbackstatus.durationMillis) {
       this.setState({currentPosition: playbackstatus.positionMillis, maxValue: playbackstatus.durationMillis});
@@ -440,4 +449,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue})(PlayerComponent));
+export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack})(PlayerComponent));
