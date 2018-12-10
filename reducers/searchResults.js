@@ -6,7 +6,7 @@ export default function releases(state = {artists: [], releases: []}, action) {
       let {releases, artists} = action.searchResults;
       return releases || artists ? {releases, artists} : state;
     case SEARCH_FAILURE, SEARCH_REQUEST:
-      return {user: null, releases: []};
+      return {artists:[], releases: []};
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {

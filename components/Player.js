@@ -36,6 +36,9 @@ class PlayerComponent extends React.Component {
       currentPosition: 0,
       maxValue: 0,
       repeat: false,
+      shuffle: false,
+      previousAllowed: true,
+      nextAllowed: true,
     };
   }
 
@@ -43,7 +46,8 @@ class PlayerComponent extends React.Component {
     if (prev.lastAction != this.props.lastAction) {
       switch (this.props.lastAction.type) {
         case PLAY_TRACK:
-          this.setState({currentPosition: 0})
+          this.setState({currentPosition: 0});
+          this.checkPreviousAndNext();
           await this.loadAndPlayTrack(this.props.currentTrack);
           break;
         default:
@@ -51,6 +55,52 @@ class PlayerComponent extends React.Component {
       }
     }
 
+  }
+
+  checkPreviousAndNext() {
+    // get index of the track to check if we can play a previous or next track
+    let trackList = this.getTrackList();
+    let previousAllowed = false;
+    let nextAllowed = false;
+
+    let index = trackList.indexOf(this.props.currentTrack);
+
+    if (this.props.lastPlayed.length > 1 && this.props.lastPlayed.lastIndexOf(this.props.currentTrack) != 0) {
+      previousAllowed = true;
+    }
+
+    if (this.state.shuffle) {
+      nextAllowed = true;
+
+    } else {
+      if (index < trackList.length - 1) {
+        nextAllowed = true;
+      }
+    }
+
+    this.setState({previousAllowed, nextAllowed});
+
+  }
+
+  getTrackList() {
+    let trackList = [];
+    switch (this.props.currentTrack.origin) {
+      case 'new':
+        trackList = this.props.releases;
+        break;
+      case 'queue':
+        trackList = this.props.queue;
+        break;
+      case 'search':
+        trackList = this.props.searchResults.releases;
+        break;
+      case 'genre':
+        trackList = this.props.searchResultsByGenre;
+        break;
+      default:
+        break;
+    }
+    return trackList;
   }
 
   render() {
@@ -196,11 +246,11 @@ class PlayerComponent extends React.Component {
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
-                    <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
+                    <TouchableOpacity disabled={!this.state.previousAllowed} style={{marginHorizontal: 5}} onPress={() => this.playPreviousTrack()}>
                       <Icon.MaterialIcons
                           name="skip-previous"
                           size={40}
-                          color={Colors.disabled}
+                          color={this.state.previousAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
@@ -221,19 +271,21 @@ class PlayerComponent extends React.Component {
                               style={styles.playerButton}
                           />
                         </TouchableOpacity>}
-                    <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
+                    <TouchableOpacity disabled={!this.state.nextAllowed} style={{marginHorizontal: 5}} onPress={() => this.playNextTrack()}>
                       <Icon.MaterialIcons
                           name="skip-next"
                           size={40}
-                          color={Colors.disabled}
+                          color={this.state.nextAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
-                    <TouchableOpacity disabled={true} style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
+                    <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => {
+                      this.setState({shuffle: !this.state.shuffle});
+                    }}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
                           size={20}
-                          color={Colors.disabled}
+                          color={this.state.shuffle ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
@@ -334,8 +386,6 @@ class PlayerComponent extends React.Component {
       console.log('audio failed to play');
       console.log(e);
       this.showAlert('File not playing', 'The requested track failed to play, please try again later.');
-      await audioPlayer.stopAsync();
-      await audioPlayer.unloadAsync();
     }
     // }
   };
@@ -355,8 +405,7 @@ class PlayerComponent extends React.Component {
         audioPlayer.replayAsync().then(console.log('repeat'));
       } else {
         if (this.props.queue.length > 0) {
-          this.props.playTrack(this.props.queue[0]);
-          this.props.removeFromQueue(this.props.queue[0].queueId);
+          this.playNextTrack();
         }
       }
     }
@@ -368,6 +417,35 @@ class PlayerComponent extends React.Component {
   async pauseTrack() {
     // this.setState({isPlaying: false});
     await audioPlayer.pauseAsync();
+  }
+
+  async playPreviousTrack() {
+      let trackList = this.props.lastPlayed;
+      let index = trackList.lastIndexOf(this.props.currentTrack);
+      if (trackList[index - 1]) {
+        this.props.playTrack(trackList[index - 1], false);
+      }
+  }
+
+  async playNextTrack() {
+    let trackList = this.getTrackList();
+    let index = trackList.indexOf(this.props.currentTrack);
+    if (this.state.shuffle) {
+      let newIndex = this.generateRandom(0, trackList.length - 1, index);
+      if (trackList[newIndex]) {
+        this.props.playTrack(trackList[newIndex]);
+      }
+    }
+    else {
+      if (trackList[index + 1]) {
+        this.props.playTrack(trackList[index + 1]);
+      }
+    }
+  }
+
+  generateRandom(min, max, excludedValue) {
+    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return (num == excludedValue) ? this.generateRandom(min, max) : num;
   }
 
   async resumeTrack() {
