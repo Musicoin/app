@@ -404,9 +404,7 @@ class PlayerComponent extends React.Component {
       if (this.state.repeat) {
         audioPlayer.replayAsync().then(console.log('repeat'));
       } else {
-        if (this.props.queue.length > 0) {
-          this.playNextTrack();
-        }
+        this.playNextTrack();
       }
     }
     if (playbackstatus.positionMillis && playbackstatus.durationMillis) {
@@ -419,15 +417,15 @@ class PlayerComponent extends React.Component {
     await audioPlayer.pauseAsync();
   }
 
-  async playPreviousTrack() {
-      let trackList = this.props.lastPlayed;
-      let index = trackList.lastIndexOf(this.props.currentTrack);
-      if (trackList[index - 1]) {
-        this.props.playTrack(trackList[index - 1], false);
-      }
+  playPreviousTrack() {
+    let trackList = this.props.lastPlayed;
+    let index = trackList.lastIndexOf(this.props.currentTrack);
+    if (trackList[index - 1]) {
+      this.props.playTrack(trackList[index - 1], false);
+    }
   }
 
-  async playNextTrack() {
+  playNextTrack() {
     let trackList = this.getTrackList();
     let index = trackList.indexOf(this.props.currentTrack);
     if (this.state.shuffle) {
