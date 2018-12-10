@@ -1,5 +1,5 @@
 import {fetchPostData} from '../tools/util';
-import {API_CLIENT_SECRET, API_PASSWORD, API_USERNAME} from 'react-native-dotenv';
+import {API_CLIENT_SECRET, API_PASSWORD, API_USERNAME, API_VERSION} from 'react-native-dotenv';
 import {RECEIVE_ACCESS_TOKEN} from '../constants/Actions';
 
 function receiveAccessToken(json) {
@@ -20,7 +20,7 @@ async function fetchAccessTokenJson() {
 
   };
 
-  return fetchPostData('authtoken', params);
+  return fetchPostData(`${API_VERSION}/accesstoken`, params);
 
 }
 

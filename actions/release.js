@@ -20,7 +20,7 @@ async function fetchReleasesJson(token) {
 
   var params = {
     'accessToken': token,
-    'limit': '10',
+    'limit': '20',
   };
 
   let results = await fetchGetData(`release/recent/${API_VERSION}?`, params);
@@ -28,12 +28,6 @@ async function fetchReleasesJson(token) {
   if (results.success && results.releases != []) {
 
     for (let i = 0; i < results.releases.length; i++) {
-      let trackPartArray = results.releases[i].link.split('/');
-      let trackId = trackPartArray[trackPartArray.length - 1];
-      let releaseDetails = await fetchReleaseDetailsJson(token, trackId);
-      if (releaseDetails) {
-        results.releases[i] = {...releaseDetails.data, ...results.releases[i], trackId};
-      }
       if (!results.releases[i].genres) {
         results.releases[i].genres = [];
       }
