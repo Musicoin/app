@@ -327,12 +327,12 @@ class PlayerComponent extends React.Component {
   async shareTrack() {
     try {
       const track = this.props.currentTrack;
-      track.trackURL = track.trackURL.replace('musicion', 'musicoin');
+      track.link = track.link.replace('musicion', 'musicoin');
       const result = await Share.share({
         title: `${track.author} - ${track.title}`,
         dialogTitle: `${track.author} - ${track.title}`,
-        message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.trackURL}`,
-        url: `${track.trackURL}`,
+        message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.link}`,
+        url: `${track.link}`,
       });
 
       if (result.action === Share.sharedAction) {
