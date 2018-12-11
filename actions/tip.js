@@ -1,11 +1,13 @@
 import {TIP_TRACK} from '../constants/Actions';
-import {fetchGetData} from '../tools/util';
+import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
+import {API_EMAIL} from 'react-native-dotenv';
 
 function addTip(trackId, json) {
+  console.log(json);
   return function(dispatch, getState) {
     let success = false;
-    if (json.res == 200) {
+    if (json.success) {
       dispatch(addAlert('success', 'thank you!', 'Tip will be added when the next block is mined'));
       success = true;
     } else {
@@ -21,11 +23,10 @@ function addTip(trackId, json) {
 
 async function tipTrackJson(trackId, token) {
   let params = {
-    'address': trackId,
-    'accessToken': token,
+    tip: 1,
   };
 
-  let tipTrack = await fetchGetData('license/tip?', params);
+  let tipTrack = await fetchPostFormDataJson(`release/tip/${trackId}?email=${API_EMAIL}&accessToken=${token}`, params);
   return tipTrack;
 
 }

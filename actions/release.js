@@ -28,6 +28,7 @@ async function fetchReleasesJson(token) {
   if (results.success && results.releases != []) {
 
     for (let i = 0; i < results.releases.length; i++) {
+
       if (!results.releases[i].genres) {
         results.releases[i].genres = [];
       }
@@ -52,15 +53,6 @@ async function fetchReleasesJson(token) {
   }
 }
 
-export async function fetchReleaseDetailsJson(token, trackId) {
-  var params = {
-    'accessToken': token,
-  };
-
-  let releaseDetails = await fetchGetData(`release/details/${trackId}?`, params);
-  return releaseDetails;
-}
-
 export function fetchReleases() {
   return function(dispatch, getState) {
     dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
@@ -74,34 +66,4 @@ export function fetchReleases() {
       return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
     }
   };
-}
-
-export async function fetchTrackImageJson(imageId) {
-  try {
-    return fetch(`https://musicoin.org/i2i/${imageId}`, {
-      method: 'GET',
-      headers: {
-        'cache-control': 'no-cache',
-      },
-    }).then(response => {
-      try {
-        if (response.ok) {
-          let result = response.json();
-          return result;
-        } else {
-          console.log(response);
-          return false;
-        }
-      } catch (e) {
-        console.log(response);
-        return false;
-      }
-    }).catch(e => {
-      console.log(e);
-      return false;
-    });
-  } catch (e) {
-    console.log(e);
-    return false;
-  }
 }

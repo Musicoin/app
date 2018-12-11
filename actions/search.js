@@ -1,5 +1,4 @@
 import {fetchAccessToken} from './auth';
-import {fetchReleaseDetailsJson, fetchTrackImageJson} from './release';
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchPostFormData} from '../tools/util';
 import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
@@ -30,6 +29,7 @@ async function fetchSearchResultsJson(token, keyword) {
   if (results.success && results.releases != []) {
 
     for (let i = 0; i < results.releases.length; i++) {
+
       if (!results.releases[i].genres) {
         results.releases[i].genres = [];
       }

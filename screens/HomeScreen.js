@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
 import Track from '../components/track/track';
-import {tipTrack, playTrack, fetchReleases} from '../actions';
+import {fetchReleases} from '../actions';
 import Layout from '../constants/Layout';
 
 class HomeScreen extends React.Component {
@@ -101,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, playTrack, fetchReleases})(HomeScreen));
+export default connectAlert(connect(mapStateToProps, {fetchReleases})(HomeScreen));

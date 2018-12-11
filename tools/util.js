@@ -152,6 +152,38 @@ export async function fetchPostFormData(action, params) {
   }
 }
 
+export async function fetchPostFormDataJson(action, params) {
+  try {
+    return fetch(API_ENDPOINT + action, {
+      method: 'POST',
+      headers: {
+        'cache-control': 'no-cache',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(params)
+    }).then(response => {
+      try {
+        if (response.ok) {
+          let result = response.json();
+          return result;
+        } else {
+          console.log(response);
+          return false;
+        }
+      } catch (e) {
+        console.log(response);
+        return false;
+      }
+    }).catch(e => {
+      console.log(e);
+      return false;
+    });
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+}
+
 function hashCode(str) {
   var hash = 0;
   for (var i = 0; i < str.length; i++) {
