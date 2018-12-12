@@ -17,7 +17,6 @@ function receiveReleases(json) {
 }
 
 async function fetchReleasesJson(token) {
-
   var params = {
     'accessToken': token,
     'limit': '20',

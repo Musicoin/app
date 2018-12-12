@@ -28,7 +28,6 @@ async function tipTrackJson(trackId, token) {
 
   let tipTrack = await fetchPostFormDataJson(`release/tip/${trackId}?email=${API_EMAIL}&accessToken=${token}`, params);
   return tipTrack;
-
 }
 
 export function tipTrack(trackId) {

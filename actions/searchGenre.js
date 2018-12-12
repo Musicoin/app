@@ -18,15 +18,12 @@ function receiveSearchResults(json) {
 }
 
 async function fetchSearchResultsJson(token, genre) {
-
   var params = {
     'genre': genre,
     'accessToken': token,
   };
 
   let results = await fetchGetData(`release/bygenre/${API_VERSION}?`, params);
-
-  console.log(results);
 
   if (results.success && results.releases != []) {
 

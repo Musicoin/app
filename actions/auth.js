@@ -12,7 +12,6 @@ function receiveAccessToken(json) {
 }
 
 async function fetchAccessTokenJson() {
-
   var params = {
     'password': API_PASSWORD,
     'username': API_USERNAME,
@@ -21,7 +20,6 @@ async function fetchAccessTokenJson() {
   };
 
   return fetchPostData(`${API_VERSION}/accesstoken`, params);
-
 }
 
 export function fetchAccessToken() {

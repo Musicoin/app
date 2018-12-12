@@ -18,7 +18,6 @@ function receiveSearchResults(json) {
 }
 
 async function fetchSearchResultsJson(token, keyword) {
-
   var params = {
     'keyword': keyword,
     'limit': 20
