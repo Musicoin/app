@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
-import {tipTrack, removeFromQueue, addToQueue, playTrack} from '../actions';
+import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
@@ -35,8 +35,6 @@ class PlayerComponent extends React.Component {
       showExpandedPlayer: false,
       currentPosition: 0,
       maxValue: 0,
-      repeat: false,
-      shuffle: false,
       previousAllowed: true,
       nextAllowed: true,
     };
@@ -69,7 +67,7 @@ class PlayerComponent extends React.Component {
       previousAllowed = true;
     }
 
-    if (this.state.shuffle) {
+    if (this.props.settings.shuffle) {
       nextAllowed = true;
 
     } else {
@@ -238,11 +236,11 @@ class PlayerComponent extends React.Component {
                     </View>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-                    <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.setState({repeat: !this.state.repeat})}>
+                    <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
                           size={20}
-                          color={this.state.repeat ? Colors.tintColor : Colors.fontColor}
+                          color={this.props.settings.repeat ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
@@ -280,12 +278,12 @@ class PlayerComponent extends React.Component {
                       />
                     </TouchableOpacity>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => {
-                      this.setState({shuffle: !this.state.shuffle});
+                      this.props.toggleShuffle();
                     }}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
                           size={20}
-                          color={this.state.shuffle ? Colors.tintColor : Colors.fontColor}
+                          color={this.props.settings.shuffle ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
@@ -401,7 +399,7 @@ class PlayerComponent extends React.Component {
 
     if (playbackstatus.didJustFinish) {
       // replay if in repeat mode or start next track in queue
-      if (this.state.repeat) {
+      if (this.props.settings.repeat) {
         audioPlayer.replayAsync().then(console.log('repeat'));
       } else {
         this.playNextTrack();
@@ -428,7 +426,7 @@ class PlayerComponent extends React.Component {
   playNextTrack() {
     let trackList = this.getTrackList();
     let index = trackList.indexOf(this.props.currentTrack);
-    if (this.state.shuffle) {
+    if (this.props.settings.shuffle) {
       let newIndex = this.generateRandom(0, trackList.length - 1, index);
       if (trackList[newIndex]) {
         this.props.playTrack(trackList[newIndex]);
@@ -525,4 +523,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack})(PlayerComponent));
+export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle})(PlayerComponent));

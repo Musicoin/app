@@ -6,3 +6,4 @@ export * from './tip';
 export * from './search';
 export * from './searchGenre';
 export * from './queue';
+export * from './settings';

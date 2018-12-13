@@ -5,19 +5,16 @@ import {AppLoading, Asset, Font, Icon} from 'expo';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 
-import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import thunk from 'redux-thunk';
+import { PersistGate } from 'redux-persist/integration/react';
+import {persistor, store} from './store';
 
-import rootReducer from './reducers';
 import AlertProvider from './components/alert/alert.component';
 import PlayerComponent from './components/Player';
 
 import NavigationService from './services/NavigationService';
 
 import {fetchReleases, fetchAccessToken} from './actions';
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
 store.subscribe(() => console.log('store', store.getState()));
 store.dispatch(fetchAccessToken()).then(() => store.dispatch(fetchReleases()));
 
@@ -34,7 +31,7 @@ export default class App extends React.Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
   render() {
@@ -49,6 +46,7 @@ export default class App extends React.Component {
     } else {
       return (
           <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
             <AlertProvider>
               <View style={styles.songInfoContainer}>
                 <StatusBar barStyle="light-content"/>
@@ -58,6 +56,7 @@ export default class App extends React.Component {
                 <PlayerComponent/>
               </View>
             </AlertProvider>
+            </PersistGate>
           </Provider>
       );
     }

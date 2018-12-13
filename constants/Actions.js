@@ -26,3 +26,5 @@ export const DELETE_ALERT = 'DELETE_ALERT';
 
 // player actions
 export const PLAY_TRACK = 'PLAY_TRACK';
+export const TOGGLE_REPEAT = 'TOGGLE_REPEAT';
+export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';

@@ -10,7 +10,8 @@ import searchResultsByGenre from './searchResultsByGenre';
 import loading from './loading';
 import queue from './queue';
 import lastPlayed from './lastPlayed';
+import settings from './settings';
 
-const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack, searchResults, searchResultsByGenre, loading, queue, lastPlayed});
+const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack, searchResults, searchResultsByGenre, loading, queue, lastPlayed, settings});
 
 export default rootReducer;
