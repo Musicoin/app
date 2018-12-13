@@ -160,7 +160,7 @@ export async function fetchPostFormDataJson(action, params) {
         'cache-control': 'no-cache',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(params)
+      body: JSON.stringify(params),
     }).then(response => {
       try {
         if (response.ok) {
@@ -205,5 +205,21 @@ export function getColorCodeForString(string) {
 export function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+}
+
+export function returnIndexFromArray(array, track, reversed = false) {
+  let indexArray = [];
+  let i = 0;
+  for (i; i < array.length; i++) {
+    if (array[i].trackId === track.trackId) {
+      indexArray.push(i);
+    }
+  }
+
+  if (reversed) {
+    return indexArray[indexArray.length - 1];
+  } else {
+    return indexArray[0];
+  }
 }

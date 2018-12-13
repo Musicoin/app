@@ -12,7 +12,7 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
   version: 1,
   debug: true,
-  whitelist: ['queue', 'settings', 'currentTrack']
+  whitelist: ['queue', 'settings', 'currentTrack', 'releases', 'accessToken', 'lastPlayed']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

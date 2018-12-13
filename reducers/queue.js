@@ -5,8 +5,7 @@ export default function queue(state = [], action) {
     case ADD_TO_QUEUE:
       action.track.origin = 'queue';
       let track = {...action.track, queueId: action.track.trackId + Math.floor((Math.random() * 1000000) + 1)};
-      state.push(track);
-      return state;
+      return [...state, track];
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {

@@ -9,7 +9,7 @@ import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleSh
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
-import {millisToMinutesAndSeconds} from '../tools/util';
+import {millisToMinutesAndSeconds, returnIndexFromArray} from '../tools/util';
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/tracks/';
@@ -35,9 +35,11 @@ class PlayerComponent extends React.Component {
       showExpandedPlayer: false,
       currentPosition: 0,
       maxValue: 0,
-      previousAllowed: true,
-      nextAllowed: true,
     };
+  }
+
+  componentDidMount() {
+    this.checkPreviousAndNext();
   }
 
   async componentDidUpdate(prev) {
@@ -61,9 +63,9 @@ class PlayerComponent extends React.Component {
     let previousAllowed = false;
     let nextAllowed = false;
 
-    let index = trackList.indexOf(this.props.currentTrack);
+    let index = returnIndexFromArray(trackList, this.props.currentTrack, false);
 
-    if (this.props.lastPlayed.length > 1 && this.props.lastPlayed.lastIndexOf(this.props.currentTrack) != 0) {
+    if (this.props.lastPlayed.length > 1 && returnIndexFromArray(this.props.lastPlayed, this.props.currentTrack, true) != 0) {
       previousAllowed = true;
     }
 
@@ -417,7 +419,7 @@ class PlayerComponent extends React.Component {
 
   playPreviousTrack() {
     let trackList = this.props.lastPlayed;
-    let index = trackList.lastIndexOf(this.props.currentTrack);
+    let index = returnIndexFromArray(trackList, this.props.currentTrack, true);
     if (trackList[index - 1]) {
       this.props.playTrack(trackList[index - 1], false);
     }
@@ -425,7 +427,7 @@ class PlayerComponent extends React.Component {
 
   playNextTrack() {
     let trackList = this.getTrackList();
-    let index = trackList.indexOf(this.props.currentTrack);
+    let index = returnIndexFromArray(trackList, this.props.currentTrack, false);
     if (this.props.settings.shuffle) {
       let newIndex = this.generateRandom(0, trackList.length - 1, index);
       if (trackList[newIndex]) {

@@ -11,7 +11,7 @@ export default function lastPlayed(state = [], action) {
       if (state.length > 10) {
         state.shift();
       }
-      return state;
+      return [...state];
     default:
       return state;
   }
