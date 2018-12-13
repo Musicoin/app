@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Image, TouchableOpacity} from 'react-native';
-import {createStackNavigator, createBottomTabNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
+import {createBottomTabNavigator, BottomTabBar} from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -137,4 +138,13 @@ LibraryStack.navigationOptions = {
       },
 };
 
-export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack});
+const TabBarComponent = (props) => (<BottomTabBar {...props} />);
+
+
+export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack}, {
+  tabBarComponent: props =>
+      <TabBarComponent
+          {...props}
+          style={{borderTopColor: Colors.backgroundColor}}
+      />,
+});

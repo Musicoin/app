@@ -120,7 +120,7 @@ class PlayerComponent extends React.Component {
                     </TouchableOpacity>
                   </View>
 
-                  <TouchableOpacity style={styles.songInfo} onPress={() => NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: this.props.currentTrack.origin})}>
+                  <TouchableOpacity style={styles.songInfo} onPress={() => this.setState({showExpandedPlayer: !this.state.showExpandedPlayer})}>
                     <View>
                       <Text style={{color: Colors.fontColor, fontSize: 12}}>{this.props.currentTrack.title}</Text>
                       <Text style={{color: '#8B99A4', fontSize: 12}}>{this.props.currentTrack.author}</Text>
@@ -155,7 +155,7 @@ class PlayerComponent extends React.Component {
                             />
                           </TouchableOpacity>
                       :
-                      <ActivityIndicator style={{paddingHorizontal: 5, paddingVertical: 2}} size="small" color={Colors.fontColor}/>}
+                      <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/>}
 
                 </View>
               </View> : null}
@@ -448,11 +448,10 @@ class PlayerComponent extends React.Component {
 
   async resumeTrack() {
     // play again if track has finished playing
-
-    if (this.state.currentPosition == this.state.maxValue) {
+    if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0) {
       await audioPlayer.replayAsync();
     } else {
-      await audioPlayer.playAsync();
+      await this.loadAndPlayTrack(this.props.currentTrack);
     }
   }
 
@@ -486,7 +485,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   playerButton: {
-    paddingHorizontal: 10,
+    marginHorizontal: 10,
+    paddingLeft: 10,
     paddingVertical: 2,
   },
   individualPlayerButton: {

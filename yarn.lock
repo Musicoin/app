@@ -5022,6 +5022,15 @@ react-navigation-tabs@0.8.4:
     react-lifecycles-compat "^3.0.4"
     react-native-tab-view "^1.0.0"
 
+react-navigation-tabs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-navigation-tabs/-/react-navigation-tabs-1.0.1.tgz#c6974e6c279687d3d7f10349b6820dccef1fd37a"
+  dependencies:
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.6.1"
+    react-lifecycles-compat "^3.0.4"
+    react-native-tab-view "^1.0.0"
+
 react-navigation@^2.18.2:
   version "2.18.2"
   resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.18.2.tgz#ba278ded41f736d029c7cae5d54ab1427dc6ed34"
