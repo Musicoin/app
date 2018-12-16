@@ -18,6 +18,8 @@ import {fetchReleases, fetchAccessToken} from './actions';
 store.subscribe(() => console.log('store', store.getState()));
 store.dispatch(fetchAccessToken()).then(() => store.dispatch(fetchReleases()));
 
+// persistor.purge();
+
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,

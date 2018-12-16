@@ -84,21 +84,23 @@ class PlayerComponent extends React.Component {
 
   getTrackList() {
     let trackList = [];
-    switch (this.props.currentTrack.origin) {
-      case 'new':
-        trackList = this.props.releases;
-        break;
-      case 'queue':
-        trackList = this.props.queue;
-        break;
-      case 'search':
-        trackList = this.props.searchResults.releases;
-        break;
-      case 'genre':
-        trackList = this.props.searchResultsByGenre;
-        break;
-      default:
-        break;
+    if (this.props.currentTrack) {
+      switch (this.props.currentTrack.origin) {
+        case 'new':
+          trackList = this.props.releases;
+          break;
+        case 'queue':
+          trackList = this.props.queue;
+          break;
+        case 'search':
+          trackList = this.props.searchResults.releases;
+          break;
+        case 'genre':
+          trackList = this.props.searchResultsByGenre;
+          break;
+        default:
+          break;
+      }
     }
     return trackList;
   }
