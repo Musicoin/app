@@ -12,7 +12,7 @@ import NavigationService from '../services/NavigationService';
 import {millisToMinutesAndSeconds, returnIndexFromArray} from '../tools/util';
 
 let audioPlayer = null;
-const trackPrefix = 'https://a.musicoin.org/tracks/';
+const trackPrefix = 'https://a.musicoin.org/track/';
 const trackSuffix = '/index.m3u8';
 
 Expo.Audio.setAudioModeAsync(
@@ -369,7 +369,7 @@ class PlayerComponent extends React.Component {
       audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
     }
 
-    this.setState({currentTrack: track, isLoaded: false});
+    this.setState({currentTrack: track, isLoaded: false, currentPosition: 0});
 
     let playbackState = await audioPlayer.getStatusAsync();
     console.log(playbackState);
@@ -448,7 +448,7 @@ class PlayerComponent extends React.Component {
 
   async resumeTrack() {
     // play again if track has finished playing
-    if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0) {
+    if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0 && this.state.maxValue > 0) {
       await audioPlayer.replayAsync();
     } else {
       await this.loadAndPlayTrack(this.props.currentTrack);
