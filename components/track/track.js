@@ -13,32 +13,33 @@ class Track extends Component {
     return (
         <View style={styles.trackContainer}>
           <TouchableOpacity style={styles.albumArtContainer} onPress={() => this.props.playTrack(item)}>
-            <Image style={{width: 40, height: 40}} source={{uri: item.trackImg}}/>
+            <Image style={{width: 56, height: 56}} source={{uri: item.trackImg}}/>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.playTrack(item)}>
             <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
-            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 10}}>{item.author}</Text>
+            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.author}</Text>
+            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.directTipCount} {item.directTipCount == 1 ? 'tip' : 'tips'}</Text>
           </TouchableOpacity>
 
           {origin !== 'queue' ?
               <View style={styles.individualPlayerButton}>
-                <TouchableOpacity onPress={() => this.props.addToQueue(item)}>
+                <TouchableOpacity style={{padding: 20}} onPress={() => this.props.addToQueue(item)}>
                   <Icon.Ionicons
                       name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-                      size={18}
-                      color={Colors.tintColor}
+                      size={22}
+                      color={Colors.fontColor}
                       style={styles.playerButton}
                   />
                 </TouchableOpacity>
               </View>
               :
               <View style={styles.individualPlayerButton}>
-                <TouchableOpacity onPress={() => this.props.removeFromQueue(item.queueId)}>
+                <TouchableOpacity style={{padding: 20}} onPress={() => this.props.removeFromQueue(item.queueId)}>
                   <Icon.Ionicons
                       name={Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'}
-                      size={18}
-                      color={Colors.tintColor}
+                      size={22}
+                      color={Colors.fontColor}
                       style={styles.playerButton}
                   />
                 </TouchableOpacity>
@@ -58,24 +59,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   albumArtContainer: {
-    padding: 10,
-    flex: 0.1,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   releaseTrackContainer: {
-    paddingTop: 15,
-    padding: 10,
-    flex: 0.9,
+    justifyContent: 'center',
+    flex: 1,
   },
   individualPlayerButton: {
-    marginRight: 10,
-    paddingTop: 5,
-    flex: 0.2,
+    justifyContent: 'center',
   },
-  playerButton: {
-    padding: 10,
-    marginLeft: 10,
-    flex: 0.1,
-  },
+  playerButton: {},
 });
 
 export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue})(Track);

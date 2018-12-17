@@ -176,7 +176,7 @@ class PlayerComponent extends React.Component {
                   <View style={{flex: 1, flexDirection: 'row', paddingTop: 10, justifyContent: 'flex-end', paddingRight: 16}}>
                     <TouchableOpacity style={{paddingLeft: 40}} onPress={() => {
                       this.setState({showExpandedPlayer: false});
-                      NavigationService.navigate('LibraryStack', {trackId: this.props.currentTrack.trackId, origin: this.props.currentTrack.origin});
+                      NavigationService.navigate('LibraryStack');
                     }}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-timer` : 'ios-timer'}
