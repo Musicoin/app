@@ -28,6 +28,9 @@ class DetailsScreen extends React.Component {
       case 'queue':
         track = this.props.queue.find(obj => obj.trackId === trackId);
         break;
+      case 'artist':
+        track = this.props.searchResultsByArtist.find(obj => obj.trackId === trackId);
+        break;
       default:
         track = {};
     }

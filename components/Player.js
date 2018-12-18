@@ -98,6 +98,9 @@ class PlayerComponent extends React.Component {
         case 'genre':
           trackList = this.props.searchResultsByGenre;
           break;
+        case 'artist':
+          trackList = this.props.searchResultsByArtist;
+          break;
         default:
           break;
       }
@@ -453,7 +456,11 @@ class PlayerComponent extends React.Component {
     if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0 && this.state.maxValue > 0) {
       await audioPlayer.replayAsync();
     } else {
-      await this.loadAndPlayTrack(this.props.currentTrack);
+      if(audioPlayer) {
+        await audioPlayer.playAsync();
+      }else{
+        this.props.playTrack(this.props.currentTrack, false);
+      }
     }
   }
 
