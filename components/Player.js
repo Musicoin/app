@@ -369,6 +369,7 @@ class PlayerComponent extends React.Component {
   async loadAndPlayTrack(track) {
 
     // if (this.state.isLoaded) {
+    console.log(audioPlayer);
     if (!audioPlayer) {
       audioPlayer = new Expo.Audio.Sound();
       audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
@@ -388,6 +389,7 @@ class PlayerComponent extends React.Component {
       await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
       await audioPlayer.playAsync();
     } catch (e) {
+      await audioPlayer.unloadAsync();
       console.log('audio failed to play');
       console.log(e);
       this.showAlert('File not playing', 'The requested track failed to play, please try again later.');
@@ -456,9 +458,9 @@ class PlayerComponent extends React.Component {
     if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0 && this.state.maxValue > 0) {
       await audioPlayer.replayAsync();
     } else {
-      if(audioPlayer) {
+      if (audioPlayer) {
         await audioPlayer.playAsync();
-      }else{
+      } else {
         this.props.playTrack(this.props.currentTrack, false);
       }
     }
