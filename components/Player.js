@@ -181,8 +181,8 @@ class PlayerComponent extends React.Component {
                       this.setState({showExpandedPlayer: false});
                       NavigationService.navigate('LibraryStack');
                     }}>
-                      <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? `ios-timer` : 'ios-timer'}
+                      <Icon.MaterialIcons
+                          name={'playlist-play'}
                           size={26}
                           color={Colors.fontColor}
                       />
