@@ -1,17 +1,37 @@
 import React from 'react';
-import { Icon } from 'expo';
+import {View} from 'react-native';
+import {Icon} from 'expo';
 
 import Colors from '../constants/Colors';
 
 export default class TabBarIcon extends React.Component {
   render() {
+    let iconFamily = 'ionicons';
+    if (this.props.iconFamily) {
+      iconFamily = this.props.iconFamily;
+    }
+    let tabIcon;
+    switch(iconFamily){
+      case 'material':
+        tabIcon = <Icon.MaterialIcons
+            name={this.props.name}
+            size={26}
+            style={{marginBottom: -3}}
+            color={this.props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+        />;
+        break;
+      default:
+        tabIcon = <Icon.Ionicons
+            name={this.props.name}
+            size={26}
+            style={{marginBottom: -3}}
+            color={this.props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+        />;
+    }
+
     return (
-      <Icon.Ionicons
-        name={this.props.name}
-        size={26}
-        style={{ marginBottom: -3 }}
-        color={this.props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-      />
+        <View>{tabIcon}</View>
     );
   }
+
 }
