@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
+import TextTicker from 'react-native-text-ticker';
 import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
@@ -127,8 +128,26 @@ class PlayerComponent extends React.Component {
 
                   <TouchableOpacity style={styles.songInfo} onPress={() => this.setState({showExpandedPlayer: !this.state.showExpandedPlayer})}>
                     <View>
-                      <Text style={{color: Colors.fontColor, fontSize: 12}}>{this.props.currentTrack.title}</Text>
-                      <Text style={{color: '#8B99A4', fontSize: 12}}>{this.props.currentTrack.author}</Text>
+                      <TextTicker
+                          style={{color: Colors.fontColor, fontSize: 12}}
+                          duration={5000}
+                          loop
+                          bounce
+                          repeatSpacer={50}
+                          marqueeDelay={1000}
+                      >
+                        {this.props.currentTrack.title}
+                      </TextTicker>
+                      <TextTicker
+                          style={{color: '#8B99A4', fontSize: 12}}
+                          duration={5000}
+                          loop
+                          bounce
+                          repeatSpacer={50}
+                          marqueeDelay={1000}
+                      >
+                        {this.props.currentTrack.author}
+                      </TextTicker>
                     </View>
                   </TouchableOpacity>
 
@@ -207,8 +226,30 @@ class PlayerComponent extends React.Component {
                 <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: 10}}>
                   <Image style={{width: 248, height: 248}} source={{uri: this.props.currentTrack.trackImg}}/>
                   <View style={{marginTop: 50, marginHorizontal: 16}}>
-                    <Text style={{color: Colors.tintColor, fontSize: 18, alignSelf: 'center'}}>{this.props.currentTrack.title}</Text>
-                    <Text style={{color: '#8897A2', fontSize: 14, alignSelf: 'center'}}>{this.props.currentTrack.author}</Text>
+                    <View style={styles.centerText}>
+                      <TextTicker
+                          style={{color: Colors.tintColor, fontSize: 18, alignSelf: 'center'}}
+                          duration={5000}
+                          loop
+                          bounce
+                          repeatSpacer={50}
+                          marqueeDelay={1000}
+                      >
+                        {this.props.currentTrack.title}
+                      </TextTicker>
+                    </View>
+                    <View style={styles.centerText}>
+                      <TextTicker
+                          style={{color: '#8897A2', fontSize: 14, alignSelf: 'center', alignItems: 'center'}}
+                          duration={5000}
+                          loop
+                          bounce
+                          repeatSpacer={50}
+                          marqueeDelay={1000}
+                      >
+                        {this.props.currentTrack.author}
+                      </TextTicker>
+                    </View>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
                     <View style={{width: 50, paddingHorizontal: 5, alignItems: 'center'}}>
@@ -529,6 +570,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.backgroundColor,
     paddingVertical: 10,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
+  },
+  centerText: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
