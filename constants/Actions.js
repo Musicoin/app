@@ -33,3 +33,4 @@ export const DELETE_ALERT = 'DELETE_ALERT';
 export const PLAY_TRACK = 'PLAY_TRACK';
 export const TOGGLE_REPEAT = 'TOGGLE_REPEAT';
 export const TOGGLE_SHUFFLE = 'TOGGLE_SHUFFLE';
+export const TOGGLE_PLAYER_MODE = 'TOGGLE_PLAYER_MODE';

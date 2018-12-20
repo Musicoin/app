@@ -104,7 +104,7 @@ DiscoverStack.navigationOptions = {
 
 const LibraryStack = createStackNavigator(
     {
-      Search: {
+      Library: {
         screen: LibraryScreen,
       },
       ReleaseDetail: {

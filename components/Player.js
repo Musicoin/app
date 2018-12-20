@@ -6,7 +6,7 @@ import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
-import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle} from '../actions';
+import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
@@ -33,7 +33,6 @@ class PlayerComponent extends React.Component {
       currentTrack: null,
       isPlaying: false,
       isLoaded: true,
-      showExpandedPlayer: false,
       currentPosition: 0,
       maxValue: 0,
     };
@@ -112,12 +111,12 @@ class PlayerComponent extends React.Component {
   render() {
     return (
         <View>
-          {this.props.currentTrack && !this.state.showExpandedPlayer ?
+          {this.props.currentTrack && !this.props.settings.bigPlayer ?
               <View>
                 <View style={styles.smallPlayerContainer}>
                   <View>
                     <TouchableOpacity>
-                      <Icon.Ionicons onPress={() => this.setState({showExpandedPlayer: !this.state.showExpandedPlayer})}
+                      <Icon.Ionicons onPress={() => this.props.togglePlayerMode()}
                                      name={Platform.OS === 'ios' ? `ios-arrow-up` : 'ios-arrow-up'}
                                      size={Layout.playerIconSize}
                                      color={Colors.fontColor}
@@ -126,7 +125,7 @@ class PlayerComponent extends React.Component {
                     </TouchableOpacity>
                   </View>
 
-                  <TouchableOpacity style={styles.songInfo} onPress={() => this.setState({showExpandedPlayer: !this.state.showExpandedPlayer})}>
+                  <TouchableOpacity style={styles.songInfo} onPress={() => this.props.togglePlayerMode()}>
                     <View>
                       <TextTicker
                           style={{color: Colors.fontColor, fontSize: 12}}
@@ -183,11 +182,11 @@ class PlayerComponent extends React.Component {
 
                 </View>
               </View> : null}
-          {this.props.currentTrack && this.state.showExpandedPlayer ?
+          {this.props.currentTrack && this.props.settings.bigPlayer ?
               <View style={styles.bigPlayerContainer}>
                 <View style={{flexDirection: 'row'}}>
                   <View style={{flex: 1, flexDirection: 'row', paddingTop: 10, justifyContent: 'flex-start', paddingLeft: 16}}>
-                    <TouchableOpacity onPress={() => this.setState({showExpandedPlayer: !this.state.showExpandedPlayer})}>
+                    <TouchableOpacity onPress={() => this.props.togglePlayerMode()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-arrow-down` : 'ios-arrow-down'}
                           size={26}
@@ -197,8 +196,8 @@ class PlayerComponent extends React.Component {
                   </View>
                   <View style={{flex: 1, flexDirection: 'row', paddingTop: 10, justifyContent: 'flex-end', paddingRight: 16}}>
                     <TouchableOpacity style={{paddingLeft: 40}} onPress={() => {
-                      this.setState({showExpandedPlayer: false});
-                      NavigationService.navigate('LibraryStack');
+                      this.props.togglePlayerMode();
+                      NavigationService.navigate('Library', {redirectToPlayer: true});
                     }}>
                       <Icon.MaterialIcons
                           name={'playlist-play'}
@@ -340,7 +339,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity
                         style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
                         onPress={() => {
-                          this.setState({showExpandedPlayer: false});
+                          this.props.togglePlayerMode();
                           NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: this.props.currentTrack.origin});
                         }}>
                       <Icon.Ionicons
@@ -581,4 +580,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle})(PlayerComponent));
+export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode})(PlayerComponent));

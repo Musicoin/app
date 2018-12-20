@@ -1,18 +1,48 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler} from 'react-native';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
 import Track from '../components/track/track';
-import {playTrack} from '../actions';
+import {playTrack, togglePlayerMode} from '../actions';
 import connectAlert from '../components/alert/connectAlert.component';
 
+let redirectToPlayer = false;
+
 class LibraryScreen extends React.Component {
+  _didFocusSubscription;
+  _willBlurSubscription;
+
   constructor(props) {
     super(props);
+    this._didFocusSubscription = props.navigation.addListener('didFocus', payload =>
+        BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+    );
+  }
+
+  componentDidMount() {
+    this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>
+        BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+    );
+  }
+
+  onBackButtonPressAndroid = () => {
+    if (redirectToPlayer) {
+      this.props.togglePlayerMode();
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  componentWillUnmount() {
+    this._didFocusSubscription && this._didFocusSubscription.remove();
+    this._willBlurSubscription && this._willBlurSubscription.remove();
   }
 
   render() {
+    const {navigation} = this.props;
+    redirectToPlayer = navigation.getParam('redirectToPlayer', false);
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
           <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Queue</Text>
@@ -85,4 +115,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {playTrack})(LibraryScreen));
+export default connectAlert(connect(mapStateToProps, {playTrack, togglePlayerMode})(LibraryScreen));
