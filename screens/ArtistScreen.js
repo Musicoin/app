@@ -32,17 +32,27 @@ class ArtistScreen extends React.Component {
                   color={Colors.fontColor}
               />
             </TouchableOpacity>
-            <View style={{ alignItems: 'center', marginBottom: 20, paddingVertical: 5, paddingTop: 10}}>
+            <View style={{alignItems: 'center', marginBottom: 20, paddingVertical: 5, paddingTop: 10}}>
               <Image style={{width: 104, height: 104, borderRadius: 52}} source={{uri: this.state.artist.imageUrl}}/>
-              <Text style={{fontSize: 16, color: Colors.fontColor, paddingTop: 8}}>{this.state.artist.name}</Text>
-              <View style={{flexDirection: 'row', marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
-                <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? 'md-disc' : 'md-disc'}
-                    size={12}
-                    color={Colors.fontColor}
-                    style={{margin: 5}}
-                />
-                <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.releaseCount} {this.state.artist.releaseCount == 1 ? 'release' : 'releases'}</Text>
+              <Text style={{fontSize: 16, color: Colors.fontColor, paddingTop: 8}}>{this.state.artist.artistName}</Text>
+              <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
+                  <Icon.Ionicons
+                      name={Platform.OS === 'ios' ? 'md-people' : 'md-people'}
+                      size={12}
+                      color={Colors.fontColor}
+                      style={{margin: 5}}
+                  />
+                  <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.followers}</Text>
+                </View>
+                <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
+                  <Image
+                      source={require('../assets/icons/clap-white.png')}
+                      fadeDuration={0}
+                      style={{width: 10, height: 10, marginRight: 5}}
+                  />
+                  <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.tipTotal}</Text>
+                </View>
               </View>
               <View>
                 <Button
@@ -60,12 +70,12 @@ class ArtistScreen extends React.Component {
                       backgroundColor: Colors.tintColor,
                       borderColor: 'transparent',
                       borderWidth: 0,
-                      borderRadius: Platform.OS === "ios"?20:0,
+                      borderRadius: Platform.OS === 'ios' ? 20 : 0,
                       paddingHorizontal: 24,
                     }}
                     titleStyle={{fontSize: 16, color: Colors.fontColor}}
                     containerStyle={{marginTop: 20}}
-                    onPress={()=>this.props.searchResultsByArtist.length>0?this.props.playTrack(this.props.searchResultsByArtist[0], true):console.log('no tracks')}
+                    onPress={() => this.props.searchResultsByArtist.length > 0 ? this.props.playTrack(this.props.searchResultsByArtist[0], true) : console.log('no tracks')}
                 />
               </View>
             </View>
@@ -110,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0,0.3)',
   },
   trackContainer: {
-    flex: 1
+    flex: 1,
   },
 });
 

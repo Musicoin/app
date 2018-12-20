@@ -17,8 +17,8 @@ class Artist extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.artistInfoContainer} onPress={() => NavigationService.navigate('ArtistScreen', {artist: item})}>
-            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 14}}>{item.name}</Text>
-            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.releaseCount} {item.releaseCount == 1 ? 'release' : 'releases'}</Text>
+            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 14}}>{item.artistName}</Text>
+            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.followers} {item.followers == 1 ? 'follower' : 'followers'}</Text>
           </TouchableOpacity>
 
           <View style={styles.individualPlayerButton}>
