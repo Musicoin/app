@@ -87,6 +87,14 @@ class SearchScreen extends React.Component {
                               </View>
                           );
                         }
+
+                        if (this.props.searchResults.releases.length == 0 && this.props.searchResults.artists.length == 0) {
+                          return (
+                              <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
+                                <Text style={{color: Colors.tabIconDefault}}>No results</Text>
+                              </View>
+                          );
+                        }
                       }
                     }
                   }}
