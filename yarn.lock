@@ -4935,6 +4935,12 @@ react-native-tab-view@^1.0.0:
   dependencies:
     prop-types "^15.6.1"
 
+react-native-tab-view@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.3.1.tgz#f9932d6bd5ba7dad75ef9335a68f13d85ba5bd56"
+  dependencies:
+    prop-types "^15.6.1"
+
 react-native-text-ticker@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/react-native-text-ticker/-/react-native-text-ticker-0.13.0.tgz#56f38187ac88689481672939367a7badcb9fe4e3"
