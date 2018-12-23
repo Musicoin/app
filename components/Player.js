@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, StatusBar, TouchableWithoutFeedback, Share} from 'react-native';
+import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, StatusBar, TouchableWithoutFeedback} from 'react-native';
 import {Slider} from 'react-native-elements';
 import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
@@ -10,7 +10,7 @@ import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleSh
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
-import {millisToMinutesAndSeconds, returnIndexFromArray} from '../tools/util';
+import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../tools/util';
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/track/';
@@ -205,7 +205,7 @@ class PlayerComponent extends React.Component {
                           color={Colors.fontColor}
                       />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => this.shareTrack()}>
+                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => shareTrack(this.props.currentTrack)}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-share-alt` : 'ios-share-alt'}
                           size={26}
@@ -367,32 +367,6 @@ class PlayerComponent extends React.Component {
                 </View>
               </View> : null}
         </View>);
-  }
-
-  async shareTrack() {
-    try {
-      const track = this.props.currentTrack;
-      track.link = track.link.replace('musicion', 'musicoin');
-      const result = await Share.share({
-        title: `${track.author} - ${track.title}`,
-        dialogTitle: `${track.author} - ${track.title}`,
-        message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.link}`,
-        url: `${track.link}`,
-      });
-
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-          console.log(result.activityType);
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      alert(error.message);
-    }
   }
 
   async setNewPosition(newValue) {

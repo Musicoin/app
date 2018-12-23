@@ -21,7 +21,7 @@ class Artist extends Component {
             <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.followers} {item.followers == 1 ? 'follower' : 'followers'}</Text>
           </TouchableOpacity>
 
-          <View style={styles.individualPlayerButton}>
+          <View style={styles.optionsButton}>
             <TouchableOpacity style={{padding: 20}} onPress={() => this.props.addAlert('info', 'More options coming soon!', '')}>
               <Icon.Ionicons
                   name={Platform.OS === 'ios' ? 'md-more' : 'md-more'}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
   },
-  individualPlayerButton: {
+  optionsButton: {
     justifyContent: 'center',
   },
   playerButton: {},

@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native';
+import {AsyncStorage, Share} from 'react-native';
 import {API_EMAIL, API_ENDPOINT} from 'react-native-dotenv';
 
 const ACCESS_TOKEN = 'ACCESS_TOKEN';
@@ -221,5 +221,30 @@ export function returnIndexFromArray(array, track, reversed = false) {
     return indexArray[indexArray.length - 1];
   } else {
     return indexArray[0];
+  }
+}
+
+export async function shareTrack(track) {
+  try {
+    track.link = track.link.replace('musicion', 'musicoin');
+    const result = await Share.share({
+      title: `${track.author} - ${track.title}`,
+      dialogTitle: `${track.author} - ${track.title}`,
+      message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.link}`,
+      url: `${track.link}`,
+    });
+
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+        console.log(result.activityType);
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+    }
+  } catch (error) {
+    alert(error.message);
   }
 }
