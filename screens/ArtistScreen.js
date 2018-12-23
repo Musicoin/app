@@ -16,7 +16,7 @@ class ArtistScreen extends React.Component {
     const {navigation} = this.props;
     const artist = navigation.getParam('artist', null);
     this.state = {artist};
-    this.props.getSearchByArtistResults(artist.artistId);
+    this.props.getSearchByArtistResults(artist.profileAddress);
   }
 
   render() {

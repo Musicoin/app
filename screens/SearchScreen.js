@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList, RefreshControl, SectionList, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, RefreshControl, SectionList, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
@@ -67,14 +67,6 @@ class SearchScreen extends React.Component {
                         <TouchableOpacity onPress={() => this.seeMore(section.title)}>
                           <Text style={{fontSize: 12, color: '#707070'}}>{'see more tracks'}</Text>
                         </TouchableOpacity>
-                      </View>
-                  );
-                }
-
-                if (this.props.searchResults.releases.length == 0 && this.props.searchResults.artists.length == 0) {
-                  return (
-                      <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-                        <Text style={{color: Colors.tabIconDefault}}>Seems like you're played the wrong note!</Text>
                       </View>
                   );
                 }
@@ -167,17 +159,23 @@ class SearchScreen extends React.Component {
               }}
           />
           {this.state.searching ?
-              <TabView
-                  navigationState={this.state}
-                  renderScene={SceneMap({
-                    all: this._renderAllResults,
-                    artists: this._renderArtists,
-                    tracks: this._renderTracks,
-                  })}
-                  renderTabBar={this._renderTabBar}
-                  onIndexChange={index => this.setState({index, route: this.state.routes[index].key})}
-                  initialLayout={{width: Layout.window.width, height: Layout.window.height}}
-              />
+              !this.props.loading.SEARCH ?
+                  this.props.searchResults.releases.length > 0 || this.props.searchResults.artists.length > 0 ?
+                      <TabView
+                          navigationState={this.state}
+                          renderScene={SceneMap({
+                            all: this._renderAllResults,
+                            artists: this._renderArtists,
+                            tracks: this._renderTracks,
+                          })}
+                          renderTabBar={this._renderTabBar}
+                          onIndexChange={index => this.setState({index, route: this.state.routes[index].key})}
+                          initialLayout={{width: Layout.window.width, height: Layout.window.height}}
+                      /> :
+                      <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
+                        <Text style={{color: Colors.tabIconDefault}}>Seems like you're played the wrong note!</Text>
+                      </View>
+                  : <ActivityIndicator size="large" color={Colors.tintColor} style={{marginTop: 10}}/>
               :
               <GenreList/>
           }
@@ -197,7 +195,6 @@ class SearchScreen extends React.Component {
   };
 
   _renderLabel = scene => {
-    console.log(scene);
     const label = scene.route.title;
     return <Text style={{color: scene.route.key === this.state.route ? Colors.tintColor : Colors.tabIconDefault, fontSize: 14}}>{label}</Text>;
   };
@@ -214,7 +211,6 @@ class SearchScreen extends React.Component {
   }
 
   clear() {
-    console.log('clear');
     this.searchBox.cancel();
     this.setState({searching: false});
   }
