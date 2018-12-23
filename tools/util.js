@@ -246,5 +246,31 @@ export async function shareTrack(track) {
     }
   } catch (error) {
     alert(error.message);
+    console.log(error.message);
+  }
+}
+
+export async function shareArtist(artist) {
+  try {
+    const result = await Share.share({
+      title: `${artist.artistName}`,
+      dialogTitle: `${artist.artistName}`,
+      message: `Listen to ${artist.artistName} on Musicoin: https://musicoin.org/nav/artist/${artist.profileAddress}`,
+      url: `https://musicoin.org/nav/artist/${artist.profileAddress}`,
+    });
+
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        // shared with activity type of result.activityType
+        console.log(result.activityType);
+      } else {
+        // shared
+      }
+    } else if (result.action === Share.dismissedAction) {
+      // dismissed
+    }
+  } catch (error) {
+    alert(error.message);
+    console.log(error.message);
   }
 }
