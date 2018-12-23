@@ -222,8 +222,8 @@ class PlayerComponent extends React.Component {
                   </View>
 
                 </View>
-                <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: 10}}>
-                  <Image style={{width: 248, height: 248}} source={{uri: this.props.currentTrack.trackImg}}/>
+                <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: Layout.isSmallDevice?10:100}}>
+                  <Image style={{width: Layout.window.width / 2, height: Layout.window.width / 2}} source={{uri: this.props.currentTrack.trackImg}}/>
                   <View style={{marginTop: 50, marginHorizontal: 16}}>
                     <View style={styles.centerText}>
                       <TextTicker
@@ -250,7 +250,7 @@ class PlayerComponent extends React.Component {
                       </TextTicker>
                     </View>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: Layout.isSmallDevice?0:50}}>
                     <View style={{width: 50, paddingHorizontal: 5, alignItems: 'center'}}>
                       <Text style={{color: Colors.fontColor, fontSize: 10}}>{millisToMinutesAndSeconds(this.state.currentPosition)}</Text>
                     </View>
@@ -286,7 +286,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
-                          size={20}
+                          size={Layout.isSmallDevice?20:40}
                           color={this.props.settings.repeat ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
@@ -294,7 +294,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity disabled={!this.state.previousAllowed} style={{marginHorizontal: 5}} onPress={() => this.playPreviousTrack()}>
                       <Icon.MaterialIcons
                           name="skip-previous"
-                          size={40}
+                          size={Layout.isSmallDevice?40: 80}
                           color={this.state.previousAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
@@ -303,7 +303,7 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
-                              size={60}
+                              size={Layout.isSmallDevice?60:120}
                               color={Colors.fontColor}
                               style={styles.playerButton}
                           />
@@ -311,7 +311,7 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
-                              size={60}
+                              size={Layout.isSmallDevice?60:120}
                               color={Colors.fontColor}
                               style={styles.playerButton}
                           />
@@ -319,7 +319,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity disabled={!this.state.nextAllowed} style={{marginHorizontal: 5}} onPress={() => this.playNextTrack()}>
                       <Icon.MaterialIcons
                           name="skip-next"
-                          size={40}
+                          size={Layout.isSmallDevice?40:80}
                           color={this.state.nextAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
@@ -329,7 +329,7 @@ class PlayerComponent extends React.Component {
                     }}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
-                          size={20}
+                          size={Layout.isSmallDevice?20:40}
                           color={this.props.settings.shuffle ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
@@ -340,7 +340,7 @@ class PlayerComponent extends React.Component {
                         style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
                         onPress={() => {
                           this.props.togglePlayerMode();
-                          NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: this.props.currentTrack.origin});
+                          NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: 'currentTrack'});
                         }}>
                       <Icon.Ionicons
                           name={'md-disc'}

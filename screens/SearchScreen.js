@@ -175,7 +175,7 @@ class SearchScreen extends React.Component {
                       <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
                         <Text style={{color: Colors.tabIconDefault}}>Seems like you're played the wrong note!</Text>
                       </View>
-                  : <ActivityIndicator size="large" color={Colors.tintColor} style={{marginTop: 10}}/>
+                  : <ActivityIndicator size="small" color={Colors.tintColor} style={{marginTop: 10}}/>
               :
               <GenreList/>
           }

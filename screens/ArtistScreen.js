@@ -33,7 +33,7 @@ class ArtistScreen extends React.Component {
               />
             </TouchableOpacity>
             <View style={{alignItems: 'center', marginBottom: 20, paddingVertical: 5, paddingTop: 10}}>
-              <Image style={{width: 104, height: 104, borderRadius: 52}} source={{uri: this.state.artist.imageUrl}}/>
+              <Image style={{width: Layout.isSmallDevice?104:208, height: Layout.isSmallDevice?104:208, borderRadius: Layout.isSmallDevice?52:104}} source={{uri: this.state.artist.imageUrl}}/>
               <Text style={{fontSize: 16, color: Colors.fontColor, paddingTop: 8}}>{this.state.artist.artistName}</Text>
               <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                 <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>

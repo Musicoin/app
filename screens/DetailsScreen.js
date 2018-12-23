@@ -5,6 +5,7 @@ import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
 import {tipTrack, playTrack} from '../actions';
 import Layout from '../constants/Layout';
+import TextTicker from 'react-native-text-ticker';
 
 var {width} = Dimensions.get('window');
 
@@ -32,66 +33,77 @@ class DetailsScreen extends React.Component {
         track = this.props.searchResultsByArtist.find(obj => obj.trackId === trackId);
         break;
       default:
-        track = {};
+        track = this.props.currentTrack;
+        break;
     }
     return (
-        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
+        <ScrollView style={{flex: 1, backgroundColor: '#272D33', paddingHorizontal: 0, marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
 
-          <View style={{alignItems: 'center', marginBottom: 20}}>
-            <ImageBackground style={{width: width, height: width}} source={{uri: track.trackImg}}>
-              <View style={[{paddingHorizontal: 10, paddingTop: 20, height: width}, styles.overlay]}>
-                <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+          <View style={{alignItems: 'center', marginTop: 10, marginBottom: 20}}>
+
+            <View style={{paddingHorizontal: 16, paddingVertical: 16, width: width}}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
                   <Icon.Ionicons
-                      name={Platform.OS === 'ios' ? `ios-arrow-back` : 'md-arrow-back'}
+                      name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
                       size={26}
                       color={Colors.fontColor}
                   />
                 </TouchableOpacity>
-                <View style={{flex: 1, alignItems: 'center', marginTop: (width - 200) / 2}}>
-                  <TouchableOpacity onPress={() => this.props.playTrack(track)}>
-                    <View style={styles.backgroundCircle}>
-                      <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                          size={50}
-                          color={Colors.fontColor}
-                          style={{margin: 0, marginLeft: 8, padding: 0}}
-                      />
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View style={{flex: 1, flexDirection: 'row', marginTop: width - 275}}>
-                  <View style={{flex: 1, paddingTop: 10}}>
-                    <Text numberOfLines={1} style={{fontSize: 14, color: Colors.fontColor, textAlign: 'left'}}>{track.title}</Text>
-                    <Text numberOfLines={1} style={{fontSize: 12, color: Colors.fontColor, textAlign: 'left'}}>{track.author}</Text>
-                  </View>
-                  <View style={{flex: 1, alignItems: 'center'}}>
-                    <TouchableOpacity style={{}} onPress={() => this.props.tipTrack(track.trackId)}>
-                      <ImageBackground style={{width: 55, height: 49}} source={require('../assets/images/heart.png')}>
-                        <Text style={{fontSize: 12, fontWeight: 'bold', color: Colors.fontColor, textAlign: 'center', marginTop: 15}}>{track.directTipCount}</Text>
-                      </ImageBackground>
-                    </TouchableOpacity>
-                  </View>
-                  <View style={{flex: 1, flexDirection: 'row', paddingTop: 20}}>
-                    <View style={{width: 60}}></View>
-                    <Text numberOfLines={1} style={{fontSize: 14, color: Colors.fontColor, textAlign: 'right'}}>{track.directPlayCount}</Text>
-                    <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? `ios-cash` : 'md-cash'}
-                        size={20}
-                        color={Colors.fontColor}
-                        style={{paddingHorizontal: 10}}
-                    />
-                  </View>
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', marginHorizontal: 10}}>
+                  <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>{track.title} - {track.author}</Text>
                 </View>
               </View>
-            </ImageBackground>
+
+            </View>
+            <View style={{width: width, backgroundColor: Colors.backgroundColor}}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Image style={{width: 64, height: 64, margin: 16}} source={{uri: track.trackImg}}/>
+                <View style={{paddingVertical: 16}}>
+                  <TextTicker
+                      style={{color: Colors.tintColor, fontSize: 16, marginVertical: 2}}
+                      duration={5000}
+                      loop
+                      bounce
+                      repeatSpacer={50}
+                      marqueeDelay={1000}
+                  >
+                    {track.title}
+                  </TextTicker>
+                  <TextTicker
+                      style={{color: '#8897A2', fontSize: 12,marginVertical: 2}}
+                      duration={5000}
+                      loop
+                      bounce
+                      repeatSpacer={50}
+                      marqueeDelay={1000}
+                  >
+                    {track.author}
+                  </TextTicker>
+                </View>
+              </View>
+            </View>
           </View>
 
           <View style={styles.infoContainer}>
 
-            {track.genres != [] ? <Text style={{color: Colors.fontColor, fontSize: 14}}>Genres: {track.genres.join(', ')}</Text> : null}
+            <View style={{marginTop: 16}}>
+              <Text style={{flex: 1, fontSize: 14, color: '#8897A2'}}>Plays: {track.directPlayCount}</Text>
+            </View>
+            <View style={{marginTop: 16}}>
+              <Text style={{flex: 1, fontSize: 14, color: '#8897A2'}}>Tips: {track.directTipCount}</Text>
+            </View>
+            {track.genres != [] ?
+                <View style={{marginTop: 16}}>
+                  <Text style={{flex: 1, fontSize: 14, color: '#8897A2'}}>Genres</Text>
+                  <Text style={{color: Colors.fontColor, fontSize: 10, marginTop: 8}}>{track.genres.join(', ')}</Text>
+                </View> : null}
 
-            <Text style={{color: Colors.fontColor, fontSize: 12, paddingTop: 10, paddingBottom: 20}}>{track.trackDescription}</Text>
-            <Text></Text>
+            <View style={{marginTop: 16}}>
+              <Text style={{flex: 1, fontSize: 14, color: '#8897A2'}}>Description</Text>
+              <Text style={{color: Colors.fontColor, fontSize: 10, marginTop: 8}}>{track.trackDescription}</Text>
+            </View>
+
           </View>
 
         </ScrollView>
@@ -104,21 +116,9 @@ function mapStateToProps(state) {
 }
 
 const styles = StyleSheet.create({
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0,0.3)',
-    height: width,
-  },
   infoContainer: {
-    paddingHorizontal: 20,
-    marginTop: 35,
-  },
-  backgroundCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
-    backgroundColor: 'rgba(0, 0, 0,0.2)',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#272D33',
+    paddingHorizontal: 16,
   },
 });
 

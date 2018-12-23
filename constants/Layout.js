@@ -8,7 +8,7 @@ export default {
     width,
     height,
   },
-  isSmallDevice: width < 375,
+  isSmallDevice: width <= 375,
   playerHeight: 49,
   defaultTrackImage: 'https://i.redd.it/y2hj9ovrrne11.jpg',
   playerIconSize: 22,

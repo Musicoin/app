@@ -28,7 +28,7 @@ class GenreList extends React.Component {
 
   _renderItem = ({item}) => (
       <TouchableOpacity style={{flex: 1}} onPress={()=>this.searchTracks(item)}>
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 72, margin: 10, backgroundColor: getColorCodeForString(item)}}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', height: 72, margin: 10, backgroundColor: '#2E343A'}}>
           <Text style={{color: 'white', fontSize: 14}}>{item}</Text>
         </View>
       </TouchableOpacity>
