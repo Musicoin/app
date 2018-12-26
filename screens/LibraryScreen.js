@@ -7,6 +7,7 @@ import {Icon} from 'expo';
 import Track from '../components/track/track';
 import {playTrack, togglePlayerMode} from '../actions';
 import connectAlert from '../components/alert/connectAlert.component';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 let redirectToPlayer = false;
 
@@ -45,7 +46,7 @@ class LibraryScreen extends React.Component {
     const {navigation} = this.props;
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
     return (
-        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
+        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Queue</Text>
           <FlatList
               data={this.props.queue}

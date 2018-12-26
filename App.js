@@ -25,7 +25,7 @@ const customTextProps = {
   style: {
     fontFamily: 'robotoRegular',
     color: Colors.fontColor,
-  }
+  },
 };
 
 // persistor.purge();
@@ -62,7 +62,7 @@ export default class App extends React.Component {
               <AlertProvider>
                 <View style={styles.songInfoContainer}>
                   <StatusBar barStyle="light-content"/>
-                  <AppNavigator ref={navigatorRef => {
+                  <AppNavigator style={{backgroundColor: Colors.backgroundColor}} ref={navigatorRef => {
                     NavigationService.setTopLevelNavigator(navigatorRef);
                   }}/>
                   <PlayerComponent/>
@@ -90,7 +90,7 @@ export default class App extends React.Component {
     ]);
   };
 
-  setComponentDefaults(){
+  setComponentDefaults() {
     setCustomText(customTextProps);
   }
 

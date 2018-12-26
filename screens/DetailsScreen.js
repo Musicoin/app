@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {tipTrack, playTrack} from '../actions';
 import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 var {width} = Dimensions.get('window');
 
@@ -37,7 +38,7 @@ class DetailsScreen extends React.Component {
         break;
     }
     return (
-        <ScrollView style={{flex: 1, backgroundColor: '#272D33', paddingHorizontal: 0, marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
+        <ScrollView style={{flex: 1, backgroundColor: '#272D33', paddingHorizontal: 0, paddingTop:getStatusBarHeight(true), paddingBottom: this.props.currentTrack ? Layout.playerHeight : 20}}>
 
           <View style={{alignItems: 'center', marginTop: 10, marginBottom: 20}}>
 

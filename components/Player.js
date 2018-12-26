@@ -11,6 +11,7 @@ import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
 import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../tools/util';
+import { getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper'
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/track/';
@@ -489,7 +490,7 @@ const styles = StyleSheet.create({
   smallPlayerContainer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 49,
+    bottom: 49 + getBottomSpace(),
     left: 0,
     right: 0,
     ...Platform.select({
@@ -542,7 +543,8 @@ const styles = StyleSheet.create({
     }),
     backgroundColor: Colors.backgroundColor,
     paddingVertical: 10,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
+    paddingTop: getStatusBarHeight(true),
+    paddingBottom: getBottomSpace(),
   },
   centerText: {
     justifyContent: 'center',

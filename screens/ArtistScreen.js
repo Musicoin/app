@@ -7,6 +7,7 @@ import Layout from '../constants/Layout';
 import {getSearchByArtistResults, playTrack} from '../actions';
 import Track from '../components/track/track';
 import {Button} from 'react-native-elements';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 var {width} = Dimensions.get('window');
 
@@ -22,7 +23,7 @@ class ArtistScreen extends React.Component {
   render() {
 
     return (
-        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0, paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
+        <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: getStatusBarHeight(true), paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
 
           <View style={{paddingHorizontal: 10, paddingTop: 24, paddingBottom: 5, backgroundColor: '#272D33'}}>
             <TouchableOpacity style={{marginHorizontal: 16, marginTop: 16}} onPress={() => this.props.navigation.goBack()}>

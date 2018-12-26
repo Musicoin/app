@@ -16,6 +16,7 @@ import Track from '../components/track/track';
 import {getSearchByGenreResults} from '../actions';
 import Layout from '../constants/Layout';
 import {Icon} from 'expo';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class GenreScreen extends React.Component {
 
@@ -27,7 +28,7 @@ class GenreScreen extends React.Component {
     const {navigation} = this.props;
     const genre = navigation.getParam('genre', null);
     return (
-        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
+        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <View style={{flexDirection: 'row', paddingHorizontal: 10, paddingTop: 10, alignItems: 'stretch'}}>
             <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
               <Icon.Ionicons

@@ -149,6 +149,6 @@ export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack}
   tabBarComponent: props =>
       <TabBarComponent
           {...props}
-          style={{borderTopColor: Colors.backgroundColor}}
+          style={{borderTopColor: Colors.backgroundColor, backgroundColor: Colors.tabBar}}
       />,
 });

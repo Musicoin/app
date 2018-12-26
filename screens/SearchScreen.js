@@ -10,6 +10,7 @@ import {getSearchResults} from '../actions';
 import Layout from '../constants/Layout';
 import Track from '../components/track/track';
 import Artist from '../components/Artist';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 let numArtists = 3;
 let numTracks = 3;
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
+    paddingTop: getStatusBarHeight(true),
   },
 });
 

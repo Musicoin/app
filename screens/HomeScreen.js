@@ -14,6 +14,7 @@ import connectAlert from '../components/alert/connectAlert.component';
 import Track from '../components/track/track';
 import {fetchReleases} from '../actions';
 import Layout from '../constants/Layout';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class HomeScreen extends React.Component {
 
@@ -23,7 +24,7 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20}}>
+        <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <FlatList
               data={this.props.releases}
               keyExtractor={this._keyExtractor}
