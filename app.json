@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "org.musicoin.musicoin"
+    },
+    "android": {
+      "package": "org.musicoin.musicoin"
     }
   }
 }
