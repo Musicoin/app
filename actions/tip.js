@@ -8,10 +8,10 @@ function addTip(trackId, json) {
   return function(dispatch, getState) {
     let success = false;
     if (json.success) {
-      dispatch(addAlert('success', 'thank you!', 'Tip will be added when the next block is mined'));
+      dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
       success = true;
     } else {
-      dispatch(addAlert('error', 'Something went wrong', 'Please try again later'));
+      dispatch(addAlert('error', 'Something went wrong', 'Please retry your tip at a later time.'));
     }
     dispatch({
       type: TIP_TRACK,

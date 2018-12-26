@@ -52,8 +52,14 @@ class GenreScreen extends React.Component {
                     tintColor={Colors.tintColor}
                 />
               }
-              ListEmptyComponent={!this.props.loading.SEARCH_BY_GENRE ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: Colors.tabIconDefault}}>Something went wrong, please try again later</Text>
+              ListEmptyComponent={!this.props.loading.SEARCH_BY_GENRE ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+                <Icon.Ionicons
+                    name={'ios-search'}
+                    size={50}
+                    color={Colors.tabIconDefault}
+                    style={{opacity: 0.5}}
+                />
+                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
               </View> : null}
           />
         </View>

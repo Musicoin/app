@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler} from
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
+import {Icon} from 'expo';
 import Track from '../components/track/track';
 import {playTrack, togglePlayerMode} from '../actions';
 import connectAlert from '../components/alert/connectAlert.component';
@@ -51,8 +52,15 @@ class LibraryScreen extends React.Component {
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-              ListEmptyComponent={<View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={{color: Colors.tabIconDefault}}>Your queue is empty</Text>
+              ListEmptyComponent={<View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+                <Icon.Ionicons
+                    name={'md-timer'}
+                    size={50}
+                    color={Colors.tabIconDefault}
+                    style={{opacity: 0.5}}
+                />
+                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, your queue is empty!</Text>
+                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Add your favorite tracks on-the-go.</Text>
               </View>}
           />
         </View>

@@ -23,7 +23,7 @@ store.dispatch(fetchAccessToken()).then(() => store.dispatch(fetchReleases()));
 // Setting default styles for all Text components.
 const customTextProps = {
   style: {
-    fontFamily: 'roboto',
+    fontFamily: 'robotoRegular',
     color: Colors.fontColor,
   }
 };
@@ -83,11 +83,9 @@ export default class App extends React.Component {
         require('./assets/icons/library-white.png'),
       ]),
       Font.loadAsync({
-        // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        'roboto': require('./assets/fonts/Roboto-Regular.ttf'),
+        'robotoRegular': require('./assets/fonts/Roboto-Regular.ttf'),
+        'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
       }),
     ]);
   };

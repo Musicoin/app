@@ -4,7 +4,7 @@ import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
 import GenreList from '../components/GenreList';
-
+import {Icon} from 'expo';
 import {connect} from 'react-redux';
 import {getSearchResults} from '../actions';
 import Layout from '../constants/Layout';
@@ -105,8 +105,14 @@ class SearchScreen extends React.Component {
                 tintColor={Colors.tintColor}
             />
           }
-          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={{color: Colors.tabIconDefault}}>No artists found</Text>
+          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+            <Icon.Ionicons
+                name={'ios-search'}
+                size={50}
+                color={Colors.tabIconDefault}
+                style={{opacity: 0.5}}
+            />
+            <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
           </View> : null}
       />
   );
@@ -124,8 +130,14 @@ class SearchScreen extends React.Component {
                 tintColor={Colors.tintColor}
             />
           }
-          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={{color: Colors.tabIconDefault}}>No tracks found</Text>
+          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+            <Icon.Ionicons
+                name={'ios-search'}
+                size={50}
+                color={Colors.tabIconDefault}
+                style={{opacity: 0.5}}
+            />
+            <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
           </View> : null}
       />
   );
@@ -172,8 +184,14 @@ class SearchScreen extends React.Component {
                           onIndexChange={index => this.setState({index, route: this.state.routes[index].key})}
                           initialLayout={{width: Layout.window.width, height: Layout.window.height}}
                       /> :
-                      <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
-                        <Text style={{color: Colors.tabIconDefault}}>Seems like you're played the wrong note!</Text>
+                      <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+                        <Icon.Ionicons
+                            name={'ios-search'}
+                            size={50}
+                            color={Colors.tabIconDefault}
+                            style={{opacity: 0.5}}
+                        />
+                        <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
                       </View>
                   : <ActivityIndicator size="small" color={Colors.tintColor} style={{marginTop: 10}}/>
               :

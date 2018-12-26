@@ -406,7 +406,7 @@ class PlayerComponent extends React.Component {
       await audioPlayer.unloadAsync();
       console.log('audio failed to play');
       console.log(e);
-      this.showAlert('File not playing', 'The requested track failed to play, please try again later.');
+      this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
     }
     // }
   };
