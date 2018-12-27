@@ -1,4 +1,5 @@
-import {TIP_TRACK} from '../constants/Actions';
+import {TIP_TRACK, ALLOW_NEXT_TIP} from '../constants/Actions';
+import {TIP_TIMEOUT_MILIS} from '../constants/App';
 import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
 import {API_EMAIL} from 'react-native-dotenv';
@@ -6,9 +7,11 @@ import {API_EMAIL} from 'react-native-dotenv';
 function addTip(trackId, json) {
   console.log(json);
   return function(dispatch, getState) {
+    dispatch({type: ALLOW_NEXT_TIP, data: false});
     let success = false;
     if (json.success) {
       dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
+      setTimeout(()=>dispatch({type: ALLOW_NEXT_TIP, data: true}), TIP_TIMEOUT_MILIS);
       success = true;
     } else {
       dispatch(addAlert('error', 'Something went wrong', 'Please retry your tip at a later time.'));

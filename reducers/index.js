@@ -12,7 +12,8 @@ import loading from './loading';
 import queue from './queue';
 import lastPlayed from './lastPlayed';
 import settings from './settings';
+import nextTipAllowed from './nextTipAllowed';
 
-const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack, searchResults, searchResultsByGenre, searchResultsByArtist, loading, queue, lastPlayed, settings});
+const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack, searchResults, searchResultsByGenre, searchResultsByArtist, loading, queue, lastPlayed, settings, nextTipAllowed});
 
 export default rootReducer;

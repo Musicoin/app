@@ -1,0 +1,1 @@
+export const TIP_TIMEOUT_MILIS = 10000;

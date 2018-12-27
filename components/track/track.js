@@ -114,7 +114,7 @@ class Track extends Component {
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.modalButton} onPress={() => {
+              <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
                 this._toggleModal();
                 this.props.tipTrack(item.trackId);
               }}>
@@ -123,7 +123,7 @@ class Track extends Component {
                     fadeDuration={0}
                     style={{width: 16, height: 16, marginRight: 16}}
                 />
-                <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
+                <Text style={{color: this.props.nextTipAllowed ? Colors.fontColor : Colors.tabIconDefault, fontSize: 14}}>Tip track</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {

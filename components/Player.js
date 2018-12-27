@@ -11,7 +11,7 @@ import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import NavigationService from '../services/NavigationService';
 import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../tools/util';
-import { getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper'
+import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 
 let audioPlayer = null;
 const trackPrefix = 'https://a.musicoin.org/track/';
@@ -152,13 +152,21 @@ class PlayerComponent extends React.Component {
                   </TouchableOpacity>
 
                   <View>
-                    <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
-                      <Image
-                          source={require('../assets/icons/clap-white.png')}
-                          fadeDuration={0}
-                          style={[{width: 20, height: 20}, styles.playerButton]}
-                      />
-                    </TouchableOpacity>
+                    {this.props.nextTipAllowed ?
+                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                          <Image
+                              source={require('../assets/icons/clap-white.png')}
+                              fadeDuration={0}
+                              style={[{width: 20, height: 20}, styles.playerButton]}
+                          />
+                        </TouchableOpacity>
+                        : <TouchableOpacity disabled={true} onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                          <Image
+                              source={require('../assets/icons/clap-grey.png')}
+                              fadeDuration={0}
+                              style={[{width: 20, height: 20}, styles.playerButton]}
+                          />
+                        </TouchableOpacity>}
                   </View>
                   {this.state.isLoaded ?
                       this.state.isPlaying ?
@@ -223,7 +231,7 @@ class PlayerComponent extends React.Component {
                   </View>
 
                 </View>
-                <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: Layout.isSmallDevice?10:100}}>
+                <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: Layout.isSmallDevice ? 10 : 100}}>
                   <Image style={{width: Layout.window.width / 2, height: Layout.window.width / 2}} source={{uri: this.props.currentTrack.trackImg}}/>
                   <View style={{marginTop: 50, marginHorizontal: 16}}>
                     <View style={styles.centerText}>
@@ -251,7 +259,7 @@ class PlayerComponent extends React.Component {
                       </TextTicker>
                     </View>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: Layout.isSmallDevice?0:50}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: Layout.isSmallDevice ? 0 : 50}}>
                     <View style={{width: 50, paddingHorizontal: 5, alignItems: 'center'}}>
                       <Text style={{color: Colors.fontColor, fontSize: 10}}>{millisToMinutesAndSeconds(this.state.currentPosition)}</Text>
                     </View>
@@ -287,7 +295,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
-                          size={Layout.isSmallDevice?20:40}
+                          size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.repeat ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
@@ -295,7 +303,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity disabled={!this.state.previousAllowed} style={{marginHorizontal: 5}} onPress={() => this.playPreviousTrack()}>
                       <Icon.MaterialIcons
                           name="skip-previous"
-                          size={Layout.isSmallDevice?40: 80}
+                          size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.previousAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
@@ -304,7 +312,7 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
-                              size={Layout.isSmallDevice?60:120}
+                              size={Layout.isSmallDevice ? 60 : 120}
                               color={Colors.fontColor}
                               style={styles.playerButton}
                           />
@@ -312,7 +320,7 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
-                              size={Layout.isSmallDevice?60:120}
+                              size={Layout.isSmallDevice ? 60 : 120}
                               color={Colors.fontColor}
                               style={styles.playerButton}
                           />
@@ -320,7 +328,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity disabled={!this.state.nextAllowed} style={{marginHorizontal: 5}} onPress={() => this.playNextTrack()}>
                       <Icon.MaterialIcons
                           name="skip-next"
-                          size={Layout.isSmallDevice?40:80}
+                          size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.nextAllowed ? Colors.fontColor : Colors.disabled}
                           style={styles.playerButton}
                       />
@@ -330,13 +338,13 @@ class PlayerComponent extends React.Component {
                     }}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
-                          size={Layout.isSmallDevice?20:40}
+                          size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.shuffle ? Colors.tintColor : Colors.fontColor}
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'flex-end'}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'flex-end', marginBottom: 16}}>
                     <TouchableOpacity
                         style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
                         onPress={() => {
@@ -354,16 +362,29 @@ class PlayerComponent extends React.Component {
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 
                     </View>
-                    <TouchableOpacity
-                        style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                        onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
-                      <Image
-                          source={require('../assets/icons/clap-white.png')}
-                          fadeDuration={0}
-                          style={{width: 16, height: 16, marginRight: 5}}
-                      />
-                      <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
-                    </TouchableOpacity>
+                    {this.props.nextTipAllowed ?
+                        <TouchableOpacity
+                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                          <Image
+                              source={require('../assets/icons/clap-white.png')}
+                              fadeDuration={0}
+                              style={{width: 16, height: 16, marginRight: 5}}
+                          />
+                          <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
+                        </TouchableOpacity>
+                        :
+                        <TouchableOpacity
+                            disabled={true}
+                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                          <Image
+                              source={require('../assets/icons/clap-grey.png')}
+                              fadeDuration={0}
+                              style={{width: 16, height: 16, marginRight: 5}}
+                          />
+                          <Text style={{color: Colors.tabIconDefault, fontSize: 12}}>Tip</Text>
+                        </TouchableOpacity>}
                   </View>
                 </View>
               </View> : null}
