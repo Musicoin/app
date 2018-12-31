@@ -6,6 +6,8 @@ import {LinearGradient} from 'expo';
 import Colors from '../constants/Colors';
 import {Button} from 'react-native-elements';
 import {Icon} from 'expo';
+import NavigationService from '../services/NavigationService';
+import {artistOfTheWeek} from '../constants/Data';
 
 class ArtistOfTheWeek extends React.Component {
   render() {
@@ -46,7 +48,7 @@ class ArtistOfTheWeek extends React.Component {
                     }}
                     titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
                     containerStyle={{marginTop: 20}}
-                    onPress={() => console.log('To be added')}
+                    onPress={() => NavigationService.navigate('ArtistScreen', {artist: artistOfTheWeek})}
                 />
               </View>
             </View>
