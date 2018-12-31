@@ -52,7 +52,7 @@ class DetailsScreen extends React.Component {
                   />
                 </TouchableOpacity>
                 <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', marginHorizontal: 10}}>
-                  <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>{track.title} - {track.author}</Text>
+                  <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>{track.title} - {track.artistName}</Text>
                 </View>
               </View>
 
@@ -79,7 +79,7 @@ class DetailsScreen extends React.Component {
                       repeatSpacer={50}
                       marqueeDelay={1000}
                   >
-                    {track.author}
+                    {track.artistName}
                   </TextTicker>
                 </View>
               </View>

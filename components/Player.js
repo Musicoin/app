@@ -146,7 +146,7 @@ class PlayerComponent extends React.Component {
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
-                        {this.props.currentTrack.author}
+                        {this.props.currentTrack.artistName}
                       </TextTicker>
                     </View>
                   </TouchableOpacity>
@@ -255,7 +255,7 @@ class PlayerComponent extends React.Component {
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
-                        {this.props.currentTrack.author}
+                        {this.props.currentTrack.artistName}
                       </TextTicker>
                     </View>
                   </View>

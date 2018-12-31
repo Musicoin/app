@@ -228,9 +228,9 @@ export async function shareTrack(track) {
   try {
     track.link = track.link.replace('musicion', 'musicoin');
     const result = await Share.share({
-      title: `${track.author} - ${track.title}`,
-      dialogTitle: `${track.author} - ${track.title}`,
-      message: `Listen to ${track.title} by ${track.author} on Musicoin: ${track.link}`,
+      title: `${track.artistName} - ${track.title}`,
+      dialogTitle: `${track.artistName} - ${track.title}`,
+      message: `Listen to ${track.title} by ${track.artistName} on Musicoin: ${track.link}`,
       url: `${track.link}`,
     });
 

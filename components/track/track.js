@@ -31,7 +31,7 @@ class Track extends Component {
 
             <TouchableOpacity style={styles.releaseTrackContainer} onPress={() => this.props.playTrack(item)}>
               <Text numberOfLines={1} style={{color: Colors.fontColor}}>{item.title}</Text>
-              <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.author}</Text>
+              <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.artistName}</Text>
               <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{item.directTipCount} {item.directTipCount == 1 ? 'tip' : 'tips'}</Text>
             </TouchableOpacity>
             <View style={styles.optionsButton}>
@@ -68,7 +68,7 @@ class Track extends Component {
                       repeatSpacer={50}
                       marqueeDelay={1000}
                   >
-                    {item.author}
+                    {item.artistName}
                   </TextTicker>
                 </View>
               </View>
