@@ -212,7 +212,7 @@ export function returnIndexFromArray(array, track, reversed = false) {
   let indexArray = [];
   let i = 0;
   for (i; i < array.length; i++) {
-    if (array[i].trackId === track.trackId) {
+    if (array[i].trackAddress === track.trackAddress) {
       indexArray.push(i);
     }
   }

@@ -14,24 +14,24 @@ class DetailsScreen extends React.Component {
 
   render() {
     const {navigation} = this.props;
-    const trackId = navigation.getParam('trackId', null);
+    const trackAddress = navigation.getParam('trackAddress', null);
     const origin = navigation.getParam('origin', null);
     let track = {};
     switch (origin) {
       case 'search':
-        track = this.props.searchResults.releases.find(obj => obj.trackId === trackId);
+        track = this.props.searchResults.releases.find(obj => obj.trackAddress === trackAddress);
         break;
       case 'new':
-        track = this.props.releases.find(obj => obj.trackId === trackId);
+        track = this.props.releases.find(obj => obj.trackAddress === trackAddress);
         break;
       case 'genre':
-        track = this.props.searchResultsByGenre.find(obj => obj.trackId === trackId);
+        track = this.props.searchResultsByGenre.find(obj => obj.trackAddress === trackAddress);
         break;
       case 'queue':
-        track = this.props.queue.find(obj => obj.trackId === trackId);
+        track = this.props.queue.find(obj => obj.trackAddress === trackAddress);
         break;
       case 'artist':
-        track = this.props.searchResultsByArtist.find(obj => obj.trackId === trackId);
+        track = this.props.searchResultsByArtist.find(obj => obj.trackAddress === trackAddress);
         break;
       default:
         track = this.props.currentTrack;

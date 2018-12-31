@@ -10,7 +10,7 @@ export default function releasesByGenre(state = [], action) {
       //update tip count in store
       if (action.success) {
         return state.map((item, index) => {
-          if (item.trackId !== action.trackId) {
+          if (item.trackAddress !== action.trackAddress) {
             // This isn't the item we care about - keep it as-is
             return item;
           }

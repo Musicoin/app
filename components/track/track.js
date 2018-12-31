@@ -103,7 +103,7 @@ class Track extends Component {
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {
                 this._toggleModal();
-                NavigationService.navigate('ReleaseDetail', {trackId: item.trackId, origin});
+                NavigationService.navigate('ReleaseDetail', {trackAddress: item.trackAddress, origin});
               }}>
                 <Icon.Ionicons
                     name={Platform.OS === 'ios' ? 'ios-eye' : 'md-eye'}
@@ -116,7 +116,7 @@ class Track extends Component {
 
               <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
                 this._toggleModal();
-                this.props.tipTrack(item.trackId);
+                this.props.tipTrack(item.trackAddress);
               }}>
                 <Image
                     source={require('../../assets/icons/clap-grey.png')}

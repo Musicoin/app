@@ -14,7 +14,7 @@ import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../to
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 
 let audioPlayer = null;
-const trackPrefix = 'https://a.musicoin.org/track/';
+const trackPrefix = 'https://a.musicoin.org/tracks/';
 const trackSuffix = '/index.m3u8';
 
 Expo.Audio.setAudioModeAsync(
@@ -132,7 +132,6 @@ class PlayerComponent extends React.Component {
                           style={{color: Colors.fontColor, fontSize: 12}}
                           duration={5000}
                           loop
-                          bounce
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
@@ -142,7 +141,6 @@ class PlayerComponent extends React.Component {
                           style={{color: '#8B99A4', fontSize: 12}}
                           duration={5000}
                           loop
-                          bounce
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
@@ -153,14 +151,14 @@ class PlayerComponent extends React.Component {
 
                   <View>
                     {this.props.nextTipAllowed ?
-                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
                           <Image
                               source={require('../assets/icons/clap-white.png')}
                               fadeDuration={0}
                               style={[{width: 20, height: 20}, styles.playerButton]}
                           />
                         </TouchableOpacity>
-                        : <TouchableOpacity disabled={true} onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                        : <TouchableOpacity disabled={true} onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
                           <Image
                               source={require('../assets/icons/clap-grey.png')}
                               fadeDuration={0}
@@ -239,7 +237,6 @@ class PlayerComponent extends React.Component {
                           style={{color: Colors.tintColor, fontSize: 18, alignSelf: 'center'}}
                           duration={5000}
                           loop
-                          bounce
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
@@ -251,7 +248,6 @@ class PlayerComponent extends React.Component {
                           style={{color: '#8897A2', fontSize: 14, alignSelf: 'center', alignItems: 'center'}}
                           duration={5000}
                           loop
-                          bounce
                           repeatSpacer={50}
                           marqueeDelay={1000}
                       >
@@ -349,7 +345,7 @@ class PlayerComponent extends React.Component {
                         style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
                         onPress={() => {
                           this.props.togglePlayerMode();
-                          NavigationService.navigate('ReleaseDetail', {trackId: this.props.currentTrack.trackId, origin: 'currentTrack'});
+                          NavigationService.navigate('ReleaseDetail', {trackAddress: this.props.currentTrack.trackAddress, origin: 'currentTrack'});
                         }}>
                       <Icon.Ionicons
                           name={'md-disc'}
@@ -365,7 +361,7 @@ class PlayerComponent extends React.Component {
                     {this.props.nextTipAllowed ?
                         <TouchableOpacity
                             style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
                           <Image
                               source={require('../assets/icons/clap-white.png')}
                               fadeDuration={0}
@@ -377,7 +373,7 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity
                             disabled={true}
                             style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackId)}>
+                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
                           <Image
                               source={require('../assets/icons/clap-grey.png')}
                               fadeDuration={0}
@@ -422,7 +418,7 @@ class PlayerComponent extends React.Component {
     }
 
     try {
-      await audioPlayer.loadAsync({uri: trackPrefix + track.trackId + trackSuffix}, {}, false);
+      await audioPlayer.loadAsync({uri: trackPrefix + track.trackAddress + trackSuffix}, {}, false);
       await audioPlayer.playAsync();
     } catch (e) {
       await audioPlayer.unloadAsync();

@@ -4,7 +4,7 @@ import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
 import {API_EMAIL} from 'react-native-dotenv';
 
-function addTip(trackId, json) {
+function addTip(trackAddress, json) {
   console.log(json);
   return function(dispatch, getState) {
     dispatch({type: ALLOW_NEXT_TIP, data: false});
@@ -18,24 +18,24 @@ function addTip(trackId, json) {
     }
     dispatch({
       type: TIP_TRACK,
-      trackId: trackId,
+      trackAddress: trackAddress,
       success,
     });
   };
 }
 
-async function tipTrackJson(trackId, token) {
+async function tipTrackJson(trackAddress, token) {
   let params = {
     tip: 1,
   };
 
-  let tipTrack = await fetchPostFormDataJson(`release/tip/${trackId}?email=${API_EMAIL}&accessToken=${token}`, params);
+  let tipTrack = await fetchPostFormDataJson(`release/tip/${trackAddress}?email=${API_EMAIL}&accessToken=${token}`, params);
   return tipTrack;
 }
 
-export function tipTrack(trackId) {
+export function tipTrack(trackAddress) {
   return function(dispatch, getState) {
     let accessToken = getState().accessToken;
-    return tipTrackJson(trackId, accessToken.token).then(json => dispatch(addTip(trackId, json)));
+    return tipTrackJson(trackAddress, accessToken.token).then(json => dispatch(addTip(trackAddress, json)));
   };
 }

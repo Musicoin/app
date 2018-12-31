@@ -13,7 +13,7 @@ export default function releases(state = {artists: [], releases: []}, action) {
         return {
           ...state,
           releases: state.releases.map((item, index) => {
-            if (item.trackId !== action.trackId) {
+            if (item.trackAddress !== action.trackAddress) {
               // This isn't the item we care about - keep it as-is
               return item;
             }

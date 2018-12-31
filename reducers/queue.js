@@ -4,13 +4,13 @@ export default function queue(state = [], action) {
   switch (action.type) {
     case ADD_TO_QUEUE:
       action.track.origin = 'queue';
-      let track = {...action.track, queueId: action.track.trackId + Math.floor((Math.random() * 1000000) + 1)};
+      let track = {...action.track, queueId: action.track.trackAddress + Math.floor((Math.random() * 1000000) + 1)};
       return [...state, track];
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {
         return state.map((item, index) => {
-          if (item.trackId !== action.trackId) {
+          if (item.trackAddress !== action.trackAddress) {
             // This isn't the item we care about - keep it as-is
             return item;
           }
