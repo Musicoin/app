@@ -226,12 +226,13 @@ export function returnIndexFromArray(array, track, reversed = false) {
 
 export async function shareTrack(track) {
   try {
-    track.link = track.link.replace('musicion', 'musicoin');
+    track.trackUrl = track.trackUrl.replace('a.', '');
+    track.trackUrl = track.trackUrl.replace('/index.m3u8', '');
     const result = await Share.share({
       title: `${track.artistName} - ${track.title}`,
       dialogTitle: `${track.artistName} - ${track.title}`,
       message: `Listen to ${track.title} by ${track.artistName} on Musicoin: ${track.link}`,
-      url: `${track.link}`,
+      url: `${track.trackUrl}`,
     });
 
     if (result.action === Share.sharedAction) {

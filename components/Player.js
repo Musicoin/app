@@ -14,8 +14,6 @@ import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../to
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 
 let audioPlayer = null;
-const trackPrefix = 'https://a.musicoin.org/tracks/';
-const trackSuffix = '/index.m3u8';
 
 Expo.Audio.setAudioModeAsync(
     {
@@ -418,7 +416,7 @@ class PlayerComponent extends React.Component {
     }
 
     try {
-      await audioPlayer.loadAsync({uri: trackPrefix + track.trackAddress + trackSuffix}, {}, false);
+      await audioPlayer.loadAsync({uri: track.trackUrl}, {}, false);
       await audioPlayer.playAsync();
     } catch (e) {
       await audioPlayer.unloadAsync();
