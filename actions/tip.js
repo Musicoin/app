@@ -11,9 +11,10 @@ function addTip(trackAddress, json) {
     let success = false;
     if (json.success) {
       dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
-      setTimeout(()=>dispatch({type: ALLOW_NEXT_TIP, data: true}), TIP_TIMEOUT_MILIS);
+      setTimeout(() => dispatch({type: ALLOW_NEXT_TIP, data: true}), TIP_TIMEOUT_MILIS);
       success = true;
     } else {
+      dispatch({type: ALLOW_NEXT_TIP, data: true});
       dispatch(addAlert('error', 'Something went wrong', 'Please retry your tip at a later time.'));
     }
     dispatch({
