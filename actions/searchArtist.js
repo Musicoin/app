@@ -20,6 +20,7 @@ function receiveSearchResults(json) {
 async function fetchSearchResultsJson(token, artistId) {
   var params = {
     'accessToken': token,
+    'limit': 50,
   };
 
   let results = await fetchGetData(`release/byartist/${API_VERSION}/${artistId}?`, params);
