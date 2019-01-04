@@ -57,13 +57,6 @@ export function getSearchByGenreResults(genre) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_BY_GENRE_REQUEST});
     let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchSearchResultsJson(getState().accessToken.token, genre).then(json => dispatch(receiveSearchResults(json)));});
-
-    } else {
-      return fetchSearchResultsJson(accessToken.token, genre).then(json => dispatch(receiveSearchResults(json)));
-    }
+    return fetchSearchResultsJson(accessToken.token, genre).then(json => dispatch(receiveSearchResults(json)));
   };
 }

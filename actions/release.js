@@ -56,13 +56,6 @@ export function fetchReleases() {
   return function(dispatch, getState) {
     dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
     let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchReleasesJson(getState().accessToken.token).then(json => dispatch(receiveReleases(json)));});
-
-    } else {
-      return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
-    }
+    return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
   };
 }

@@ -20,7 +20,7 @@ function receiveSearchResults(json) {
 async function fetchSearchResultsJson(token, keyword) {
   var params = {
     'keyword': keyword,
-    'limit': 20
+    'limit': 20,
   };
 
   let results = await fetchPostFormData(`search/${API_VERSION}?email=${API_EMAIL}&accessToken=${token}`, params);
@@ -41,7 +41,7 @@ async function fetchSearchResultsJson(token, keyword) {
         results.releases[i].directPlayCount = 0;
       }
 
-      if(!results.releases[i].trackImg){
+      if (!results.releases[i].trackImg) {
         results.releases[i].trackImg = Layout.defaultTrackImage;
       }
 
@@ -58,13 +58,6 @@ export function getSearchResults(keyword) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_REQUEST});
     let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchSearchResultsJson(getState().accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));});
-
-    } else {
-      return fetchSearchResultsJson(accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));
-    }
+    return fetchSearchResultsJson(accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));
   };
 }

@@ -57,13 +57,6 @@ export function getSearchByArtistResults(artistId) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_BY_ARTIST_REQUEST});
     let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchSearchResultsJson(getState().accessToken.token, artistId).then(json => dispatch(receiveSearchResults(json)));});
-
-    } else {
-      return fetchSearchResultsJson(accessToken.token, artistId).then(json => dispatch(receiveSearchResults(json)));
-    }
+    return fetchSearchResultsJson(accessToken.token, artistId).then(json => dispatch(receiveSearchResults(json)));
   };
 }

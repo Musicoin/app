@@ -28,13 +28,6 @@ export function fetchArtistOfTheWeek() {
   return function(dispatch, getState) {
     dispatch({type: ARTIST_OF_THE_WEEK_REQUEST});
     let accessToken = getState().accessToken;
-    let diff = (Math.abs(accessToken.receivedAt - Date.now())) / 1000 / 60;
-    if (diff >= 58) {
-      // get a new token
-      dispatch(fetchAccessToken()).then(() => {return fetchArtistOfTheWeekJson(getState().accessToken.token).then(json => dispatch(receiveArtistOfTheWeek(json)));});
-
-    } else {
-      return fetchArtistOfTheWeekJson(accessToken.token).then(json => dispatch(receiveArtistOfTheWeek(json)));
-    }
+    return fetchArtistOfTheWeekJson(accessToken.token).then(json => dispatch(receiveArtistOfTheWeek(json)));
   };
 }
