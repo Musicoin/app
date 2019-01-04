@@ -15,10 +15,9 @@ import PlayerComponent from './components/Player';
 
 import NavigationService from './services/NavigationService';
 
-import {fetchReleases, fetchAccessToken} from './actions';
+import {fetchReleases, fetchAccessToken, fetchArtistOfTheWeek} from './actions';
 
 store.subscribe(() => console.log('store', store.getState()));
-store.dispatch(fetchAccessToken()).then(() => store.dispatch(fetchReleases()));
 
 // Setting default styles for all Text components.
 const customTextProps = {
@@ -86,6 +85,11 @@ export default class App extends React.Component {
         ...Icon.Ionicons.font,
         'robotoRegular': require('./assets/fonts/Roboto-Regular.ttf'),
         'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
+      }),
+      store.dispatch(fetchAccessToken()).then(() => {
+       return Promise.all([
+          store.dispatch(fetchArtistOfTheWeek()),
+          store.dispatch(fetchReleases())]);
       }),
     ]);
   };

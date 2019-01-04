@@ -8,3 +8,4 @@ export * from './searchGenre';
 export * from './searchArtist';
 export * from './queue';
 export * from './settings';
+export * from './artistOfTheWeek';

@@ -13,7 +13,23 @@ import queue from './queue';
 import lastPlayed from './lastPlayed';
 import settings from './settings';
 import nextTipAllowed from './nextTipAllowed';
+import artistOfTheWeek from './artistOfTheWeek';
 
-const rootReducer = combineReducers({releases, accessToken, alert, lastAction, currentTrack, searchResults, searchResultsByGenre, searchResultsByArtist, loading, queue, lastPlayed, settings, nextTipAllowed});
+const rootReducer = combineReducers({
+  releases,
+  accessToken,
+  alert,
+  lastAction,
+  currentTrack,
+  searchResults,
+  searchResultsByGenre,
+  searchResultsByArtist,
+  loading,
+  queue,
+  lastPlayed,
+  settings,
+  nextTipAllowed,
+  artistOfTheWeek,
+});
 
 export default rootReducer;

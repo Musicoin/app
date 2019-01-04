@@ -9,7 +9,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import GenreScreen from '../screens/GenreScreen';
-import ArtistScreen from '../screens/ArtistScreen'
+import ArtistScreen from '../screens/ArtistScreen';
 
 import Colors from '../constants/Colors';
 import {Platform} from 'react-native';
@@ -21,6 +21,9 @@ const HomeStack = createStackNavigator(
       },
       ReleaseDetail: {
         screen: DetailsScreen,
+      },
+      ArtistScreen: {
+        screen: ArtistScreen,
       },
     },
     {
@@ -70,7 +73,7 @@ const DiscoverStack = createStackNavigator(
       },
       ArtistScreen: {
         screen: ArtistScreen,
-      }
+      },
     },
     {
       mode: 'modal',
@@ -143,7 +146,6 @@ LibraryStack.navigationOptions = {
 };
 
 const TabBarComponent = (props) => (<BottomTabBar {...props} />);
-
 
 export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack}, {
   tabBarComponent: props =>

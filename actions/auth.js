@@ -19,7 +19,7 @@ async function fetchAccessTokenJson() {
 
   };
 
-  return fetchPostData(`${API_VERSION}/accesstoken`, params);
+  return fetchPostData(`${API_VERSION}/auth/accesstoken`, params);
 }
 
 export function fetchAccessToken() {
