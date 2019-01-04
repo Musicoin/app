@@ -5,7 +5,7 @@ export default function artistOfTheWeek(state = null, action) {
     case ARTIST_OF_THE_WEEK_SUCCESS:
       if (action.data) {
         let track = {
-          trackName: action.data.trackName,
+          title: action.data.trackName,
           trackImg: action.data.trackImg,
           trackAddress: action.data.trackAddress,
         };

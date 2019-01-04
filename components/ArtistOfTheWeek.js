@@ -29,7 +29,7 @@ class ArtistOfTheWeek extends React.Component {
                   <View style={{margin: 16, alignItems: 'flex-end'}}>
                     <Text style={{fontSize: 16, fontWeight: 'bold'}}>Artist of the week</Text>
                     <Text style={{fontSize: 14, fontFamily: 'robotoMedium', marginTop: 16}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
-                    <Text style={{fontSize: 14}}>{this.props.artistOfTheWeek.track.trackName}</Text>
+                    <Text style={{fontSize: 14}}>{this.props.artistOfTheWeek.track.title}</Text>
                     <Button
                         icon={
                           <Icon.Ionicons
