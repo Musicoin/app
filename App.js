@@ -46,31 +46,30 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-          <AppLoading
-              startAsync={this._loadResourcesAsync}
-              onError={this._handleLoadingError}
-              onFinish={this._handleFinishLoading}
-          />
-      );
-    } else {
-      return (
-          <Provider store={store}>
-            <PersistGate loading={null} persistor={persistor}>
-              <AlertProvider>
-                <View style={styles.songInfoContainer}>
-                  <StatusBar barStyle="light-content"/>
-                  <AppNavigator style={{backgroundColor: Colors.backgroundColor}} ref={navigatorRef => {
-                    NavigationService.setTopLevelNavigator(navigatorRef);
-                  }}/>
-                  <PlayerComponent/>
-                </View>
-              </AlertProvider>
-            </PersistGate>
-          </Provider>
-      );
-    }
+
+    return (
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            {!this.state.isLoadingComplete && !this.props.skipLoadingScreen ?
+                <AppLoading
+                    startAsync={this._loadResourcesAsync}
+                    onError={this._handleLoadingError}
+                    onFinish={this._handleFinishLoading}
+                />
+                :
+                <AlertProvider>
+                  <View style={styles.songInfoContainer}>
+                    <StatusBar barStyle="light-content"/>
+                    <AppNavigator style={{backgroundColor: Colors.backgroundColor}} ref={navigatorRef => {
+                      NavigationService.setTopLevelNavigator(navigatorRef);
+                    }}/>
+                    <PlayerComponent/>
+                  </View>
+                </AlertProvider>
+            }
+          </PersistGate>
+        </Provider>
+    );
   }
 
   _loadResourcesAsync = async () => {
@@ -87,7 +86,7 @@ export default class App extends React.Component {
         'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
       }),
       store.dispatch(fetchAccessToken()).then(() => {
-       return Promise.all([
+        return Promise.all([
           store.dispatch(fetchArtistOfTheWeek()),
           store.dispatch(fetchReleases())]);
       }),

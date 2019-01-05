@@ -1,7 +1,7 @@
 import {fetchAccessToken} from './auth';
 import {SEARCH_BY_ARTIST_FAILURE, SEARCH_BY_ARTIST_REQUEST, SEARCH_BY_ARTIST_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
+import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
@@ -17,10 +17,11 @@ function receiveSearchResults(json) {
   };
 }
 
-async function fetchSearchResultsJson(token, artistId) {
+async function fetchSearchResultsJson(token, artistId, email) {
   var params = {
     'accessToken': token,
     'limit': 50,
+    'email': email,
   };
 
   let results = await fetchGetData(`release/byartist/${API_VERSION}/${artistId}?`, params);
@@ -56,7 +57,7 @@ async function fetchSearchResultsJson(token, artistId) {
 export function getSearchByArtistResults(artistId) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_BY_ARTIST_REQUEST});
-    let accessToken = getState().accessToken;
-    return fetchSearchResultsJson(accessToken.token, artistId).then(json => dispatch(receiveSearchResults(json)));
+    let {accessToken, email} = getState().auth;
+    return fetchSearchResultsJson(accessToken, artistId, email).then(json => dispatch(receiveSearchResults(json)));
   };
 }

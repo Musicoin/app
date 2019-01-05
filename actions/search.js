@@ -1,7 +1,7 @@
 import {fetchAccessToken} from './auth';
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchPostFormData} from '../tools/util';
-import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
+import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
@@ -17,13 +17,14 @@ function receiveSearchResults(json) {
   };
 }
 
-async function fetchSearchResultsJson(token, keyword) {
+async function fetchSearchResultsJson(token, keyword, email) {
   var params = {
+    'email': email,
     'keyword': keyword,
     'limit': 20,
   };
 
-  let results = await fetchPostFormData(`search/${API_VERSION}?email=${API_EMAIL}&accessToken=${token}`, params);
+  let results = await fetchPostFormData(`search/${API_VERSION}?email=${email}&accessToken=${token}`, params);
 
   if (results.success && results.releases != []) {
 
@@ -57,7 +58,7 @@ async function fetchSearchResultsJson(token, keyword) {
 export function getSearchResults(keyword) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_REQUEST});
-    let accessToken = getState().accessToken;
-    return fetchSearchResultsJson(accessToken.token, keyword).then(json => dispatch(receiveSearchResults(json)));
+    let {accessToken, email} = getState().auth;
+    return fetchSearchResultsJson(accessToken, keyword, email).then(json => dispatch(receiveSearchResults(json)));
   };
 }

@@ -10,7 +10,7 @@ import {getSearchResults} from '../actions';
 import Layout from '../constants/Layout';
 import Track from '../components/track/track';
 import Artist from '../components/Artist';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 let numArtists = 3;
 let numTracks = 3;
@@ -155,7 +155,9 @@ class SearchScreen extends React.Component {
               cancelIcon={null}
               onChangeText={(text) => {
                 this.text = text;
-                clearTimeout(this.timeout); // clears the old timer
+                if (this.timeout) {
+                  clearTimeout(this.timeout); // clears the old timer
+                }
                 this.timeout = setTimeout(() => this.search(), 500);
               }}
               onClear={() => this.clear()}
@@ -219,7 +221,9 @@ class SearchScreen extends React.Component {
   };
 
   componentWillUnmount() {
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
   }
 
   search() {

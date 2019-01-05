@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-import accessToken from './accessToken';
+import auth from './auth';
 import currentTrack from './currentTrack';
 import releases from './releases';
 import alert from './alert';
@@ -17,7 +17,7 @@ import artistOfTheWeek from './artistOfTheWeek';
 
 const rootReducer = combineReducers({
   releases,
-  accessToken,
+  auth,
   alert,
   lastAction,
   currentTrack,

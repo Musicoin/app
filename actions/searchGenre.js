@@ -1,7 +1,7 @@
 import {fetchAccessToken} from './auth';
 import {SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_EMAIL, API_VERSION} from 'react-native-dotenv';
+import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
@@ -17,10 +17,11 @@ function receiveSearchResults(json) {
   };
 }
 
-async function fetchSearchResultsJson(token, genre) {
+async function fetchSearchResultsJson(token, genre, email) {
   var params = {
     'genre': genre,
     'accessToken': token,
+    'email': email,
   };
 
   let results = await fetchGetData(`release/bygenre/${API_VERSION}?`, params);
@@ -56,7 +57,7 @@ async function fetchSearchResultsJson(token, genre) {
 export function getSearchByGenreResults(genre) {
   return function(dispatch, getState) {
     dispatch({type: SEARCH_BY_GENRE_REQUEST});
-    let accessToken = getState().accessToken;
-    return fetchSearchResultsJson(accessToken.token, genre).then(json => dispatch(receiveSearchResults(json)));
+    let {accessToken, email} = getState().auth;
+    return fetchSearchResultsJson(accessToken, genre, email).then(json => dispatch(receiveSearchResults(json)));
   };
 }

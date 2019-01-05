@@ -1,4 +1,3 @@
-import {fetchAccessToken} from './auth';
 import {API_VERSION} from 'react-native-dotenv';
 import {fetchGetData} from '../tools/util';
 import {ARTIST_OF_THE_WEEK_FAILURE, ARTIST_OF_THE_WEEK_REQUEST, ARTIST_OF_THE_WEEK_SUCCESS} from '../constants/Actions';
@@ -10,9 +9,10 @@ function receiveArtistOfTheWeek(json) {
   };
 }
 
-async function fetchArtistOfTheWeekJson(token) {
+async function fetchArtistOfTheWeekJson(token, email) {
   var params = {
     'accessToken': token,
+    'email': email,
   };
 
   let result = await fetchGetData(`artist/ofweek/${API_VERSION}?`, params);
@@ -27,7 +27,7 @@ async function fetchArtistOfTheWeekJson(token) {
 export function fetchArtistOfTheWeek() {
   return function(dispatch, getState) {
     dispatch({type: ARTIST_OF_THE_WEEK_REQUEST});
-    let accessToken = getState().accessToken;
-    return fetchArtistOfTheWeekJson(accessToken.token).then(json => dispatch(receiveArtistOfTheWeek(json)));
+    let {accessToken, email} = getState().auth;
+    return fetchArtistOfTheWeekJson(accessToken, email).then(json => dispatch(receiveArtistOfTheWeek(json)));
   };
 }

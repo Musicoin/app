@@ -16,9 +16,10 @@ function receiveReleases(json) {
   };
 }
 
-async function fetchReleasesJson(token) {
+async function fetchReleasesJson(token, email) {
   var params = {
     'accessToken': token,
+    'email': email,
     'limit': '20',
   };
 
@@ -55,7 +56,7 @@ async function fetchReleasesJson(token) {
 export function fetchReleases() {
   return function(dispatch, getState) {
     dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
-    let accessToken = getState().accessToken;
-    return fetchReleasesJson(accessToken.token).then(json => dispatch(receiveReleases(json)));
+    let {accessToken, email} = getState().auth;
+    return fetchReleasesJson(accessToken, email).then(json => dispatch(receiveReleases(json)));
   };
 }

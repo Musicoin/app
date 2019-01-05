@@ -1,5 +1,6 @@
 //auth
 export const RECEIVE_ACCESS_TOKEN = 'RECEIVE_ACCESS_TOKEN';
+export const RECEIVE_LOGIN_INFO = 'RECEIVE_LOGIN_INFO';
 
 //search
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';

@@ -1,5 +1,5 @@
 import {AsyncStorage, Share} from 'react-native';
-import {API_EMAIL, API_ENDPOINT} from 'react-native-dotenv';
+import {API_ENDPOINT} from 'react-native-dotenv';
 
 const ACCESS_TOKEN = 'ACCESS_TOKEN';
 
@@ -21,11 +21,7 @@ export const setToken = (newToken) => {
 
 export async function fetchGetData(action, params) {
   try {
-    let newParams = {
-      ...params,
-      'email': API_EMAIL,
-    };
-
+    let newParams = params;
     let getParams = [];
     for (let property in newParams) {
       let encodedKey = encodeURIComponent(property);
@@ -65,10 +61,7 @@ export async function fetchGetData(action, params) {
 
 export async function fetchPostData(action, params) {
   try {
-    let newParams = {
-      ...params,
-      'email': API_EMAIL,
-    };
+    let newParams = params;
 
     let formBody = [];
     for (let property in newParams) {
@@ -274,4 +267,14 @@ export async function shareArtist(artist) {
     alert(error.message);
     console.log(error.message);
   }
+}
+
+export function generateRandomString(length) {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < length; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
 }
