@@ -31,7 +31,10 @@ class PlayerComponent extends React.Component {
     this.state = {
       currentTrack: null,
       isPlaying: false,
+      isPaused: false,
       isLoaded: true,
+      isBuffering: false,
+      shouldPlay: true,
       currentPosition: 0,
       maxValue: 0,
     };
@@ -164,7 +167,8 @@ class PlayerComponent extends React.Component {
                           />
                         </TouchableOpacity>}
                   </View>
-                  {this.state.isLoaded ?
+                  {!this.state.isLoaded || this.state.isBuffering || (!this.state.shouldPlay && !this.state.isPaused)?
+                      <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/> :
                       this.state.isPlaying ?
                           <TouchableOpacity>
                             <Icon.Ionicons onPress={() => this.pauseTrack()}
@@ -181,9 +185,7 @@ class PlayerComponent extends React.Component {
                                 color={Colors.fontColor}
                                 style={styles.playerButton}
                             />
-                          </TouchableOpacity>
-                      :
-                      <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/>}
+                          </TouchableOpacity>}
 
                 </View>
               </View> : null}
@@ -405,7 +407,7 @@ class PlayerComponent extends React.Component {
       audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
     }
 
-    this.setState({currentTrack: track, isLoaded: false, currentPosition: 0});
+    this.setState({currentTrack: track, currentPosition: 0, isPaused: false});
 
     let playbackState = await audioPlayer.getStatusAsync();
     console.log(playbackState);
@@ -436,6 +438,14 @@ class PlayerComponent extends React.Component {
       this.setState({isLoaded: playbackstatus.isLoaded});
     }
 
+    if (this.state.isBuffering != playbackstatus.isBuffering) {
+      this.setState({isBuffering: playbackstatus.isBuffering});
+    }
+
+    if (this.state.shouldPlay != playbackstatus.shouldPlay) {
+      this.setState({shouldPlay: playbackstatus.shouldPlay});
+    }
+
     if (playbackstatus.didJustFinish) {
       // replay if in repeat mode or start next track in queue
       if (this.props.settings.repeat) {
@@ -450,7 +460,7 @@ class PlayerComponent extends React.Component {
   }
 
   async pauseTrack() {
-    // this.setState({isPlaying: false});
+    this.setState({isPaused: true});
     await audioPlayer.pauseAsync();
   }
 
@@ -489,6 +499,7 @@ class PlayerComponent extends React.Component {
       await audioPlayer.replayAsync();
     } else {
       if (audioPlayer) {
+        this.setState({isPaused: false});
         await audioPlayer.playAsync();
       } else {
         this.props.playTrack(this.props.currentTrack, false);
