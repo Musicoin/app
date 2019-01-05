@@ -2,7 +2,7 @@ import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {setCustomText} from 'react-native-global-props';
 
-import {AppLoading, Asset, Font, Icon} from 'expo';
+import {AppLoading, Asset, Font, Icon, SplashScreen} from 'expo';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 
@@ -33,6 +33,11 @@ export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
+
+  constructor(props){
+    super(props);
+    SplashScreen.preventAutoHide();
+  }
 
   componentDidMount() {
     // this.interval = setInterval(() => {
@@ -106,6 +111,7 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setComponentDefaults();
     this.setState({isLoadingComplete: true});
+    SplashScreen.hide();
   };
 }
 
