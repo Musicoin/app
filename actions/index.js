@@ -9,3 +9,4 @@ export * from './searchArtist';
 export * from './queue';
 export * from './settings';
 export * from './artistOfTheWeek';
+export * from './artist';

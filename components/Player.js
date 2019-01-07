@@ -6,6 +6,7 @@ import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
+import Modal from 'react-native-modal';
 import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
@@ -37,6 +38,7 @@ class PlayerComponent extends React.Component {
       shouldPlay: true,
       currentPosition: 0,
       maxValue: 0,
+      isModalVisible: false,
     };
   }
 
@@ -57,6 +59,10 @@ class PlayerComponent extends React.Component {
       }
     }
 
+  }
+
+  _toggleModal() {
+    this.setState({isModalVisible: !this.state.isModalVisible});
   }
 
   checkPreviousAndNext() {
@@ -167,7 +173,7 @@ class PlayerComponent extends React.Component {
                           />
                         </TouchableOpacity>}
                   </View>
-                  {!this.state.isLoaded || this.state.isBuffering || (!this.state.shouldPlay && !this.state.isPaused)?
+                  {!this.state.isLoaded || this.state.isBuffering || (!this.state.shouldPlay && !this.state.isPaused) ?
                       <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/> :
                       this.state.isPlaying ?
                           <TouchableOpacity>
@@ -212,16 +218,9 @@ class PlayerComponent extends React.Component {
                           color={Colors.fontColor}
                       />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => shareTrack(this.props.currentTrack)}>
+                    <TouchableOpacity style={{paddingLeft: 40, paddingRight: 10}} onPress={() => this._toggleModal()}>
                       <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? `ios-share-alt` : 'ios-share-alt'}
-                          size={26}
-                          color={Colors.fontColor}
-                      />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => this.props.addToQueue(this.props.currentTrack)}>
-                      <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? `md-add` : 'md-add'}
+                          name={Platform.OS === 'ios' ? `md-more` : 'md-more'}
                           size={26}
                           color={Colors.fontColor}
                       />
@@ -383,6 +382,102 @@ class PlayerComponent extends React.Component {
                         </TouchableOpacity>}
                   </View>
                 </View>
+                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()}>
+                  <View style={{backgroundColor: Colors.backgroundColor}}>
+                    <View style={{flexDirection: 'row'}}>
+                      <Image style={{width: 64, height: 64, margin: 16}} source={{uri: this.props.currentTrack.trackImg}}/>
+                      <View style={{marginVertical: 16}}>
+                        <TextTicker
+                            style={{color: Colors.tintColor, fontSize: 16, width: 200}}
+                            duration={5000}
+                            loop
+                            bounce
+                            repeatSpacer={50}
+                            marqueeDelay={1000}
+                        >
+                          {this.props.currentTrack.title}
+                        </TextTicker>
+                        <TextTicker
+                            style={{color: '#8897A2', fontSize: 12, marginTop: 8, width: 200}}
+                            duration={5000}
+                            loop
+                            bounce
+                            repeatSpacer={50}
+                            marqueeDelay={1000}
+                        >
+                          {this.props.currentTrack.artistName}
+                        </TextTicker>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={{backgroundColor: '#2E343A'}}>
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
+                      this._toggleModal();
+                      this.props.addToQueue(this.props.currentTrack);
+                    }}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
+                          size={24}
+                          color={'#8897A2'}
+                          style={{marginRight: 16}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Add to queue</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
+                      this._toggleModal();
+                      this.props.togglePlayerMode();
+                      NavigationService.navigate('ReleaseDetail', {trackAddress: this.props.currentTrack.trackAddress, origin: this.props.currentTrack.origin});
+                    }}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-eye' : 'md-eye'}
+                          size={24}
+                          color={'#8897A2'}
+                          style={{marginRight: 16}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
+                      this._toggleModal();
+                      this.props.tipTrack(this.props.currentTrack.trackAddress);
+                    }}>
+                      <Image
+                          source={require('../assets/icons/clap-grey.png')}
+                          fadeDuration={0}
+                          style={{width: 16, height: 16, marginRight: 16}}
+                      />
+                      <Text style={{color: this.props.nextTipAllowed ? Colors.fontColor : Colors.tabIconDefault, fontSize: 14}}>Tip track</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
+                      this._toggleModal();
+                      this.props.togglePlayerMode();
+                      NavigationService.navigate('ArtistScreen', {profileAddress: this.props.currentTrack.artistAddress});
+                    }}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
+                          size={24}
+                          color={'#8897A2'}
+                          style={{marginRight: 16}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Go to artist</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
+                      this._toggleModal();
+                      shareTrack(this.props.currentTrack).then(console.log('shared'));
+                    }}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-share-alt' : 'ios-share-alt'}
+                          size={24}
+                          color={'#8897A2'}
+                          style={{marginRight: 16}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Share</Text>
+                    </TouchableOpacity>
+                  </View>
+                </Modal>
               </View> : null}
         </View>);
   }
@@ -574,6 +669,14 @@ const styles = StyleSheet.create({
   },
   centerText: {
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  optionsButton: {
+    justifyContent: 'center',
+  },
+  modalButton: {
+    margin: 16,
+    flexDirection: 'row',
     alignItems: 'center',
   },
 });

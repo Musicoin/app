@@ -128,6 +128,19 @@ class Track extends Component {
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {
                 this._toggleModal();
+                NavigationService.navigate('ArtistScreen', {profileAddress: item.artistAddress});
+              }}>
+                <Icon.Ionicons
+                    name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
+                    size={24}
+                    color={'#8897A2'}
+                    style={{marginRight: 16}}
+                />
+                <Text style={{color: Colors.fontColor, fontSize: 14}}>Go to artist</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.modalButton} onPress={() => {
+                this._toggleModal();
                 shareTrack(item).then(console.log('shared'));
               }}>
                 <Icon.Ionicons

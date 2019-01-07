@@ -113,6 +113,9 @@ const LibraryStack = createStackNavigator(
       ReleaseDetail: {
         screen: DetailsScreen,
       },
+      ArtistScreen: {
+        screen: ArtistScreen,
+      },
     },
     {
       mode: 'modal',
