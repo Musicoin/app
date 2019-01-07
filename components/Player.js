@@ -218,6 +218,13 @@ class PlayerComponent extends React.Component {
                           color={Colors.fontColor}
                       />
                     </TouchableOpacity>
+                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => shareTrack(this.props.currentTrack)}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? `ios-share-alt` : 'ios-share-alt'}
+                          size={26}
+                          color={Colors.fontColor}
+                      />
+                    </TouchableOpacity>
                     <TouchableOpacity style={{paddingLeft: 40, paddingRight: 10}} onPress={() => this._toggleModal()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `md-more` : 'md-more'}
