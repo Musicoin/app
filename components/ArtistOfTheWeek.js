@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Platform} from 'react-native';
+import {View, Text, StyleSheet, Image, Platform, TouchableWithoutFeedback} from 'react-native';
 import {connect} from 'react-redux';
 import {playTrack} from '../actions';
 import {LinearGradient} from 'expo';
@@ -13,46 +13,48 @@ class ArtistOfTheWeek extends React.Component {
     return (
         this.props.artistOfTheWeek ?
             <View style={styles.container}>
-              <LinearGradient
-                  colors={['rgba(243, 146, 27, 0.5)', 'rgba(26, 29, 33, 0.5)']}
-                  style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    height: 168,
-                    borderRadius: 10,
-                  }}
-              >
-                <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-                  <Image style={{width: 136, height: 136, margin: 16, alignSelf: 'flex-start'}} source={{uri: this.props.artistOfTheWeek.track.trackImg}}/>
-                  <View style={{margin: 16, alignItems: 'flex-end'}}>
-                    <Text style={{fontSize: 16, fontWeight: 'bold'}}>Artist of the week</Text>
-                    <Text style={{fontSize: 14, fontFamily: 'robotoMedium', marginTop: 16}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
-                    <Text style={{fontSize: 14}}>{this.props.artistOfTheWeek.track.title}</Text>
-                    <Button
-                        icon={
-                          <Icon.Ionicons
-                              name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                              size={14}
-                              color={Colors.fontColor}
-                          />
-                        }
-                        title='PLAY'
-                        buttonStyle={{
-                          backgroundColor: Colors.tintColor,
-                          borderColor: 'transparent',
-                          borderWidth: 0,
-                          borderRadius: Platform.OS === 'ios' ? 20 : 0,
-                          paddingHorizontal: 24,
-                        }}
-                        titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
-                        containerStyle={{marginTop: 20}}
-                        onPress={() => NavigationService.navigate('ArtistScreen', {artist: this.props.artistOfTheWeek.artist})}
-                    />
+              <TouchableWithoutFeedback onPress={() => NavigationService.navigate('ArtistScreen', {artist: this.props.artistOfTheWeek.artist})}>
+                <LinearGradient
+                    colors={['rgba(243, 146, 27, 0.5)', 'rgba(26, 29, 33, 0.5)']}
+                    style={{
+                      position: 'absolute',
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      height: 168,
+                      borderRadius: 10,
+                    }}
+                >
+                  <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                    <Image style={{width: 136, height: 136, margin: 16, alignSelf: 'flex-start'}} source={{uri: this.props.artistOfTheWeek.track.trackImg}}/>
+                    <View style={{margin: 16, alignItems: 'flex-end'}}>
+                      <Text style={{fontSize: 16, fontWeight: 'bold'}}>Artist of the week</Text>
+                      <Text style={{fontSize: 14, fontFamily: 'robotoMedium', marginTop: 16}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
+                      <Text style={{fontSize: 14}}>{this.props.artistOfTheWeek.track.title}</Text>
+                      <Button
+                          icon={
+                            <Icon.Ionicons
+                                name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
+                                size={14}
+                                color={Colors.fontColor}
+                            />
+                          }
+                          title='PLAY'
+                          buttonStyle={{
+                            backgroundColor: Colors.tintColor,
+                            borderColor: 'transparent',
+                            borderWidth: 0,
+                            borderRadius: Platform.OS === 'ios' ? 20 : 0,
+                            paddingHorizontal: 24,
+                          }}
+                          titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
+                          containerStyle={{marginTop: 20}}
+                          onPress={() => this.props.playTrack(this.props.artistOfTheWeek.track, true)}
+                      />
+                    </View>
                   </View>
-                </View>
-              </LinearGradient>
+                </LinearGradient>
+              </TouchableWithoutFeedback>
             </View> : null
     );
 
