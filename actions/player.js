@@ -1,4 +1,4 @@
-import {PLAY_TRACK, RECEIVE_NEW_RELEASES_REQUEST} from '../constants/Actions';
+import {PLAY_TRACK} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import {API_VERSION} from 'react-native-dotenv';
 
@@ -19,7 +19,7 @@ async function fetchReleaseDetailsJson(token, email, track) {
   let result = await fetchGetData(`release/detail/${API_VERSION}/${track.trackAddress}?`, params);
 
   if (result.success && result.data != null) {
-    result.origin = track.origin;
+    result.data.origin = track.origin;
     return result;
   } else {
     return false;
