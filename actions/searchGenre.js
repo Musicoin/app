@@ -22,6 +22,7 @@ async function fetchSearchResultsJson(token, genre, email) {
     'genre': genre,
     'accessToken': token,
     'email': email,
+    'limit': 40,
   };
 
   let results = await fetchGetData(`release/bygenre/${API_VERSION}?`, params);
