@@ -27,7 +27,7 @@ class HomeScreen extends React.Component {
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <ArtistOfTheWeek/>
-          <Text style={{fontSize: 16, color: '#F4F7FB', alignSelf: 'center', paddingVertical:5}}>Recent releases</Text>
+          <Text style={{fontSize: 16, color: '#F4F7FB', alignSelf: 'center', paddingVertical: 5}}>Recent releases</Text>
           <FlatList
               data={this.props.releases}
               keyExtractor={this._keyExtractor}

@@ -9,7 +9,7 @@ export default {
     width,
     height,
   },
-  isSmallDevice: isIphoneX() || width <= 375,
+  isSmallDevice: width <= 600,
   playerHeight: 49,
   defaultTrackImage: 'https://i.redd.it/y2hj9ovrrne11.jpg',
   playerIconSize: 22,

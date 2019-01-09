@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 import {Button} from 'react-native-elements';
 import {Icon} from 'expo';
 import NavigationService from '../services/NavigationService';
+import Layout from '../constants/Layout';
 
 class ArtistOfTheWeek extends React.Component {
   render() {
@@ -21,16 +22,17 @@ class ArtistOfTheWeek extends React.Component {
                       left: 0,
                       right: 0,
                       top: 0,
-                      height: 168,
-                      borderRadius: 10,
+                      height: 152,
+                      width: Layout.window.width,
+                      alignItems: 'center',
                     }}
                 >
-                  <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-                    <Image style={{width: 136, height: 136, margin: 16, alignSelf: 'flex-start'}} source={{uri: this.props.artistOfTheWeek.track.trackImg}}/>
-                    <View style={{margin: 16, alignItems: 'flex-end'}}>
-                      <Text style={{fontSize: 16, fontWeight: 'bold'}}>Artist of the week</Text>
-                      <Text style={{fontSize: 14, fontFamily: 'robotoMedium', marginTop: 16}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
-                      <Text style={{fontSize: 14}}>{this.props.artistOfTheWeek.track.title}</Text>
+                  <View style={{flexDirection: 'row', alignItems: 'center', width: Layout.isSmallDevice ? Layout.window.width : 400}}>
+                    <Image style={{width: 120, height: 120, margin: 16}} source={{uri: this.props.artistOfTheWeek.track.trackImg}}/>
+                    <View style={{margin: 8, marginLeft: 0, width: Layout.isSmallDevice ? Layout.window.width / 2 : 200}}>
+                      <Text numberOfLines={1} style={{fontSize: 14, fontWeight: 'bold'}}>Artist of the week</Text>
+                      <Text numberOfLines={1} style={{fontSize: 12, fontFamily: 'robotoMedium', marginTop: 8}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
+                      <Text numberOfLines={1} style={{fontSize: 12}}>{this.props.artistOfTheWeek.track.title}</Text>
                       <Button
                           icon={
                             <Icon.Ionicons
@@ -46,6 +48,7 @@ class ArtistOfTheWeek extends React.Component {
                             borderWidth: 0,
                             borderRadius: Platform.OS === 'ios' ? 20 : 0,
                             paddingHorizontal: 24,
+                            maxWidth: 100,
                           }}
                           titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
                           containerStyle={{marginTop: 20}}
@@ -63,9 +66,8 @@ class ArtistOfTheWeek extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 168,
-    borderRadius: 10,
-    margin: 16,
+    width: Layout.isSmallDevice ? Layout.window.width : 400,
+    height: 152,
   },
 });
 
