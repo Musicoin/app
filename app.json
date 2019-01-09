@@ -12,13 +12,13 @@
     "version": "0.0.12",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
+    "primaryColor": "#1A1D21",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#1A1D21"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
