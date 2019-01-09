@@ -43,7 +43,7 @@ class ArtistScreen extends React.Component {
 
     return (
         this.state.isLoaded ?
-            <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: getStatusBarHeight(true), paddingBottom: 20, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
+            <ScrollView style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0, paddingTop: getStatusBarHeight(true), marginBottom: this.props.currentTrack ? 20 : 0}}>
               {this.state.artist ?
                   <View>
                     <View style={{paddingHorizontal: 10, paddingTop: 24, paddingBottom: 5, backgroundColor: '#272D33'}}>
@@ -108,7 +108,7 @@ class ArtistScreen extends React.Component {
                           data={this.props.searchResultsByArtist}
                           keyExtractor={this._keyExtractor}
                           renderItem={this._renderItem}
-                          style={{flex: 1}} contentContainerStyle={{paddingTop: 0}}
+                          style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={{paddingTop: 0}}
                           refreshControl={
                             <RefreshControl
                                 refreshing={this.props.loading.SEARCH_BY_ARTIST}
