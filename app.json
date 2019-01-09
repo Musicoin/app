@@ -18,14 +18,13 @@
       "resizeMode": "cover",
       "backgroundColor": "#1A1D21"
     },
-    "updates": {
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "org.musicoin.musicoin"
+      "bundleIdentifier": "org.musicoin.musicoin",
+      "buildNumber": "1.0.1"
     },
     "android": {
       "package": "org.musicoin.musicoin"
