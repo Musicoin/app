@@ -17,6 +17,9 @@ import NavigationService from './services/NavigationService';
 
 import {fetchReleases, fetchAccessToken, fetchArtistOfTheWeek} from './actions';
 
+import {API_ENDPOINT} from 'react-native-dotenv';
+
+console.log("server endpoint: " + API_ENDPOINT);
 store.subscribe(() => console.log('store', store.getState()));
 
 // Setting default styles for all Text components.

@@ -1,6 +1,7 @@
 import {fetchPostData, generateRandomString} from '../tools/util';
 import {API_VERSION} from 'react-native-dotenv';
 import {RECEIVE_ACCESS_TOKEN, RECEIVE_LOGIN_INFO} from '../constants/Actions';
+import uuidv1 from 'uuid/v1';
 
 function receiveAccessToken(json) {
   const {accessToken} = json;
@@ -45,15 +46,18 @@ async function fetchQuickLoginJson(email, username, password) {
 export function fetchAccessToken() {
   return function(dispatch, getState) {
     let auth = getState().auth;
+    let username, email, password;
     if (auth) {
-      return fetchAccessTokenJson(auth).then(json => dispatch(receiveAccessToken(json)));
+      username = auth.username;
+      email = auth.email;
+      password = auth.password;
     } else {
       // quickLogin
-      let username = 'app-' + generateRandomString(5);
-      let email = username + '@musicoin.org';
-      let password = generateRandomString(10);
+      username = 'app-' + uuidv1();
+      email = username + '@musicoin.org';
+      password = generateRandomString(10);
 
-      return fetchQuickLoginJson(email, username, password).then(json => dispatch(receiveLoginInfo({...json, email, username, password})));
     }
+    return fetchQuickLoginJson(email, username, password).then(json => dispatch(receiveLoginInfo({...json, email, username, password})));
   };
 }
