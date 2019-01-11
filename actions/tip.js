@@ -7,7 +7,6 @@ import {API_VERSION} from 'react-native-dotenv';
 function addTip(trackAddress, json) {
   console.log(json);
   return function(dispatch, getState) {
-    dispatch({type: ALLOW_NEXT_TIP, data: false});
     let success = false;
     if (json.tx) {
       dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
@@ -37,6 +36,7 @@ async function tipTrackJson(trackAddress, token, email) {
 
 export function tipTrack(trackAddress) {
   return function(dispatch, getState) {
+    dispatch({type: ALLOW_NEXT_TIP, data: false});
     let {accessToken, email} = getState().auth;
     return tipTrackJson(trackAddress, accessToken, email).then(json => dispatch(addTip(trackAddress, json)));
   };
