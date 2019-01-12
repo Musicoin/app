@@ -472,7 +472,6 @@ class PlayerComponent extends React.Component {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.modalButton} onPress={() => {
-                      this._toggleModal();
                       shareTrack(this.props.currentTrack).then(console.log('shared'));
                     }}>
                       <Icon.Ionicons

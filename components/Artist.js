@@ -93,7 +93,6 @@ class Artist extends Component {
 
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {
-                this._toggleModal();
                 shareArtist(item).then(console.log('shared'));
               }}>
                 <Icon.Ionicons

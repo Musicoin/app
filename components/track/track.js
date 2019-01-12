@@ -140,7 +140,6 @@ class Track extends Component {
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {
-                this._toggleModal();
                 shareTrack(item).then(console.log('shared'));
               }}>
                 <Icon.Ionicons
