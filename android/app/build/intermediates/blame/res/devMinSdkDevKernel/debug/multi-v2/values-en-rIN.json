@@ -1,0 +1,77 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "map": [
+                {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/f599b6af5d138433294f60ee3785dcb2/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "31",
+                        "startColumns": "4",
+                        "startOffsets": "2706",
+                        "endColumns": "100",
+                        "endOffsets": "2802"
+                    }
+                },
+                {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/4d235d4bc459b900c45211d477690d1a/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,1825",
+                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
+                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,1902"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,30",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,417,501,601,716,793,869,951,1054,1158,1257,1362,1465,1569,1725,2624",
+                        "endColumns": "103,99,107,83,99,114,76,75,81,102,103,98,104,102,103,155,99,81",
+                        "endOffsets": "204,304,412,496,596,711,788,864,946,1049,1153,1252,1357,1460,1564,1720,1820,2701"
+                    }
+                },
+                {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-wallet-15.0.1.aar/b718c6dbd841bbbc4c51351c3f5cbedd/res/values-en-rIN/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "204",
+                        "endColumns": "99",
+                        "endOffsets": "303"
+                    },
+                    "to": {
+                        "startLines": "32",
+                        "startColumns": "4",
+                        "startOffsets": "2807",
+                        "endColumns": "103",
+                        "endOffsets": "2906"
+                    }
+                },
+                {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/70bd9d177fe8d5bf0cdd589048ccf38a/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,135,206,273,338,417,494,572,649,718,789",
+                        "endColumns": "79,70,66,64,78,76,77,76,68,70,64",
+                        "endOffsets": "130,201,268,333,412,489,567,644,713,784,849"
+                    },
+                    "to": {
+                        "startLines": "19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1825,1905,1976,2043,2108,2187,2264,2342,2419,2488,2559",
+                        "endColumns": "79,70,66,64,78,76,77,76,68,70,64",
+                        "endOffsets": "1900,1971,2038,2103,2182,2259,2337,2414,2483,2554,2619"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+#Internal package file, do not edit.
+#Sat Jan 12 02:04:26 CET 2019
+1.base=/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+2.path=fonts/EmojiOne.ttf
+0.baseType=DIRECTORY
+2.base=/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+2.set=ASSET
+1.baseType=DIRECTORY
+count=3
+1.set=ASSET
+0.path=kernel.android.bundle
+0.set=ASSET
+0.base=/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+2.baseType=DIRECTORY
+1.path=kernel-manifest.json

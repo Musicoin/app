@@ -1,0 +1,4 @@
+#Sat Jan 12 02:06:31 CET 2019
+base.0=/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/8
+path.0=classes.dex
+renamed.0=classes.dex
