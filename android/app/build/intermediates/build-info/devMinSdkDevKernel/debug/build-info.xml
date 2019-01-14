@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
+    abi="x86_64,x86"
     api-level="25"
     build-mode="FULL"
-    density="560dpi"
+    density="420dpi"
     format="10"
     plugin-version="3.1.4"
-    timestamp="1547256451705"
+    timestamp="1547484762925"
     token="232864228893575013"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="18124" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="5254" />
     <task
         name="verifier"
         duration="0" />
 
+    <artifact
+        location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/instant-run-apk/devMinSdkDevKernel/debug/app-devMinSdk-devKernel-debug.apk"
+        type="SPLIT_MAIN" />
     <artifact
         location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/split-apk/devMinSdkDevKernel/debug/slices/slice_4.apk"
         type="SPLIT" />
@@ -56,14 +59,14 @@
     <artifact
         location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/split-apk/devMinSdkDevKernel/debug/slices/slice_8.apk"
         type="SPLIT" />
-    <artifact
-        location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/instant-run-apk/devMinSdkDevKernel/debug/app-devMinSdk-devKernel-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1547256451705"
+        timestamp="1547484762925"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/instant-run-apk/devMinSdkDevKernel/debug/app-devMinSdk-devKernel-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/split-apk/devMinSdkDevKernel/debug/slices/slice_4.apk"
             type="SPLIT" />
@@ -97,9 +100,6 @@
         <artifact
             location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/split-apk/devMinSdkDevKernel/debug/slices/slice_8.apk"
             type="SPLIT" />
-        <artifact
-            location="/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/instant-run-apk/devMinSdkDevKernel/debug/app-devMinSdk-devKernel-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
