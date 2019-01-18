@@ -80,9 +80,6 @@ PODS:
   - EXMediaLibrary (1.1.0):
     - EXCore
     - EXPermissionsInterface
-  - EXPaymentsStripe (1.1.0):
-    - EXCore
-    - Stripe (~> 13.0.3)
   - EXPermissions (1.2.0):
     - EXCore
     - EXPermissionsInterface
@@ -229,7 +226,6 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - Stripe (13.0.3)
   - yoga (0.57.1.React)
 
 DEPENDENCIES:
@@ -255,7 +251,6 @@ DEPENDENCIES:
   - EXLocalization (from `../node_modules/expo-localization/ios`)
   - EXLocation (from `../node_modules/expo-location/ios`)
   - EXMediaLibrary (from `../node_modules/expo-media-library/ios`)
-  - EXPaymentsStripe (from `../node_modules/expo-payments-stripe/ios`)
   - EXPermissions (from `../node_modules/expo-permissions/ios`)
   - EXPermissionsInterface (from `../node_modules/expo-permissions-interface/ios`)
   - ExpoKit/Core (from `http://github.com/expo/expo.git`, tag `ios/2.9.0`)
@@ -305,7 +300,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - JKBigInteger2
     - lottie-ios
-    - Stripe
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -352,8 +346,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-location/ios"
   EXMediaLibrary:
     :path: "../node_modules/expo-media-library/ios"
-  EXPaymentsStripe:
-    :path: "../node_modules/expo-payments-stripe/ios"
   EXPermissions:
     :path: "../node_modules/expo-permissions/ios"
   EXPermissionsInterface:
@@ -418,7 +410,6 @@ SPEC CHECKSUMS:
   EXLocalization: 1243adc132eaad4793dd7e5b497135ad5d803441
   EXLocation: c686b2b139bea46c653a96f62dc49e47c9b08fe5
   EXMediaLibrary: f91c4f6ff2c9be8102e06d0a4d08987231a7e286
-  EXPaymentsStripe: 0f37d8a1db4749e95ab54ab390ecbb79ba595a95
   EXPermissions: dd31cb432c078eed1f4c1e290bc32649d5280bd3
   EXPermissionsInterface: 76f80a0dcd16afde36498e3d3aa168cb43999558
   ExpoKit: 56c02da01a88a33dcbac95a375b1fe503a9245a1
@@ -444,9 +435,8 @@ SPEC CHECKSUMS:
   JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  Stripe: 76c203e21555089b708e6cbe972a3e3baf1ab4d8
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 1d08cfe5f8255dac8e24abb74acf113318b83d06
+PODFILE CHECKSUM: e218d7336407b8e336bbc67d6846e4429d7e8bef
 
 COCOAPODS: 1.5.3

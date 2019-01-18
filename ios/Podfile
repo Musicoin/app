@@ -51,8 +51,6 @@ target 'musicoin' do
     :path => "../node_modules/expo-location/ios"
   pod 'EXMediaLibrary',
     :path => "../node_modules/expo-media-library/ios"
-  pod 'EXPaymentsStripe',
-    :path => "../node_modules/expo-payments-stripe/ios"
   pod 'EXPermissions',
     :path => "../node_modules/expo-permissions/ios"
   pod 'EXPermissionsInterface',

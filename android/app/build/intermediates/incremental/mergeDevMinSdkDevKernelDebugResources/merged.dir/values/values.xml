@@ -60,6 +60,7 @@
     <enum name="fixed_width" value="1"/>
     <enum name="fixed_height" value="2"/>
     <enum name="fill" value="3"/>
+    <enum name="zoom" value="4"/>
   </attr>
     <attr format="integer" name="rewind_increment"/>
     <attr format="boolean" name="show_shuffle_button"/>
@@ -68,6 +69,7 @@
     <enum name="none" value="0"/>
     <enum name="surface_view" value="1"/>
     <enum name="texture_view" value="2"/>
+    <enum name="spherical_view" value="3"/>
   </attr>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
@@ -161,6 +163,7 @@
     <color name="error_text_dark_theme">#ffe85746</color>
     <color name="error_text_light_theme">#ffeb1c26</color>
     <color name="exo_edit_mode_background_color">#FFF4F3F0</color>
+    <color name="exo_error_message_background_color">#AA000000</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <color name="headerText">#EEEEEE</color>
@@ -647,7 +650,12 @@
         </attr></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/><attr format="reference" name="subMenuArrow"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="headerLayout"/></declare-styleable>
-    <declare-styleable name="PlaybackControlView"><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable>
+    <declare-styleable name="PlayerControlView"><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable>
+    <declare-styleable name="PlayerView"><attr format="boolean" name="use_artwork"/><attr format="color" name="shutter_background_color"/><attr format="reference" name="default_artwork"/><attr format="boolean" name="use_controller"/><attr format="boolean" name="hide_on_touch"/><attr format="boolean" name="hide_during_ads"/><attr format="boolean" name="auto_show"/><attr format="enum" name="show_buffering">
+      <enum name="never" value="0"/>
+      <enum name="when_playing" value="1"/>
+      <enum name="always" value="2"/>
+    </attr><attr format="boolean" name="keep_content_on_player_reset"/><attr name="resize_mode"/><attr name="surface_type"/><attr name="player_layout_id"/><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/><attr name="android:popupAnimationStyle"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
     <declare-styleable name="RecycleListView"><attr format="dimension" name="paddingBottomNoButtons"/><attr format="dimension" name="paddingTopNoTitle"/></declare-styleable>
@@ -671,7 +679,6 @@
 
 </attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
     <declare-styleable name="SimpleDraweeView"><attr format="string" name="actualImageUri"/><attr format="reference" name="actualImageResource"/><attr name="fadeDuration"/><attr name="viewAspectRatio"/><attr name="placeholderImage"/><attr name="placeholderImageScaleType"/><attr name="retryImage"/><attr name="retryImageScaleType"/><attr name="failureImage"/><attr name="failureImageScaleType"/><attr name="progressBarImage"/><attr name="progressBarImageScaleType"/><attr name="progressBarAutoRotateInterval"/><attr name="actualImageScaleType"/><attr name="backgroundImage"/><attr name="overlayImage"/><attr name="pressedStateOverlayImage"/><attr name="roundAsCircle"/><attr name="roundedCornerRadius"/><attr name="roundTopLeft"/><attr name="roundTopRight"/><attr name="roundBottomRight"/><attr name="roundBottomLeft"/><attr name="roundTopStart"/><attr name="roundTopEnd"/><attr name="roundBottomStart"/><attr name="roundBottomEnd"/><attr name="roundWithOverlayColor"/><attr name="roundingBorderWidth"/><attr name="roundingBorderColor"/><attr name="roundingBorderPadding"/></declare-styleable>
-    <declare-styleable name="SimpleExoPlayerView"><attr format="boolean" name="use_artwork"/><attr format="color" name="shutter_background_color"/><attr format="reference" name="default_artwork"/><attr format="boolean" name="use_controller"/><attr format="boolean" name="hide_on_touch"/><attr format="boolean" name="hide_during_ads"/><attr format="boolean" name="auto_show"/><attr name="resize_mode"/><attr name="surface_type"/><attr name="player_layout_id"/><attr name="show_timeout"/><attr name="rewind_increment"/><attr name="fastforward_increment"/><attr name="repeat_toggle_modes"/><attr name="show_shuffle_button"/><attr name="controller_layout_id"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">
@@ -1064,6 +1071,19 @@
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
     <item name="crop_image_menu_crop" type="drawable">@drawable/crop_image_menu_crop_stub</item>
+    <drawable name="exo_controls_fastforward">@drawable/exo_icon_fastforward</drawable>
+    <drawable name="exo_controls_next">@drawable/exo_icon_next</drawable>
+    <drawable name="exo_controls_pause">@drawable/exo_icon_pause</drawable>
+    <drawable name="exo_controls_play">@drawable/exo_icon_play</drawable>
+    <drawable name="exo_controls_previous">@drawable/exo_icon_previous</drawable>
+    <drawable name="exo_controls_rewind">@drawable/exo_icon_rewind</drawable>
+    <drawable name="exo_notification_fastforward">@drawable/exo_icon_fastforward</drawable>
+    <drawable name="exo_notification_next">@drawable/exo_icon_next</drawable>
+    <drawable name="exo_notification_pause">@drawable/exo_icon_pause</drawable>
+    <drawable name="exo_notification_play">@drawable/exo_icon_play</drawable>
+    <drawable name="exo_notification_previous">@drawable/exo_icon_previous</drawable>
+    <drawable name="exo_notification_rewind">@drawable/exo_icon_rewind</drawable>
+    <drawable name="exo_notification_stop">@drawable/exo_icon_stop</drawable>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="accessibility_hint" type="id"/>
@@ -1082,10 +1102,12 @@
     <item name="cc_four_digits" type="id">6666</item>
     <item name="cc_zip" type="id">5555</item>
     <item name="exo_artwork" type="id"/>
+    <item name="exo_buffering" type="id"/>
     <item name="exo_content_frame" type="id"/>
     <item name="exo_controller" type="id"/>
     <item name="exo_controller_placeholder" type="id"/>
     <item name="exo_duration" type="id"/>
+    <item name="exo_error_message" type="id"/>
     <item name="exo_ffwd" type="id"/>
     <item name="exo_next" type="id"/>
     <item name="exo_overlay" type="id"/>
@@ -1330,6 +1352,7 @@
     <string name="error_uncaught">Uncaught Error: %s</string>
     <string name="exit_fullscreen_mode">Exit fullscreen mode</string>
     <string name="exo_controls_fastforward_description">Fast forward</string>
+    <string name="exo_controls_fullscreen_description">Fullscreen mode</string>
     <string name="exo_controls_next_description">Next track</string>
     <string name="exo_controls_pause_description">Pause</string>
     <string name="exo_controls_play_description">Play</string>
@@ -1340,6 +1363,26 @@
     <string name="exo_controls_rewind_description">Rewind</string>
     <string name="exo_controls_shuffle_description">Shuffle</string>
     <string name="exo_controls_stop_description">Stop</string>
+    <string name="exo_download_completed">Download completed</string>
+    <string name="exo_download_description">Download</string>
+    <string name="exo_download_downloading">Downloading</string>
+    <string name="exo_download_failed">Download failed</string>
+    <string name="exo_download_notification_channel_name">Downloads</string>
+    <string name="exo_download_removing">Removing downloads</string>
+    <string name="exo_item_list"><ns1:g example="apple, pear" id="list">%1$s</ns1:g>, <ns1:g example="banana" id="item">%2$s</ns1:g></string>
+    <string name="exo_track_bitrate"><ns1:g example="5.2" id="bitrate">%1$.2f</ns1:g> Mbps</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution"><ns1:g example="1024" id="width">%1$d</ns1:g> × <ns1:g example="768" id="height">%2$d</ns1:g></string>
+    <string name="exo_track_selection_auto">Auto</string>
+    <string name="exo_track_selection_none">None</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">Text</string>
+    <string name="exo_track_selection_title_video">Video</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Surround sound</string>
+    <string name="exo_track_surround_5_point_1">5.1 surround sound</string>
+    <string name="exo_track_surround_7_point_1">7.1 surround sound</string>
+    <string name="exo_track_unknown">Unknown</string>
     <string name="experience_needs_permissions">%1$s needs permissions for %2$s. You\'ve already granted permission to another Expo experience. Allow %1$s to use it also?</string>
     <string name="expiry_date_hint">MM/YY</string>
     <string name="expiry_label_short">Expiry</string>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, StatusBar, TouchableWithoutFeedback} from 'react-native';
-import {Slider} from 'react-native-elements';
 import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
@@ -10,47 +9,55 @@ import Modal from 'react-native-modal';
 import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
+import TrackSlider from '../components/TrackSlider';
 import NavigationService from '../services/NavigationService';
-import {millisToMinutesAndSeconds, returnIndexFromArray, shareTrack} from '../tools/util';
+import {returnIndexFromArray, shareTrack} from '../tools/util';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 
-let audioPlayer = null;
+import TrackPlayer from 'react-native-track-player';
 
-Expo.Audio.setAudioModeAsync(
-    {
-      playsInSilentModeIOS: true,
-      allowsRecordingIOS: false,
-      interruptionModeIOS: Expo.Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
-      interruptionModeAndroid: Expo.Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
-      shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: false,
-    }).then(() => console.log('silent mode activated'));
+TrackPlayer.setupPlayer().then(() => {
+  // The player is ready to be used
+  TrackPlayer.updateOptions({
+    capabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+      TrackPlayer.CAPABILITY_STOP,
+    ],
+    compactCapabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+    ],
+  });
+});
 
 class PlayerComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentTrack: null,
-      isPlaying: false,
-      isPaused: false,
-      isLoaded: true,
-      isBuffering: false,
-      shouldPlay: true,
-      currentPosition: 0,
-      maxValue: 0,
       isModalVisible: false,
+      playerState: TrackPlayer.STATE_NONE,
     };
   }
 
   componentDidMount() {
     this.checkPreviousAndNext();
+    this.onPlayerUpdate = TrackPlayer.addEventListener('playback-state', (data) => this.onPlaybackStatusUpdate(data));
+    this.onPlayerError = TrackPlayer.addEventListener('playback-error', (data) => this.onPlaybackError(data));
+    this.onPlayerQueueEnded = TrackPlayer.addEventListener('playback-queue-ended', (data) => this.onQueueEnded(data));
+  }
+
+  componentWillUnmount() {
+    this.onPlayerUpdate.remove();
+    this.onPlayerError.remove();
+    this.onPlayerQueueEnded.remove();
   }
 
   async componentDidUpdate(prev) {
     if (prev.lastAction != this.props.lastAction) {
       switch (this.props.lastAction.type) {
         case PLAY_TRACK:
-          this.setState({currentPosition: 0});
           this.checkPreviousAndNext();
           await this.loadAndPlayTrack(this.props.currentTrack);
           break;
@@ -173,9 +180,9 @@ class PlayerComponent extends React.Component {
                           />
                         </TouchableOpacity>}
                   </View>
-                  {!this.state.isLoaded || this.state.isBuffering || (!this.state.shouldPlay && !this.state.isPaused) ?
+                  {this.state.playerState === TrackPlayer.STATE_BUFFERING ?
                       <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/> :
-                      this.state.isPlaying ?
+                      this.state.playerState === TrackPlayer.STATE_PLAYING ?
                           <TouchableOpacity>
                             <Icon.Ionicons onPress={() => this.pauseTrack()}
                                            name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
@@ -261,38 +268,7 @@ class PlayerComponent extends React.Component {
                       </TextTicker>
                     </View>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: Layout.isSmallDevice ? 0 : 50}}>
-                    <View style={{width: 50, paddingHorizontal: 5, alignItems: 'center'}}>
-                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{millisToMinutesAndSeconds(this.state.currentPosition)}</Text>
-                    </View>
-                    <View style={{flex: 1}} ref="slider">
-                      <TouchableWithoutFeedback onPressIn={this.tapSliderHandler}>
-                        <Slider
-                            trackStyle={{
-                              height: 3,
-                              borderRadius: 1,
-                            }}
-                            thumbStyle={{
-                              width: 10,
-                              height: 10,
-                              borderRadius: 10 / 2,
-                              backgroundColor: Colors.tintColor,
-                            }}
-                            value={this.state.currentPosition}
-                            minimumValue={0}
-                            maximumValue={this.state.maxValue}
-                            onSlidingComplete={(value) => this.setNewPosition(value)}
-                            onSlidingStart={(value) => this.setNewPosition(value)}
-                            minimumTrackTintColor={Colors.tintColor}
-                            maximumTrackTintColor={Colors.fontColor}
-                            thumbTintColor={Colors.tintColor}
-                        />
-                      </TouchableWithoutFeedback>
-                    </View>
-                    <View style={{width: 50, paddingHorizontal: 5, alignItems: 'center'}}>
-                      <Text style={{color: Colors.fontColor, fontSize: 10}}>{millisToMinutesAndSeconds(this.state.maxValue)}</Text>
-                    </View>
-                  </View>
+                  <TrackSlider />
                   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
@@ -310,7 +286,7 @@ class PlayerComponent extends React.Component {
                           style={styles.playerButton}
                       />
                     </TouchableOpacity>
-                    {this.state.isPlaying ?
+                    {this.state.playerState === TrackPlayer.STATE_PLAYING ?
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
@@ -319,11 +295,11 @@ class PlayerComponent extends React.Component {
                               style={styles.playerButton}
                           />
                         </TouchableOpacity> :
-                        <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
+                        <TouchableOpacity disabled={this.state.playerState === TrackPlayer.STATE_BUFFERING} style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
                               size={Layout.isSmallDevice ? 60 : 120}
-                              color={Colors.fontColor}
+                              color={this.state.playerState !== TrackPlayer.STATE_BUFFERING ? Colors.fontColor : Colors.disabled}
                               style={styles.playerButton}
                           />
                         </TouchableOpacity>}
@@ -488,81 +464,40 @@ class PlayerComponent extends React.Component {
         </View>);
   }
 
-  async setNewPosition(newValue) {
-    console.log(`new position: ${newValue}`);
-    let result = await audioPlayer.setPositionAsync(newValue);
-    console.log(result);
-  }
-
-  tapSliderHandler = (evt) => {
-    //ToDo: fix tapping on the slider to change the value
-    // this.refs.slider.measure((fx, fy, width, height, px, py) => { this.setNewPosition((evt.nativeEvent.locationX - px) / width); });
-  };
-
   async loadAndPlayTrack(track) {
-
-    // if (this.state.isLoaded) {
-    console.log(audioPlayer);
-    if (!audioPlayer) {
-      audioPlayer = new Expo.Audio.Sound();
-      audioPlayer.setOnPlaybackStatusUpdate((playbackstatus) => this.onPlaybackStatusUpdate(playbackstatus));
-    }
-
-    this.setState({currentTrack: track, currentPosition: 0, isPaused: false});
-
-    let playbackState = await audioPlayer.getStatusAsync();
-    console.log(playbackState);
-
-    if (playbackState.isLoaded) {
-      await audioPlayer.stopAsync();
-      await audioPlayer.unloadAsync();
-    }
-
+    let newTrack = {id: track.trackAddress, url: track.trackUrl, title: track.title, artist: track.artistName, artwork: track.trackImg};
     try {
-      await audioPlayer.loadAsync({uri: track.trackUrl}, {}, false);
-      await audioPlayer.playAsync();
+      TrackPlayer.reset();
+      TrackPlayer.add([newTrack]).then(function() {
+        TrackPlayer.play().then(() => {console.log('track started');});
+      });
+      this.setState({currentTrack: track});
     } catch (e) {
-      await audioPlayer.unloadAsync();
       console.log('audio failed to play');
       console.log(e);
       this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
     }
-    // }
   };
 
-  onPlaybackStatusUpdate(playbackstatus) {
-    if (this.state.isPlaying != playbackstatus.isPlaying) {
-      this.setState({isPlaying: playbackstatus.isPlaying});
-    }
+  async onPlaybackStatusUpdate(data) {
+    this.setState({playerState: data.state});
+  }
 
-    if (this.state.isLoaded != playbackstatus.isLoaded) {
-      this.setState({isLoaded: playbackstatus.isLoaded});
-    }
+  onPlaybackError(data) {
+    console.log(`error code: ${data.code} message: ${data.message}`);
+    this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
+  }
 
-    if (this.state.isBuffering != playbackstatus.isBuffering) {
-      this.setState({isBuffering: playbackstatus.isBuffering});
-    }
-
-    if (this.state.shouldPlay != playbackstatus.shouldPlay) {
-      this.setState({shouldPlay: playbackstatus.shouldPlay});
-    }
-
-    if (playbackstatus.didJustFinish) {
-      // replay if in repeat mode or start next track in queue
-      if (this.props.settings.repeat) {
-        audioPlayer.replayAsync().then(console.log('repeat'));
-      } else {
-        this.playNextTrack();
-      }
-    }
-    if (playbackstatus.positionMillis && playbackstatus.durationMillis) {
-      this.setState({currentPosition: playbackstatus.positionMillis, maxValue: playbackstatus.durationMillis});
+  async onQueueEnded(data) {
+    if (this.props.settings.repeat) {
+      await TrackPlayer.play();
+    } else {
+      this.playNextTrack();
     }
   }
 
   async pauseTrack() {
-    this.setState({isPaused: true});
-    await audioPlayer.pauseAsync();
+    await TrackPlayer.pause();
   }
 
   playPreviousTrack() {
@@ -579,12 +514,12 @@ class PlayerComponent extends React.Component {
     if (this.props.settings.shuffle) {
       let newIndex = this.generateRandom(0, trackList.length - 1, index);
       if (trackList[newIndex]) {
-        this.props.playTrack(trackList[newIndex]);
+        this.props.playTrack(trackList[newIndex], true);
       }
     }
     else {
       if (trackList[index + 1]) {
-        this.props.playTrack(trackList[index + 1]);
+        this.props.playTrack(trackList[index + 1], true);
       }
     }
   }
@@ -596,15 +531,11 @@ class PlayerComponent extends React.Component {
 
   async resumeTrack() {
     // play again if track has finished playing
-    if (this.state.currentPosition == this.state.maxValue && this.state.currentPosition != 0 && this.state.maxValue > 0) {
-      await audioPlayer.replayAsync();
+    let position = await TrackPlayer.getPosition();
+    if (position > 0) {
+      await TrackPlayer.play();
     } else {
-      if (audioPlayer) {
-        this.setState({isPaused: false});
-        await audioPlayer.playAsync();
-      } else {
-        this.props.playTrack(this.props.currentTrack, false);
-      }
+      this.props.playTrack(this.props.currentTrack, false);
     }
   }
 

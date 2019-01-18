@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.tipsi:CreditCardEntry:1.4.8.10@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CreditCardEntry-1.4.8.10.aar/531e9676786936c05719413ce9fd3320/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/CreditCardEntry-1.4.8.10.aar/531e9676786936c05719413ce9fd3320/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.tipsi/CreditCardEntry/1.4.8.10/d2165c8bbd257486b3848fd869964ac30f868f22/CreditCardEntry-1.4.8.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

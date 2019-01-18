@@ -58,17 +58,38 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"فتح على الهاتف"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"تسجل الدخول"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
-    <string name="exo_controls_fastforward_description">"تقديم سريع"</string>
-    <string name="exo_controls_next_description">"المقطع الصوتي التالي"</string>
-    <string name="exo_controls_pause_description">"إيقاف مؤقت"</string>
-    <string name="exo_controls_play_description">"تشغيل"</string>
-    <string name="exo_controls_previous_description">"المقطع الصوتي السابق"</string>
-    <string name="exo_controls_repeat_all_description">"تكرار الكل"</string>
-    <string name="exo_controls_repeat_off_description">"عدم التكرار"</string>
-    <string name="exo_controls_repeat_one_description">"تكرار مقطع واحد"</string>
-    <string name="exo_controls_rewind_description">"إرجاع"</string>
-    <string name="exo_controls_shuffle_description">"ترتيب عشوائي"</string>
-    <string name="exo_controls_stop_description">"إيقاف"</string>
+    <string name="exo_controls_fastforward_description">تقديم سريع</string>
+    <string name="exo_controls_fullscreen_description">وضع ملء الشاشة</string>
+    <string name="exo_controls_next_description">المقطع الصوتي التالي</string>
+    <string name="exo_controls_pause_description">إيقاف مؤقت</string>
+    <string name="exo_controls_play_description">تشغيل</string>
+    <string name="exo_controls_previous_description">المقطع الصوتي السابق</string>
+    <string name="exo_controls_repeat_all_description">تكرار الكل</string>
+    <string name="exo_controls_repeat_off_description">عدم التكرار</string>
+    <string name="exo_controls_repeat_one_description">تكرار مقطع صوتي واحد</string>
+    <string name="exo_controls_rewind_description">إرجاع</string>
+    <string name="exo_controls_shuffle_description">ترتيب عشوائي</string>
+    <string name="exo_controls_stop_description">إيقاف</string>
+    <string name="exo_download_completed">اكتمل التنزيل</string>
+    <string name="exo_download_description">تنزيل</string>
+    <string name="exo_download_downloading">جارٍ التنزيل.</string>
+    <string name="exo_download_failed">تعذّر التنزيل</string>
+    <string name="exo_download_notification_channel_name">التنزيلات</string>
+    <string name="exo_download_removing">جارٍ إزالة التنزيلات</string>
+    <string name="exo_item_list">%1$s، %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f ميغابت في الثانية</string>
+    <string name="exo_track_mono">قناة أحادية</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_selection_auto">تلقائي</string>
+    <string name="exo_track_selection_none">بدون اختيار</string>
+    <string name="exo_track_selection_title_audio">صوت</string>
+    <string name="exo_track_selection_title_text">نص</string>
+    <string name="exo_track_selection_title_video">فيديو</string>
+    <string name="exo_track_stereo">استريو</string>
+    <string name="exo_track_surround">صوت مجسّم</string>
+    <string name="exo_track_surround_5_point_1">صوت مجسّم 5.1</string>
+    <string name="exo_track_surround_7_point_1">صوت مجسّم 7.1</string>
+    <string name="exo_track_unknown">غير معروف</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"متنوعة"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"متنوعة"</string>
     <string msgid="368094699078615544" name="s1">"حفظ الصورة"</string>

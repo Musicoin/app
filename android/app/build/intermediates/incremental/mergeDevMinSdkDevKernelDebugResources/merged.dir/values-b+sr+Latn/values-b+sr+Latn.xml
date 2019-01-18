@@ -35,17 +35,38 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Otvori na telefonu"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Prijavi me"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Prijavi me na Google"</string>
-    <string name="exo_controls_fastforward_description">"Premotaj unapred"</string>
-    <string name="exo_controls_next_description">"Sledeća pesma"</string>
-    <string name="exo_controls_pause_description">"Pauza"</string>
-    <string name="exo_controls_play_description">"Pusti"</string>
-    <string name="exo_controls_previous_description">"Prethodna pesma"</string>
-    <string name="exo_controls_repeat_all_description">"Ponovi sve"</string>
-    <string name="exo_controls_repeat_off_description">"Ne ponavljaj nijednu"</string>
-    <string name="exo_controls_repeat_one_description">"Ponovi jednu"</string>
-    <string name="exo_controls_rewind_description">"Premotaj unazad"</string>
-    <string name="exo_controls_shuffle_description">"Pusti nasumično"</string>
-    <string name="exo_controls_stop_description">"Zaustavi"</string>
+    <string name="exo_controls_fastforward_description">Premotaj unapred</string>
+    <string name="exo_controls_fullscreen_description">Režim celog ekrana</string>
+    <string name="exo_controls_next_description">Sledeća pesma</string>
+    <string name="exo_controls_pause_description">Pauziraj</string>
+    <string name="exo_controls_play_description">Pusti</string>
+    <string name="exo_controls_previous_description">Prethodna pesma</string>
+    <string name="exo_controls_repeat_all_description">Ponovi sve</string>
+    <string name="exo_controls_repeat_off_description">Ne ponavljaj nijednu</string>
+    <string name="exo_controls_repeat_one_description">Ponovi jednu</string>
+    <string name="exo_controls_rewind_description">Premotaj unazad</string>
+    <string name="exo_controls_shuffle_description">Pusti nasumično</string>
+    <string name="exo_controls_stop_description">Zaustavi</string>
+    <string name="exo_download_completed">Preuzimanje je završeno</string>
+    <string name="exo_download_description">Preuzmi</string>
+    <string name="exo_download_downloading">Preuzima se</string>
+    <string name="exo_download_failed">Preuzimanje nije uspelo</string>
+    <string name="exo_download_notification_channel_name">Preuzimanja</string>
+    <string name="exo_download_removing">Preuzimanja se uklanjaju</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mb/s</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_selection_auto">Automatski</string>
+    <string name="exo_track_selection_none">Nijedna</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">Tekst</string>
+    <string name="exo_track_selection_title_video">Video</string>
+    <string name="exo_track_stereo">Stereo</string>
+    <string name="exo_track_surround">Zvučni sistem</string>
+    <string name="exo_track_surround_5_point_1">Zvučni sistem 5.1</string>
+    <string name="exo_track_surround_7_point_1">Zvučni sistem 7.1</string>
+    <string name="exo_track_unknown">Nepoznato</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Razno"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Razno"</string>
     <string msgid="368094699078615544" name="s1">"Čuvanje slike"</string>

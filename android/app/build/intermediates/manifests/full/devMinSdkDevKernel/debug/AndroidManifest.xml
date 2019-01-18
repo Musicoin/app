@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.musicoin.musicoin"
-    android:versionCode="1"
-    android:versionName="0.0.13" >
+    android:versionCode="2"
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -249,7 +249,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="expo.modules.payments.stripe.e2efbfd9-2060-492d-8c54-8330770f85b8" />
+                <data android:scheme="expo.modules.payments.stripe.d4f8c61b-ba78-4402-b559-e1d5176b91c3" />
             </intent-filter>
         </activity>
         <!-- Versioned Activity for Stripe -->
@@ -411,7 +411,7 @@
             android:value="fb0" />
         <meta-data
             android:name="standaloneStripeScheme"
-            android:value="e2efbfd9-2060-492d-8c54-8330770f85b8" />
+            android:value="d4f8c61b-ba78-4402-b559-e1d5176b91c3" />
         <!-- WHEN_VERSIONING_REMOVE_FROM_HERE -->
         <!-- Scheduled notifications -->
         <receiver
@@ -425,7 +425,20 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider>
+        </provider> <!-- The main service, handles playback, playlists and media buttons -->
+        <service
+            android:name="com.guichaguri.trackplayer.service.MusicService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service> <!-- A receiver that will receive media buttons. Required on pre-lollipop devices -->
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
 
         <activity
             android:name="expo.modules.payments.stripe.OpenBrowserActivity"

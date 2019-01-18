@@ -8,12 +8,12 @@ package com.google.android.gms.ads.impl;
 
 public final class R {
     public static final class string {
-        public static final int s1 = 0x7f0f0103;
-        public static final int s2 = 0x7f0f0104;
-        public static final int s3 = 0x7f0f0105;
-        public static final int s4 = 0x7f0f0106;
-        public static final int s5 = 0x7f0f0107;
-        public static final int s6 = 0x7f0f0108;
-        public static final int s7 = 0x7f0f0109;
+        public static final int s1 = 0x7f0f0118;
+        public static final int s2 = 0x7f0f0119;
+        public static final int s3 = 0x7f0f011a;
+        public static final int s4 = 0x7f0f011b;
+        public static final int s5 = 0x7f0f011c;
+        public static final int s6 = 0x7f0f011d;
+        public static final int s7 = 0x7f0f011e;
     }
 }

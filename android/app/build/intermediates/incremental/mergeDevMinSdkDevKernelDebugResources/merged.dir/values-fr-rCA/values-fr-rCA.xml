@@ -35,17 +35,38 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Ouvrir sur le téléphone"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Connexion"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Se connecter avec Google"</string>
-    <string name="exo_controls_fastforward_description">"Avance rapide"</string>
-    <string name="exo_controls_next_description">"Chanson suivante"</string>
-    <string name="exo_controls_pause_description">"Pause"</string>
-    <string name="exo_controls_play_description">"Lecture"</string>
-    <string name="exo_controls_previous_description">"Chanson précédente"</string>
-    <string name="exo_controls_repeat_all_description">"Tout lire en boucle"</string>
-    <string name="exo_controls_repeat_off_description">"Aucune répétition"</string>
-    <string name="exo_controls_repeat_one_description">"Répéter un élément"</string>
-    <string name="exo_controls_rewind_description">"Reculer"</string>
-    <string name="exo_controls_shuffle_description">"Lecture aléatoire"</string>
-    <string name="exo_controls_stop_description">"Arrêter"</string>
+    <string name="exo_controls_fastforward_description">Avance rapide</string>
+    <string name="exo_controls_fullscreen_description">Mode Plein écran</string>
+    <string name="exo_controls_next_description">Chanson suivante</string>
+    <string name="exo_controls_pause_description">Pause</string>
+    <string name="exo_controls_play_description">Lire</string>
+    <string name="exo_controls_previous_description">Chanson précédente</string>
+    <string name="exo_controls_repeat_all_description">Tout lire en boucle</string>
+    <string name="exo_controls_repeat_off_description">Ne rien lire en boucle</string>
+    <string name="exo_controls_repeat_one_description">Lire une chanson en boucle</string>
+    <string name="exo_controls_rewind_description">Retour arrière</string>
+    <string name="exo_controls_shuffle_description">Lecture aléatoire</string>
+    <string name="exo_controls_stop_description">Arrêter</string>
+    <string name="exo_download_completed">Téléchargement terminé</string>
+    <string name="exo_download_description">Télécharger</string>
+    <string name="exo_download_downloading">Téléchargement en cours…</string>
+    <string name="exo_download_failed">Échec du téléchargement</string>
+    <string name="exo_download_notification_channel_name">Téléchargements</string>
+    <string name="exo_download_removing">Suppression des téléchargements en cours…</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mb/s</string>
+    <string name="exo_track_mono">Mono</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_selection_auto">Auto</string>
+    <string name="exo_track_selection_none">Aucun</string>
+    <string name="exo_track_selection_title_audio">Audio</string>
+    <string name="exo_track_selection_title_text">Texte</string>
+    <string name="exo_track_selection_title_video">Vidéo</string>
+    <string name="exo_track_stereo">Stéréo</string>
+    <string name="exo_track_surround">Son ambiophonique</string>
+    <string name="exo_track_surround_5_point_1">Son ambiophonique 5.1</string>
+    <string name="exo_track_surround_7_point_1">Son ambiophonique 7.1</string>
+    <string name="exo_track_unknown">Inconnu</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Divers"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Divers"</string>
     <string msgid="368094699078615544" name="s1">"Enregistrer l\'image"</string>

@@ -42,17 +42,6 @@
     <string name="crop_image_menu_flip_vertically">Espelhar na vertifcal</string>
     <string name="crop_image_menu_rotate_left">Girar para a esquerda</string>
     <string name="crop_image_menu_rotate_right">Girar para a direita</string>
-    <string name="exo_controls_fastforward_description">"Avançar"</string>
-    <string name="exo_controls_next_description">"Próxima faixa"</string>
-    <string name="exo_controls_pause_description">"Pausar"</string>
-    <string name="exo_controls_play_description">"Reproduzir"</string>
-    <string name="exo_controls_previous_description">"Faixa anterior"</string>
-    <string name="exo_controls_repeat_all_description">"Repetir tudo"</string>
-    <string name="exo_controls_repeat_off_description">"Não repetir"</string>
-    <string name="exo_controls_repeat_one_description">"Repetir um"</string>
-    <string name="exo_controls_rewind_description">"Retroceder"</string>
-    <string name="exo_controls_shuffle_description">"Reproduzir aleatoriamente"</string>
-    <string name="exo_controls_stop_description">"Parar"</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Diversos"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Diversos"</string>
     <string name="pick_image_intent_chooser_title">Escolher foto a partir de</string>

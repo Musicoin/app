@@ -4925,6 +4925,10 @@ react-native-text-ticker@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/react-native-text-ticker/-/react-native-text-ticker-0.13.0.tgz#56f38187ac88689481672939367a7badcb9fe4e3"
 
+react-native-track-player@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-track-player/-/react-native-track-player-1.0.2.tgz#b82cad971fc01e2f60b8fed9ad64574d082fe670"
+
 react-native-vector-icons@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.0.0.tgz#3a7076dbe244ea94c6d5e92802a870e64a4283c5"

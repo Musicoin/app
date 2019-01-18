@@ -58,6 +58,38 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"ఫోన్‌లో తెరువు"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"సైన్ ఇన్ చేయి"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Googleతో సైన్ ఇన్ చేయి"</string>
+    <string name="exo_controls_fastforward_description">వేగంగా ఫార్వార్డ్ చేయండి</string>
+    <string name="exo_controls_fullscreen_description">పూర్తి స్క్రీన్ మోడ్</string>
+    <string name="exo_controls_next_description">తదుపరి ట్రాక్</string>
+    <string name="exo_controls_pause_description">పాజ్ చేయండి</string>
+    <string name="exo_controls_play_description">ప్లే చేయండి</string>
+    <string name="exo_controls_previous_description">మునుపటి ట్రాక్</string>
+    <string name="exo_controls_repeat_all_description">అన్నింటినీ పునరావృతం చేయండి</string>
+    <string name="exo_controls_repeat_off_description">దేన్నీ పునరావృతం చేయకండి</string>
+    <string name="exo_controls_repeat_one_description">ఒకదాన్ని పునరావృతం చేయండి</string>
+    <string name="exo_controls_rewind_description">రివైండ్ చేయండి</string>
+    <string name="exo_controls_shuffle_description">షఫుల్ చేయండి</string>
+    <string name="exo_controls_stop_description">ఆపండి</string>
+    <string name="exo_download_completed">డౌన్‌లోడ్ పూర్తయింది</string>
+    <string name="exo_download_description">డౌన్‌లోడ్ చేయి</string>
+    <string name="exo_download_downloading">డౌన్‌లోడ్ చేస్తోంది</string>
+    <string name="exo_download_failed">డౌన్‌లోడ్ విఫలమైంది</string>
+    <string name="exo_download_notification_channel_name">డౌన్‌లోడ్‌లు</string>
+    <string name="exo_download_removing">డౌన్‌లోడ్‌లను తీసివేస్తోంది</string>
+    <string name="exo_item_list">%1$s, %2$s</string>
+    <string name="exo_track_bitrate">%1$.2f Mbps</string>
+    <string name="exo_track_mono">మోనో</string>
+    <string name="exo_track_resolution">%1$d × %2$d</string>
+    <string name="exo_track_selection_auto">స్వీయ</string>
+    <string name="exo_track_selection_none">ఏదీ కాదు</string>
+    <string name="exo_track_selection_title_audio">ఆడియో</string>
+    <string name="exo_track_selection_title_text">వచనం</string>
+    <string name="exo_track_selection_title_video">వీడియో</string>
+    <string name="exo_track_stereo">స్టీరియో</string>
+    <string name="exo_track_surround">సరౌండ్ ధ్వని</string>
+    <string name="exo_track_surround_5_point_1">5.1 సరౌండ్ ధ్వని</string>
+    <string name="exo_track_surround_7_point_1">7.1 సరౌండ్ ధ్వని</string>
+    <string name="exo_track_unknown">తెలియదు</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"ఇతరాలు"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"ఇతరాలు"</string>
     <string msgid="368094699078615544" name="s1">"చిత్రాన్ని సేవ్ చేయి"</string>

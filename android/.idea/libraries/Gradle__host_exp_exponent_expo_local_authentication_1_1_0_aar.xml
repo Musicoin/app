@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: host.exp.exponent:expo-local-authentication:1.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-local-authentication-1.1.0.aar/c237d9d315a9d8cdb19a3bc0a9e94b03/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-local-authentication-1.1.0.aar/c237d9d315a9d8cdb19a3bc0a9e94b03/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../node_modules/expokit/maven/host/exp/exponent/expo-local-authentication/1.1.0/expo-local-authentication-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

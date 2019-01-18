@@ -22,8 +22,7 @@ android {
   defaultConfig {
     applicationId 'org.musicoin.musicoin'
     targetSdkVersion 26
-    versionCode 1
-    versionName '0.0.13'
+    versionName '1.0.0'
     ndk {
       abiFilters 'armeabi-v7a', 'x86'
     }
@@ -31,8 +30,13 @@ android {
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     // Deprecated. Used by net.openid:appauth
     manifestPlaceholders = [
-      'appAuthRedirectScheme': 'host.exp.exponent'
+            'appAuthRedirectScheme': 'host.exp.exponent'
     ]
+    versionCode 2
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
   dexOptions {
     javaMaxHeapSize System.getenv("DISABLE_DEX_MAX_HEAP") ? null : "8g"
@@ -97,13 +101,11 @@ apply from: 'expo.gradle'
 
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+  implementation project(':react-native-track-player')
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation 'com.android.support:multidex:1.0.1'
-
   // Our dependencies
   implementation 'com.android.support:appcompat-v7:27.1.1'
-
   // Our dependencies from ExpoView
   // DON'T ADD ANYTHING HERE THAT ISN'T IN EXPOVIEW. ONLY COPY THINGS FROM EXPOVIEW TO HERE.
   implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -114,7 +116,8 @@ dependencies {
   compileOnly 'org.glassfish:javax.annotation:3.1.1'
   implementation 'com.jakewharton:butterknife:8.4.0'
   implementation 'de.greenrobot:eventbus:2.4.0'
-  implementation 'com.amplitude:android-sdk:2.9.2' // Be careful when upgrading! Upgrading might break experience scoping. Check with Jesse. See Analytics.resetAmplitudeDatabaseHelper
+  implementation 'com.amplitude:android-sdk:2.9.2'
+  // Be careful when upgrading! Upgrading might break experience scoping. Check with Jesse. See Analytics.resetAmplitudeDatabaseHelper
   implementation 'com.squareup.picasso:picasso:2.5.2'
   implementation 'com.google.android.gms:play-services-gcm:15.0.1'
   implementation 'com.google.android.gms:play-services-analytics:16.0.1'
@@ -123,10 +126,10 @@ dependencies {
   implementation 'com.google.android.gms:play-services-location:15.0.1'
   implementation 'com.google.android.gms:play-services-ads:15.0.1'
   annotationProcessor 'com.raizlabs.android:DBFlow-Compiler:2.2.1'
-  implementation "com.raizlabs.android:DBFlow-Core:2.2.1"
-  implementation "com.raizlabs.android:DBFlow:2.2.1"
-  implementation "com.madgag.spongycastle:core:1.53.0.0"
-  implementation "com.madgag.spongycastle:prov:1.53.0.0"
+  implementation 'com.raizlabs.android:DBFlow-Core:2.2.1'
+  implementation 'com.raizlabs.android:DBFlow:2.2.1'
+  implementation 'com.madgag.spongycastle:core:1.53.0.0'
+  implementation 'com.madgag.spongycastle:prov:1.53.0.0'
   debugImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1'
   // debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.4-beta1'
   releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1'
@@ -140,8 +143,8 @@ dependencies {
   implementation 'com.segment.analytics.android:analytics:4.3.0'
   implementation 'com.google.zxing:core:3.2.1'
   implementation 'net.openid:appauth:0.4.1'
-  implementation('com.airbnb.android:lottie:2.5.5')  {
-      exclude group: 'com.android.support', module: 'appcompat-v7'
+  implementation('com.airbnb.android:lottie:2.5.5') {
+    exclude group: 'com.android.support', module: 'appcompat-v7'
   }
   implementation 'io.branch.sdk.android:library:2.17.1'
   implementation('io.nlopez.smartlocation:library:3.2.11') {
@@ -150,14 +153,11 @@ dependencies {
   implementation 'com.android.support:exifinterface:27.1.1'
   implementation 'com.squareup.okio:okio:1.9.0'
   implementation 'com.facebook.soloader:soloader:0.5.1'
-
-  implementation 'com.google.android.exoplayer:exoplayer:2.6.1'
+  implementation 'com.google.android.exoplayer:exoplayer:2.9.2'
   implementation 'expolib_v1.com.google.android.exoplayer:expolib_v1-extension-okhttp:2.6.1@aar'
-
   // expo-file-system
   implementation 'com.squareup.okhttp3:okhttp:3.10.0'
   implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
-
   // Testing
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
   // We use a modified build of com.android.support.test:runner:1.0.1. Explanation in maven-test/README
@@ -166,21 +166,16 @@ dependencies {
   androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.0'
   androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
   androidTestImplementation 'com.azimolabs.conditionwatcher:conditionwatcher:0.2'
-
   testImplementation 'junit:junit:4.12'
   testImplementation 'org.mockito:mockito-core:1.10.19'
   testImplementation 'org.robolectric:robolectric:3.8'
   testImplementation 'com.android.support.test:runner:1.0.2-alpha1'
   testImplementation 'com.android.support.test:rules:1.0.2-alpha1'
-
-  
   implementation('host.exp.exponent:expoview:31.0.0@aar') {
     transitive = true
     exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     exclude group: 'com.squareup.okhttp3', module: 'okhttp-urlconnection'
   }
-  
-
 }
 
 // This has to be down here for some reason

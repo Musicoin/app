@@ -2,7 +2,7 @@ import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {setCustomText} from 'react-native-global-props';
 
-import {AppLoading, Asset, Font, Icon, SplashScreen} from 'expo';
+import {AppLoading, Asset, Font, Icon, SplashScreen, registerRootComponent} from 'expo';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 
@@ -19,7 +19,10 @@ import {fetchReleases, fetchAccessToken, fetchArtistOfTheWeek} from './actions';
 
 import {API_ENDPOINT} from 'react-native-dotenv';
 
-console.log("server endpoint: " + API_ENDPOINT);
+import playerService from './playerService';
+import TrackPlayer from 'react-native-track-player';
+
+console.log('server endpoint: ' + API_ENDPOINT);
 store.subscribe(() => console.log('store', store.getState()));
 
 // Setting default styles for all Text components.
@@ -37,7 +40,7 @@ export default class App extends React.Component {
     isLoadingComplete: false,
   };
 
-  constructor(props){
+  constructor(props) {
     super(props);
     SplashScreen.preventAutoHide();
   }
@@ -114,6 +117,7 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setComponentDefaults();
     this.setState({isLoadingComplete: true});
+    TrackPlayer.registerPlaybackService(() => playerService);
     SplashScreen.hide();
   };
 }
