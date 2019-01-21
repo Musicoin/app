@@ -32,7 +32,8 @@ android {
     manifestPlaceholders = [
             'appAuthRedirectScheme': 'host.exp.exponent'
     ]
-    versionCode 2
+    versionCode 4
+    signingConfig signingConfigs.debug
   }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
@@ -46,9 +47,11 @@ android {
   productFlavors {
     devKernel {
       dimension 'remoteKernel'
+      signingConfig signingConfigs.debug
     }
     prodKernel {
       dimension 'remoteKernel'
+      signingConfig signingConfigs.debug
     }
     devMinSdk {
       dimension 'minSdk'
@@ -56,10 +59,12 @@ android {
       // to pre-dex each module and produce an APK that can be tested on
       // Android Lollipop without time consuming dex merging processes.
       minSdkVersion 21
+      signingConfig signingConfigs.debug
     }
     prodMinSdk {
       dimension 'minSdk'
       minSdkVersion 21
+      signingConfig signingConfigs.debug
     }
   }
   buildTypes {
@@ -103,6 +108,11 @@ apply from: 'expo.gradle'
 dependencies {
   implementation project(':react-native-track-player')
   implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation('host.exp.exponent:expoview:31.0.0@aar') {
+    transitive = true
+    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    exclude group: 'com.squareup.okhttp3', module: 'okhttp-urlconnection'
+  }
   implementation 'com.android.support:multidex:1.0.1'
   // Our dependencies
   implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -171,12 +181,22 @@ dependencies {
   testImplementation 'org.robolectric:robolectric:3.8'
   testImplementation 'com.android.support.test:runner:1.0.2-alpha1'
   testImplementation 'com.android.support.test:rules:1.0.2-alpha1'
-  implementation('host.exp.exponent:expoview:31.0.0@aar') {
-    transitive = true
-    exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    exclude group: 'com.squareup.okhttp3', module: 'okhttp-urlconnection'
-  }
 }
 
 // This has to be down here for some reason
 apply plugin: 'com.google.gms.google-services'
+
+
+// Configures the bundleJS commands for React-Native
+//project.ext.react = [
+//
+//        // whether to bundle JS and assets in debug mode
+//        bundleInDebug: false,
+//        // whether to bundle JS and assets in release mode
+//        bundleInRelease: true,
+//        entryFile: 'App.js',
+//        // the root of your RN project, i.e. where "package.json" lives
+//        root: "/Users/bengyles/dev/Musicoin/app"
+//]
+/*apply from: "/Users/johnmoline/Documents/Development_Projects/MolineSystem_Projects/Musicoin/mobile app/app/node_modules/react-native/react.gradle"*/
+

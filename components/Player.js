@@ -18,17 +18,23 @@ import TrackPlayer from 'react-native-track-player';
 
 TrackPlayer.setupPlayer().then(() => {
   // The player is ready to be used
-  TrackPlayer.updateOptions({
-    capabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_STOP,
-    ],
-    compactCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-    ],
-  });
+
+  let options = { stopWithApp: true};
+  if(Platform.OS !== 'android') {
+    options = {
+      capabilities: [
+        TrackPlayer.CAPABILITY_PLAY,
+        TrackPlayer.CAPABILITY_PAUSE,
+        TrackPlayer.CAPABILITY_STOP,
+      ],
+      compactCapabilities: [
+        TrackPlayer.CAPABILITY_PLAY,
+        TrackPlayer.CAPABILITY_PAUSE,
+      ],
+    };
+  }
+
+  TrackPlayer.updateOptions(options).then(() => console.log('capabilities set'));
 });
 
 class PlayerComponent extends React.Component {
@@ -268,7 +274,7 @@ class PlayerComponent extends React.Component {
                       </TextTicker>
                     </View>
                   </View>
-                  <TrackSlider />
+                  <TrackSlider/>
                   <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
