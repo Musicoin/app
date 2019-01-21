@@ -19,8 +19,8 @@ import TrackPlayer from 'react-native-track-player';
 TrackPlayer.setupPlayer().then(() => {
   // The player is ready to be used
 
-  let options = { stopWithApp: true};
-  if(Platform.OS !== 'android') {
+  let options = {stopWithApp: true};
+  if (Platform.OS !== 'android') {
     options = {
       capabilities: [
         TrackPlayer.CAPABILITY_PLAY,
@@ -495,10 +495,13 @@ class PlayerComponent extends React.Component {
   }
 
   async onQueueEnded(data) {
-    if (this.props.settings.repeat) {
-      await TrackPlayer.play();
-    } else {
-      this.playNextTrack();
+    console.log(data);
+    if (data.track && data.position != 0) {
+      if (this.props.settings.repeat) {
+        await TrackPlayer.play();
+      } else {
+        this.playNextTrack();
+      }
     }
   }
 
