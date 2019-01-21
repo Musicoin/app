@@ -18,24 +18,27 @@ import TrackPlayer from 'react-native-track-player';
 
 TrackPlayer.setupPlayer().then(() => {
   // The player is ready to be used
+  updateOptions();
 
-  let options = {stopWithApp: true};
-  if (Platform.OS !== 'android') {
-    options = {
-      capabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-        TrackPlayer.CAPABILITY_STOP,
-      ],
-      compactCapabilities: [
-        TrackPlayer.CAPABILITY_PLAY,
-        TrackPlayer.CAPABILITY_PAUSE,
-      ],
-    };
-  }
+});
+
+function updateOptions() {
+  let options = {
+    stopWithApp: true,
+    capabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+    ],
+    compactCapabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+    ],
+  };
 
   TrackPlayer.updateOptions(options).then(() => console.log('capabilities set'));
-});
+}
 
 class PlayerComponent extends React.Component {
   constructor(props) {
@@ -52,6 +55,16 @@ class PlayerComponent extends React.Component {
     this.onPlayerUpdate = TrackPlayer.addEventListener('playback-state', (data) => this.onPlaybackStatusUpdate(data));
     this.onPlayerError = TrackPlayer.addEventListener('playback-error', (data) => this.onPlaybackError(data));
     this.onPlayerQueueEnded = TrackPlayer.addEventListener('playback-queue-ended', (data) => this.onQueueEnded(data));
+
+    TrackPlayer.addEventListener('remote-play', () => this.resumeTrack());
+
+    TrackPlayer.addEventListener('remote-pause', () => this.pauseTrack());
+
+    TrackPlayer.addEventListener('remote-previous', () => this.playPreviousTrack());
+
+    TrackPlayer.addEventListener('remote-next', () => this.playNextTrack());
+
+    // TrackPlayer.addEventListener('remote-stop', () => TrackPlayer.destroy());
   }
 
   componentWillUnmount() {
@@ -473,9 +486,12 @@ class PlayerComponent extends React.Component {
   async loadAndPlayTrack(track) {
     let newTrack = {id: track.trackAddress, url: track.trackUrl, title: track.title, artist: track.artistName, artwork: track.trackImg};
     try {
-      TrackPlayer.reset();
-      TrackPlayer.add([newTrack]).then(function() {
-        TrackPlayer.play().then(() => {console.log('track started');});
+      TrackPlayer.add([newTrack], null).then(function() {
+        TrackPlayer.skip(newTrack.id).then(() => {
+          TrackPlayer.play().then(() => {
+            updateOptions();
+          });
+        });
       });
       this.setState({currentTrack: track});
     } catch (e) {
