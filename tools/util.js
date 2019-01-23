@@ -195,10 +195,10 @@ export function getColorCodeForString(string) {
   return '#' + intToRGB(hashCode(string));
 }
 
-export function secondsToMinutesAndSeconds(seconds) {
-  var minutes = Math.floor(seconds / 60);
-  var seconds = ((seconds % 60)).toFixed(0);
-  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+export function secondsToMinutesAndSeconds(time) {
+  var minutes = time / 60;
+  var seconds = time - (minutes * 60);
+  return minutes.toFixed(0) + ':' + (seconds < 10 ? '0' : '') + seconds.toFixed(0);
 }
 
 export function returnIndexFromArray(array, track, reversed = false) {
