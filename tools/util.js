@@ -196,7 +196,7 @@ export function getColorCodeForString(string) {
 }
 
 export function secondsToMinutesAndSeconds(time) {
-  var minutes = time / 60;
+  var minutes = Math.floor(time / 60);
   var seconds = time - (minutes * 60);
   return minutes.toFixed(0) + ':' + (seconds < 10 ? '0' : '') + seconds.toFixed(0);
 }

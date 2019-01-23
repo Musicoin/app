@@ -486,8 +486,8 @@ class PlayerComponent extends React.Component {
   async loadAndPlayTrack(track) {
     let newTrack = {id: track.trackAddress, url: track.trackUrl, title: track.title, artist: track.artistName, artwork: track.trackImg};
     try {
-      TrackPlayer.add([newTrack], null).then(function() {
-        TrackPlayer.skip(newTrack.id).then(() => {
+      TrackPlayer.reset().then(function() {
+        TrackPlayer.add(newTrack, null).then(function() {
           TrackPlayer.play().then(() => {
             updateOptions();
           });
