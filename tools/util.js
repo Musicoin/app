@@ -219,11 +219,12 @@ export function returnIndexFromArray(array, track, reversed = false) {
 
 export async function shareTrack(track) {
   try {
+    let link= 'https://musicoin.org/nav/track/' + track.trackAddress;
     const result = await Share.share({
       title: `${track.artistName} - ${track.title}`,
       dialogTitle: `${track.artistName} - ${track.title}`,
-      message: `Listen to ${track.title} by ${track.artistName} on Musicoin: ${track.trackUrl}`,
-      url: `${track.trackUrl}`,
+      message: `Listen to ${track.title} by ${track.artistName} on Musicoin: ${link}`,
+      url: link,
     });
 
     if (result.action === Share.sharedAction) {
