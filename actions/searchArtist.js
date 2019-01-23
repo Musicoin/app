@@ -7,8 +7,8 @@ import Layout from '../constants/Layout';
 function receiveSearchResults(json) {
   let searchResults;
 
-  if (json.success && json.releases) {
-    searchResults = json.releases;
+  if (json.tracks) {
+    searchResults = json.tracks;
   }
 
   return {
@@ -17,36 +17,37 @@ function receiveSearchResults(json) {
   };
 }
 
-async function fetchSearchResultsJson(token, artistId, email) {
+async function fetchSearchResultsJson(token, artistAddress, email) {
   var params = {
     'accessToken': token,
     'limit': 50,
     'email': email,
+    'artistAddress': artistAddress,
   };
 
-  let results = await fetchGetData(`release/byartist/${API_VERSION}/${artistId}?`, params);
+  let results = await fetchGetData(`${API_VERSION}/release/byartist?`, params);
 
-  if (results.success && results.releases != []) {
+  if (results.tracks != []) {
 
-    for (let i = 0; i < results.releases.length; i++) {
+    for (let i = 0; i < results.tracks.length; i++) {
 
-      if (!results.releases[i].genres) {
-        results.releases[i].genres = [];
+      if (!results.tracks[i].genres) {
+        results.tracks[i].genres = [];
       }
 
-      if (!results.releases[i].directTipCount) {
-        results.releases[i].directTipCount = 0;
+      if (!results.tracks[i].directTipCount) {
+        results.tracks[i].directTipCount = 0;
       }
 
-      if (!results.releases[i].directPlayCount) {
-        results.releases[i].directPlayCount = 0;
+      if (!results.tracks[i].directPlayCount) {
+        results.tracks[i].directPlayCount = 0;
       }
 
-      if (!results.releases[i].trackImg) {
-        results.releases[i].trackImg = Layout.defaultTrackImage;
+      if (!results.tracks[i].trackImg) {
+        results.tracks[i].trackImg = Layout.defaultTrackImage;
       }
 
-      results.releases[i].origin = 'artist';
+      results.tracks[i].origin = 'artist';
     }
     return results;
   } else {

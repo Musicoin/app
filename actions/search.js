@@ -7,8 +7,8 @@ import Layout from '../constants/Layout';
 function receiveSearchResults(json) {
   let searchResults;
 
-  if (json.releases || json.artists) {
-    searchResults = {releases: json.releases, artists: json.artists};
+  if (json.tracks || json.artists) {
+    searchResults = {releases: json.tracks, artists: json.artists};
   }
 
   return {
@@ -24,29 +24,29 @@ async function fetchSearchResultsJson(token, keyword, email) {
     'limit': 20,
   };
 
-  let results = await fetchPostFormData(`search/${API_VERSION}?email=${email}&accessToken=${token}`, params);
+  let results = await fetchPostFormData(`${API_VERSION}/search?email=${email}&accessToken=${token}`, params);
 
-  if (results.success && results.releases != []) {
+  if (results.tracks != []) {
 
-    for (let i = 0; i < results.releases.length; i++) {
+    for (let i = 0; i < results.tracks.length; i++) {
 
-      if (!results.releases[i].genres) {
-        results.releases[i].genres = [];
+      if (!results.tracks[i].genres) {
+        results.tracks[i].genres = [];
       }
 
-      if (!results.releases[i].directTipCount) {
-        results.releases[i].directTipCount = 0;
+      if (!results.tracks[i].directTipCount) {
+        results.tracks[i].directTipCount = 0;
       }
 
-      if (!results.releases[i].directPlayCount) {
-        results.releases[i].directPlayCount = 0;
+      if (!results.tracks[i].directPlayCount) {
+        results.tracks[i].directPlayCount = 0;
       }
 
-      if (!results.releases[i].trackImg) {
-        results.releases[i].trackImg = Layout.defaultTrackImage;
+      if (!results.tracks[i].trackImg) {
+        results.tracks[i].trackImg = Layout.defaultTrackImage;
       }
 
-      results.releases[i].origin = 'search';
+      results.tracks[i].origin = 'search';
     }
 
     return results;

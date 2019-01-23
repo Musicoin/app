@@ -16,7 +16,7 @@ async function fetchReleaseDetailsJson(token, email, track) {
     'email': email,
   };
 
-  let result = await fetchGetData(`release/detail/${API_VERSION}/${track.trackAddress}?`, params);
+  let result = await fetchGetData(`${API_VERSION}/release/detail/${track.trackAddress}?`, params);
 
   if (result.success && result.data != null) {
     result.data.origin = track.origin;

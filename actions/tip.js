@@ -5,7 +5,6 @@ import {addAlert} from './alert';
 import {API_VERSION} from 'react-native-dotenv';
 
 function addTip(trackAddress, json) {
-  console.log(json);
   return function(dispatch, getState) {
     let success = false;
     if (json.tx) {
@@ -30,7 +29,7 @@ async function tipTrackJson(trackAddress, token, email) {
     musicoins: 1,
   };
 
-  let tipTrack = await fetchPostFormDataJson(`release/tiptrack/${API_VERSION}?email=${email}&accessToken=${token}`, params);
+  let tipTrack = await fetchPostFormDataJson(`${API_VERSION}/release/tip?email=${email}&accessToken=${token}`, params);
   return tipTrack;
 }
 

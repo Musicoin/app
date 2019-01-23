@@ -65,7 +65,7 @@ class ArtistScreen extends React.Component {
                                 color={Colors.fontColor}
                                 style={{margin: 5}}
                             />
-                            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.followers}</Text>
+                            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.followers?this.state.artist.followers:0}</Text>
                           </View>
                           <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
                             <Image
@@ -73,7 +73,7 @@ class ArtistScreen extends React.Component {
                                 fadeDuration={0}
                                 style={{width: 10, height: 10, marginRight: 5}}
                             />
-                            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.tipTotal}</Text>
+                            <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.tipTotal?this.state.artist.tipTotal:0}</Text>
                           </View>
                         </View>
                         <View>

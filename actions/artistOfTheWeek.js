@@ -15,7 +15,7 @@ async function fetchArtistOfTheWeekJson(token, email) {
     'email': email,
   };
 
-  let result = await fetchGetData(`artist/ofweek/${API_VERSION}?`, params);
+  let result = await fetchGetData(`${API_VERSION}/artist/ofweek?`, params);
 
   if (result) {
     return result;

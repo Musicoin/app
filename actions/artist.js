@@ -7,11 +7,10 @@ export async function fetchArtistDetailsJson(token, email, profileAddress) {
     'email': email,
   };
 
-  let result = await fetchGetData(`artist/profile/${API_VERSION}/${profileAddress}?`, params);
+  let result = await fetchGetData(`${API_VERSION}/artist/profile/${profileAddress}?`, params);
 
-  console.log(result);
   if (result) {
-    return result;
+    return result.artist;
   } else {
     return null;
   }
