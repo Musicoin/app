@@ -29,14 +29,14 @@ class ArtistScreen extends React.Component {
 
     } else {
       this.setState({artist, isLoaded: true});
-      this.props.getSearchByArtistResults(artist.profileAddress);
+      this.props.getSearchByArtistResults(artist.artistAddress);
     }
   }
 
   async getArtistDetails(profileAddress) {
     let artist = await fetchArtistDetailsJson(this.props.auth.accessToken, this.props.auth.email, profileAddress);
     this.setState({artist, isLoaded: true});
-    this.props.getSearchByArtistResults(artist.profileAddress);
+    this.props.getSearchByArtistResults(artist.artistAddress);
   }
 
   render() {
