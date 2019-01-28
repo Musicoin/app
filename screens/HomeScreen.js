@@ -13,7 +13,7 @@ import Colors from '../constants/Colors';
 import connectAlert from '../components/alert/connectAlert.component';
 import Track from '../components/track/track';
 import ArtistOfTheWeek from '../components/ArtistOfTheWeek';
-import {fetchReleases} from '../actions';
+import {fetchReleases, fetchArtistOfTheWeek} from '../actions';
 import Layout from '../constants/Layout';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
@@ -35,8 +35,11 @@ class HomeScreen extends React.Component {
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
               refreshControl={
                 <RefreshControl
-                    refreshing={this.props.loading.RECEIVE_NEW_RELEASES}
-                    onRefresh={() => this.props.fetchReleases()}
+                    refreshing={this.props.loading.RECEIVE_NEW_RELEASES || this.props.loading.ARTIST_OF_THE_WEEK}
+                    onRefresh={() => {
+                      this.props.fetchArtistOfTheWeek();
+                      this.props.fetchReleases();
+                    }}
                     tintColor={Colors.tintColor}
                 />
               }
@@ -105,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {fetchReleases})(HomeScreen));
+export default connectAlert(connect(mapStateToProps, {fetchReleases, fetchArtistOfTheWeek})(HomeScreen));
