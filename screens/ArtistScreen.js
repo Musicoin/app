@@ -44,7 +44,7 @@ class ArtistScreen extends React.Component {
     return (
         this.state.isLoaded ?
             <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0}}>
-              <View style={{flex: 1, marginBottom: 5, backgroundColor: '#272D33'}}>
+              <View style={{marginBottom: 5, backgroundColor: '#272D33'}}>
                 {this.state.artist ?
                     <View>
                       <View style={{paddingHorizontal: 10, paddingTop: 24}}>
