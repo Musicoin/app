@@ -3,9 +3,24 @@ import {SEARCH_BY_ARTIST_REQUEST, SEARCH_BY_ARTIST_SUCCESS, SEARCH_BY_ARTIST_FAI
 export default function releasesByArtist(state = [], action) {
   switch (action.type) {
     case SEARCH_BY_ARTIST_SUCCESS:
-      return action.data ? action.data : [];
-    case SEARCH_BY_ARTIST_FAILURE, SEARCH_BY_ARTIST_REQUEST:
+      if (action.data && action.data.length > 0) {
+        if (action.skip == 0) {
+          return action.data;
+        } else {
+          return [...state, ...action.data];
+        }
+      } else {
+        if (action.skip == 0) {
+          return [];
+        }
+        else {
+          return state;
+        }
+      }
+    case SEARCH_BY_ARTIST_FAILURE:
       return [];
+    case SEARCH_BY_ARTIST_REQUEST:
+      return action.skip == 0 ? [] : state;
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {

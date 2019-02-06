@@ -17,13 +17,16 @@ import NavigationService from './services/NavigationService';
 
 import {fetchReleases, fetchAccessToken, fetchArtistOfTheWeek} from './actions';
 
-import {API_ENDPOINT} from 'react-native-dotenv';
+import {API_ENDPOINT, DEV, API_VERSION} from 'react-native-dotenv';
 
 import playerService from './playerService';
 import TrackPlayer from 'react-native-track-player';
 
-console.log('server endpoint: ' + API_ENDPOINT);
-store.subscribe(() => console.log('store', store.getState()));
+console.log('server endpoint: ' + API_ENDPOINT + API_VERSION);
+
+if (!!+DEV) {
+  store.subscribe(() => console.log('store', store.getState()));
+}
 
 // Setting default styles for all Text components.
 const customTextProps = {

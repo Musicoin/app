@@ -1,10 +1,10 @@
-import {fetchAccessToken} from './auth';
 import {SEARCH_BY_ARTIST_FAILURE, SEARCH_BY_ARTIST_REQUEST, SEARCH_BY_ARTIST_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
+import {GENERAL_API_LIMIT} from '../constants/App';
 
-function receiveSearchResults(json) {
+function receiveSearchResults(json, skip) {
   let searchResults;
 
   if (json.tracks) {
@@ -14,14 +14,16 @@ function receiveSearchResults(json) {
   return {
     type: searchResults ? SEARCH_BY_ARTIST_SUCCESS : SEARCH_BY_ARTIST_FAILURE,
     data: searchResults,
+    skip
   };
 }
 
-async function fetchSearchResultsJson(token, artistAddress, email) {
+async function fetchSearchResultsJson(token, artistAddress, email, skip) {
   var params = {
     'accessToken': token,
-    'limit': 50,
+    'limit': GENERAL_API_LIMIT,
     'email': email,
+    skip,
     artistAddress
   };
 
@@ -55,10 +57,10 @@ async function fetchSearchResultsJson(token, artistAddress, email) {
   }
 }
 
-export function getSearchByArtistResults(artistId) {
+export function getSearchByArtistResults(artistId, skip = 0) {
   return function(dispatch, getState) {
-    dispatch({type: SEARCH_BY_ARTIST_REQUEST});
+    dispatch({type: SEARCH_BY_ARTIST_REQUEST, skip});
     let {accessToken, email} = getState().auth;
-    return fetchSearchResultsJson(accessToken, artistId, email).then(json => dispatch(receiveSearchResults(json)));
+    return fetchSearchResultsJson(accessToken, artistId, email, skip).then(json => dispatch(receiveSearchResults(json, skip)));
   };
 }

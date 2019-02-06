@@ -9,6 +9,7 @@ import Track from '../components/track/track';
 import {Button} from 'react-native-elements';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {fetchArtistDetailsJson} from '../actions/artist';
+import {GENERAL_API_LIMIT} from '../constants/App';
 
 var {width} = Dimensions.get('window');
 
@@ -40,7 +41,6 @@ class ArtistScreen extends React.Component {
   }
 
   render() {
-
     return (
         this.state.isLoaded ?
             <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0}}>
@@ -124,14 +124,25 @@ class ArtistScreen extends React.Component {
                     style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={{}}
                     refreshControl={
                       <RefreshControl
-                          refreshing={this.props.loading.SEARCH_BY_ARTIST}
-                          onRefresh={() => this.props.getSearchByArtistResults(this.state.artist.artistAddress)}
+                          refreshing={this.props.loading.SEARCH_BY_ARTIST && this.props.searchResultsByArtist.length == 0}
+                          onRefresh={() => this.props.getSearchByArtistResults(this.state.artist.artistAddress, 0)}
                           tintColor={Colors.tintColor}
                       />
                     }
                     ListEmptyComponent={!this.props.loading.SEARCH_BY_ARTIST ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
                       <Text style={{color: Colors.tabIconDefault}}>No releases found</Text>
                     </View> : null}
+                    ListFooterComponent={
+                      this.props.loading.SEARCH_BY_ARTIST && this.props.searchResultsByArtist.length >= GENERAL_API_LIMIT ?
+                          <ActivityIndicator size="small" color={Colors.tintColor} style={{marginTop: 10}}/> :
+                          null}
+                    onEndReached={() => {
+                      !this.props.loading.SEARCH_BY_ARTIST && this.props.searchResultsByArtist.length >= GENERAL_API_LIMIT ?
+                          this.props.getSearchByArtistResults(this.state.artist.artistAddress, this.props.searchResultsByArtist.length) :
+                          console.log('no more results');
+                    }}
+                    initialNumToRender={5}
+                    onEndReachedThreshold={1.5}
                 />
               </View>
             </View>
