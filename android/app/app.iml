@@ -430,5 +430,6 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:16.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: host.exp.exponent:expo-sensors-interface:1.1.0@aar" level="project" />
     <orderEntry type="module" module-name="react-native-track-player" />
+    <orderEntry type="module" module-name="react-native-track-player" />
   </component>
 </module>
