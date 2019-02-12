@@ -22,7 +22,7 @@ android {
   defaultConfig {
     applicationId 'org.musicoin.musicoin'
     targetSdkVersion 26
-    versionName '1.1.0'
+    versionName '2.0.0'
     ndk {
       abiFilters 'armeabi-v7a', 'x86'
     }
@@ -32,7 +32,7 @@ android {
     manifestPlaceholders = [
             'appAuthRedirectScheme': 'host.exp.exponent'
     ]
-    versionCode 5
+    versionCode 6
     signingConfig signingConfigs.debug
   }
   compileOptions {

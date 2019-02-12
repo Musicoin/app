@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "1.1.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "primaryColor": "#1A1D21",
@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "org.musicoin.musicoin",
-      "buildNumber": "1.0.0",
+      "buildNumber": "2.0.0",
       "publishBundlePath": "ios/musicoin/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/musicoin/Supporting/shell-app-manifest.json"
     },
