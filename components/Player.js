@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, StatusBar, TouchableWithoutFeedback} from 'react-native';
+import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, BackHandler} from 'react-native';
 import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
@@ -50,6 +50,15 @@ class PlayerComponent extends React.Component {
     };
   }
 
+  handleBackPress = () => {
+    if (this.props.settings.bigPlayer) {
+      this.props.togglePlayerMode();
+      return true;
+    }
+
+    return false;
+  };
+
   componentDidMount() {
     this.checkPreviousAndNext();
     this.onPlayerUpdate = TrackPlayer.addEventListener('playback-state', (data) => this.onPlaybackStatusUpdate(data));
@@ -64,6 +73,8 @@ class PlayerComponent extends React.Component {
 
     TrackPlayer.addEventListener('remote-next', () => this.playNextTrack());
 
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+
     // TrackPlayer.addEventListener('remote-stop', () => TrackPlayer.destroy());
   }
 
@@ -71,6 +82,8 @@ class PlayerComponent extends React.Component {
     this.onPlayerUpdate.remove();
     this.onPlayerError.remove();
     this.onPlayerQueueEnded.remove();
+
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   async componentDidUpdate(prev) {
@@ -384,7 +397,7 @@ class PlayerComponent extends React.Component {
                         </TouchableOpacity>}
                   </View>
                 </View>
-                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()}>
+                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={()=>this._toggleModal()}>
                   <View style={{backgroundColor: Colors.backgroundColor}}>
                     <View style={{flexDirection: 'row'}}>
                       <Image style={{width: 64, height: 64, margin: 16}} source={{uri: this.props.currentTrack.trackImg}}/>

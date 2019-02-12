@@ -47,7 +47,7 @@ class Artist extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()}>
+          <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={()=>this._toggleModal()}>
             <View style={{backgroundColor: Colors.backgroundColor}}>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{width: 64, height: 64, margin: 16}} source={{uri: item.imageUrl}}/>
