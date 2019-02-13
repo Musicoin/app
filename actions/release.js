@@ -2,7 +2,6 @@ import {fetchAccessToken} from './auth';
 import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
-import {API_VERSION} from 'react-native-dotenv';
 
 function receiveReleases(json) {
   let releases;
@@ -23,7 +22,7 @@ async function fetchReleasesJson(token, email) {
     'limit': '20',
   };
 
-  let results = await fetchGetData(`${API_VERSION}/release/recent?`, params);
+  let results = await fetchGetData(`v1/release/recent?`, params);
 
   if (results.tracks != []) {
 

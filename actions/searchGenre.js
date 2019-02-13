@@ -1,7 +1,6 @@
 import {fetchAccessToken} from './auth';
 import {SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {
@@ -25,7 +24,7 @@ async function fetchSearchResultsJson(token, genre, email) {
     'limit': 40,
   };
 
-  let results = await fetchGetData(`${API_VERSION}/release/bygenre?`, params);
+  let results = await fetchGetData(`v1/release/bygenre?`, params);
 
   if (results.tracks != []) {
 

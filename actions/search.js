@@ -1,6 +1,5 @@
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
 function receiveSearchResults(json) {

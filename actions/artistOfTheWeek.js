@@ -1,4 +1,3 @@
-import {API_VERSION} from 'react-native-dotenv';
 import {fetchGetData} from '../tools/util';
 import {ARTIST_OF_THE_WEEK_FAILURE, ARTIST_OF_THE_WEEK_REQUEST, ARTIST_OF_THE_WEEK_SUCCESS} from '../constants/Actions';
 
@@ -15,7 +14,7 @@ async function fetchArtistOfTheWeekJson(token, email) {
     'email': email,
   };
 
-  let result = await fetchGetData(`${API_VERSION}/artist/ofweek?`, params);
+  let result = await fetchGetData(`v1/artist/ofweek?`, params);
 
   if (result) {
     return result;

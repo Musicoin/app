@@ -1,5 +1,4 @@
 import {fetchPostData, generateRandomString} from '../tools/util';
-import {API_VERSION} from 'react-native-dotenv';
 import {RECEIVE_ACCESS_TOKEN, RECEIVE_LOGIN_INFO} from '../constants/Actions';
 import uuidv1 from 'uuid/v1';
 
@@ -29,7 +28,7 @@ async function fetchAccessTokenJson(auth) {
 
   };
 
-  return fetchPostData(`${API_VERSION}/auth/accesstoken`, params);
+  return fetchPostData(`v1/auth/accesstoken`, params);
 }
 
 async function fetchQuickLoginJson(email, username, password) {
@@ -40,7 +39,7 @@ async function fetchQuickLoginJson(email, username, password) {
 
   };
 
-  return fetchPostData(`${API_VERSION}/auth/quicklogin`, params);
+  return fetchPostData(`v1/auth/quicklogin`, params);
 }
 
 export function fetchAccessToken() {
