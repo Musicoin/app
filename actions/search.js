@@ -1,6 +1,5 @@
-import {fetchAccessToken} from './auth';
 import {SEARCH_FAILURE, SEARCH_REQUEST, SEARCH_SUCCESS} from '../constants/Actions';
-import {fetchPostFormData} from '../tools/util';
+import {fetchGetData} from '../tools/util';
 import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 
@@ -19,12 +18,14 @@ function receiveSearchResults(json) {
 
 async function fetchSearchResultsJson(token, keyword, email) {
   var params = {
+    'accessToken': token,
     'email': email,
     'keyword': keyword,
     'limit': 20,
+    'skip': 0,
   };
 
-  let results = await fetchPostFormData(`${API_VERSION}/search?email=${email}&accessToken=${token}`, params);
+  let results = await fetchGetData(`v2/search?`, params);
 
   if (results.tracks != []) {
 
