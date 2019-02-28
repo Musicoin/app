@@ -9,7 +9,7 @@ export default {
   tabIconSelected: '#fefefe',
   tabBar: '#272D33',
   errorBackground: 'red',
-  errorText: '#fff',
+  errorText: '#E84A4A',
   warningBackground: '#EAEB5E',
   warningText: '#666804',
   noticeBackground: tintColor,

@@ -15,7 +15,7 @@ import PlayerComponent from './components/Player';
 
 import NavigationService from './services/NavigationService';
 
-import {fetchReleases, fetchAccessToken, fetchArtistOfTheWeek} from './actions';
+import {fetchReleases, validateAccessToken, fetchArtistOfTheWeek} from './actions';
 
 import {API_ENDPOINT, DEV} from 'react-native-dotenv';
 
@@ -38,9 +38,23 @@ const customTextProps = {
 
 // persistor.purge();
 
+// gets the current screen from navigation state
+function getActiveRouteName(navigationState) {
+  if (!navigationState) {
+    return null;
+  }
+  const route = navigationState.routes[navigationState.index];
+  // dive into nested navigators
+  if (route.routes) {
+    return getActiveRouteName(route);
+  }
+  return route.routeName;
+}
+
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
+    currentScreen: 'Home',
   };
 
   constructor(props) {
@@ -49,18 +63,12 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.interval = setInterval(() => {
-    //   store.dispatch(fetchReleases());
-    //   console.log('refresh releases');
-    // }, 120000);
   }
 
   componentWillUnmount() {
-    // clearInterval(this.interval);
   }
 
   render() {
-
     return (
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
@@ -74,10 +82,22 @@ export default class App extends React.Component {
                 <AlertProvider>
                   <View style={styles.songInfoContainer}>
                     <StatusBar barStyle="light-content"/>
-                    <AppNavigator style={{backgroundColor: Colors.backgroundColor}} ref={navigatorRef => {
-                      NavigationService.setTopLevelNavigator(navigatorRef);
-                    }}/>
-                    <PlayerComponent/>
+                    <AppNavigator
+                        style={{backgroundColor: Colors.backgroundColor}}
+                        ref={navigatorRef => {
+                          NavigationService.setTopLevelNavigator(navigatorRef);
+                        }}
+                        onNavigationStateChange={(prevState, currentState) => {
+                          const currentScreen = getActiveRouteName(currentState);
+                          const prevScreen = getActiveRouteName(prevState);
+
+                          if (prevScreen !== currentScreen) {
+                            // the line below uses the Google Analytics tracker
+                            // change the tracker here to use other Mobile analytics SDK.
+                            this.setState({currentScreen});
+                          }
+                        }}/>
+                    <PlayerComponent currentScreen={this.state.currentScreen}/>
                   </View>
                 </AlertProvider>
             }
@@ -93,13 +113,19 @@ export default class App extends React.Component {
         require('./assets/icons/clap-white.png'),
         require('./assets/icons/library-grey.png'),
         require('./assets/icons/library-white.png'),
+        require('./assets/icons/google.png'),
+        require('./assets/icons/twitter.png'),
+        require('./assets/icons/facebook.png'),
+        require('./assets/images/logo.png'),
+        require('./assets/images/invite.png'),
       ]),
       Font.loadAsync({
         ...Icon.Ionicons.font,
         'robotoRegular': require('./assets/fonts/Roboto-Regular.ttf'),
         'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
+        'robotoBold': require('./assets/fonts/Roboto-Bold.ttf'),
       }),
-      store.dispatch(fetchAccessToken()).then(() => {
+      store.dispatch(validateAccessToken()).then(() => {
         return Promise.all([
           store.dispatch(fetchArtistOfTheWeek()),
           store.dispatch(fetchReleases())]);

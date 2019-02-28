@@ -10,8 +10,14 @@ import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import GenreScreen from '../screens/GenreScreen';
 import ArtistScreen from '../screens/ArtistScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import LoginScreen from '../screens/account/LoginScreen';
+import SignupScreen from '../screens/account/SignupScreen';
+import WalletScreen from '../screens/account/WalletScreen';
+import InviteScreen from '../screens/account/InviteScreen';
 
 import Colors from '../constants/Colors';
+import {FULLSCREEN_VIEWS} from '../constants/App';
 import {Platform} from 'react-native';
 
 const HomeStack = createStackNavigator(
@@ -62,7 +68,7 @@ HomeStack.navigationOptions = {
 
 const DiscoverStack = createStackNavigator(
     {
-      Home: {
+      Search: {
         screen: SearchScreen,
       },
       ReleaseDetail: {
@@ -148,9 +154,72 @@ LibraryStack.navigationOptions = {
       },
 };
 
+const ProfileStack = createStackNavigator(
+    {
+      Profile: {
+        screen: ProfileScreen,
+      },
+      Login: {
+        screen: LoginScreen,
+      },
+      Signup: {
+        screen: SignupScreen,
+      },
+      Wallet: {
+        screen: WalletScreen,
+      },
+      Invite: {
+        screen: InviteScreen,
+      },
+    },
+    {
+      mode: 'modal',
+      headerMode: 'none',
+    },
+);
+
+ProfileStack.navigationOptions = (
+    {navigation}) => {
+  let {routeName} = navigation.state.routes[navigation.state.index];
+  let navigationOptions = {
+    tabBarLabel: 'Profile',
+    tabBarIcon: ({focused}) => (
+        <TabBarIcon
+            focused={focused}
+            name={
+              Platform.OS === 'ios'
+                  ? `ios-contact`
+                  : 'md-contact'
+            }
+        />
+    ),
+    tabBarOptions: {
+      activeTintColor: Colors.tabIconSelected,
+      activeBackgroundColor: Colors.tabBar,
+      inactiveTintColor: Colors.tabIconDefault,
+      inactiveBackgroundColor: Colors.tabBar,
+    },
+    headerTitle:
+        <View style={{flex: 1, alignItems: 'center', backgroundColor: Colors.backgroundColor, margin: 0, padding: 0}}>
+          <Image resizeMode={'center'} style={{width: 150, height: 35.625, margin: 0, padding: 0}} source={require('../assets/images/logo.png')}/>
+        </View>,
+    headerStyle:
+        {
+          backgroundColor: Colors.backgroundColor,
+          borderBottomWidth: 0,
+        },
+  };
+
+  if (FULLSCREEN_VIEWS.includes(routeName)) {
+    navigationOptions.tabBarVisible = false;
+  }
+
+  return navigationOptions;
+};
+
 const TabBarComponent = (props) => (<BottomTabBar {...props} />);
 
-export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack}, {
+export default createBottomTabNavigator({HomeStack, DiscoverStack, LibraryStack, ProfileStack}, {
   tabBarComponent: props =>
       <TabBarComponent
           {...props}

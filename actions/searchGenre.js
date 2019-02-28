@@ -1,4 +1,3 @@
-import {fetchAccessToken} from './auth';
 import {SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';

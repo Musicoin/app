@@ -23,6 +23,13 @@ class HomeScreen extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    let {auth} = this.props;
+    if(auth.shouldLogin && !auth.loggedIn){
+      this.props.navigation.navigate('Login');
+    }
+  }
+
   render() {
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>

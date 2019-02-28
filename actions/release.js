@@ -1,4 +1,3 @@
-import {fetchAccessToken} from './auth';
 import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
@@ -24,7 +23,7 @@ async function fetchReleasesJson(token, email) {
 
   let results = await fetchGetData(`v1/release/recent?`, params);
 
-  if (results.tracks != []) {
+  if (results && results.tracks != []) {
 
     for (let i = 0; i < results.tracks.length; i++) {
 

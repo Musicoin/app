@@ -13,6 +13,7 @@ import TrackSlider from '../components/TrackSlider';
 import NavigationService from '../services/NavigationService';
 import {returnIndexFromArray, shareTrack} from '../tools/util';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
+import {FULLSCREEN_VIEWS} from '../constants/App';
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -156,9 +157,13 @@ class PlayerComponent extends React.Component {
   }
 
   render() {
+    let showPlayer = true;
+    if(FULLSCREEN_VIEWS.includes(this.props.currentScreen)){
+      showPlayer = false;
+    }
     return (
         <View>
-          {this.props.currentTrack && !this.props.settings.bigPlayer ?
+          {this.props.currentTrack && !this.props.settings.bigPlayer && showPlayer?
               <View>
                 <View style={styles.smallPlayerContainer}>
                   <View>
@@ -406,7 +411,6 @@ class PlayerComponent extends React.Component {
                             style={{color: Colors.tintColor, fontSize: 16, width: 200}}
                             duration={5000}
                             loop
-                            bounce
                             repeatSpacer={50}
                             marqueeDelay={1000}
                         >
@@ -416,7 +420,6 @@ class PlayerComponent extends React.Component {
                             style={{color: '#8897A2', fontSize: 12, marginTop: 8, width: 200}}
                             duration={5000}
                             loop
-                            bounce
                             repeatSpacer={50}
                             marqueeDelay={1000}
                         >
@@ -605,6 +608,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#34393F',
     paddingVertical: 10,
     paddingRight: 10,
+    zIndex: 1,
   },
   playerButton: {
     marginHorizontal: 10,

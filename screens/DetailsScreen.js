@@ -47,7 +47,7 @@ class DetailsScreen extends React.Component {
                 <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
                   <Icon.Ionicons
                       name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
-                      size={26}
+                      size={20}
                       color={Colors.fontColor}
                   />
                 </TouchableOpacity>
