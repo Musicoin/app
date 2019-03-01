@@ -2,6 +2,7 @@ import {TIP_TRACK, ALLOW_NEXT_TIP} from '../constants/Actions';
 import {TIP_TIMEOUT_MILIS} from '../constants/App';
 import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
+import NavigationService from '../services/NavigationService';
 
 function addTip(trackAddress, json) {
   return function(dispatch, getState) {
@@ -34,8 +35,13 @@ async function tipTrackJson(trackAddress, token, email) {
 
 export function tipTrack(trackAddress) {
   return function(dispatch, getState) {
-    dispatch({type: ALLOW_NEXT_TIP, data: false});
-    let {accessToken, email} = getState().auth;
-    return tipTrackJson(trackAddress, accessToken, email).then(json => dispatch(addTip(trackAddress, json)));
+    let {loggedIn} = getState().auth;
+    if (loggedIn) {
+      dispatch({type: ALLOW_NEXT_TIP, data: false});
+      let {accessToken, email} = getState().auth;
+      return tipTrackJson(trackAddress, accessToken, email).then(json => dispatch(addTip(trackAddress, json)));
+    } else {
+      NavigationService.navigate('Profile');
+    }
   };
 }
