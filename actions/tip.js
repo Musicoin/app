@@ -4,7 +4,7 @@ import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
 import NavigationService from '../services/NavigationService';
 
-function addTip(trackAddress, json) {
+function addTip(track, json) {
   return function(dispatch, getState) {
     let success = false;
     if (json.tx) {
@@ -17,7 +17,8 @@ function addTip(trackAddress, json) {
     }
     dispatch({
       type: TIP_TRACK,
-      trackAddress: trackAddress,
+      trackAddress: track.trackAddress,
+      track,
       success,
     });
   };
@@ -33,13 +34,13 @@ async function tipTrackJson(trackAddress, token, email) {
   return tipTrack;
 }
 
-export function tipTrack(trackAddress) {
+export function tipTrack(track) {
   return function(dispatch, getState) {
     let {loggedIn} = getState().auth;
     if (loggedIn) {
       dispatch({type: ALLOW_NEXT_TIP, data: false});
       let {accessToken, email} = getState().auth;
-      return tipTrackJson(trackAddress, accessToken, email).then(json => dispatch(addTip(trackAddress, json)));
+      return tipTrackJson(track.trackAddress, accessToken, email).then(json => dispatch(addTip(track, json)));
     } else {
       NavigationService.navigate('Profile');
     }

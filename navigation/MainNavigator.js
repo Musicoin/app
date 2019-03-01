@@ -9,6 +9,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import RecentlyPlayedScreen from '../screens/library/RecentlyPlayedScreen';
+import RecentlyTippedScreen from '../screens/library/RecentlyTippedScreen';
 import GenreScreen from '../screens/GenreScreen';
 import ArtistScreen from '../screens/ArtistScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -126,6 +127,9 @@ const LibraryStack = createStackNavigator(
       Recent: {
         screen: RecentlyPlayedScreen,
       },
+      Tipped: {
+        screen: RecentlyTippedScreen,
+      }
     },
     {
       mode: 'modal',

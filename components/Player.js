@@ -152,6 +152,9 @@ class PlayerComponent extends React.Component {
         case 'recent':
           trackList = this.props.lastPlayed;
           break;
+        case 'tip':
+          trackList = this.props.lastTipped;
+          break;
         default:
           break;
       }
@@ -205,14 +208,14 @@ class PlayerComponent extends React.Component {
 
                   <View>
                     {this.props.nextTipAllowed ?
-                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
+                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack)}>
                           <Image
                               source={require('../assets/icons/clap-white.png')}
                               fadeDuration={0}
                               style={[{width: 20, height: 20}, styles.playerButton]}
                           />
                         </TouchableOpacity>
-                        : <TouchableOpacity disabled={true} onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
+                        : <TouchableOpacity disabled={true}>
                           <Image
                               source={require('../assets/icons/clap-grey.png')}
                               fadeDuration={0}
@@ -383,7 +386,7 @@ class PlayerComponent extends React.Component {
                     {this.props.nextTipAllowed ?
                         <TouchableOpacity
                             style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
+                            onPress={() => this.props.tipTrack(this.props.currentTrack)}>
                           <Image
                               source={require('../assets/icons/clap-white.png')}
                               fadeDuration={0}
@@ -394,8 +397,7 @@ class PlayerComponent extends React.Component {
                         :
                         <TouchableOpacity
                             disabled={true}
-                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
+                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}>
                           <Image
                               source={require('../assets/icons/clap-grey.png')}
                               fadeDuration={0}
@@ -461,7 +463,7 @@ class PlayerComponent extends React.Component {
 
                     <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
                       this._toggleModal();
-                      this.props.tipTrack(this.props.currentTrack.trackAddress);
+                      this.props.tipTrack(this.props.currentTrack);
                     }}>
                       <Image
                           source={require('../assets/icons/clap-grey.png')}

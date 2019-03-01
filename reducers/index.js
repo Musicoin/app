@@ -15,6 +15,7 @@ import settings from './settings';
 import nextTipAllowed from './nextTipAllowed';
 import artistOfTheWeek from './artistOfTheWeek';
 import profile from './profile';
+import lastTipped from './lastTipped';
 
 const rootReducer = combineReducers({
   releases,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   nextTipAllowed,
   artistOfTheWeek,
   profile,
+  lastTipped,
 });
 
 export default rootReducer;

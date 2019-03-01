@@ -76,8 +76,8 @@ class RecentlyPlayedScreen extends React.Component {
                     color={Colors.tabIconDefault}
                     style={{opacity: 0.5}}
                 />
-                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, your queue is empty!</Text>
-                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Add your favorite tracks on-the-go.</Text>
+                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, you haven't played any tracks yet!</Text>
+                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Play some songs and they will be listed here</Text>
               </View>}
           />
         </View>

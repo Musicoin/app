@@ -1,17 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity, Image} from 'react-native';
-import Colors from '../constants/Colors';
-import Layout from '../constants/Layout';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity, Dimensions, Image} from 'react-native';
+import Colors from '../../constants/Colors';
+import Layout from '../../constants/Layout';
 import {connect} from 'react-redux';
 import {Icon} from 'expo';
-import Track from '../components/track/track';
-import {playTrack, togglePlayerMode} from '../actions';
-import connectAlert from '../components/alert/connectAlert.component';
+import Track from '../../components/track/track';
+import {playTrack, togglePlayerMode} from '../../actions';
+import connectAlert from '../../components/alert/connectAlert.component';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+
+var {width} = Dimensions.get('window');
 
 let redirectToPlayer = false;
 
-class LibraryScreen extends React.Component {
+class RecentlyTippedScreen extends React.Component {
   _didFocusSubscription;
   _willBlurSubscription;
 
@@ -47,45 +49,34 @@ class LibraryScreen extends React.Component {
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
-          <View style={{backgroundColor: Colors.tabBar, paddingVertical: 16}}>
-            <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Library</Text>
+          <View style={{paddingHorizontal: 16, paddingVertical: 16, width: width, backgroundColor: Colors.tabBar}}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
+                <Icon.Ionicons
+                    name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
+                    size={20}
+                    color={Colors.fontColor}
+                />
+              </TouchableOpacity>
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', marginHorizontal: 10}}>
+                <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>Recently tipped</Text>
+              </View>
+            </View>
           </View>
-          <View style={{marginHorizontal: 16}}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Recent')}>
-            <Icon.Ionicons
-                name={Platform.OS === 'ios' ? 'ios-time' : 'md-time'}
-                size={20}
-                color={Colors.disabled}
-                style={{marginRight: 16}}
-            />
-
-            <Text style={{fontSize: 14}}>Recently played</Text>
-          </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
-              <Image
-                  source={require('../assets/icons/clap-grey.png')}
-                  fadeDuration={0}
-                  style={{width: 16, height: 16, marginRight: 16}}
-              />
-
-              <Text style={{fontSize: 14}}>Tipped tracks</Text>
-            </TouchableOpacity>
-          </View>
-          <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18, marginTop: 32}}>Queue</Text>
           <FlatList
-              data={this.props.queue}
+              data={this.props.lastTipped}
+              inversed={true}
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-              ListEmptyComponent={<View style={{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
-                <Icon.Ionicons
-                    name={'md-timer'}
-                    size={50}
-                    color={Colors.tabIconDefault}
-                    style={{opacity: 0.5}}
+              ListEmptyComponent={<View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+                <Image
+                    source={require('../../assets/icons/clap-grey.png')}
+                    fadeDuration={0}
+                    style={{width: 50, height: 50}}
                 />
-                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, your queue is empty!</Text>
-                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Add your favorite tracks on-the-go.</Text>
+                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, you haven't tipped any tracks yet!</Text>
+                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Tip some tracks and they will show up here.</Text>
               </View>}
           />
         </View>
@@ -95,7 +86,7 @@ class LibraryScreen extends React.Component {
   _keyExtractor = (item, index) => index.toString();
 
   _renderItem = ({item}) => (
-      <Track track={item} origin="queue"/>
+      <Track track={item} origin="tip"/>
   );
 }
 
@@ -148,4 +139,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {playTrack, togglePlayerMode})(LibraryScreen));
+export default connectAlert(connect(mapStateToProps, {playTrack, togglePlayerMode})(RecentlyTippedScreen));

@@ -3,7 +3,6 @@ import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, Image
 import {Icon} from 'expo';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
-import {tipTrack, playTrack} from '../actions';
 import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
@@ -35,6 +34,9 @@ class DetailsScreen extends React.Component {
         break;
       case 'recent':
         track = this.props.lastPlayed.find(obj => obj.trackAddress === trackAddress);
+        break;
+      case 'tip':
+        track = this.props.lastTipped.find(obj => obj.trackAddress === trackAddress);
         break;
       default:
         track = this.props.currentTrack;
@@ -127,5 +129,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, {tipTrack, playTrack})(DetailsScreen);
+export default connect(mapStateToProps, {})(DetailsScreen);
 

@@ -116,7 +116,7 @@ class Track extends Component {
 
               <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
                 this._toggleModal();
-                this.props.tipTrack(item.trackAddress);
+                this.props.tipTrack(item);
               }}>
                 <Image
                     source={require('../../assets/icons/clap-grey.png')}
