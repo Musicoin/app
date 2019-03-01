@@ -12,7 +12,6 @@ var {width} = Dimensions.get('window');
 
 class InviteScreen extends React.Component {
   state = {
-    result: null,
     showPassword: false,
     email: '',
     emailError: '',

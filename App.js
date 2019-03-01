@@ -15,7 +15,7 @@ import PlayerComponent from './components/Player';
 
 import NavigationService from './services/NavigationService';
 
-import {fetchReleases, validateAccessToken, fetchArtistOfTheWeek} from './actions';
+import {fetchReleases, validateAccessToken, fetchArtistOfTheWeek, getProfile} from './actions';
 
 import {API_ENDPOINT, DEV} from 'react-native-dotenv';
 
@@ -91,7 +91,11 @@ export default class App extends React.Component {
                           const currentScreen = getActiveRouteName(currentState);
                           const prevScreen = getActiveRouteName(prevState);
 
+                          //reload the profile for these specific screens
                           if (prevScreen !== currentScreen) {
+                            if(currentScreen === "Profile" || currentScreen === "Wallet" || currentScreen === "Invite") {
+                              store.dispatch(getProfile());
+                            }
                             // the line below uses the Google Analytics tracker
                             // change the tracker here to use other Mobile analytics SDK.
                             this.setState({currentScreen});

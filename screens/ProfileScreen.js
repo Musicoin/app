@@ -8,10 +8,6 @@ import {connect} from 'react-redux';
 import {logout} from '../actions';
 
 class ProfileScreen extends React.Component {
-  state = {
-    result: null,
-  };
-
   render() {
     return (
         <View style={[styles.container, {marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}]}>
@@ -37,7 +33,7 @@ class ProfileScreen extends React.Component {
                 </View>
                 <View style={{marginTop: 24, paddingHorizontal: 16}}>
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', width: '100%'}} onPress={() => this.props.navigation.navigate("Wallet")}>
+                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', width: '100%'}} onPress={() => this.props.navigation.navigate('Wallet')}>
                     <Icon.Ionicons
                         name={Platform.OS === 'ios' ? 'md-wallet' : 'md-wallet'}
                         size={20}
@@ -51,7 +47,7 @@ class ProfileScreen extends React.Component {
                     </View>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate("Invite")}>
+                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>
                     <Icon.Ionicons
                         name={Platform.OS === 'ios' ? 'ios-gift' : 'ios-gift'}
                         size={20}

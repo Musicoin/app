@@ -9,7 +9,6 @@ var {width} = Dimensions.get('window');
 
 class WalletScreen extends React.Component {
   state = {
-    result: null,
     showPassword: false,
     email: '',
     emailError: '',
