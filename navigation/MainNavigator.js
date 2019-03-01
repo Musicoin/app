@@ -8,6 +8,7 @@ import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
+import RecentlyPlayedScreen from '../screens/library/RecentlyPlayedScreen';
 import GenreScreen from '../screens/GenreScreen';
 import ArtistScreen from '../screens/ArtistScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -122,6 +123,9 @@ const LibraryStack = createStackNavigator(
       ArtistScreen: {
         screen: ArtistScreen,
       },
+      Recent: {
+        screen: RecentlyPlayedScreen,
+      },
     },
     {
       mode: 'modal',
@@ -130,7 +134,7 @@ const LibraryStack = createStackNavigator(
 );
 
 LibraryStack.navigationOptions = {
-  tabBarLabel: 'Queue',
+  tabBarLabel: 'Library',
   tabBarIcon: ({focused}) => (
       focused ? <Image
           source={require('../assets/icons/library-white.png')}

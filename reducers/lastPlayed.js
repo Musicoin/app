@@ -8,7 +8,7 @@ export default function lastPlayed(state = [], action) {
       } else {
         state.pop();
       }
-      if (state.length > 10) {
+      if (state.length > 50) {
         state.shift();
       }
       return [...state];

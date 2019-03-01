@@ -1,17 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity} from 'react-native';
-import Colors from '../constants/Colors';
-import Layout from '../constants/Layout';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity, Dimensions} from 'react-native';
+import Colors from '../../constants/Colors';
+import Layout from '../../constants/Layout';
 import {connect} from 'react-redux';
 import {Icon} from 'expo';
-import Track from '../components/track/track';
-import {playTrack, togglePlayerMode} from '../actions';
-import connectAlert from '../components/alert/connectAlert.component';
+import Track from '../../components/track/track';
+import {playTrack, togglePlayerMode} from '../../actions';
+import connectAlert from '../../components/alert/connectAlert.component';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+
+var {width} = Dimensions.get('window');
 
 let redirectToPlayer = false;
 
-class LibraryScreen extends React.Component {
+class RecentlyPlayedScreen extends React.Component {
   _didFocusSubscription;
   _willBlurSubscription;
 
@@ -47,24 +49,23 @@ class LibraryScreen extends React.Component {
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
-          <View style={{backgroundColor: Colors.tabBar, paddingVertical: 16}}>
-            <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Library</Text>
+          <View style={{paddingHorizontal: 16, paddingVertical: 16, width: width, backgroundColor: Colors.tabBar}}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
+                <Icon.Ionicons
+                    name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
+                    size={20}
+                    color={Colors.fontColor}
+                />
+              </TouchableOpacity>
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', marginHorizontal: 10}}>
+                <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>Recently played</Text>
+              </View>
+            </View>
           </View>
-          <View style={{marginHorizontal: 16}}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Recent')}>
-            <Icon.Ionicons
-                name={Platform.OS === 'ios' ? 'ios-time' : 'md-time'}
-                size={20}
-                color={Colors.disabled}
-                style={{marginRight: 16}}
-            />
-
-            <Text style={{fontSize: 14}}>Recently played</Text>
-          </TouchableOpacity>
-          </View>
-          <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18, marginTop: 32}}>Queue</Text>
           <FlatList
-              data={this.props.queue}
+              data={this.props.lastPlayed}
+              inversed={true}
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
@@ -86,7 +87,7 @@ class LibraryScreen extends React.Component {
   _keyExtractor = (item, index) => index.toString();
 
   _renderItem = ({item}) => (
-      <Track track={item} origin="queue"/>
+      <Track track={item} origin="recent"/>
   );
 }
 
@@ -139,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {playTrack, togglePlayerMode})(LibraryScreen));
+export default connectAlert(connect(mapStateToProps, {playTrack, togglePlayerMode})(RecentlyPlayedScreen));

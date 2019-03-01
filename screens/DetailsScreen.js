@@ -33,6 +33,9 @@ class DetailsScreen extends React.Component {
       case 'artist':
         track = this.props.searchResultsByArtist.find(obj => obj.trackAddress === trackAddress);
         break;
+      case 'recent':
+        track = this.props.lastPlayed.find(obj => obj.trackAddress === trackAddress);
+        break;
       default:
         track = this.props.currentTrack;
         break;

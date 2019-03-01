@@ -149,6 +149,9 @@ class PlayerComponent extends React.Component {
         case 'artist':
           trackList = this.props.searchResultsByArtist;
           break;
+        case 'recent':
+          trackList = this.props.lastPlayed;
+          break;
         default:
           break;
       }
