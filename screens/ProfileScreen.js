@@ -6,16 +6,17 @@ import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
 import {logout} from '../actions';
+import {Button} from 'react-native-elements';
 
 class ProfileScreen extends React.Component {
   render() {
     return (
         <View style={[styles.container, {marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}]}>
-          <View style={{backgroundColor: Colors.tabBar, paddingVertical: 16}}>
-            <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Profile</Text>
-          </View>
           {this.props.auth.loggedIn ?
               <View>
+                <View style={{backgroundColor: Colors.tabBar, paddingVertical: 16}}>
+                  <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Profile</Text>
+                </View>
                 <View style={{flexDirection: 'row', backgroundColor: '#3C4146', height: 80, alignItems: 'center', paddingHorizontal: 16}}>
                   {true == false ?
                       <Image style={{width: Layout.isSmallDevice ? 40 : 80, height: Layout.isSmallDevice ? 40 : 80, borderRadius: Layout.isSmallDevice ? 20 : 40, marginRight: 8}} source={{uri: this.props.profile.avatar}}/>
@@ -73,9 +74,34 @@ class ProfileScreen extends React.Component {
               </View>
               :
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')}>
-                  <Text style={{color: Colors.tintColor, fontSize: 16}}>Login</Text>
-                </TouchableOpacity>
+                <View style={{alignItems: 'stretch', justifyContent: 'center', paddingHorizontal: 16, marginTop: 24}}>
+
+                  <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                    <Image resizeMode={'contain'} style={{padding: 0}} source={require('../assets/images/guitar.png')}/>
+                  </View>
+                  <Text style={{color: Colors.tintColor, fontSize: 16, fontFamily: 'robotoBold', textAlign: 'center', marginTop: 24}}>MUSIC FOR ALL</Text>
+
+                  <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 8, marginHorizontal: 16}}>
+                    Sign up to discover Musicoin’s full experience, access your $MUSIC wallet, and tip your favorite artists.
+                  </Text>
+
+                  <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginHorizontal: 16}}>
+                  <Button
+                      title="LOGIN"
+                      titleStyle={{color: Colors.fontColor, fontFamily: 'robotoBold', fontSize: 14}}
+                      containerStyle={{backgroundColor: Colors.disabled, marginTop: 32, marginRight: 8, width: '50%'}}
+                      buttonStyle={{backgroundColor: Colors.disabled, height: 40}}
+                      onPress={()=>this.props.navigation.navigate("Login")}
+                  />
+                    <Button
+                        title="SIGN UP"
+                        titleStyle={{color: 'black', fontFamily: 'robotoBold', fontSize: 14}}
+                        containerStyle={{backgroundColor: Colors.tintColor, marginTop: 32, marginLeft: 8, width: '50%'}}
+                        buttonStyle={{backgroundColor: Colors.tintColor, height: 40}}
+                        onPress={()=>this.props.navigation.navigate("Signup")}
+                    />
+                  </View>
+                </View>
               </View>
           }
         </View>

@@ -122,6 +122,7 @@ export default class App extends React.Component {
         require('./assets/icons/facebook.png'),
         require('./assets/images/logo.png'),
         require('./assets/images/invite.png'),
+        require('./assets/images/guitar.png'),
       ]),
       Font.loadAsync({
         ...Icon.Ionicons.font,
