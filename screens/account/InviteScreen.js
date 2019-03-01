@@ -1,11 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity, Platform, Dimensions, ScrollView, Clipboard} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Platform, Dimensions, ScrollView, Share} from 'react-native';
 import Colors from '../../constants/Colors';
 import {Icon} from 'expo';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
 import {connect} from 'react-redux';
+import {Button} from 'react-native-elements';
 
 var {width} = Dimensions.get('window');
+
+//ToDo: get number of invites left from api
 
 class InviteScreen extends React.Component {
   state = {
@@ -46,23 +49,43 @@ class InviteScreen extends React.Component {
               Your referral link is reusable! When some one signs up with your referral link, your invites remaining will go down by one and you will get your reward.
             </Text>
 
-            <Text style={{color: Colors.disabled, fontSize: 12, textAlign: 'center', marginTop: 16}}>Your invitation code:</Text>
-
-            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B0C0D', marginTop: 16, padding: 16}}>
-              <Text style={{color: Colors.tintColor, fontSize: 10, textAlign: 'center'}}>[https://musicoin.org/accept/MUSIC50f20dd3ac8...]</Text>
-              <TouchableOpacity
-                  onPress={() => Clipboard.setString('[https://musicoin.org/accept/MUSIC50f20dd3ac8...]')}
-                  style={{justifyContent: 'center', marginHorizontal: 8}}>
-                <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? `md-albums` : 'md-albums'}
-                    size={12}
-                    color={Colors.fontColor}
-                />
-              </TouchableOpacity>
-            </View>
+            <Button
+                title="SHARE YOUR LINK"
+                titleStyle={{color: 'black', fontFamily: 'robotoBold', fontSize: 14}}
+                containerStyle={{backgroundColor: Colors.tintColor, marginTop: 32, marginHorizontal: 32}}
+                buttonStyle={{backgroundColor: Colors.tintColor, height: 40}}
+                onPress={()=>this.shareInvite()}
+            />
           </View>
         </ScrollView>
     );
+  }
+
+   async shareInvite() {
+    //ToDo: get right link from profile and improve text
+    try {
+      let link = '';
+      const result = await Share.share({
+        title: `Join me on Musicoin!`,
+        dialogTitle: `Join me on Musicoin`,
+        message: `Join me on Musicoin: ${link}`,
+        url: link,
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+          console.log(result.activityType);
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+      console.log(error.message);
+    }
   }
 }
 
