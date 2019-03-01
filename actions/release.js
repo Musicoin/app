@@ -1,8 +1,9 @@
 import {RECEIVE_NEW_RELEASES_REQUEST, RECEIVE_NEW_RELEASES_SUCCESS, RECEIVE_NEW_RELEASES_FAILURE} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
 import Layout from '../constants/Layout';
+import {GENERAL_API_LIMIT} from '../constants/App';
 
-function receiveReleases(json) {
+function receiveReleases(json, skip) {
   let releases;
   if (json.tracks) {
     releases = json.tracks;
@@ -11,14 +12,16 @@ function receiveReleases(json) {
   return {
     type: releases ? RECEIVE_NEW_RELEASES_SUCCESS : RECEIVE_NEW_RELEASES_FAILURE,
     releases,
+    skip,
   };
 }
 
-async function fetchReleasesJson(token, email) {
+async function fetchReleasesJson(token, email, skip) {
   var params = {
     'accessToken': token,
     'email': email,
-    'limit': '20',
+    'limit': GENERAL_API_LIMIT,
+    skip
   };
 
   let results = await fetchGetData(`v1/release/recent?`, params);
@@ -51,10 +54,10 @@ async function fetchReleasesJson(token, email) {
   }
 }
 
-export function fetchReleases() {
+export function fetchReleases(skip = 0) {
   return function(dispatch, getState) {
     dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
     let {accessToken, email} = getState().auth;
-    return fetchReleasesJson(accessToken, email).then(json => dispatch(receiveReleases(json)));
+    return fetchReleasesJson(accessToken, email, skip).then(json => dispatch(receiveReleases(json)));
   };
 }

@@ -7,6 +7,7 @@ import {
   StatusBar,
   RefreshControl,
   Text,
+  ActivityIndicator,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
@@ -16,6 +17,7 @@ import ArtistOfTheWeek from '../components/ArtistOfTheWeek';
 import {fetchReleases, fetchArtistOfTheWeek} from '../actions';
 import Layout from '../constants/Layout';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
+import {GENERAL_API_LIMIT} from '../constants/App';
 
 class HomeScreen extends React.Component {
 
@@ -23,9 +25,9 @@ class HomeScreen extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     let {auth} = this.props;
-    if(auth.shouldLogin && !auth.loggedIn){
+    if (auth.shouldLogin && !auth.loggedIn) {
       this.props.navigation.navigate('Login');
     }
   }
@@ -42,10 +44,10 @@ class HomeScreen extends React.Component {
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
               refreshControl={
                 <RefreshControl
-                    refreshing={this.props.loading.RECEIVE_NEW_RELEASES || this.props.loading.ARTIST_OF_THE_WEEK}
+                    refreshing={(this.props.loading.RECEIVE_NEW_RELEASES && this.props.releases.length == 0) || this.props.loading.ARTIST_OF_THE_WEEK}
                     onRefresh={() => {
                       this.props.fetchArtistOfTheWeek();
-                      this.props.fetchReleases();
+                      this.props.fetchReleases(0);
                     }}
                     tintColor={Colors.tintColor}
                 />
@@ -53,6 +55,17 @@ class HomeScreen extends React.Component {
               ListEmptyComponent={!this.props.loading.RECEIVE_NEW_RELEASES ? <View style={{height: 100, alignItems: 'center', justifyContent: 'center'}}>
                 <Text style={{color: Colors.tabIconDefault}}>Something went wrong, please try again later</Text>
               </View> : null}
+              ListFooterComponent={
+                this.props.loading.RECEIVE_NEW_RELEASES && this.props.releases.length >= GENERAL_API_LIMIT ?
+                    <ActivityIndicator size="small" color={Colors.tintColor} style={{marginTop: 10}}/> :
+                    null}
+              onEndReached={() => {
+                !this.props.loading.RECEIVE_NEW_RELEASES && this.props.releases.length >= GENERAL_API_LIMIT ?
+                    this.props.fetchReleases(this.props.releases.length) :
+                    null
+              }}
+              initialNumToRender={5}
+              onEndReachedThreshold={1.5}
           />
         </View>
     );

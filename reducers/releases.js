@@ -3,7 +3,20 @@ import {RECEIVE_NEW_RELEASES_SUCCESS, TIP_TRACK} from '../constants/Actions';
 export default function releases(state = [], action) {
   switch (action.type) {
     case RECEIVE_NEW_RELEASES_SUCCESS:
-      return action.releases ? action.releases : state;
+      if (action.releases && action.releases.length > 0) {
+        if (action.skip == 0) {
+          return action.releases;
+        } else {
+          return [...state, ...action.releases];
+        }
+      } else {
+        if (action.skip == 0) {
+          return [];
+        }
+        else {
+          return state;
+        }
+      }
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {

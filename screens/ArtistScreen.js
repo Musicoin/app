@@ -139,7 +139,7 @@ class ArtistScreen extends React.Component {
                     onEndReached={() => {
                       !this.props.loading.SEARCH_BY_ARTIST && this.props.searchResultsByArtist.length >= GENERAL_API_LIMIT ?
                           this.props.getSearchByArtistResults(this.state.artist.artistAddress, this.props.searchResultsByArtist.length) :
-                          console.log('no more results');
+                          null
                     }}
                     initialNumToRender={5}
                     onEndReachedThreshold={1.5}
