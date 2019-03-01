@@ -34,18 +34,17 @@ class ProfileScreen extends React.Component {
                 </View>
                 <View style={{marginTop: 24, paddingHorizontal: 16}}>
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', width: '100%'}} onPress={() => this.props.navigation.navigate('Wallet')}>
-                    <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'md-wallet' : 'md-wallet'}
-                        size={20}
-                        color={Colors.disabled}
-                        style={{marginRight: 16}}
-                    />
-
-                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                      <Text style={{flex: 1, fontSize: 14}}>Wallet</Text>
-                      <Text style={{flex: 1, fontSize: 14, color: Colors.tintColor}}>$MUSIC {this.props.profile.balance}</Text>
+                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%'}} onPress={() => this.props.navigation.navigate('Wallet')}>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'md-wallet' : 'md-wallet'}
+                          size={20}
+                          color={Colors.disabled}
+                          style={{marginRight: 16}}
+                      />
+                      <Text style={{fontSize: 14}}>Wallet</Text>
                     </View>
+                    <Text style={{fontSize: 14, color: Colors.tintColor}}>$MUSIC {this.props.profile.balance}</Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>
@@ -86,19 +85,19 @@ class ProfileScreen extends React.Component {
                   </Text>
 
                   <View style={{flexDirection: 'row', justifyContent: 'space-evenly', marginHorizontal: 16}}>
-                  <Button
-                      title="LOGIN"
-                      titleStyle={{color: Colors.fontColor, fontFamily: 'robotoBold', fontSize: 14}}
-                      containerStyle={{backgroundColor: Colors.disabled, marginTop: 32, marginRight: 8, width: '50%'}}
-                      buttonStyle={{backgroundColor: Colors.disabled, height: 40}}
-                      onPress={()=>this.props.navigation.navigate("Login")}
-                  />
+                    <Button
+                        title="LOGIN"
+                        titleStyle={{color: Colors.fontColor, fontFamily: 'robotoBold', fontSize: 14}}
+                        containerStyle={{backgroundColor: Colors.disabled, marginTop: 32, marginRight: 8, width: '50%'}}
+                        buttonStyle={{backgroundColor: Colors.disabled, height: 40}}
+                        onPress={() => this.props.navigation.navigate('Login')}
+                    />
                     <Button
                         title="SIGN UP"
                         titleStyle={{color: 'black', fontFamily: 'robotoBold', fontSize: 14}}
                         containerStyle={{backgroundColor: Colors.tintColor, marginTop: 32, marginLeft: 8, width: '50%'}}
                         buttonStyle={{backgroundColor: Colors.tintColor, height: 40}}
-                        onPress={()=>this.props.navigation.navigate("Signup")}
+                        onPress={() => this.props.navigation.navigate('Signup')}
                     />
                   </View>
                 </View>

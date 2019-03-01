@@ -155,6 +155,6 @@ function generateCredentials() {
 
 export function socialLogin(channel, accessToken) {
   return function(dispatch, getState) {
-    return fetchSocialLoginJson(channel, accessToken).then(json => dispatch(receiveAccessToken(json, channel))).then(() => dispatch(getProfile()));
+    return fetchSocialLoginJson(channel, accessToken).then(json => dispatch(receiveAccessToken(json, channel))).then(() => dispatch(getProfile())).then(() => NavigationService.navigate('Profile'));
   };
 }

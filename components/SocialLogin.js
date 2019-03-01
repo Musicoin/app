@@ -20,9 +20,9 @@ class SocialLogin extends React.Component {
             {/*<TouchableOpacity style={{marginHorizontal: 8}}>*/}
               {/*<Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/twitter.png')}/>*/}
             {/*</TouchableOpacity>*/}
-            {/*<TouchableOpacity style={{marginHorizontal: 8}}>*/}
-              {/*<Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/facebook.png')}/>*/}
-            {/*</TouchableOpacity>*/}
+            <TouchableOpacity style={{marginHorizontal: 8}} onPress={() => this._handleFacebookSignin()}>
+              <Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/facebook.png')}/>
+            </TouchableOpacity>
           </View>
         </View>
     );
@@ -41,11 +41,6 @@ class SocialLogin extends React.Component {
       `&scope=${encodeURIComponent('profile email openid')}` +
       `&behavior=web`,
 
-      //facebook
-      // `https://www.facebook.com/v2.8/dialog/oauth?response_type=token` +
-      // `&client_id=${FB_APP_ID}` +
-      // `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
-
       //twitter
       //   `https://api.twitter.com/oauth/authenticate?oauth_token=${TWITTER_APP_ID}` +
       //   `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
@@ -54,6 +49,23 @@ class SocialLogin extends React.Component {
     console.log(result.params.access_token);
     if (result.params.access_token) {
       this.props.socialLogin('google', result.params.access_token);
+    }
+  };
+
+  _handleFacebookSignin = async () => {
+    let redirectUrl = AuthSession.getRedirectUrl();
+    console.log(redirectUrl);
+    let result = await AuthSession.startAsync({
+      authUrl:
+      `https://www.facebook.com/v2.8/dialog/oauth?response_type=token` +
+      `&client_id=${FB_APP_ID}` +
+      `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+    });
+    this.setState({result});
+    console.log(result);
+    console.log(result.params.access_token);
+    if (result.params.access_token) {
+      this.props.socialLogin('facebook', result.params.access_token);
     }
   };
 

@@ -93,8 +93,10 @@ export default class App extends React.Component {
 
                           //reload the profile for these specific screens
                           if (prevScreen !== currentScreen) {
-                            if(currentScreen === "Profile" || currentScreen === "Wallet" || currentScreen === "Invite") {
-                              store.dispatch(getProfile());
+                            if (currentScreen === 'Profile' || currentScreen === 'Wallet' || currentScreen === 'Invite') {
+                              if (store.getState().auth.loggedIn) {
+                                store.dispatch(getProfile());
+                              }
                             }
                             // the line below uses the Google Analytics tracker
                             // change the tracker here to use other Mobile analytics SDK.
