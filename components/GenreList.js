@@ -35,7 +35,7 @@ class GenreList extends React.Component {
   );
 
   searchTracks(genre){
-    this.props.getSearchByGenreResults(genre);
+    this.props.getSearchByGenreResults(genre, 0);
     NavigationService.navigate('GenreScreen', {genre})
   }
 }

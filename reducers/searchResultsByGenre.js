@@ -3,8 +3,21 @@ import {SEARCH_BY_GENRE_REQUEST, SEARCH_BY_GENRE_SUCCESS, SEARCH_BY_GENRE_FAILUR
 export default function releasesByGenre(state = [], action) {
   switch (action.type) {
     case SEARCH_BY_GENRE_SUCCESS:
-      return action.data ? action.data : [];
-    case SEARCH_BY_GENRE_FAILURE, SEARCH_BY_GENRE_REQUEST:
+      if (action.data && action.data.length > 0) {
+        if (action.skip == 0) {
+          return action.data;
+        } else {
+          return [...state, ...action.data];
+        }
+      } else {
+        if (action.skip == 0) {
+          return [];
+        }
+        else {
+          return state;
+        }
+      }
+    case SEARCH_BY_GENRE_FAILURE:
       return [];
     case TIP_TRACK: {
       //update tip count in store
