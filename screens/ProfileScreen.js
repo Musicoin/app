@@ -76,7 +76,7 @@ class ProfileScreen extends React.Component {
                 <View style={{alignItems: 'stretch', justifyContent: 'center', paddingHorizontal: 16, marginTop: 24}}>
 
                   <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                    <Image resizeMode={'contain'} style={{padding: 0}} source={require('../assets/images/guitar.png')}/>
+                    <Image resizeMode={'contain'} style={{padding: 0, height: 200, width: 200}} source={require('../assets/images/guitar.png')}/>
                   </View>
                   <Text style={{color: Colors.tintColor, fontSize: 16, fontFamily: 'robotoBold', textAlign: 'center', marginTop: 24}}>MUSIC FOR ALL</Text>
 
