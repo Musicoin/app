@@ -392,6 +392,13 @@ uses-permission#android.permission.WRITE_SETTINGS
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:39:3-71
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:39:20-68
+uses-permission#android.permission.READ_SMS
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:40:5-87
+REJECTED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:42:5-67
+	tools:node
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:40:65-84
+	android:name
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:40:22-64
 uses-feature#0x00020000
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:45:3-77
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/c60da40e77f11cddc0c2c06f8fe4ef21/AndroidManifest.xml:26:5-28:35
@@ -588,14 +595,14 @@ ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:75:7-51
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:72:7-35
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:exp95b668e876a840a2a5a718bf53955d09
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:musicoin
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:77:7-84:23
 data
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:9-69
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:9-42
 	android:path
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:173:54-82
 	android:scheme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:15-67
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:15-40
 action#android.intent.action.VIEW
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:80:9-60
 	android:name
@@ -1266,10 +1273,6 @@ uses-permission#host.exp.exponent.permission.C2D_MESSAGE
 ADDED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:25:5-80
 	android:name
 		ADDED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:25:22-77
-uses-permission#android.permission.READ_SMS
-ADDED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:42:5-67
-	android:name
-		ADDED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:42:22-64
 uses-feature#android.hardware.camera
 ADDED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:44:5-46:36
 MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:25:5-27:36
