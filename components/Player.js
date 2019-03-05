@@ -386,7 +386,11 @@ class PlayerComponent extends React.Component {
                     {this.props.nextTipAllowed ?
                         <TouchableOpacity
                             style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack)}>
+                            onPress={() => {
+                              if(!this.props.auth.loggedIn){
+                                this.props.togglePlayerMode();
+                              }
+                              this.props.tipTrack(this.props.currentTrack)}}>
                           <Image
                               source={require('../assets/icons/clap-white.png')}
                               fadeDuration={0}
