@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {AuthSession} from 'expo';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {AuthSession, Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import {socialLogin} from '../actions';
@@ -14,14 +14,32 @@ class SocialLogin extends React.Component {
           <Text style={{color: Colors.disabled, fontSize: 12, marginTop: 16, textAlign: 'center'}}>or, use another account:</Text>
 
           <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 16, marginBottom: 32}}>
-            <TouchableOpacity style={{marginHorizontal: 8}} onPress={() => this._handleGoogleSignin()}>
-              <Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/google.png')}/>
+            <TouchableOpacity
+                style={{backgroundColor: '#EA4335', marginHorizontal: 8, width: 40, height: 40, alignItems: 'center', justifyContent: 'center', borderRadius: 3}}
+                onPress={() => this._handleGoogleSignin()}>
+              <Icon.FontAwesome
+                  name={'google'}
+                  size={20}
+                  color={Colors.fontColor}
+              />
             </TouchableOpacity>
-            {/*<TouchableOpacity style={{marginHorizontal: 8}}>*/}
-              {/*<Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/twitter.png')}/>*/}
-            {/*</TouchableOpacity>*/}
-            <TouchableOpacity style={{marginHorizontal: 8}} onPress={() => this._handleFacebookSignin()}>
-              <Image resizeMode={'contain'} style={{width: 40, height: 40}} source={require('../assets/icons/facebook.png')}/>
+            <TouchableOpacity
+                style={{backgroundColor: '#1DA1F2', marginHorizontal: 8, width: 40, height: 40, alignItems: 'center', justifyContent: 'center', borderRadius: 3}}
+                onPress={() => this._handleTwitterSignin()}>
+              <Icon.FontAwesome
+                  name={'twitter'}
+                  size={20}
+                  color={Colors.fontColor}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={{backgroundColor: '#3B5998', marginHorizontal: 8, width: 40, height: 40, alignItems: 'center', justifyContent: 'center', borderRadius: 3}}
+                onPress={() => this._handleFacebookSignin()}>
+              <Icon.FontAwesome
+                  name={'facebook-square'}
+                  size={20}
+                  color={Colors.fontColor}
+              />
             </TouchableOpacity>
           </View>
         </View>
@@ -30,7 +48,6 @@ class SocialLogin extends React.Component {
 
   _handleGoogleSignin = async () => {
     let redirectUrl = AuthSession.getRedirectUrl();
-    console.log(redirectUrl);
     let result = await AuthSession.startAsync({
       authUrl:
       //google
@@ -40,10 +57,6 @@ class SocialLogin extends React.Component {
       `&response_type=token` +
       `&scope=${encodeURIComponent('profile email openid')}` +
       `&behavior=web`,
-
-      //twitter
-      //   `https://api.twitter.com/oauth/authenticate?oauth_token=${TWITTER_APP_ID}` +
-      //   `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
     });
     this.setState({result});
     console.log(result.params.access_token);
@@ -54,7 +67,6 @@ class SocialLogin extends React.Component {
 
   _handleFacebookSignin = async () => {
     let redirectUrl = AuthSession.getRedirectUrl();
-    console.log(redirectUrl);
     let result = await AuthSession.startAsync({
       authUrl:
       `https://www.facebook.com/v2.8/dialog/oauth?response_type=token` +
@@ -66,6 +78,20 @@ class SocialLogin extends React.Component {
     console.log(result.params.access_token);
     if (result.params.access_token) {
       this.props.socialLogin('facebook', result.params.access_token);
+    }
+  };
+
+  _handleTwitterSignin = async () => {
+    let redirectUrl = AuthSession.getRedirectUrl();
+    let result = await AuthSession.startAsync({
+      authUrl:
+      `https://api.twitter.com/oauth/authenticate?oauth_token=${TWITTER_APP_ID}` +
+      `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+    });
+    this.setState({result});
+    console.log(result.params.access_token);
+    if (result.params.access_token) {
+      this.props.socialLogin('google', result.params.access_token);
     }
   };
 
