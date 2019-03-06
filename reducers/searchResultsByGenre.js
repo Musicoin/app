@@ -17,6 +17,8 @@ export default function releasesByGenre(state = [], action) {
           return state;
         }
       }
+    case SEARCH_BY_GENRE_REQUEST:
+      return action.skip == 0 ? [] : state;
     case SEARCH_BY_GENRE_FAILURE:
       return [];
     case TIP_TRACK: {

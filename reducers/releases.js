@@ -32,7 +32,7 @@ export default function releases(state = [], action) {
             directTipCount: item.directTipCount + 1,
           };
         });
-      }else{
+      } else {
         return state;
       }
     }

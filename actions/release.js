@@ -58,6 +58,6 @@ export function fetchReleases(skip = 0) {
   return function(dispatch, getState) {
     dispatch({type: RECEIVE_NEW_RELEASES_REQUEST});
     let {accessToken, email} = getState().auth;
-    return fetchReleasesJson(accessToken, email, skip).then(json => dispatch(receiveReleases(json)));
+    return fetchReleasesJson(accessToken, email, skip).then(json => dispatch(receiveReleases(json, skip)));
   };
 }

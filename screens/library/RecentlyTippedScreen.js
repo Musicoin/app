@@ -47,6 +47,7 @@ class RecentlyTippedScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
+    const lastTipped = this.props.lastTipped.slice().reverse();
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <View style={{paddingHorizontal: 16, paddingVertical: 16, width: width, backgroundColor: Colors.tabBar}}>
@@ -64,8 +65,7 @@ class RecentlyTippedScreen extends React.Component {
             </View>
           </View>
           <FlatList
-              data={this.props.lastTipped}
-              inversed={true}
+              data={lastTipped}
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}

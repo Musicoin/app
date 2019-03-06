@@ -512,7 +512,8 @@ class PlayerComponent extends React.Component {
   }
 
   onPlaybackError(data) {
-    console.log(`error code: ${data.code} message: ${data.message}`);
+    console.log(data);
+    this.playNextTrack();
     this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
   }
 

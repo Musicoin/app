@@ -58,8 +58,8 @@ async function fetchSearchResultsJson(token, genre, email, skip) {
 
 export function getSearchByGenreResults(genre, skip = 0) {
   return function(dispatch, getState) {
-    dispatch({type: SEARCH_BY_GENRE_REQUEST});
+    dispatch({type: SEARCH_BY_GENRE_REQUEST, skip});
     let {accessToken, email} = getState().auth;
-    return fetchSearchResultsJson(accessToken, genre, email, skip).then(json => dispatch(receiveSearchResults(json)));
+    return fetchSearchResultsJson(accessToken, genre, email, skip).then(json => dispatch(receiveSearchResults(json, skip)));
   };
 }

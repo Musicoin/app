@@ -47,6 +47,7 @@ class RecentlyPlayedScreen extends React.Component {
   render() {
     const {navigation} = this.props;
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
+    const lastPlayed = this.props.lastPlayed.slice().reverse();
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
           <View style={{paddingHorizontal: 16, paddingVertical: 16, width: width, backgroundColor: Colors.tabBar}}>
@@ -64,8 +65,7 @@ class RecentlyPlayedScreen extends React.Component {
             </View>
           </View>
           <FlatList
-              data={this.props.lastPlayed}
-              inversed={true}
+              data={lastPlayed}
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
