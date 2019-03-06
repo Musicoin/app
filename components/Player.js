@@ -164,12 +164,12 @@ class PlayerComponent extends React.Component {
 
   render() {
     let showPlayer = true;
-    if(FULLSCREEN_VIEWS.includes(this.props.currentScreen)){
+    if (FULLSCREEN_VIEWS.includes(this.props.currentScreen)) {
       showPlayer = false;
     }
     return (
         <View>
-          {this.props.currentTrack && !this.props.settings.bigPlayer && showPlayer?
+          {this.props.currentTrack && !this.props.settings.bigPlayer && showPlayer ?
               <View>
                 <View style={styles.smallPlayerContainer}>
                   <View>
@@ -207,21 +207,13 @@ class PlayerComponent extends React.Component {
                   </TouchableOpacity>
 
                   <View>
-                    {this.props.nextTipAllowed ?
-                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack)}>
-                          <Image
-                              source={require('../assets/icons/clap-white.png')}
-                              fadeDuration={0}
-                              style={[{width: 20, height: 20}, styles.playerButton]}
-                          />
-                        </TouchableOpacity>
-                        : <TouchableOpacity disabled={true}>
-                          <Image
-                              source={require('../assets/icons/clap-grey.png')}
-                              fadeDuration={0}
-                              style={[{width: 20, height: 20}, styles.playerButton]}
-                          />
-                        </TouchableOpacity>}
+                    <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack)}>
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={[{width: 20, height: 20}, styles.playerButton]}
+                      />
+                    </TouchableOpacity>
                   </View>
                   {this.state.playerState === TrackPlayer.STATE_BUFFERING ?
                       <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/> :
@@ -383,35 +375,24 @@ class PlayerComponent extends React.Component {
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 
                     </View>
-                    {this.props.nextTipAllowed ?
-                        <TouchableOpacity
-                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => {
-                              if(!this.props.auth.loggedIn){
-                                this.props.togglePlayerMode();
-                              }
-                              this.props.tipTrack(this.props.currentTrack)}}>
-                          <Image
-                              source={require('../assets/icons/clap-white.png')}
-                              fadeDuration={0}
-                              style={{width: 16, height: 16, marginRight: 5}}
-                          />
-                          <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
-                        </TouchableOpacity>
-                        :
-                        <TouchableOpacity
-                            disabled={true}
-                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}>
-                          <Image
-                              source={require('../assets/icons/clap-grey.png')}
-                              fadeDuration={0}
-                              style={{width: 16, height: 16, marginRight: 5}}
-                          />
-                          <Text style={{color: Colors.tabIconDefault, fontSize: 12}}>Tip</Text>
-                        </TouchableOpacity>}
+                    <TouchableOpacity
+                        style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                        onPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                          }
+                          this.props.tipTrack(this.props.currentTrack);
+                        }}>
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={{width: 16, height: 16, marginRight: 5}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
-                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={()=>this._toggleModal()}>
+                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={() => this._toggleModal()}>
                   <View style={{backgroundColor: Colors.backgroundColor}}>
                     <View style={{flexDirection: 'row'}}>
                       <Image style={{width: 64, height: 64, margin: 16}} source={{uri: this.props.currentTrack.trackImg}}/>
@@ -465,7 +446,7 @@ class PlayerComponent extends React.Component {
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
                       this._toggleModal();
                       this.props.tipTrack(this.props.currentTrack);
                     }}>
@@ -474,7 +455,7 @@ class PlayerComponent extends React.Component {
                           fadeDuration={0}
                           style={{width: 16, height: 16, marginRight: 16}}
                       />
-                      <Text style={{color: this.props.nextTipAllowed ? Colors.fontColor : Colors.tabIconDefault, fontSize: 14}}>Tip track</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.modalButton} onPress={() => {

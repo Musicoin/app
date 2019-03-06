@@ -9,10 +9,8 @@ function addTip(track, json) {
     let success = false;
     if (json.tx) {
       dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
-      setTimeout(() => dispatch({type: ALLOW_NEXT_TIP, data: true}), TIP_TIMEOUT_MILIS);
       success = true;
     } else {
-      dispatch({type: ALLOW_NEXT_TIP, data: true});
       dispatch(addAlert('error', 'Something went wrong', 'Please retry your tip at a later time.'));
     }
     dispatch({
@@ -38,7 +36,6 @@ export function tipTrack(track) {
   return function(dispatch, getState) {
     let {loggedIn} = getState().auth;
     if (loggedIn) {
-      dispatch({type: ALLOW_NEXT_TIP, data: false});
       let {accessToken, email} = getState().auth;
       return tipTrackJson(track.trackAddress, accessToken, email).then(json => dispatch(addTip(track, json)));
     } else {
