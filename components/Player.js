@@ -521,6 +521,7 @@ class PlayerComponent extends React.Component {
     console.log(data);
     if (data.track && data.position != 0) {
       if (this.props.settings.repeat) {
+        await TrackPlayer.seekTo(0);
         await TrackPlayer.play();
       } else {
         this.playNextTrack();
