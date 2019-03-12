@@ -212,7 +212,7 @@ class PlayerComponent extends React.Component {
                     <TouchableOpacity
                         onLongPress={() => {
                           if (!this.props.auth.loggedIn) {
-                            NavigationService.navigate("Profile");
+                            NavigationService.navigate('Profile');
                           } else {
                             this._toggleTippingModal();
                           }
@@ -396,7 +396,7 @@ class PlayerComponent extends React.Component {
                         onLongPress={() => {
                           if (!this.props.auth.loggedIn) {
                             this.props.togglePlayerMode();
-                            NavigationService.navigate("Profile");
+                            NavigationService.navigate('Profile');
                           } else {
                             this._toggleTippingModal();
                           }
@@ -469,6 +469,17 @@ class PlayerComponent extends React.Component {
                         onPress={() => {
                           this._toggleModal();
                           this.props.tipTrack(this.props.currentTrack);
+                        }}
+                        onLongPress={() => {
+                          this._toggleModal();
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                            NavigationService.navigate('Profile');
+                          } else {
+                            setTimeout(() =>{
+                              this._toggleTippingModal();
+                            }, 500);
+                          }
                         }}>
                       <Image
                           source={require('../assets/icons/clap-grey.png')}
