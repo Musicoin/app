@@ -4,7 +4,7 @@ import {fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
 import NavigationService from '../services/NavigationService';
 
-function addTip(track, json) {
+function addTip(track, json, amount) {
   return function(dispatch, getState) {
     let success = false;
     if (json.tx) {
@@ -18,26 +18,31 @@ function addTip(track, json) {
       trackAddress: track.trackAddress,
       track,
       success,
+      amount,
     });
   };
 }
 
-async function tipTrackJson(trackAddress, token, email) {
+async function tipTrackJson(trackAddress, token, email, amount) {
   let params = {
     trackAddress,
-    musicoins: 1,
+    musicoins: amount,
   };
 
-  let tipTrack = await fetchPostFormDataJson(`v1/release/tip?email=${email}&accessToken=${token}`, params);
+  let tipTrack = await fetchPostFormDataJson(`v2/release/tip?email=${email}&accessToken=${token}`, params);
   return tipTrack;
 }
 
-export function tipTrack(track) {
+export function tipTrack(track, amount = 1) {
   return function(dispatch, getState) {
     let {loggedIn} = getState().auth;
     if (loggedIn) {
       let {accessToken, email} = getState().auth;
-      return tipTrackJson(track.trackAddress, accessToken, email).then(json => dispatch(addTip(track, json)));
+      let {balance} = getState().profile;
+      if (balance < amount) {
+        return dispatch(addAlert('error', 'Insufficient funds', 'You don\'t have enough coins to tip this amount'));
+      }
+      return tipTrackJson(track.trackAddress, accessToken, email, amount).then(json => dispatch(addTip(track, json, amount)));
     } else {
       NavigationService.navigate('Profile');
     }

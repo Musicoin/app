@@ -1,4 +1,4 @@
-import {fetchPostData, generateRandomString} from '../tools/util';
+import {fetchPostData, generateRandomString, fetchGetData} from '../tools/util';
 import {RECEIVE_ACCESS_TOKEN, RECEIVE_ANONYMOUS_LOGIN_INFO, LOG_OUT} from '../constants/Actions';
 import {getProfile} from './profile';
 import {addAlert} from './alert';
@@ -59,11 +59,19 @@ async function fetchSignupJson(email, username, password) {
   return fetchPostData(`v1/auth/signup`, params);
 }
 
-async function fetchSocialLoginJson(channel, accessToken) {
+async function fetchSocialLoginJson(channel, accessToken, oauthToken = "",  oauthVerifier = "") {
   var params = {
     channel,
     accessToken,
   };
+
+  if(channel === 'twitter'){
+    params = {
+      ...params,
+      oauthToken,
+      oauthVerifier
+    }
+  }
 
   return fetchPostData(`v1/auth/sociallogin`, params);
 }
@@ -75,6 +83,13 @@ async function fetchAccessTokenTimeout(email, token) {
   };
 
   return fetchPostData(`v1/auth/accesstoken/timeout`, params);
+}
+
+export async function fetchTwitterOauthToken() {
+  var params = {
+  };
+
+  return fetchGetData(`v1/auth/twitter/oauthtoken`, params);
 }
 
 export function validateAccessToken() {
@@ -153,8 +168,8 @@ function generateCredentials() {
   return {username, email, password};
 }
 
-export function socialLogin(channel, accessToken) {
+export function socialLogin(channel, accessToken, oauthToken = "", oauthVerifier= "") {
   return function(dispatch, getState) {
-    return fetchSocialLoginJson(channel, accessToken).then(json => dispatch(receiveAccessToken(json, channel))).then(() => dispatch(getProfile())).then(() => NavigationService.navigate('Profile'));
+    return fetchSocialLoginJson(channel, accessToken, oauthToken, oauthVerifier).then(json => dispatch(receiveAccessToken(json, channel))).then(() => dispatch(getProfile())).then(() => NavigationService.navigate('Profile'));
   };
 }

@@ -3,8 +3,8 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {AuthSession, Icon} from 'expo';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
-import {socialLogin} from '../actions';
-import {FB_APP_ID, GOOGLE_APP_ID, TWITTER_APP_ID} from 'react-native-dotenv';
+import {socialLogin, fetchTwitterOauthToken} from '../actions';
+import {FB_APP_ID, GOOGLE_APP_ID} from 'react-native-dotenv';
 
 class SocialLogin extends React.Component {
 
@@ -59,8 +59,7 @@ class SocialLogin extends React.Component {
       `&behavior=web`,
     });
     this.setState({result});
-    console.log(result.params.access_token);
-    if (result.params.access_token) {
+    if (result.params && result.params.access_token) {
       this.props.socialLogin('google', result.params.access_token);
     }
   };
@@ -74,24 +73,27 @@ class SocialLogin extends React.Component {
       `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
     });
     this.setState({result});
-    console.log(result);
     console.log(result.params.access_token);
-    if (result.params.access_token) {
+    if (result.params && result.params.access_token) {
       this.props.socialLogin('facebook', result.params.access_token);
     }
   };
 
   _handleTwitterSignin = async () => {
-    let redirectUrl = AuthSession.getRedirectUrl();
-    let result = await AuthSession.startAsync({
-      authUrl:
-      `https://api.twitter.com/oauth/authenticate?oauth_token=${TWITTER_APP_ID}` +
-      `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
-    });
-    this.setState({result});
-    console.log(result.params.access_token);
-    if (result.params.access_token) {
-      this.props.socialLogin('google', result.params.access_token);
+    let tokenRequest = await fetchTwitterOauthToken();
+    console.log(tokenRequest.oauthToken);
+    if (tokenRequest.oauthToken) {
+      let redirectUrl = AuthSession.getRedirectUrl();
+      let result = await AuthSession.startAsync({
+        authUrl:
+        `https://api.twitter.com/oauth/authenticate?oauth_token=${tokenRequest.oauthToken}` +
+        `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+      });
+      this.setState({result});
+      console.log(result);
+      if (result.params && result.params.oauth_verifier) {
+        this.props.socialLogin('twitter', "", result.params.oauth_token, result.params.oauth_verifier);
+      }
     }
   };
 

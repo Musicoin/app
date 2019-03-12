@@ -14,6 +14,7 @@ import NavigationService from '../services/NavigationService';
 import {returnIndexFromArray, shareTrack} from '../tools/util';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
 import {FULLSCREEN_VIEWS} from '../constants/App';
+import TippingModal from '../components/TippingModal';
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -48,6 +49,7 @@ class PlayerComponent extends React.Component {
       currentTrack: null,
       isModalVisible: false,
       playerState: TrackPlayer.STATE_NONE,
+      isTippingModalVisible: false,
     };
   }
 
@@ -207,7 +209,15 @@ class PlayerComponent extends React.Component {
                   </TouchableOpacity>
 
                   <View>
-                    <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack)}>
+                    <TouchableOpacity
+                        onLongPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            NavigationService.navigate("Profile");
+                          } else {
+                            this._toggleTippingModal();
+                          }
+                        }}
+                        onPress={() => this.props.tipTrack(this.props.currentTrack)}>
                       <Image
                           source={require('../assets/icons/clap-white.png')}
                           fadeDuration={0}
@@ -382,6 +392,14 @@ class PlayerComponent extends React.Component {
                             this.props.togglePlayerMode();
                           }
                           this.props.tipTrack(this.props.currentTrack);
+                        }}
+                        onLongPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                            NavigationService.navigate("Profile");
+                          } else {
+                            this._toggleTippingModal();
+                          }
                         }}>
                       <Image
                           source={require('../assets/icons/clap-white.png')}
@@ -446,10 +464,12 @@ class PlayerComponent extends React.Component {
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.modalButton} onPress={() => {
-                      this._toggleModal();
-                      this.props.tipTrack(this.props.currentTrack);
-                    }}>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={() => {
+                          this._toggleModal();
+                          this.props.tipTrack(this.props.currentTrack);
+                        }}>
                       <Image
                           source={require('../assets/icons/clap-grey.png')}
                           fadeDuration={0}
@@ -486,6 +506,7 @@ class PlayerComponent extends React.Component {
                   </View>
                 </Modal>
               </View> : null}
+          <TippingModal visible={this.state.isTippingModalVisible} track={this.props.currentTrack} toggleAction={() => this._toggleTippingModal()}/>
         </View>);
   }
 
@@ -574,6 +595,10 @@ class PlayerComponent extends React.Component {
 
   showAlert(title, text) {
     this.props.alertWithType('error', title, text);
+  }
+
+  _toggleTippingModal() {
+    this.setState({isTippingModalVisible: !this.state.isTippingModalVisible});
   }
 }
 

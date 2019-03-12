@@ -18,7 +18,7 @@ class ProfileScreen extends React.Component {
                   <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Profile</Text>
                 </View>
                 <View style={{flexDirection: 'row', backgroundColor: '#3C4146', height: 80, alignItems: 'center', paddingHorizontal: 16}}>
-                  {true == false ?
+                  {this.props.profile.avatar ?
                       <Image style={{width: Layout.isSmallDevice ? 40 : 80, height: Layout.isSmallDevice ? 40 : 80, borderRadius: Layout.isSmallDevice ? 20 : 40, marginRight: 8}} source={{uri: this.props.profile.avatar}}/>
                       :
                       <View style={{width: Layout.isSmallDevice ? 40 : 80, height: Layout.isSmallDevice ? 40 : 80, borderRadius: Layout.isSmallDevice ? 20 : 40, backgroundColor: Colors.backgroundColor, marginRight: 8, alignItems: 'center', justifyContent: 'center'}}>
