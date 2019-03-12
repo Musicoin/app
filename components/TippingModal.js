@@ -16,6 +16,7 @@ class TippingModal extends React.Component {
 
   render() {
     return (
+        this.props.track?
         <Modal isVisible={this.props.visible} onBackdropPress={() => this.props.toggleAction()} onBackButtonPress={() => this.props.toggleAction()}>
           <View style={{backgroundColor: Colors.backgroundColor}}>
             <View style={{flexDirection: 'row'}}>
@@ -74,7 +75,7 @@ class TippingModal extends React.Component {
                 onPress={() => this.tip()}
             />
           </View>
-        </Modal>
+        </Modal>:null
     );
   }
 
