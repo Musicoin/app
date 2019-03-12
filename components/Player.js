@@ -314,7 +314,7 @@ class PlayerComponent extends React.Component {
                     </View>
                   </View>
                   <TrackSlider/>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginHorizontal: 8}}>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
@@ -639,8 +639,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   playerButton: {
-    marginHorizontal: 10,
-    paddingLeft: 10,
+    marginHorizontal: 4,
+    paddingHorizontal: 4,
     paddingVertical: 2,
   },
   individualPlayerButton: {
