@@ -320,7 +320,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
                           size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.repeat ? Colors.tintColor : Colors.fontColor}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     <TouchableOpacity disabled={!this.state.previousAllowed} style={{marginHorizontal: 5}} onPress={() => this.playPreviousTrack()}>
@@ -328,7 +328,7 @@ class PlayerComponent extends React.Component {
                           name="skip-previous"
                           size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.previousAllowed ? Colors.fontColor : Colors.disabled}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     {this.state.playerState === TrackPlayer.STATE_PLAYING ?
@@ -337,7 +337,7 @@ class PlayerComponent extends React.Component {
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
                               size={Layout.isSmallDevice ? 60 : 120}
                               color={Colors.fontColor}
-                              style={styles.playerButton}
+                              style={styles.bigPlayerButtonn}
                           />
                         </TouchableOpacity> :
                         <TouchableOpacity disabled={this.state.playerState === TrackPlayer.STATE_BUFFERING} style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
@@ -345,7 +345,7 @@ class PlayerComponent extends React.Component {
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
                               size={Layout.isSmallDevice ? 60 : 120}
                               color={this.state.playerState !== TrackPlayer.STATE_BUFFERING ? Colors.fontColor : Colors.disabled}
-                              style={styles.playerButton}
+                              style={styles.bigPlayerButton}
                           />
                         </TouchableOpacity>}
                     <TouchableOpacity disabled={!this.state.nextAllowed} style={{marginHorizontal: 5}} onPress={() => this.playNextTrack()}>
@@ -353,7 +353,7 @@ class PlayerComponent extends React.Component {
                           name="skip-next"
                           size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.nextAllowed ? Colors.fontColor : Colors.disabled}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => {
@@ -363,7 +363,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
                           size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.shuffle ? Colors.tintColor : Colors.fontColor}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                   </View>
@@ -639,6 +639,11 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   playerButton: {
+    marginHorizontal: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+  },
+  bigPlayerButton: {
     marginHorizontal: 4,
     paddingHorizontal: 4,
     paddingVertical: 2,
