@@ -47,16 +47,16 @@ class ProfileScreen extends React.Component {
                     <Text style={{fontSize: 14, color: Colors.tintColor}}>$MUSIC {this.props.profile.balance}</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>
-                    <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'ios-gift' : 'ios-gift'}
-                        size={20}
-                        color={Colors.disabled}
-                        style={{marginRight: 16}}
-                    />
+                  {/*<TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>*/}
+                    {/*<Icon.Ionicons*/}
+                        {/*name={Platform.OS === 'ios' ? 'ios-gift' : 'ios-gift'}*/}
+                        {/*size={20}*/}
+                        {/*color={Colors.disabled}*/}
+                        {/*style={{marginRight: 16}}*/}
+                    {/*/>*/}
 
-                    <Text style={{fontSize: 14}}>Invite friends</Text>
-                  </TouchableOpacity>
+                    {/*<Text style={{fontSize: 14}}>Invite friends</Text>*/}
+                  {/*</TouchableOpacity>*/}
 
                   <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.logout()}>
                     <Icon.Ionicons
