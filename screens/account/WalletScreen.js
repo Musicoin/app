@@ -4,6 +4,7 @@ import Colors from '../../constants/Colors';
 import {Icon} from 'expo';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
 import {connect} from 'react-redux';
+import {addAlert} from '../../actions/index';
 
 var {width} = Dimensions.get('window');
 
@@ -41,18 +42,26 @@ class WalletScreen extends React.Component {
               <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{this.props.profile.balance}</Text>
             </View>
 
-            <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
+            {this.props.profile.profileAddress ?
+                <View>
+                  <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
 
-            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B0C0D', marginTop: 16, padding: 16}}>
-              <Text style={{color: Colors.tintColor, fontSize: 10, textAlign: 'center'}}>{this.props.profile.profileAddress}</Text>
-              <TouchableOpacity onPress={() => Clipboard.setString(this.props.profile.profileAddress)} style={{justifyContent: 'center', marginHorizontal: 8}}>
-                <Icon.Ionicons
-                    name={Platform.OS === 'ios' ? `md-albums` : 'md-albums'}
-                    size={12}
-                    color={Colors.fontColor}
-                />
-              </TouchableOpacity>
-            </View>
+                  <TouchableOpacity
+                      onPress={() => {
+                        Clipboard.setString(this.props.profile.profileAddress);
+                        this.props.addAlert('info', '', 'Wallet address copied!');
+                      }}
+                      style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B0C0D', marginTop: 16, padding: 16}}>
+                    <Text style={{color: Colors.tintColor, fontSize: 10, textAlign: 'center'}}>{this.props.profile.profileAddress}</Text>
+                    <View style={{justifyContent: 'center', marginHorizontal: 8}}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? `md-albums` : 'md-albums'}
+                          size={12}
+                          color={Colors.fontColor}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                </View> : null}
           </View>
         </View>
     );
@@ -71,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, {})(WalletScreen);
+export default connect(mapStateToProps, {addAlert})(WalletScreen);
