@@ -50,6 +50,7 @@ class PlayerComponent extends React.Component {
       isModalVisible: false,
       playerState: TrackPlayer.STATE_NONE,
       isTippingModalVisible: false,
+      retries: 0,
     };
   }
 
@@ -476,7 +477,7 @@ class PlayerComponent extends React.Component {
                             this.props.togglePlayerMode();
                             NavigationService.navigate('Profile');
                           } else {
-                            setTimeout(() =>{
+                            setTimeout(() => {
                               this._toggleTippingModal();
                             }, 500);
                           }
@@ -531,7 +532,6 @@ class PlayerComponent extends React.Component {
           });
         });
       });
-      this.setState({currentTrack: track});
     } catch (e) {
       console.log('audio failed to play');
       console.log(e);
@@ -545,7 +545,14 @@ class PlayerComponent extends React.Component {
 
   onPlaybackError(data) {
     console.log(data);
-    this.playNextTrack();
+    console.log(this.props.currentTrack.trackUrl);
+    console.log(this.state.retries);
+    if (this.state.retries < 3) {
+      this.playNextTrack(true);
+    }else{
+      TrackPlayer.stop();
+    }
+    this.setState({retries: this.state.retries + 1});
     this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
   }
 
@@ -573,7 +580,10 @@ class PlayerComponent extends React.Component {
     }
   }
 
-  playNextTrack() {
+  playNextTrack(afterError = false) {
+    if (this.state.retries != 0 && !afterError) {
+      this.setState({retries: 0});
+    }
     let trackList = this.getTrackList();
     let index = returnIndexFromArray(trackList, this.props.currentTrack, false);
     if (this.props.settings.shuffle) {
@@ -581,8 +591,7 @@ class PlayerComponent extends React.Component {
       if (trackList[newIndex]) {
         this.props.playTrack(trackList[newIndex], true);
       }
-    }
-    else {
+    } else {
       if (trackList[index + 1]) {
         this.props.playTrack(trackList[index + 1], true);
       }
