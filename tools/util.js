@@ -85,7 +85,7 @@ export async function fetchPostData(action, params) {
         if (response.ok) {
           return result;
         } else {
-          console.log(result);
+          console.log(response);
           throw result;
         }
       } catch (e) {

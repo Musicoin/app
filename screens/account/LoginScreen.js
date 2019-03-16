@@ -101,10 +101,6 @@ class LoginScreen extends React.Component {
                 onPress={()=>this.login()}
             />
 
-            <TouchableOpacity style={{marginTop: 16}}>
-              <Text style={{color: Colors.tintColor, fontSize: 12}}>Forgot password?</Text>
-            </TouchableOpacity>
-
             <SocialLogin />
 
           </View>

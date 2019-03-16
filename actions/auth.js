@@ -95,13 +95,13 @@ export async function fetchTwitterOauthToken() {
 export function validateAccessToken() {
   return async function(dispatch, getState) {
 
-    let {email, accessToken} = getState().auth;
+    let {email, accessToken, loggedIn} = getState().auth;
     if (email && accessToken) {
       let result = await fetchAccessTokenTimeout(email, accessToken);
 
       //check if there's a value in expired, doesn't mean it expired. When it's invalid we don't get this property back but just false instead
-      if (!result.error) {
-
+      if (!result.error && loggedIn) {
+        console.log(result);
         return dispatch(getProfile());
       } else {
         return dispatch(anonymousLogin());
