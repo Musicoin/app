@@ -19,9 +19,9 @@ class ProfileScreen extends React.Component {
                 </View>
                 <View style={{flexDirection: 'row', backgroundColor: '#3C4146', height: 80, alignItems: 'center', paddingHorizontal: 16}}>
                   {this.props.profile.avatar ?
-                      <Image style={{width: Layout.isSmallDevice ? 40 : 80, height: Layout.isSmallDevice ? 40 : 80, borderRadius: Layout.isSmallDevice ? 20 : 40, marginRight: 8}} source={{uri: this.props.profile.avatar}}/>
+                      <Image style={{width: 40, height: 40, borderRadius: 20, marginRight: 8}} source={{uri: this.props.profile.avatar}}/>
                       :
-                      <View style={{width: Layout.isSmallDevice ? 40 : 80, height: Layout.isSmallDevice ? 40 : 80, borderRadius: Layout.isSmallDevice ? 20 : 40, backgroundColor: Colors.backgroundColor, marginRight: 8, alignItems: 'center', justifyContent: 'center'}}>
+                      <View style={{width: 40, height: 40, borderRadius: 20, backgroundColor: Colors.backgroundColor, marginRight: 8, alignItems: 'center', justifyContent: 'center'}}>
                         <Icon.Ionicons
                             name={Platform.OS === 'ios' ? 'ios-person' : 'ios-person'}
                             size={20}
