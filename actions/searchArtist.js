@@ -1,6 +1,5 @@
 import {SEARCH_BY_ARTIST_FAILURE, SEARCH_BY_ARTIST_REQUEST, SEARCH_BY_ARTIST_SUCCESS} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_VERSION} from 'react-native-dotenv';
 import Layout from '../constants/Layout';
 import {GENERAL_API_LIMIT} from '../constants/App';
 
@@ -27,7 +26,7 @@ async function fetchSearchResultsJson(token, artistAddress, email, skip) {
     artistAddress
   };
 
-  let results = await fetchGetData(`${API_VERSION}/release/byartist?`, params);
+  let results = await fetchGetData(`v1/release/byartist?`, params);
 
   if (results.tracks != []) {
 

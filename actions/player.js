@@ -1,6 +1,5 @@
 import {PLAY_TRACK} from '../constants/Actions';
 import {fetchGetData} from '../tools/util';
-import {API_VERSION} from 'react-native-dotenv';
 
 export function dispatchPlayTrack(track, addToLastPlayed = true) {
   return {
@@ -16,7 +15,7 @@ async function fetchReleaseDetailsJson(token, email, track) {
     'email': email,
   };
 
-  let result = await fetchGetData(`${API_VERSION}/release/detail/${track.trackAddress}?`, params);
+  let result = await fetchGetData(`v1/release/detail/${track.trackAddress}?`, params);
 
   if (result.success && result.data != null) {
     result.data.origin = track.origin;

@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "1.1.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "primaryColor": "#1A1D21",
@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "org.musicoin.musicoin",
-      "buildNumber": "1.0.0",
+      "buildNumber": "2.0.1",
       "publishBundlePath": "ios/musicoin/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/musicoin/Supporting/shell-app-manifest.json"
     },
@@ -33,7 +33,7 @@
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },
-    "scheme": "exp95b668e876a840a2a5a718bf53955d09",
+    "scheme": "musicoin",
     "isDetached": true,
     "detach": {
       "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.9.0-sdk31.0.0-250a3991-b623-4f9c-b07f-0b9ed7e8c4c9.tar.gz",

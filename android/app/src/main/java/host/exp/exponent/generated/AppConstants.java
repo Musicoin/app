@@ -14,8 +14,8 @@ public class AppConstants {
   public static final String VERSION_NAME = "2.9.2";
   public static String INITIAL_URL = "exp://exp.host/@musicoin/Musicoin";
   public static final boolean IS_DETACHED = true;
-  public static final String SHELL_APP_SCHEME = "exp95b668e876a840a2a5a718bf53955d09";
-  public static final String RELEASE_CHANNEL = "prod-v1";
+  public static final String SHELL_APP_SCHEME = "musicoin";
+  public static final String RELEASE_CHANNEL = "prod-v2";
   public static boolean SHOW_LOADING_VIEW_IN_SHELL_APP = true;
   public static boolean ARE_REMOTE_UPDATES_ENABLED = true;
   public static final List<Constants.EmbeddedResponse> EMBEDDED_RESPONSES;
@@ -38,10 +38,20 @@ public class AppConstants {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // ADD EMBEDDED RESPONSES HERE
         // START EMBEDDED RESPONSES
         embeddedResponses.add(new Constants.EmbeddedResponse("https://exp.host/@musicoin/Musicoin", "assets://shell-app-manifest.json", "application/json"));
-        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40musicoin%2FMusicoin%2F1.1.0%2Fecac7ee29c6d3f395a80e5be8158ac5a-31.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
+        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40musicoin%2FMusicoin%2F2.0.1%2F1e2fe28aec90ef077abbaffc956e3ab6-31.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
         // END EMBEDDED RESPONSES
     EMBEDDED_RESPONSES = embeddedResponses;
   }

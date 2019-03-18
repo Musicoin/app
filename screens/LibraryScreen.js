@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler} from 'react-native';
+import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity, Image} from 'react-native';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
@@ -47,13 +47,37 @@ class LibraryScreen extends React.Component {
     redirectToPlayer = navigation.getParam('redirectToPlayer', false);
     return (
         <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingTop: getStatusBarHeight(true)}}>
-          <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Queue</Text>
+          <View style={{backgroundColor: Colors.tabBar, paddingVertical: 16}}>
+            <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Library</Text>
+          </View>
+          <View style={{marginHorizontal: 16}}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Recent')}>
+            <Icon.Ionicons
+                name={Platform.OS === 'ios' ? 'ios-time' : 'md-time'}
+                size={20}
+                color={Colors.disabled}
+                style={{marginRight: 16}}
+            />
+
+            <Text style={{fontSize: 14}}>Recently played</Text>
+          </TouchableOpacity>
+            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
+              <Image
+                  source={require('../assets/icons/clap-grey.png')}
+                  fadeDuration={0}
+                  style={{width: 16, height: 16, marginRight: 16}}
+              />
+
+              <Text style={{fontSize: 14}}>Tipped tracks</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18, marginTop: 32}}>Queue</Text>
           <FlatList
               data={this.props.queue}
               keyExtractor={this._keyExtractor}
               renderItem={this._renderItem}
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-              ListEmptyComponent={<View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+              ListEmptyComponent={<View style={{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
                 <Icon.Ionicons
                     name={'md-timer'}
                     size={50}

@@ -8,15 +8,20 @@ import Modal from 'react-native-modal';
 import TextTicker from 'react-native-text-ticker';
 import NavigationService from '../../services/NavigationService';
 import {shareTrack} from '../../tools/util';
+import TippingModal from '../../components/TippingModal';
 
 class Track extends Component {
   constructor(props) {
     super(props);
-    this.state = {isModalVisible: false};
+    this.state = {isModalVisible: false, isTippingModalVisible: false};
   }
 
   _toggleModal() {
     this.setState({isModalVisible: !this.state.isModalVisible});
+  }
+
+  _toggleTippingModal() {
+    this.setState({isTippingModalVisible: !this.state.isTippingModalVisible});
   }
 
   render() {
@@ -45,7 +50,7 @@ class Track extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()}>
+          <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={() => this._toggleModal()}>
             <View style={{backgroundColor: Colors.backgroundColor}}>
               <View style={{flexDirection: 'row'}}>
                 <Image style={{width: 64, height: 64, margin: 16}} source={{uri: item.trackImg}}/>
@@ -114,22 +119,36 @@ class Track extends Component {
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
-                this._toggleModal();
-                this.props.tipTrack(item.trackAddress);
-              }}>
+              <TouchableOpacity
+                  style={styles.modalButton}
+                  onPress={() => {
+                    this._toggleModal();
+                    this.props.tipTrack(item);
+                  }}
+                  onLongPress={() => {
+                    this._toggleModal();
+                    if (!this.props.auth.loggedIn) {
+                      NavigationService.navigate('Profile');
+                    } else {
+                      setTimeout(() => {
+                        this._toggleTippingModal();
+                      }, 500);
+                    }
+                  }}>
                 <Image
                     source={require('../../assets/icons/clap-grey.png')}
                     fadeDuration={0}
                     style={{width: 16, height: 16, marginRight: 16}}
                 />
-                <Text style={{color: this.props.nextTipAllowed ? Colors.fontColor : Colors.tabIconDefault, fontSize: 14}}>Tip track</Text>
+                <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.modalButton} onPress={() => {
-                this._toggleModal();
-                NavigationService.navigate('ArtistScreen', {profileAddress: item.artistAddress});
-              }}>
+              <TouchableOpacity
+                  style={styles.modalButton}
+                  onPress={() => {
+                    this._toggleModal();
+                    NavigationService.navigate('ArtistScreen', {profileAddress: item.artistAddress});
+                  }}>
                 <Icon.Ionicons
                     name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
                     size={24}
@@ -152,6 +171,7 @@ class Track extends Component {
               </TouchableOpacity>
             </View>
           </Modal>
+          <TippingModal visible={this.state.isTippingModalVisible} track={item} toggleAction={() => this._toggleTippingModal()}/>
         </View>
     );
   }

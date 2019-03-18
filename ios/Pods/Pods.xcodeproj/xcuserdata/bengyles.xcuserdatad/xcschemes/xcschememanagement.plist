@@ -263,6 +263,11 @@
 			<key>orderHint</key>
 			<integer>40</integer>
 		</dict>
+		<key>React.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>42</integer>
+		</dict>
 		<key>React.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
@@ -283,6 +288,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>39</integer>
+		</dict>
+		<key>yoga.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>43</integer>
 		</dict>
 		<key>yoga.xcscheme_^#shared#^_</key>
 		<dict>

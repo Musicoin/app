@@ -13,31 +13,31 @@
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.WAKE_LOCK" />
 
   <!-- ADD PERMISSIONS HERE -->
   <!-- BEGIN OPTIONAL PERMISSIONS -->
-  <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+  <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" tools:node="remove"/>
   <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-  <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
+  <uses-permission android:name="android.permission.USE_FINGERPRINT" tools:node="remove"/>
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
   <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
   <!-- These require runtime permissions on M -->
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" tools:node="remove"/>
+  <uses-permission android:name="android.permission.CAMERA" tools:node="remove"/>
   <uses-permission android:name="android.permission.READ_CONTACTS" />
-  <uses-permission android:name="android.permission.READ_CALENDAR" />
-  <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+  <uses-permission android:name="android.permission.READ_CALENDAR" tools:node="remove" />
+  <uses-permission android:name="android.permission.WRITE_CALENDAR" tools:node="remove" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-  <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+  <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_SMS" tools:node="remove" />
   <!-- END OPTIONAL PERMISSIONS -->
 
   <!-- ADD TEST PERMISSIONS HERE -->
@@ -75,7 +75,7 @@
       android:theme="@style/Theme.Exponent.Splash"
       android:windowSoftInputMode="adjustResize">
       <intent-filter>
-        <data android:scheme="exp95b668e876a840a2a5a718bf53955d09"/>
+        <data android:scheme="musicoin"/>
 
         <action android:name="android.intent.action.VIEW"/>
 

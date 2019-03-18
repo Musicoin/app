@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, StatusBar, TouchableWithoutFeedback} from 'react-native';
+import {View, Text, Image, Platform, TouchableOpacity, StyleSheet, ActivityIndicator, BackHandler} from 'react-native';
 import {connect} from 'react-redux';
 import {PLAY_TRACK} from '../constants/Actions';
 import Colors from '../constants/Colors';
@@ -13,6 +13,8 @@ import TrackSlider from '../components/TrackSlider';
 import NavigationService from '../services/NavigationService';
 import {returnIndexFromArray, shareTrack} from '../tools/util';
 import {getStatusBarHeight, getBottomSpace} from 'react-native-iphone-x-helper';
+import {FULLSCREEN_VIEWS} from '../constants/App';
+import TippingModal from '../components/TippingModal';
 
 import TrackPlayer from 'react-native-track-player';
 
@@ -47,8 +49,19 @@ class PlayerComponent extends React.Component {
       currentTrack: null,
       isModalVisible: false,
       playerState: TrackPlayer.STATE_NONE,
+      isTippingModalVisible: false,
+      retries: 0,
     };
   }
+
+  handleBackPress = () => {
+    if (this.props.settings.bigPlayer) {
+      this.props.togglePlayerMode();
+      return true;
+    }
+
+    return false;
+  };
 
   componentDidMount() {
     this.checkPreviousAndNext();
@@ -64,6 +77,8 @@ class PlayerComponent extends React.Component {
 
     TrackPlayer.addEventListener('remote-next', () => this.playNextTrack());
 
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+
     // TrackPlayer.addEventListener('remote-stop', () => TrackPlayer.destroy());
   }
 
@@ -71,6 +86,8 @@ class PlayerComponent extends React.Component {
     this.onPlayerUpdate.remove();
     this.onPlayerError.remove();
     this.onPlayerQueueEnded.remove();
+
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   async componentDidUpdate(prev) {
@@ -135,6 +152,12 @@ class PlayerComponent extends React.Component {
         case 'artist':
           trackList = this.props.searchResultsByArtist;
           break;
+        case 'recent':
+          trackList = this.props.lastPlayed;
+          break;
+        case 'tip':
+          trackList = this.props.lastTipped;
+          break;
         default:
           break;
       }
@@ -143,9 +166,13 @@ class PlayerComponent extends React.Component {
   }
 
   render() {
+    let showPlayer = true;
+    if (FULLSCREEN_VIEWS.includes(this.props.currentScreen)) {
+      showPlayer = false;
+    }
     return (
         <View>
-          {this.props.currentTrack && !this.props.settings.bigPlayer ?
+          {this.props.currentTrack && !this.props.settings.bigPlayer && showPlayer ?
               <View>
                 <View style={styles.smallPlayerContainer}>
                   <View>
@@ -183,21 +210,21 @@ class PlayerComponent extends React.Component {
                   </TouchableOpacity>
 
                   <View>
-                    {this.props.nextTipAllowed ?
-                        <TouchableOpacity onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
-                          <Image
-                              source={require('../assets/icons/clap-white.png')}
-                              fadeDuration={0}
-                              style={[{width: 20, height: 20}, styles.playerButton]}
-                          />
-                        </TouchableOpacity>
-                        : <TouchableOpacity disabled={true} onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
-                          <Image
-                              source={require('../assets/icons/clap-grey.png')}
-                              fadeDuration={0}
-                              style={[{width: 20, height: 20}, styles.playerButton]}
-                          />
-                        </TouchableOpacity>}
+                    <TouchableOpacity
+                        onLongPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            NavigationService.navigate('Profile');
+                          } else {
+                            this._toggleTippingModal();
+                          }
+                        }}
+                        onPress={() => this.props.tipTrack(this.props.currentTrack)}>
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={[{width: 20, height: 20}, styles.playerButton]}
+                      />
+                    </TouchableOpacity>
                   </View>
                   {this.state.playerState === TrackPlayer.STATE_BUFFERING ?
                       <ActivityIndicator style={{paddingHorizontal: 10, paddingVertical: 2}} size="small" color={Colors.fontColor}/> :
@@ -288,13 +315,13 @@ class PlayerComponent extends React.Component {
                     </View>
                   </View>
                   <TrackSlider/>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginHorizontal: 8}}>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.props.toggleRepeat()}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-repeat` : 'md-repeat'}
                           size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.repeat ? Colors.tintColor : Colors.fontColor}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     <TouchableOpacity disabled={!this.state.previousAllowed} style={{marginHorizontal: 5}} onPress={() => this.playPreviousTrack()}>
@@ -302,7 +329,7 @@ class PlayerComponent extends React.Component {
                           name="skip-previous"
                           size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.previousAllowed ? Colors.fontColor : Colors.disabled}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     {this.state.playerState === TrackPlayer.STATE_PLAYING ?
@@ -311,7 +338,7 @@ class PlayerComponent extends React.Component {
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
                               size={Layout.isSmallDevice ? 60 : 120}
                               color={Colors.fontColor}
-                              style={styles.playerButton}
+                              style={styles.bigPlayerButtonn}
                           />
                         </TouchableOpacity> :
                         <TouchableOpacity disabled={this.state.playerState === TrackPlayer.STATE_BUFFERING} style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
@@ -319,7 +346,7 @@ class PlayerComponent extends React.Component {
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
                               size={Layout.isSmallDevice ? 60 : 120}
                               color={this.state.playerState !== TrackPlayer.STATE_BUFFERING ? Colors.fontColor : Colors.disabled}
-                              style={styles.playerButton}
+                              style={styles.bigPlayerButton}
                           />
                         </TouchableOpacity>}
                     <TouchableOpacity disabled={!this.state.nextAllowed} style={{marginHorizontal: 5}} onPress={() => this.playNextTrack()}>
@@ -327,7 +354,7 @@ class PlayerComponent extends React.Component {
                           name="skip-next"
                           size={Layout.isSmallDevice ? 40 : 80}
                           color={this.state.nextAllowed ? Colors.fontColor : Colors.disabled}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                     <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => {
@@ -337,7 +364,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? `ios-shuffle` : 'md-shuffle'}
                           size={Layout.isSmallDevice ? 20 : 40}
                           color={this.props.settings.shuffle ? Colors.tintColor : Colors.fontColor}
-                          style={styles.playerButton}
+                          style={styles.bigPlayerButton}
                       />
                     </TouchableOpacity>
                   </View>
@@ -359,32 +386,32 @@ class PlayerComponent extends React.Component {
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
 
                     </View>
-                    {this.props.nextTipAllowed ?
-                        <TouchableOpacity
-                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
-                          <Image
-                              source={require('../assets/icons/clap-white.png')}
-                              fadeDuration={0}
-                              style={{width: 16, height: 16, marginRight: 5}}
-                          />
-                          <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
-                        </TouchableOpacity>
-                        :
-                        <TouchableOpacity
-                            disabled={true}
-                            style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
-                            onPress={() => this.props.tipTrack(this.props.currentTrack.trackAddress)}>
-                          <Image
-                              source={require('../assets/icons/clap-grey.png')}
-                              fadeDuration={0}
-                              style={{width: 16, height: 16, marginRight: 5}}
-                          />
-                          <Text style={{color: Colors.tabIconDefault, fontSize: 12}}>Tip</Text>
-                        </TouchableOpacity>}
+                    <TouchableOpacity
+                        style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                        onPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                          }
+                          this.props.tipTrack(this.props.currentTrack);
+                        }}
+                        onLongPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                            NavigationService.navigate('Profile');
+                          } else {
+                            this._toggleTippingModal();
+                          }
+                        }}>
+                      <Image
+                          source={require('../assets/icons/clap-white.png')}
+                          fadeDuration={0}
+                          style={{width: 16, height: 16, marginRight: 5}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
-                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()}>
+                <Modal isVisible={this.state.isModalVisible} onBackdropPress={() => this._toggleModal()} onBackButtonPress={() => this._toggleModal()}>
                   <View style={{backgroundColor: Colors.backgroundColor}}>
                     <View style={{flexDirection: 'row'}}>
                       <Image style={{width: 64, height: 64, margin: 16}} source={{uri: this.props.currentTrack.trackImg}}/>
@@ -393,7 +420,6 @@ class PlayerComponent extends React.Component {
                             style={{color: Colors.tintColor, fontSize: 16, width: 200}}
                             duration={5000}
                             loop
-                            bounce
                             repeatSpacer={50}
                             marqueeDelay={1000}
                         >
@@ -403,7 +429,6 @@ class PlayerComponent extends React.Component {
                             style={{color: '#8897A2', fontSize: 12, marginTop: 8, width: 200}}
                             duration={5000}
                             loop
-                            bounce
                             repeatSpacer={50}
                             marqueeDelay={1000}
                         >
@@ -440,16 +465,29 @@ class PlayerComponent extends React.Component {
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.modalButton} disabled={!this.props.nextTipAllowed} onPress={() => {
-                      this._toggleModal();
-                      this.props.tipTrack(this.props.currentTrack.trackAddress);
-                    }}>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={() => {
+                          this._toggleModal();
+                          this.props.tipTrack(this.props.currentTrack);
+                        }}
+                        onLongPress={() => {
+                          this._toggleModal();
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                            NavigationService.navigate('Profile');
+                          } else {
+                            setTimeout(() => {
+                              this._toggleTippingModal();
+                            }, 500);
+                          }
+                        }}>
                       <Image
                           source={require('../assets/icons/clap-grey.png')}
                           fadeDuration={0}
                           style={{width: 16, height: 16, marginRight: 16}}
                       />
-                      <Text style={{color: this.props.nextTipAllowed ? Colors.fontColor : Colors.tabIconDefault, fontSize: 14}}>Tip track</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.modalButton} onPress={() => {
@@ -480,6 +518,7 @@ class PlayerComponent extends React.Component {
                   </View>
                 </Modal>
               </View> : null}
+          <TippingModal visible={this.state.isTippingModalVisible} track={this.props.currentTrack} toggleAction={() => this._toggleTippingModal()}/>
         </View>);
   }
 
@@ -493,7 +532,6 @@ class PlayerComponent extends React.Component {
           });
         });
       });
-      this.setState({currentTrack: track});
     } catch (e) {
       console.log('audio failed to play');
       console.log(e);
@@ -506,7 +544,15 @@ class PlayerComponent extends React.Component {
   }
 
   onPlaybackError(data) {
-    console.log(`error code: ${data.code} message: ${data.message}`);
+    console.log(data);
+    console.log(this.props.currentTrack.trackUrl);
+    console.log(this.state.retries);
+    if (this.state.retries < 3) {
+      this.playNextTrack(true);
+    }else{
+      TrackPlayer.stop();
+    }
+    this.setState({retries: this.state.retries + 1});
     this.showAlert('', 'Hmm, we couldn’t play this track. Please try again in a moment.');
   }
 
@@ -514,6 +560,7 @@ class PlayerComponent extends React.Component {
     console.log(data);
     if (data.track && data.position != 0) {
       if (this.props.settings.repeat) {
+        await TrackPlayer.seekTo(0);
         await TrackPlayer.play();
       } else {
         this.playNextTrack();
@@ -533,7 +580,10 @@ class PlayerComponent extends React.Component {
     }
   }
 
-  playNextTrack() {
+  playNextTrack(afterError = false) {
+    if (this.state.retries != 0 && !afterError) {
+      this.setState({retries: 0});
+    }
     let trackList = this.getTrackList();
     let index = returnIndexFromArray(trackList, this.props.currentTrack, false);
     if (this.props.settings.shuffle) {
@@ -541,8 +591,7 @@ class PlayerComponent extends React.Component {
       if (trackList[newIndex]) {
         this.props.playTrack(trackList[newIndex], true);
       }
-    }
-    else {
+    } else {
       if (trackList[index + 1]) {
         this.props.playTrack(trackList[index + 1], true);
       }
@@ -566,6 +615,10 @@ class PlayerComponent extends React.Component {
 
   showAlert(title, text) {
     this.props.alertWithType('error', title, text);
+  }
+
+  _toggleTippingModal() {
+    this.setState({isTippingModalVisible: !this.state.isTippingModalVisible});
   }
 }
 
@@ -592,10 +645,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#34393F',
     paddingVertical: 10,
     paddingRight: 10,
+    zIndex: 1,
   },
   playerButton: {
     marginHorizontal: 10,
-    paddingLeft: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+  },
+  bigPlayerButton: {
+    marginHorizontal: 4,
+    paddingHorizontal: 4,
     paddingVertical: 2,
   },
   individualPlayerButton: {

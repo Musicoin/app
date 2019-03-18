@@ -1,5 +1,6 @@
 import {AsyncStorage, Share} from 'react-native';
 import {API_ENDPOINT} from 'react-native-dotenv';
+import NavigationService from '../services/NavigationService';
 
 const ACCESS_TOKEN = 'ACCESS_TOKEN';
 
@@ -80,16 +81,16 @@ export async function fetchPostData(action, params) {
       body: formBody,
     }).then(response => {
       try {
+        let result = response.json();
         if (response.ok) {
-          let result = response.json();
           return result;
         } else {
           console.log(response);
-          return false;
+          throw result;
         }
       } catch (e) {
-        console.log(response);
-        return false;
+        console.log(e);
+        return e;
       }
     }).catch(e => {
       console.log(e);
@@ -219,7 +220,7 @@ export function returnIndexFromArray(array, track, reversed = false) {
 
 export async function shareTrack(track) {
   try {
-    let link= 'https://musicoin.org/nav/track/' + track.trackAddress;
+    let link = 'https://musicoin.org/nav/track/' + track.trackAddress;
     const result = await Share.share({
       title: `${track.artistName} - ${track.title}`,
       dialogTitle: `${track.artistName} - ${track.title}`,
@@ -269,11 +270,21 @@ export async function shareArtist(artist) {
 }
 
 export function generateRandomString(length) {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var text = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
   for (var i = 0; i < length; i++)
     text += possible.charAt(Math.floor(Math.random() * possible.length));
 
   return text;
+}
+
+export function isValidEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+export function isValidPasswordStrength(password) {
+  var minimalPasswordRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+  return minimalPasswordRegex.test(password);
 }

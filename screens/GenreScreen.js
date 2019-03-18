@@ -8,6 +8,7 @@ import {
   RefreshControl,
   Text,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
@@ -16,7 +17,8 @@ import Track from '../components/track/track';
 import {getSearchByGenreResults} from '../actions';
 import Layout from '../constants/Layout';
 import {Icon} from 'expo';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
+import {GENERAL_API_LIMIT} from '../constants/App';
 
 class GenreScreen extends React.Component {
 
@@ -48,8 +50,8 @@ class GenreScreen extends React.Component {
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
               refreshControl={
                 <RefreshControl
-                    refreshing={this.props.loading.SEARCH_BY_GENRE}
-                    onRefresh={() => this.props.getSearchByGenreResults(genre)}
+                    refreshing={this.props.loading.SEARCH_BY_GENRE && this.props.searchResultsByGenre.length == 0}
+                    onRefresh={() => this.props.getSearchByGenreResults(genre, 0)}
                     tintColor={Colors.tintColor}
                 />
               }
@@ -62,6 +64,17 @@ class GenreScreen extends React.Component {
                 />
                 <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
               </View> : null}
+              ListFooterComponent={
+                this.props.loading.SEARCH_BY_GENRE && this.props.searchResultsByGenre.length >= GENERAL_API_LIMIT ?
+                    <ActivityIndicator size="small" color={Colors.tintColor} style={{marginTop: 10}}/> :
+                    null}
+              onEndReached={() => {
+                !this.props.loading.SEARCH_BY_GENRE && this.props.searchResultsByGenre.length >= GENERAL_API_LIMIT ?
+                    this.props.getSearchByGenreResults(genre, this.props.searchResultsByGenre.length) :
+                    null;
+              }}
+              initialNumToRender={8}
+              onEndReachedThreshold={1.5}
           />
         </View>
     );
