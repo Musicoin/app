@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, Platform, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Platform} from 'react-native';
 import {Icon} from 'expo';
 import Colors from '../constants/Colors';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
@@ -7,8 +7,15 @@ import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
 import {logout} from '../actions';
 import {Button} from 'react-native-elements';
+import ProductModal from '../components/product/ProductModal';
 
 class ProfileScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {isProductModalVisible: false};
+  }
+
   render() {
     return (
         <View style={[styles.container, {marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}]}>
@@ -48,15 +55,25 @@ class ProfileScreen extends React.Component {
                   </TouchableOpacity>
 
                   {/*<TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>*/}
-                    {/*<Icon.Ionicons*/}
-                        {/*name={Platform.OS === 'ios' ? 'ios-gift' : 'ios-gift'}*/}
-                        {/*size={20}*/}
-                        {/*color={Colors.disabled}*/}
-                        {/*style={{marginRight: 16}}*/}
-                    {/*/>*/}
+                  {/*<Icon.Ionicons*/}
+                  {/*name={Platform.OS === 'ios' ? 'ios-gift' : 'ios-gift'}*/}
+                  {/*size={20}*/}
+                  {/*color={Colors.disabled}*/}
+                  {/*style={{marginRight: 16}}*/}
+                  {/*/>*/}
 
-                    {/*<Text style={{fontSize: 14}}>Invite friends</Text>*/}
+                  {/*<Text style={{fontSize: 14}}>Invite friends</Text>*/}
                   {/*</TouchableOpacity>*/}
+
+                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this._toggleProductModal()}>
+                    <Icon.Ionicons
+                        name={Platform.OS === 'ios' ? 'md-card' : 'md-card'}
+                        size={20}
+                        color={Colors.disabled}
+                        style={{marginRight: 16}}
+                    />
+                    <Text style={{fontSize: 14}}>Buy $MUSIC</Text>
+                  </TouchableOpacity>
 
                   <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.logout()}>
                     <Icon.Ionicons
@@ -70,6 +87,7 @@ class ProfileScreen extends React.Component {
                   </TouchableOpacity>
 
                 </View>
+                <ProductModal visible={this.state.isProductModalVisible} toggleAction={() => this._toggleProductModal()}/>
               </View>
               :
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -105,6 +123,10 @@ class ProfileScreen extends React.Component {
           }
         </View>
     );
+  }
+
+  _toggleProductModal() {
+    this.setState({isProductModalVisible: !this.state.isProductModalVisible});
   }
 
 }
