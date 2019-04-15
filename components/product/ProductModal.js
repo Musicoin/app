@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, Image, Platform, FlatList, TouchableOpacity} fro
 import Modal from 'react-native-modal';
 import {connect} from 'react-redux';
 import Colors from '../../constants/Colors';
-import {addAlert, validateAppleIAPJSON} from '../../actions';
+import {addAlert, validateAppleIAPJSON, validateGoogleIAPJSON} from '../../actions';
 import * as RNIap from 'react-native-iap';
 
 const itemSkus = Platform.select({
@@ -104,16 +104,16 @@ class ProductModal extends React.Component {
       const purchase = await RNIap.buyProduct(product.productId);
       console.log(purchase);
       this.setState({
-        receipt: purchase.transactionReceipt, // save the receipt if you need it, whether locally, or to your server.
+        receipt: purchase, // save the receipt if you need it, whether locally, or to your server.
       });
       await this.consumePurchases();
 
     } catch (err) {
       // standardized err.code and err.message available
       console.log(err.code, err.message);
-        this.props.addAlert('error', '', 'Failed to buy product');
+      this.props.addAlert('error', '', 'Failed to buy product');
       const subscription = RNIap.addAdditionalSuccessPurchaseListenerIOS(async (purchase) => {
-        this.setState({receipt: purchase.transactionReceipt}, async () => await this.consumePurchases());
+        this.setState({receipt: purchase}, async () => await this.consumePurchases());
         subscription.remove();
       });
     }
@@ -126,27 +126,30 @@ class ProductModal extends React.Component {
       let validation;
 
       if (Platform.OS === 'ios') {
-        validation = await validateAppleIAPJSON(this.props.auth.email, this.props.auth.accessToken, this.state.receipt);
+        validation = await validateAppleIAPJSON(this.props.auth.email, this.props.auth.accessToken, this.state.receipt.transactionReceipt);
       }
 
       if (Platform.OS === 'android') {
-        //ToDo: verify Play store purchases
-        validation = {tx: "remove this"};
+        //ToDo: check verify Play store purchases
+        validation = await validateGoogleIAPJSON(this.props.auth.email, this.props.auth.accessToken, {receipt: this.state.receipt.dataAndroid, signature: this.state.receipt.signatureAndroid});
+        // console.log(validation);
+        // validation = {tx: "remove this"};
       }
+      console.log('validation:');
       console.log(validation);
 
-      if (validation.tx) {
-        // consume products
-        const purchases = await RNIap.getAvailablePurchases();
-        console.log(purchases);
-        purchases.forEach(async purchase => {
-          console.log(purchase.purchaseToken);
-          await RNIap.consumePurchase(purchase.purchaseToken);
-        });
+      // consume products
+      const purchases = await RNIap.getAvailablePurchases();
+      console.log(purchases);
+      purchases.forEach(async purchase => {
+        console.log(purchase);
+        await RNIap.consumePurchase(purchase.purchaseToken);
+      });
 
+      if (validation.tx) {
         this.props.addAlert('success', 'Thank you for your purchase!', 'Your coins will appear in your wallet soon');
       } else {
-        this.props.addAlert('error', '', validation.error);
+        this.props.addAlert('error', '', validation.error ? validation.error : 'Something went wrong');
       }
     } catch (err) {
       console.log(err); // standardized err.code and err.message available
