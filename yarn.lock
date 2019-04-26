@@ -1540,6 +1540,15 @@ chalk@^2.0.0, chalk@^2.0.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+chalk@^2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
+  integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
+  dependencies:
+    ansi-styles "^3.2.1"
+    escape-string-regexp "^1.0.5"
+    supports-color "^5.3.0"
+
 chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
@@ -1911,6 +1920,13 @@ domexception@^1.0.1:
   resolved "https://registry.yarnpkg.com/domexception/-/domexception-1.0.1.tgz#937442644ca6a31261ef36e3ec677fe805582c90"
   dependencies:
     webidl-conversions "^4.0.2"
+
+dooboolab-welcome@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dooboolab-welcome/-/dooboolab-welcome-1.1.0.tgz#4a0aa9d2cbc4e2b1008bf7683bc056b41caa3d0d"
+  integrity sha512-K9TKEeefzDXZiUyLZG+bIr8cy9UoYIfFMseowp/o3czVl7TfkVm3gQpeB85w+TO8xeqzWHiIcEelZbBgt5WUwQ==
+  dependencies:
+    chalk "^2.4.1"
 
 dotenv@^2.0.0:
   version "2.0.0"
@@ -4845,6 +4861,13 @@ react-native-gesture-handler@1.0.9:
 react-native-global-props@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/react-native-global-props/-/react-native-global-props-1.1.5.tgz#443e0ffc89d5402fa20ebedf37bcbca6d861c34d"
+
+react-native-iap@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-2.4.3.tgz#b26d803cd9120fd924d7c33e22f40bb591286ed7"
+  integrity sha512-y1wZkXPeFTNcStInlD7cNyq/PSGWWol9vETJ6BTfpVKhNeiRBC8sJnmCszLVM0umjuZgNIqBeGs7BRB+CCMYgQ==
+  dependencies:
+    dooboolab-welcome "^1.1.0"
 
 react-native-iphone-x-helper@^1.2.0:
   version "1.2.0"

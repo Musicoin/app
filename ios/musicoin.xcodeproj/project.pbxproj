@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		62BA4FFD578249B2A1FFF23A /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C9C007A0E4544A1112668 /* libRNTrackPlayer.a */; };
 		B035E0CF21EF2D82008BD247 /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035E0CE21EF2D82008BD247 /* dummy.swift */; };
+		B0BD5BA12241633800E7C25F /* libRNIap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD5B9F2241627D00E7C25F /* libRNIap.a */; };
+		B0BD5BA3224167B400E7C25F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD5BA2224167B400E7C25F /* StoreKit.framework */; };
 		B501732B1DC01252003445D9 /* EXShell.plist in Resources */ = {isa = PBXBuildFile; fileRef = B501732A1DC01252003445D9 /* EXShell.plist */; };
 		B56386491DB9693800A0598C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B56386481DB9693800A0598C /* AppDelegate.m */; };
 		B56386511DB9693800A0598C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56386501DB9693800A0598C /* Assets.xcassets */; };
@@ -31,6 +33,13 @@
 			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
 			remoteInfo = RNTrackPlayer;
 		};
+		B0BD5B9E2241627D00E7C25F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNIap;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +49,8 @@
 		A47FE4D7F70906B7DC8CE39B /* Pods-musicoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-musicoin/Pods-musicoin.release.xcconfig"; sourceTree = "<group>"; };
 		B035E0CD21EF2D81008BD247 /* musicoin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "musicoin-Bridging-Header.h"; sourceTree = "<group>"; };
 		B035E0CE21EF2D82008BD247 /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
+		B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNIap.xcodeproj; path = "../node_modules/react-native-iap/ios/RNIap.xcodeproj"; sourceTree = "<group>"; };
+		B0BD5BA2224167B400E7C25F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B0E65652220041540067A94E /* musicoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = musicoin.entitlements; sourceTree = "<group>"; };
 		B501732A1DC01252003445D9 /* EXShell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EXShell.plist; sourceTree = "<group>"; };
 		B56386411DB9693800A0598C /* musicoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0BD5BA12241633800E7C25F /* libRNIap.a in Frameworks */,
 				EBB8117C1BFA0514F79CAF74 /* libPods-musicoin.a in Frameworks */,
 				62BA4FFD578249B2A1FFF23A /* libRNTrackPlayer.a in Frameworks */,
+				B0BD5BA3224167B400E7C25F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +87,7 @@
 		1A42804E64B7E9E0AB8B6799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0BD5BA2224167B400E7C25F /* StoreKit.framework */,
 				C4A88D15726AD99E8A257BC7 /* libPods-musicoin.a */,
 			);
 			name = Frameworks;
@@ -82,6 +96,7 @@
 		2B385DFA89294772A2181D27 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */,
 				44237B4D23CC4B5DB62E0B0B /* RNTrackPlayer.xcodeproj */,
 			);
 			name = Libraries;
@@ -108,6 +123,14 @@
 			isa = PBXGroup;
 			children = (
 				B078DCA521EDFD550074203F /* libRNTrackPlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0BD5B9B2241627D00E7C25F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0BD5B9F2241627D00E7C25F /* libRNIap.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +228,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -225,6 +251,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = B0BD5B9B2241627D00E7C25F /* Products */;
+					ProjectRef = B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */;
+				},
+				{
 					ProductGroup = B078DCA121EDFD550074203F /* Products */;
 					ProjectRef = 44237B4D23CC4B5DB62E0B0B /* RNTrackPlayer.xcodeproj */;
 				},
@@ -242,6 +272,13 @@
 			fileType = archive.ar;
 			path = libRNTrackPlayer.a;
 			remoteRef = B078DCA421EDFD550074203F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B0BD5B9F2241627D00E7C25F /* libRNIap.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNIap.a;
+			remoteRef = B0BD5B9E2241627D00E7C25F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
