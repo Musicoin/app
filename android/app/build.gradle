@@ -22,7 +22,7 @@ android {
   defaultConfig {
     applicationId 'org.musicoin.musicoin'
     targetSdkVersion 26
-    versionName '2.0.1'
+    versionName '2.1.0'
     ndk {
       abiFilters 'armeabi-v7a', 'x86'
     }
@@ -32,7 +32,7 @@ android {
     manifestPlaceholders = [
             'appAuthRedirectScheme': 'host.exp.exponent'
     ]
-    versionCode 8
+    versionCode 9
     signingConfig signingConfigs.debug
   }
   compileOptions {
@@ -106,6 +106,7 @@ apply from: 'expo.gradle'
 
 
 dependencies {
+  implementation project(':react-native-iap')
   implementation project(':react-native-track-player')
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation('host.exp.exponent:expoview:31.0.0@aar') {

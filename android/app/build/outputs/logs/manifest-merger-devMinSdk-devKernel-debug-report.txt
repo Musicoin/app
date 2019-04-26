@@ -1,11 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 MERGED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:2:1-92:12
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/698048d7c6237eb8651f6661baa4d72b/AndroidManifest.xml:17:1-24:12
+MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-iap/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-33:12
 MERGED from [com.android.support:multidex:1.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/0e03d17ba29f04bf9e9ab34990609b88/AndroidManifest.xml:17:1-22:12
 MERGED from [com.theartofdev.edmodo:android-image-cropper:2.4.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.4.7.aar/2a56ef5376e004882e8a7549018b8b90/AndroidManifest.xml:2:1-12:12
@@ -60,6 +61,7 @@ MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/bengyles/.gra
 MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/a47a3a2af3289e4d8bc3519de7385762/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-2.9.2.aar/224af5233cba3f8eb05556a675c95702/AndroidManifest.xml:17:1-24:12
 MERGED from [expolib_v1.com.google.android.exoplayer:expolib_v1-extension-okhttp:2.6.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expolib_v1-extension-okhttp-2.6.1.aar/a9ece3874526d0c00900896633008396/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:2:1-19:12
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.9.2.aar/d4f2c0be4898084d2b1278a17222a009/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.9.2.aar/f25edf200b2bde0719d44fd1550ea28f/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-ui:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.9.2.aar/f6c6ce7f8b67d4ee7b0bfb580a35a12c/AndroidManifest.xml:17:1-24:12
@@ -149,22 +151,22 @@ MERGED from [com.crashlytics.sdk.android:beta:1.1.4] /Users/bengyles/.gradle/cac
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e51177988aac965e1770278de208a6b0/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/56cc04e60bcf45b992ba197bc262775c/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/ba7b28733a22cfaee154bedc7de923ac/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
-INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
+INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 	package
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:3:3-30
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:5:3-49
 	android:versionCode
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-350:12
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 		INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:4:3-61
@@ -406,30 +408,36 @@ REJECTED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:40:65-84
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:40:22-64
+uses-permission#com.android.vending.BILLING
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:41:5-67
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:10:5-67
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:10:5-67
+	android:name
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:41:22-64
 uses-feature#0x00020000
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:45:3-77
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:3-77
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/c60da40e77f11cddc0c2c06f8fe4ef21/AndroidManifest.xml:26:5-28:35
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/c60da40e77f11cddc0c2c06f8fe4ef21/AndroidManifest.xml:26:5-28:35
 MERGED from [host.exp.exponent:expo-gl:1.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expo-gl-1.1.0.aar/49218d0ed6f9276968b64ff131a4245d/AndroidManifest.xml:11:5-13:36
 MERGED from [host.exp.exponent:expo-gl:1.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expo-gl-1.1.0.aar/49218d0ed6f9276968b64ff131a4245d/AndroidManifest.xml:11:5-13:36
 	android:glEsVersion
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:45:17-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:17-49
 	android:required
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:45:50-74
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:50-74
 uses-feature#android.software.leanback
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:3-85
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:3-85
 	android:required
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:58-82
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:58-82
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:46:17-57
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:17-57
 uses-feature#android.hardware.touchscreen
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:3-88
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:48:3-88
 	android:required
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:61-85
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:48:61-85
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:47:17-60
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:48:17-60
 application
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:49:3-348:17
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:50:3-349:17
 MERGED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:72:5-90:19
 MERGED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:72:5-90:19
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:5-31:19
@@ -474,6 +482,8 @@ MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/cac
 MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:18:5-28:19
 MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/a47a3a2af3289e4d8bc3519de7385762/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.5.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/soloader-0.5.1.aar/a47a3a2af3289e4d8bc3519de7385762/AndroidManifest.xml:11:5-20
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:12:5-17:19
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:12:5-17:19
 MERGED from [com.google.firebase:firebase-messaging:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.1.0.aar/a1afd217e11486ea9a26f8a2e7aa2ad0/AndroidManifest.xml:22:5-35:19
 MERGED from [com.google.firebase:firebase-messaging:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.1.0.aar/a1afd217e11486ea9a26f8a2e7aa2ad0/AndroidManifest.xml:22:5-35:19
 MERGED from [com.google.android.gms:play-services-iid:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-15.0.1.aar/317c9f5f45fea897c48095a6a137f0f9/AndroidManifest.xml:26:5-20
@@ -559,405 +569,405 @@ MERGED from [com.crashlytics.sdk.android:beta:1.1.4] /Users/bengyles/.gradle/cac
 	android:supportsRtl
 		ADDED from [com.facebook.android:facebook-android-sdk:4.38.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.38.0.aar/04d0261770f5dca2f3782b5779e8f798/AndroidManifest.xml:28:18-44
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:53:5-37
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:54:5-37
 	android:largeHeap
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:54:5-29
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:55:5-29
 	android:icon
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:52:5-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:53:5-39
 	android:allowBackup
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:51:5-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:52:5-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:50:5-36
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:51:5-36
 activity#host.exp.exponent.LauncherActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:56:5-62:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:57:5-63:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:60:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:61:7-43
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:59:7-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:60:7-38
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:58:7-30
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:59:7-30
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:61:7-66
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:62:7-66
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:57:7-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:58:7-39
 activity#host.exp.exponent.experience.ExperienceActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:64:5-69:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:65:5-70:16
 	android:windowSoftInputMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:68:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:69:7-49
 	android:configChanges
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:66:7-77
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:67:7-77
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:67:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:68:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:65:7-52
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:66:7-52
 activity#host.exp.exponent.MainActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:71:5-91:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:72:5-92:16
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:73:7-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:74:7-38
 	android:windowSoftInputMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:76:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:77:7-49
 	android:configChanges
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:74:7-77
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:75:7-77
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:75:7-51
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:76:7-51
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:72:7-35
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:73:7-35
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:musicoin
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:77:7-84:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:7-85:23
 data
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:9-42
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:79:9-42
 	android:path
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:173:54-82
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:174:54-82
 	android:scheme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:78:15-40
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:79:15-40
 action#android.intent.action.VIEW
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:80:9-60
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:81:9-60
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:80:17-58
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:81:17-58
 category#android.intent.category.DEFAULT
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:82:9-67
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:83:9-67
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:82:19-65
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:83:19-65
 category#android.intent.category.BROWSABLE
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:83:9-69
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:84:9-69
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:83:19-67
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:84:19-67
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:85:7-89:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:86:7-90:23
 action#android.intent.action.MAIN
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:86:9-60
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:87:9-60
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:86:17-58
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:87:17-58
 category#android.intent.category.LAUNCHER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:88:9-68
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:89:9-68
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:88:19-66
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:89:19-66
 activity#host.exp.exponent.experience.ShellAppActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:93:5-102:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:94:5-103:16
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:95:7-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:96:7-38
 	android:windowSoftInputMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:98:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:99:7-49
 	android:configChanges
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:96:7-77
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:97:7-77
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:97:7-51
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:98:7-51
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:94:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:95:7-50
 activity#host.exp.exponent.experience.HomeActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:104:5-110:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:105:5-111:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:108:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:109:7-43
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:106:7-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:107:7-39
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:107:7-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:108:7-38
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:109:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:110:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:105:7-46
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:106:7-46
 activity#host.exp.exponent.experience.TvActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:112:5-121:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:113:5-122:15
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:116:7-44
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:117:7-44
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:114:7-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:115:7-39
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:115:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:116:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:113:7-44
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:114:7-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LEANBACK_LAUNCHER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:117:6-120:22
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:118:6-121:22
 category#android.intent.category.LEANBACK_LAUNCHER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:119:8-77
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:120:8-77
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:119:18-74
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:120:18-74
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:125:5-81
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:126:5-81
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:125:15-79
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:126:15-79
 activity#abi31_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:129:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:130:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:129:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:130:15-89
 activity#abi30_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:132:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:133:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:132:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:133:15-89
 activity#abi29_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:135:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:136:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:135:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:136:15-89
 activity#abi28_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:138:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:139:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:138:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:139:15-89
 activity#abi27_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:141:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:142:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:141:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:142:15-89
 activity#abi26_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:144:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:145:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:144:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:145:15-89
 activity#abi25_0_0.com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:147:5-91
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:148:5-91
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:147:15-89
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:148:15-89
 activity#host.exp.exponent.ExponentDevActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:151:5-158:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:152:5-159:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:155:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:156:7-43
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:154:7-48
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:155:7-48
 	android:windowSoftInputMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:157:7-46
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:158:7-46
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:153:7-30
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:154:7-30
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:156:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:157:7-49
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:152:7-42
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:153:7-42
 activity#host.exp.exponent.oauth.OAuthWebViewActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:160:5-164:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:161:5-165:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:162:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:163:7-43
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:163:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:164:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:161:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:162:7-49
 activity#net.openid.appauth.RedirectUriReceiverActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:166:5-175:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:167:5-176:16
 REJECTED from [net.openid:appauth:0.4.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.4.1.aar/a901295edc1a2c021e480c94227f1f21/AndroidManifest.xml:32:9-43:20
 	tools:node
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:168:9-29
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:169:9-29
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:167:9-70
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:168:9-70
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:path:oauthredirect+data:scheme:org.musicoin.musicoin
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:169:7-174:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:170:7-175:23
 activity#host.exp.exponent.oauth.OAuthResultActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:177:5-179:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:178:5-180:16
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:178:7-48
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:179:7-48
 activity#expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:182:5-193:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:183:5-194:16
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:184:9-40
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:185:9-40
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:183:9-32
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:184:9-32
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:186:9-79
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:187:9-79
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:185:9-72
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:186:9-72
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:expo.modules.payments.stripe.d4f8c61b-ba78-4402-b559-e1d5176b91c3
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:187:9-192:25
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:188:9-193:25
 activity#abi31_0_0.expo.modules.payments.stripe.RedirectUriReceiver
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:195:5-206:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:196:5-207:16
 	android:launchMode
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:197:9-40
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:198:9-40
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:196:9-32
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:197:9-32
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:199:9-79
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:200:9-79
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:198:9-82
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:199:9-82
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:abi31_0_0.expo.modules.payments.stripe
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:200:9-205:25
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:201:9-206:25
 activity#host.exp.exponent.chrometabs.ChromeTabsManagerActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:210:5-212:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:211:5-213:16
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:211:7-59
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:212:7-59
 activity#host.exp.exponent.experience.ErrorActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:214:5-218:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:215:5-219:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:217:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:218:7-43
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:216:7-49
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:217:7-49
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:215:7-47
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:216:7-47
 activity#host.exp.exponent.experience.InfoActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:220:5-224:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:221:5-225:16
 	android:screenOrientation
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:222:7-43
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:223:7-43
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:223:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:224:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:221:7-46
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:222:7-46
 activity#com.facebook.FacebookActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:226:5-231:39
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:227:5-232:39
 MERGED from [com.facebook.android:facebook-common:4.38.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/c0e85c92aa2aefcf119d5c500afb9256/AndroidManifest.xml:29:9-32:66
 MERGED from [com.facebook.android:facebook-common:4.38.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/c0e85c92aa2aefcf119d5c500afb9256/AndroidManifest.xml:29:9-32:66
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:229:7-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:230:7-39
 	android:configChanges
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:228:7-90
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:229:7-90
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:230:7-66
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:231:7-66
 		REJECTED from [com.facebook.android:facebook-common:4.38.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/c0e85c92aa2aefcf119d5c500afb9256/AndroidManifest.xml:32:13-63
 	tools:replace
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:231:7-36
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:232:7-36
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:227:7-51
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:228:7-51
 activity#com.facebook.ads.InterstitialAdActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:233:5-237:69
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:234:5-238:69
 	android:label
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:236:7-39
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:237:7-39
 	android:configChanges
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:235:7-90
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:236:7-90
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:237:7-66
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:238:7-66
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:234:7-61
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:235:7-61
 service#host.exp.exponent.ExponentIntentService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:239:5-241:34
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:240:5-242:34
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:241:7-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:242:7-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:240:7-44
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:241:7-44
 receiver#host.exp.exponent.referrer.InstallReferrerReceiver
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:244:5-250:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:245:5-251:16
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:246:7-30
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:247:7-30
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:245:7-72
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:246:7-72
 intent-filter#action:name:com.android.vending.INSTALL_REFERRER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:247:7-249:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:248:7-250:23
 action#com.android.vending.INSTALL_REFERRER
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:248:9-71
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:249:9-71
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:248:17-68
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:249:17-68
 receiver#com.google.android.gms.analytics.AnalyticsReceiver
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:260:5-265:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:261:5-266:16
 MERGED from [com.google.android.gms:play-services-analytics:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.1.aar/83fbba5f0e470668583e02bcbe885b3a/AndroidManifest.xml:30:9-34:20
 MERGED from [com.google.android.gms:play-services-analytics:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.1.aar/83fbba5f0e470668583e02bcbe885b3a/AndroidManifest.xml:30:9-34:20
 	android:enabled
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:261:15-37
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:262:15-37
 	android:exported
 		ADDED from [com.google.android.gms:play-services-analytics:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.1.aar/83fbba5f0e470668583e02bcbe885b3a/AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:260:15-80
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:261:15-80
 intent-filter#action:name:com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:262:7-264:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:263:7-265:23
 action#com.google.android.gms.analytics.ANALYTICS_DISPATCH
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:263:9-86
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:264:9-86
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:263:17-83
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:264:17-83
 service#com.google.android.gms.analytics.AnalyticsService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:267:5-269:40
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:268:5-270:40
 MERGED from [com.google.android.gms:play-services-analytics:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.1.aar/83fbba5f0e470668583e02bcbe885b3a/AndroidManifest.xml:36:9-39:40
 MERGED from [com.google.android.gms:play-services-analytics:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.1.aar/83fbba5f0e470668583e02bcbe885b3a/AndroidManifest.xml:36:9-39:40
 	android:enabled
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:268:14-36
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:269:14-36
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:269:14-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:270:14-38
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:267:14-78
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:268:14-78
 receiver#com.google.android.gms.gcm.GcmReceiver
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:272:5-282:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:273:5-283:16
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:274:7-30
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:275:7-30
 	android:permission
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:275:7-67
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:276:7-67
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:273:7-60
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:274:7-60
 intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:org.musicoin.musicoin
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:276:7-281:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:277:7-282:23
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:277:9-72
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:278:9-72
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:277:17-70
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:278:17-70
 action#com.google.android.c2dm.intent.REGISTRATION
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:278:9-77
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:279:9-77
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:278:17-75
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:279:17-75
 category#org.musicoin.musicoin
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:280:9-57
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:281:9-57
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:280:19-55
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:281:19-55
 service#host.exp.exponent.gcm.ExponentGcmListenerService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:284:5-290:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:285:5-291:15
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:286:7-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:287:7-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:285:7-53
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:286:7-53
 intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:287:7-289:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:288:7-290:23
 service#host.exp.exponent.gcm.ExponentInstanceIDListenerService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:291:5-297:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:292:5-298:15
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:293:7-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:294:7-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:292:7-60
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:293:7-60
 intent-filter#action:name:com.google.android.gms.iid.InstanceID
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:294:7-296:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:295:7-297:23
 action#com.google.android.gms.iid.InstanceID
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:295:9-71
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:296:9-71
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:295:17-69
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:296:17-69
 service#host.exp.exponent.gcm.GcmRegistrationIntentService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:298:5-301:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:299:5-302:15
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:300:7-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:301:7-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:299:7-55
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:300:7-55
 service#host.exp.exponent.fcm.ExpoFcmMessagingService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:304:5-309:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:305:5-310:15
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:305:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:306:7-50
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:306:7-308:23
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:307:7-309:23
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:307:9-69
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:308:9-69
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:307:17-67
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:308:17-67
 meta-data#com.google.firebase.messaging.default_notification_icon
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:310:5-312:62
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:311:5-313:62
 	android:resource
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:312:7-59
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:313:7-59
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:311:7-77
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:312:7-77
 meta-data#com.google.firebase.messaging.default_notification_color
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:313:5-315:47
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:314:5-316:47
 	android:resource
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:315:7-44
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:316:7-44
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:314:7-78
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:315:7-78
 service#host.exp.exponent.fcm.FcmRegistrationIntentService
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:316:5-319:15
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:317:5-320:15
 	android:exported
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:318:7-31
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:319:7-31
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:317:7-55
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:318:7-55
 activity#com.theartofdev.edmodo.cropper.CropImageActivity
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:322:5-325:16
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:323:5-326:16
 	android:theme
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:324:7-50
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:325:7-50
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:323:7-70
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:324:7-70
 meta-data#io.fabric.ApiKey
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:330:5-332:65
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:331:5-333:65
 	android:value
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:332:7-63
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:333:7-63
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:331:7-38
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:332:7-38
 meta-data#com.google.android.geo.API_KEY
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:337:5-339:64
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:338:5-340:64
 	android:value
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:339:7-62
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:340:7-62
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:338:7-52
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:339:7-52
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:345:5-83
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:346:5-83
 	android:value
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:345:62-81
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:346:62-81
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:345:16-61
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:346:16-61
 meta-data#standaloneStripeScheme
-ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:347:5-109
+ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:348:5-109
 	android:value
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:347:54-106
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:348:54-106
 	android:name
-		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:347:16-53
+		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:348:16-53
 uses-sdk
 INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
@@ -966,6 +976,8 @@ MERGED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/t
 MERGED from [host.exp.exponent:expoview:31.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-31.0.0.aar/5238a80ac4b5d3807f3d36db5fb7707a/AndroidManifest.xml:7:5-9:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/698048d7c6237eb8651f6661baa4d72b/AndroidManifest.xml:20:5-22:41
 MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/leakcanary-android-no-op-1.4-beta1.aar/698048d7c6237eb8651f6661baa4d72b/AndroidManifest.xml:20:5-22:41
+MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-iap/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-iap/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:multidex:1.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/0e03d17ba29f04bf9e9ab34990609b88/AndroidManifest.xml:20:5-43
@@ -1074,6 +1086,8 @@ MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.grad
 MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-2.9.2.aar/224af5233cba3f8eb05556a675c95702/AndroidManifest.xml:20:5-22:41
 MERGED from [expolib_v1.com.google.android.exoplayer:expolib_v1-extension-okhttp:2.6.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expolib_v1-extension-okhttp-2.6.1.aar/a9ece3874526d0c00900896633008396/AndroidManifest.xml:21:5-23:41
 MERGED from [expolib_v1.com.google.android.exoplayer:expolib_v1-extension-okhttp:2.6.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expolib_v1-extension-okhttp-2.6.1.aar/a9ece3874526d0c00900896633008396/AndroidManifest.xml:21:5-23:41
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.9.2.aar/d4f2c0be4898084d2b1278a17222a009/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.9.2.aar/d4f2c0be4898084d2b1278a17222a009/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.9.2.aar/f25edf200b2bde0719d44fd1550ea28f/AndroidManifest.xml:20:5-22:41
@@ -1514,6 +1528,14 @@ ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/cach
 		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:27:13-37
 	android:name
 		ADDED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:26:13-120
+activity#com.android.billingclient.api.ProxyBillingActivity
+ADDED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:13:9-16:75
+	android:configChanges
+		ADDED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:15:13-96
+	android:theme
+		ADDED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:16:13-72
+	android:name
+		ADDED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:14:13-78
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.1.0.aar/a1afd217e11486ea9a26f8a2e7aa2ad0/AndroidManifest.xml:28:9-34:19
 	android:exported
