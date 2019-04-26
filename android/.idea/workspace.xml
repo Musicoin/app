@@ -11,34 +11,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b88b31f1-a1d0-4bc5-a799-e77a75a3ab4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_billingclient_billing_1_1_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/devMinSdkDevKernel/debug/host/exp/exponent/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/devMinSdkDevKernel/debug/host/exp/exponent/BuildConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/devMinSdkDevKernel/debug/shell-app-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/devMinSdkDevKernel/debug/shell-app-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/assets/devMinSdkDevKernel/debug/shell-app.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/assets/devMinSdkDevKernel/debug/shell-app.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugAssets/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/devMinSdkDevKernel/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/devMinSdkDevKernel/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/devMinSdkDevKernel/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/devMinSdkDevKernel/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/devMinSdkDevKernel/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/devMinSdkDevKernel/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/devMinSdkDevKernel/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/devMinSdkDevKernel/debug/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/devMinSdkDevKernel/debug/resources-devMinSdkDevKernelDebug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/devMinSdkDevKernel/debug/resources-devMinSdkDevKernelDebug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/splits-support/devMinSdkDevKernel/debug/apk-list/apk-list.gson" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/splits-support/devMinSdkDevKernel/debug/apk-list/apk-list.gson" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-devMinSdk-devKernel-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-devMinSdk-devKernel-debug-report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/prodMinSdkProdKernel/release/app-prodMinSdk-prodKernel-release.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/prodMinSdkProdKernel/release/app-prodMinSdk-prodKernel-release.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/prodMinSdkProdKernel/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/prodMinSdkProdKernel/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/shell-app-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/shell-app-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/shell-app.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/shell-app.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/AppConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/musicoin.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/musicoin.xcworkspace/xcuserdata/bengyles.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin.xcworkspace/xcuserdata/bengyles.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXBuildConstants.plist.bak" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXBuildConstants.plist.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXShell.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXShell.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXShell.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/EXShell.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/shell-app-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/shell-app-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/musicoin/Supporting/shell-app.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/musicoin/Supporting/shell-app.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../screens/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../screens/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +110,7 @@
     <session id="-754311073">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="3" />
@@ -96,27 +118,28 @@
           <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="3" />
           <entry key="project.open.time.19" value="4" />
-          <entry key="project.open.time.21" value="2" />
+          <entry key="project.open.time.21" value="3" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gradle" value="31" />
+          <entry key="gradle" value="45" />
           <entry key="java" value="524" />
           <entry key="properties" value="5" />
-          <entry key="xml" value="10" />
+          <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="31" />
+          <entry key="Groovy" value="45" />
           <entry key="JAVA" value="524" />
           <entry key="Properties" value="5" />
-          <entry key="XML" value="10" />
+          <entry key="XML" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -175,13 +198,9 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/host/exp/exponent/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#519#520#0" expanded="true" />
-                <element signature="e#552#553#0" expanded="true" />
-                <element signature="e#693#694#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -208,20 +227,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="400">
+              <caret line="121" column="58" lean-forward="true" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="36" column="87" lean-forward="true" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
+            <state relative-caret-position="810">
+              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
             </state>
           </provider>
           <provider editor-type-id="android-manifest" />
@@ -283,12 +302,12 @@
         <option value="$PROJECT_DIR$/../node_modules/react-native-track-player/android/src/main/java/com/guichaguri/trackplayer/service/MusicService.java" />
         <option value="$PROJECT_DIR$/../node_modules/react-native-track-player/android/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/devKernel/java/host/exp/exponent/BuildVariantConstants.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/gradle.properties" />
         <option value="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/MainApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/DetachBuildConstants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/host/exp/exponent/generated/AppConstants.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -304,8 +323,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -317,7 +334,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,7 +348,7 @@
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="device.picker.selection" value="emulator" />
+    <property name="device.picker.selection" value="468040ee" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.1.4" />
@@ -480,10 +499,10 @@
     <frame x="46" y="23" width="1634" height="1027" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.46730462" visible="true" weight="0.18969849" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.46411484" visible="true" weight="0.18969849" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" sideWeight="0.53269535" side_tool="true" visible="true" weight="0.18969849" />
+      <window_info id="Build Variants" order="4" sideWeight="0.53588516" side_tool="true" visible="true" weight="0.18969849" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
@@ -492,9 +511,9 @@
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49937186" weight="0.32941177" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.5339196" weight="0.32941177" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49811557" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="5" sideWeight="0.52386934" side_tool="true" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5251256" side_tool="true" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.47613066" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.47487438" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Android Profiler" order="8" sideWeight="0.49937186" weight="0.32941177" />
       <window_info anchor="bottom" id="Find" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" />
@@ -606,32 +625,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification_shell_app.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exponent_dev_activity.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/exponent_button.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/error_fragment.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/error_console_fragment.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/error_activity_new.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,13 +722,9 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/host/exp/exponent/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#693#694#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -731,20 +746,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="36" column="87" lean-forward="true" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
+        <state relative-caret-position="810">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
         </state>
       </provider>
       <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="121" column="58" lean-forward="true" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="58" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

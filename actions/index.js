@@ -11,3 +11,4 @@ export * from './settings';
 export * from './artistOfTheWeek';
 export * from './artist';
 export * from './profile';
+export * from './product';

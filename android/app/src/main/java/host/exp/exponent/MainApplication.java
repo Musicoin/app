@@ -2,6 +2,7 @@ package host.exp.exponent;
 
 
 import com.facebook.react.ReactApplication;
+import com.dooboolab.RNIap.RNIapPackage;
 import com.facebook.react.ReactPackage;
 
 import java.util.Arrays;
@@ -50,6 +51,7 @@ public class MainApplication extends ExpoApplication implements ReactApplication
 
         // Needed for `react-native link`
         // new MainReactPackage(),
+            new RNIapPackage(),
             new TrackPlayer()
     );
   }

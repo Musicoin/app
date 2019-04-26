@@ -43,7 +43,7 @@ class DetailsScreen extends React.Component {
         break;
     }
     return (
-        <ScrollView style={{flex: 1, backgroundColor: '#272D33', paddingHorizontal: 0, paddingTop:getStatusBarHeight(true), marginBottom: this.props.currentTrack ? Layout.playerHeight : 20}}>
+        <ScrollView style={{flex: 1, backgroundColor: '#272D33', paddingHorizontal: 0, paddingTop:getStatusBarHeight(true), marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}}>
 
           <View style={{alignItems: 'center', marginTop: 10, marginBottom: 20}}>
 
