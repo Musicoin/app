@@ -1,0 +1,1 @@
+../../../../../node_modules/expo-task-manager-interface/ios/EXTaskManagerInterface/EXTaskInterface.h

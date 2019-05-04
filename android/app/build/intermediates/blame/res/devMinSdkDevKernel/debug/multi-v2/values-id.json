@@ -4,7 +4,7 @@
             "outputFile": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/merged.dir/values-id/values-id.xml",
             "map": [
                 {
-                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-common-4.38.0.aar/c0e85c92aa2aefcf119d5c500afb9256/res/values-id/values-id.xml",
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-common-4.39.0.aar/b627b4aa2d2af4a497d03a0ae37bb98a/res/values-id/values-id.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

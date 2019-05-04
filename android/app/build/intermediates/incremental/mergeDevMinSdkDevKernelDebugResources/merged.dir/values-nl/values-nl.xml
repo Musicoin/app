@@ -17,55 +17,6 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Delen met"</string>
     <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Delen met <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Samenvouwen"</string>
-    <string name="acc_label_card_number">Kaartnummer</string>
-    <string name="acc_label_expiry_date">Vervaldatum</string>
-    <string name="acc_label_zip">Postcode</string>
-    <string name="acc_label_zip_short">ZIP</string>
-    <string name="add_card">Voeg een nieuwe betaalkaart toe om aankopen te doen in deze app.</string>
-    <string name="address_city_required">Geef je plaats op</string>
-    <string name="address_county_required">Geef je graafschap op</string>
-    <string name="address_label_address">Adres</string>
-    <string name="address_label_address_line1">Adresregel 1</string>
-    <string name="address_label_address_line1_optional">Adresregel 1 (optioneel)</string>
-    <string name="address_label_address_line2">Adresregel 2</string>
-    <string name="address_label_address_line2_optional">Adresregel 2 (optioneel)</string>
-    <string name="address_label_address_optional">Adres (optioneel) </string>
-    <string name="address_label_apt">App.</string>
-    <string name="address_label_apt_optional">App. (optioneel)</string>
-    <string name="address_label_city">Plaats</string>
-    <string name="address_label_city_optional">Plaats (optioneel)</string>
-    <string name="address_label_country">Land</string>
-    <string name="address_label_county">Graafschap</string>
-    <string name="address_label_county_optional">Graafschap (optioneel)</string>
-    <string name="address_label_name">Naam</string>
-    <string name="address_label_name_optional">Naam (optioneel)</string>
-    <string name="address_label_phone_number">Telefoonnummer</string>
-    <string name="address_label_phone_number_optional">Telefoonnummer (optioneel)</string>
-    <string name="address_label_postal_code">Postcode</string>
-    <string name="address_label_postal_code_optional">Postcode (optioneel)</string>
-    <string name="address_label_postcode">Postcode</string>
-    <string name="address_label_postcode_optional">Postcode (optioneel)</string>
-    <string name="address_label_province">Provincie</string>
-    <string name="address_label_province_optional">Provincie (optioneel)</string>
-    <string name="address_label_region_generic">Staat/provincie/regio</string>
-    <string name="address_label_region_generic_optional">Staat/provincie/regio (optioneel)</string>
-    <string name="address_label_state">Staat</string>
-    <string name="address_label_state_optional">Staat (optioneel)</string>
-    <string name="address_label_zip_code">Postcode</string>
-    <string name="address_label_zip_code_optional">Postcode (optioneel)</string>
-    <string name="address_label_zip_postal_code">Postcode</string>
-    <string name="address_label_zip_postal_code_optional">Postcode (optioneel)</string>
-    <string name="address_name_required">Geef je naam op</string>
-    <string name="address_phone_number_required">Geef je telefoonnummer op</string>
-    <string name="address_postal_code_invalid">Je postcode is ongeldig</string>
-    <string name="address_postcode_invalid">Je postcode is ongeldig</string>
-    <string name="address_province_required">Geef je provincie op</string>
-    <string name="address_region_generic_required">Geef je staat/provincie/regio op</string>
-    <string name="address_required">Geef je adres op</string>
-    <string name="address_shipping_address">Verzendadres</string>
-    <string name="address_state_required">Geef je staat op</string>
-    <string name="address_zip_invalid">Je postcode is ongeldig.</string>
-    <string name="address_zip_postal_invalid">Je postcode is ongeldig</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Ga naar &lt;b>facebook.com/device&lt;/b> en voer de bovenstaande code in.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Onverwachte fout bij downloaden van afbeelding.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">Voor WebView-aanmelding is INTERNET-toestemming vereist</string>
@@ -107,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Openen op telefoon"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Inloggen"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Inloggen met Google"</string>
+    <string name="crop_image_activity_no_permissions">Wordt geannuleerd, vereiste machtigingen zijn niet toegekend</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Bijsnijden</string>
+    <string name="crop_image_menu_flip">Spiegelen</string>
+    <string name="crop_image_menu_flip_horizontally">Horizontaal spiegelen</string>
+    <string name="crop_image_menu_flip_vertically">Verticaal spiegelen</string>
+    <string name="crop_image_menu_rotate_left">Tegen de klok in draaien</string>
+    <string name="crop_image_menu_rotate_right">Draaien</string>
     <string name="exo_controls_fastforward_description">Vooruitspoelen</string>
     <string name="exo_controls_fullscreen_description">Modus \'Volledig scherm\'</string>
     <string name="exo_controls_next_description">Volgende track</string>
@@ -139,19 +98,9 @@
     <string name="exo_track_surround_5_point_1">5.1 surroundgeluid</string>
     <string name="exo_track_surround_7_point_1">7.1 surroundgeluid</string>
     <string name="exo_track_unknown">Onbekend</string>
-    <string name="expiry_date_hint">MM/YY</string>
-    <string name="expiry_label_short">Verval</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Overige"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Overige"</string>
-    <string name="invalid_card_number">Uw kaartnummer is ongeldig.</string>
-    <string name="invalid_cvc">De beveiligingscode van uw kaart is ongeldig.</string>
-    <string name="invalid_expiry_month">De vervalmaand van uw kaart is ongeldig.</string>
-    <string name="invalid_expiry_year">Het vervaljaar van uw kaart is ongeldig.</string>
-    <string name="invalid_shipping_information">Ongeldig verzendadres</string>
-    <string name="invalid_zip">Uw postcode is onvolledig.</string>
-    <string name="no_payment_methods">Geen betalingsmethoden.</string>
-    <string name="payment_method_add_new_card">Nieuwe kaart toevoegen…</string>
-    <string name="price_free">Gratis</string>
+    <string name="pick_image_intent_chooser_title">Bron selecteren</string>
     <string msgid="368094699078615544" name="s1">"Afbeelding opslaan"</string>
     <string msgid="4550830452390689489" name="s2">"Advertentie toestaan om afbeelding op te slaan in fotogalerij?"</string>
     <string msgid="2435407834265420668" name="s3">"Accepteren"</string>
@@ -161,9 +110,5 @@
     <string msgid="7163549807207034258" name="s7">"Testadvertentie"</string>
     <string msgid="146198913615257606" name="search_menu_title">"Zoeken"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
-    <string name="title_add_a_card">Een kaart toevoegen</string>
-    <string name="title_add_an_address">Voeg een adres toe</string>
-    <string name="title_payment_method">Betalingsmethode</string>
-    <string name="title_select_shipping_method">Selecteer een verzendmethode</string>
     <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Kopen met Google"</string>
 </resources>

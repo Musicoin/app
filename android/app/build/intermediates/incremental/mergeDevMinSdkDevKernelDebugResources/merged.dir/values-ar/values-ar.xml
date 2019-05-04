@@ -40,9 +40,9 @@
     <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">متابعة باسم %1$s</string>
     <string gender="unknown" name="com_facebook_smart_login_confirmation_title">تأكيد تسجيل الدخول</string>
     <string gender="unknown" name="com_facebook_tooltip_default">أنت المتحكم في الأمر - يمكنك اختيار المعلومات التي تود مشاركتها مع التطبيقات.</string>
-    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"تمكين"</string>
-    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تمكين خدمات Google Play."</string>
-    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏تمكين خدمات Google Play"</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"تفعيل"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"‏لن يعمل <ns1:g id="APP_NAME">%1$s</ns1:g> ما لم يتم تفعيل خدمات Google Play."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"‏تفعيل خدمات Google Play"</string>
     <string msgid="9115728400623041681" name="common_google_play_services_install_button">"تثبيت"</string>
     <string msgid="8179894293032530091" name="common_google_play_services_install_text">"‏لن يتم تشغيل <ns1:g id="APP_NAME">%1$s</ns1:g> بدون خدمات Google Play، والتي لا تتوفر على جهازك."</string>
     <string msgid="7442193194585196676" name="common_google_play_services_install_title">"‏الحصول على خدمات Google Play"</string>
@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"فتح على الهاتف"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"تسجل الدخول"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"‏تسجيل الدخول عبر Google"</string>
+    <string name="crop_image_activity_no_permissions">إلغاء؛ الأذونات المطلوبة غير ممنوحة</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">قُصّ</string>
+    <string name="crop_image_menu_flip">اقلب</string>
+    <string name="crop_image_menu_flip_horizontally">اقلب أفقيًا</string>
+    <string name="crop_image_menu_flip_vertically">اقلب رأسيًا</string>
+    <string name="crop_image_menu_rotate_left">أدر عكس اتجاه عقارب الساعة</string>
+    <string name="crop_image_menu_rotate_right">أدر</string>
     <string name="exo_controls_fastforward_description">تقديم سريع</string>
     <string name="exo_controls_fullscreen_description">وضع ملء الشاشة</string>
     <string name="exo_controls_next_description">المقطع الصوتي التالي</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">غير معروف</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"متنوعة"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"متنوعة"</string>
+    <string name="pick_image_intent_chooser_title">اختر مصدرًا</string>
     <string msgid="368094699078615544" name="s1">"حفظ الصورة"</string>
     <string msgid="4550830452390689489" name="s2">"هل تريد السماح للإعلان بتخزين الصورة في معرض الصور؟"</string>
     <string msgid="2435407834265420668" name="s3">"قبول"</string>

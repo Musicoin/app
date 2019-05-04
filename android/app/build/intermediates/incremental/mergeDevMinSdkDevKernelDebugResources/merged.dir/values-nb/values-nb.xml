@@ -57,6 +57,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Åpne på telefonen"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Logg på"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Logg på med Google"</string>
+    <string name="crop_image_activity_no_permissions">Avbryter, nødvendige tillatelser er ikke gitt</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Beskjær</string>
+    <string name="crop_image_menu_flip">Vend</string>
+    <string name="crop_image_menu_flip_horizontally">Vend vannrett</string>
+    <string name="crop_image_menu_flip_vertically">Vend loddrett</string>
+    <string name="crop_image_menu_rotate_left">Roter teller med urviseren</string>
+    <string name="crop_image_menu_rotate_right">Roter</string>
     <string name="exo_controls_fastforward_description">Spol forover</string>
     <string name="exo_controls_fullscreen_description">Fullskjermmodus</string>
     <string name="exo_controls_next_description">Neste spor</string>
@@ -91,6 +99,7 @@
     <string name="exo_track_unknown">Ukjent</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Diverse"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Diverse"</string>
+    <string name="pick_image_intent_chooser_title">Velg kilde</string>
     <string msgid="368094699078615544" name="s1">"Lagre bilde"</string>
     <string msgid="4550830452390689489" name="s2">"Vil du la annonsen lagre bildet i bildegalleriet?"</string>
     <string msgid="2435407834265420668" name="s3">"Godta"</string>

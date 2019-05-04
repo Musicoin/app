@@ -38,6 +38,23 @@
                     }
                 },
                 {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/res/values-sq/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "187",
+                        "endOffsets": "434"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3100",
+                        "endColumns": "187",
+                        "endOffsets": "3283"
+                    }
+                },
+                {
                     "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/4d235d4bc459b900c45211d477690d1a/res/values-sq/values-sq.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
@@ -55,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/2d12f795b1ffa9ff54b2886aeb061b50/res/values-sq/values.xml",
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/res/values-sq/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -120,23 +137,6 @@
                         "startOffsets": "7119,7193,7324,7391,7459,7550,7669",
                         "endColumns": "73,130,66,67,90,118,73",
                         "endOffsets": "7188,7319,7386,7454,7545,7664,7738"
-                    }
-                },
-                {
-                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/992966a297c1c3bf63422a634b51f1f8/res/values-sq/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "187",
-                        "endOffsets": "434"
-                    },
-                    "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3100",
-                        "endColumns": "187",
-                        "endOffsets": "3283"
                     }
                 }
             ]

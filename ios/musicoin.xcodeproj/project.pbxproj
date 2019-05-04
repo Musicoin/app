@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62BA4FFD578249B2A1FFF23A /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C9C007A0E4544A1112668 /* libRNTrackPlayer.a */; };
+		A1CB5A3CE10B4B42812CC935 /* libPods-musicoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-musicoin.a */; };
 		B035E0CF21EF2D82008BD247 /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035E0CE21EF2D82008BD247 /* dummy.swift */; };
 		B0BD5BA12241633800E7C25F /* libRNIap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD5B9F2241627D00E7C25F /* libRNIap.a */; };
 		B0BD5BA3224167B400E7C25F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0BD5BA2224167B400E7C25F /* StoreKit.framework */; };
@@ -22,7 +23,6 @@
 		B5CFBF4F1EDE419400B4BE24 /* EXBuildConstants.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5CFBF4E1EDE419400B4BE24 /* EXBuildConstants.plist */; };
 		B5DB04801F3A684600E91581 /* shell-app-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B5DB047E1F3A684600E91581 /* shell-app-manifest.json */; };
 		B5DB04811F3A684600E91581 /* shell-app.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B5DB047F1F3A684600E91581 /* shell-app.bundle */; };
-		EBB8117C1BFA0514F79CAF74 /* libPods-musicoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-musicoin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,9 +75,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0BD5BA12241633800E7C25F /* libRNIap.a in Frameworks */,
-				EBB8117C1BFA0514F79CAF74 /* libPods-musicoin.a in Frameworks */,
 				62BA4FFD578249B2A1FFF23A /* libRNTrackPlayer.a in Frameworks */,
 				B0BD5BA3224167B400E7C25F /* StoreKit.framework in Frameworks */,
+				A1CB5A3CE10B4B42812CC935 /* libPods-musicoin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +510,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6FBZ87VFS3;
 				INFOPLIST_FILE = "$(SRCROOT)/musicoin/Supporting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,6 +537,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6FBZ87VFS3;
 				INFOPLIST_FILE = "$(SRCROOT)/musicoin/Supporting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

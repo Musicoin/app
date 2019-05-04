@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.musicoin.musicoin"
-    android:versionCode="9"
-    android:versionName="2.1.0" >
+    android:versionCode="10"
+    android:versionName="3.0.0" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -414,7 +414,27 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
-        </provider> <!-- The main service, handles playback, playlists and media buttons -->
+        </provider>
+
+        <receiver
+            android:name="expo.modules.taskManager.TaskBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="expo.modules.taskManager.TaskBroadcastReceiver.INTENT_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="expo.modules.taskManager.TaskJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="expo.modules.appauth.AppAuthBrowserActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- The main service, handles playback, playlists and media buttons -->
         <service
             android:name="com.guichaguri.trackplayer.service.MusicService"
             android:enabled="true"
@@ -429,24 +449,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="expo.modules.payments.stripe.OpenBrowserActivity"
-            android:exported="false"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.stripe.android.view.AddSourceActivity"
-            android:theme="@style/StripeDefaultTheme"
-            android:windowSoftInputMode="stateVisible" >
-        </activity>
-        <activity
-            android:name="com.stripe.android.view.PaymentMethodsActivity"
-            android:theme="@style/StripeDefaultTheme" >
-        </activity>
-        <activity
-            android:name="com.stripe.android.view.PaymentFlowActivity"
-            android:theme="@style/StripeDefaultTheme" >
-        </activity>
         <activity android:name="com.facebook.CustomTabMainActivity" />
         <activity android:name="com.facebook.CustomTabActivity" />
         <activity
@@ -489,10 +491,9 @@
             android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
             android:exported="false" />
 
-        <activity
-            android:name="com.android.billingclient.api.ProxyBillingActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
         <!--
              FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"
@@ -558,23 +559,23 @@
             <intent-filter android:priority="-500" >
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
-        </service>
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <provider
-            android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="org.musicoin.musicoin.firebaseinitprovider"
-            android:exported="false"
-            android:initOrder="100" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        </service> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="org.musicoin.musicoin.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -605,6 +606,11 @@
                 <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name="com.android.billingclient.api.ProxyBillingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

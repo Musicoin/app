@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"스마트폰에서 열기"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"로그인"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Google 계정으로 로그인"</string>
+    <string name="crop_image_activity_no_permissions">필수 권한이 없어서 취소합니다.</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">자르기</string>
+    <string name="crop_image_menu_flip">반전</string>
+    <string name="crop_image_menu_flip_horizontally">좌우반전</string>
+    <string name="crop_image_menu_flip_vertically">상하반전</string>
+    <string name="crop_image_menu_rotate_left">반시계 회전</string>
+    <string name="crop_image_menu_rotate_right">회전</string>
     <string name="exo_controls_fastforward_description">빨리 감기</string>
     <string name="exo_controls_fullscreen_description">전체화면 모드</string>
     <string name="exo_controls_next_description">다음 트랙</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">알 수 없음</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"기타"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"기타"</string>
+    <string name="pick_image_intent_chooser_title">이미지 선택</string>
     <string msgid="368094699078615544" name="s1">"이미지 저장"</string>
     <string msgid="4550830452390689489" name="s2">"광고에서 사진 갤러리에 이미지를 저장하도록 허용하시겠습니까?"</string>
     <string msgid="2435407834265420668" name="s3">"동의"</string>

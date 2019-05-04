@@ -4,9 +4,6 @@
     <dimen name="notification_content_margin_start">0dp</dimen>
     <dimen name="notification_main_column_padding_top">0dp</dimen>
     <dimen name="notification_media_narrow_margin">12dp</dimen>
-    <style name="AppBaseTheme" parent="android:Theme.Material.Light">
-        <!-- API 21 theme customizations can go here. -->
-    </style>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
     <style name="Base.TextAppearance.AppCompat.Body2" parent="android:TextAppearance.Material.Body2"/>
@@ -165,9 +162,6 @@
     <style name="Base.V21.ThemeOverlay.AppCompat.Dialog" parent="Base.V7.ThemeOverlay.AppCompat.Dialog">
         <item name="android:windowElevation">@dimen/abc_floating_window_z</item>
     </style>
-    <style name="Base.V21.Widget.Design.AppBarLayout" parent="Base.V14.Widget.Design.AppBarLayout">
-        <item name="android:stateListAnimator">@animator/design_appbar_state_list_animator</item>
-    </style>
     <style name="Base.Widget.AppCompat.ActionBar.TabText" parent="android:Widget.Material.ActionBar.TabText">
     </style>
     <style name="Base.Widget.AppCompat.ActionBar.TabView" parent="android:Widget.Material.ActionBar.TabView">
@@ -229,7 +223,6 @@
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.Material.TextView.SpinnerItem"/>
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="android:Widget.Material.Toolbar.Button.Navigation">
     </style>
-    <style name="Base.Widget.Design.AppBarLayout" parent="Base.V21.Widget.Design.AppBarLayout"/>
     <style name="Platform.AppCompat" parent="Platform.V21.AppCompat"/>
     <style name="Platform.AppCompat.Light" parent="Platform.V21.AppCompat.Light"/>
     <style name="Platform.ThemeOverlay.AppCompat" parent="">

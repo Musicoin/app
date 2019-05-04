@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.android:facebook-messenger:4.39.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.39.0.aar/c03a586ed883a00e83d87bc885d84535/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.39.0.aar/c03a586ed883a00e83d87bc885d84535/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-messenger/4.39.0/362d4641ec75617426808f32709cbfb14cebf2be/facebook-messenger-4.39.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

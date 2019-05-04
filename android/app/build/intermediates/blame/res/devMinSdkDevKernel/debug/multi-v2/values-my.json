@@ -4,7 +4,7 @@
             "outputFile": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/incremental/mergeDevMinSdkDevKernelDebugResources/merged.dir/values-my/values-my.xml",
             "map": [
                 {
-                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/2d12f795b1ffa9ff54b2886aeb061b50/res/values-my/values.xml",
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/res/values-my/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -35,6 +35,23 @@
                         "startOffsets": "7971",
                         "endColumns": "100",
                         "endOffsets": "8067"
+                    }
+                },
+                {
+                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/res/values-my/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "212",
+                        "endOffsets": "459"
+                    },
+                    "to": {
+                        "startLines": "27",
+                        "startColumns": "4",
+                        "startOffsets": "3142",
+                        "endColumns": "212",
+                        "endOffsets": "3350"
                     }
                 },
                 {
@@ -120,23 +137,6 @@
                         "startOffsets": "7037",
                         "endColumns": "105",
                         "endOffsets": "7138"
-                    }
-                },
-                {
-                    "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/992966a297c1c3bf63422a634b51f1f8/res/values-my/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "212",
-                        "endOffsets": "459"
-                    },
-                    "to": {
-                        "startLines": "27",
-                        "startColumns": "4",
-                        "startOffsets": "3142",
-                        "endColumns": "212",
-                        "endOffsets": "3350"
                     }
                 },
                 {

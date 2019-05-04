@@ -4,12 +4,12 @@
     "description": "Musicoin app",
     "slug": "Musicoin",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "sdkVersion": "32.0.0",
     "platforms": [
       "ios",
       "android"
     ],
-    "version": "2.1.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "primaryColor": "#1A1D21",
@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "org.musicoin.musicoin",
-      "buildNumber": "2.1.0",
+      "buildNumber": "3.0.0",
       "publishBundlePath": "ios/musicoin/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/musicoin/Supporting/shell-app-manifest.json"
     },

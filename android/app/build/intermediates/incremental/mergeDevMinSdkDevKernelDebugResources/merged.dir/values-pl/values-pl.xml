@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Otwórz na telefonie"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Zaloguj się"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Zaloguj się przez Google"</string>
+    <string name="crop_image_activity_no_permissions">Przerywaniem, potrzebne uprawnienia nie zostały nadane</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Przytnij</string>
+    <string name="crop_image_menu_flip">Odbij</string>
+    <string name="crop_image_menu_flip_horizontally">Odbij poziomo</string>
+    <string name="crop_image_menu_flip_vertically">Odbij pionowo</string>
+    <string name="crop_image_menu_rotate_left">Obróć w lewo</string>
+    <string name="crop_image_menu_rotate_right">Obróć</string>
     <string name="exo_controls_fastforward_description">Przewiń do przodu</string>
     <string name="exo_controls_fullscreen_description">Tryb pełnoekranowy</string>
     <string name="exo_controls_next_description">Następny utwór</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">Nieznany</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Inne"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Inne"</string>
+    <string name="pick_image_intent_chooser_title">Wybierz źródło</string>
     <string msgid="368094699078615544" name="s1">"Zapisz obraz"</string>
     <string msgid="4550830452390689489" name="s2">"Zezwolić reklamie na zapisanie obrazu w galerii zdjęć?"</string>
     <string msgid="2435407834265420668" name="s3">"Zaakceptuj"</string>

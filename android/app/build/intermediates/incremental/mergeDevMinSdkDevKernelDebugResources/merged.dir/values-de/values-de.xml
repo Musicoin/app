@@ -17,55 +17,6 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Freigeben für"</string>
     <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Mit <ns1:g id="APPLICATION_NAME">%s</ns1:g> teilen"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Minimieren"</string>
-    <string name="acc_label_card_number">Kartennummer</string>
-    <string name="acc_label_expiry_date">Gültig bis</string>
-    <string name="acc_label_zip">Postleitzahl</string>
-    <string name="acc_label_zip_short">ZIP</string>
-    <string name="add_card">Fügen Sie eine neue Debit- oder Kreditkarte hinzu, um in dieser App Käufe zu tätigen.</string>
-    <string name="address_city_required">Bitte geben Sie Ihren Ort ein</string>
-    <string name="address_county_required">Bitte geben Sie Ihr Land ein</string>
-    <string name="address_label_address">Adresse</string>
-    <string name="address_label_address_line1">Adresszeile 1</string>
-    <string name="address_label_address_line1_optional">Adresszeile 1 (optional)</string>
-    <string name="address_label_address_line2">Adresszeile 2</string>
-    <string name="address_label_address_line2_optional">Adresszeile 2 (optional)</string>
-    <string name="address_label_address_optional">Adresse (optional) </string>
-    <string name="address_label_apt">Wohnung/Gebäude</string>
-    <string name="address_label_apt_optional">Wohnung/Gebäude (optional)</string>
-    <string name="address_label_city">Ort</string>
-    <string name="address_label_city_optional">Ort (optional)</string>
-    <string name="address_label_country">Land</string>
-    <string name="address_label_county">Kreis/Bezirk</string>
-    <string name="address_label_county_optional">Kreis/Bezirk (optional)</string>
-    <string name="address_label_name">Name</string>
-    <string name="address_label_name_optional">Name (optional)</string>
-    <string name="address_label_phone_number">Telefonnummer</string>
-    <string name="address_label_phone_number_optional">Telefonnummer (optional)</string>
-    <string name="address_label_postal_code">Postleitzahl</string>
-    <string name="address_label_postal_code_optional">Postleitzahl (optional)</string>
-    <string name="address_label_postcode">Postleitzahl</string>
-    <string name="address_label_postcode_optional">Postleitzahl (optional)</string>
-    <string name="address_label_province">Kanton</string>
-    <string name="address_label_province_optional">Kanton (optional)</string>
-    <string name="address_label_region_generic"> Bundesland / Kanton / Region</string>
-    <string name="address_label_region_generic_optional">Bundesland / Kanton / Region (optional)</string>
-    <string name="address_label_state">Bundesland</string>
-    <string name="address_label_state_optional">Bundesland (optional)</string>
-    <string name="address_label_zip_code">Postleitzahl</string>
-    <string name="address_label_zip_code_optional">Postleitzahl (optional)</string>
-    <string name="address_label_zip_postal_code">Postleitzahl</string>
-    <string name="address_label_zip_postal_code_optional">Postleitzahl (optional)</string>
-    <string name="address_name_required">Bitte geben Sie Ihren Namen ein</string>
-    <string name="address_phone_number_required">Bitte gehen Sie Ihre Telefonnummer ein</string>
-    <string name="address_postal_code_invalid">Ihre Postleitzahl ist ungültig</string>
-    <string name="address_postcode_invalid">Ihre Postleitzahl ist ungültig</string>
-    <string name="address_province_required">Bitte geben Sie Ihren Kanton ein</string>
-    <string name="address_region_generic_required">Bitte gehen Sie Ihr(e/n) Bundesland / Kanton / Region ein</string>
-    <string name="address_required">Bitte geben Sie Ihre Adresse ein</string>
-    <string name="address_shipping_address">Versandadresse</string>
-    <string name="address_state_required">Bitte geben Sie Ihren Bundesland ein</string>
-    <string name="address_zip_invalid">Ihre Postleitzahl ist ungültig.</string>
-    <string name="address_zip_postal_invalid">Ihre Postleitzahl ist ungültig</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Gehe zu &lt;b>facebook.com/device&lt;/b> und gib den oben angezeigten Code ein.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Unerwarteter Fehler beim Herunterladen eines Bildes.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">WebView-Anmeldung erfordert INTERNET-Berechtigung</string>
@@ -107,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Auf Smartphone öffnen"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Anmelden"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Über Google anmelden"</string>
+    <string name="crop_image_activity_no_permissions">Vorgang wird abgebrochen, benötigte Berechtigungen wurden nicht erteilt.</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">zuschneiden</string>
+    <string name="crop_image_menu_flip">spiegeln</string>
+    <string name="crop_image_menu_flip_horizontally">horizontal spiegeln</string>
+    <string name="crop_image_menu_flip_vertically">vertikal spiegeln</string>
+    <string name="crop_image_menu_rotate_left">gegen den Uhrzeigersinn drehen</string>
+    <string name="crop_image_menu_rotate_right">drehen</string>
     <string name="exo_controls_fastforward_description">Vorspulen</string>
     <string name="exo_controls_fullscreen_description">Vollbildmodus</string>
     <string name="exo_controls_next_description">Nächster Titel</string>
@@ -139,19 +98,9 @@
     <string name="exo_track_surround_5_point_1">5.1-Surround-Sound</string>
     <string name="exo_track_surround_7_point_1">7.1-Surround-Sound</string>
     <string name="exo_track_unknown">Unbekannt</string>
-    <string name="expiry_date_hint">MM/JJ</string>
-    <string name="expiry_label_short">Gültig bis</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Sonstiges"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Sonstiges"</string>
-    <string name="invalid_card_number">Die Kartennummer ist ungültig.</string>
-    <string name="invalid_cvc">Der Sicherheitscode Ihrer Karte ist ungültig.</string>
-    <string name="invalid_expiry_month">Die Monatsangabe Ihrer Karte ist ungültig.</string>
-    <string name="invalid_expiry_year">Die Jahresangabe Ihrer Karte ist ungültig.</string>
-    <string name="invalid_shipping_information">Ungültige Versandadresse</string>
-    <string name="invalid_zip">Ihre Postleitzahl ist unvollständig.</string>
-    <string name="no_payment_methods">Keine Zahlungsmethoden.</string>
-    <string name="payment_method_add_new_card">Neue Karte hinzufügen…</string>
-    <string name="price_free">Gratis</string>
+    <string name="pick_image_intent_chooser_title">Quelle wählen</string>
     <string msgid="368094699078615544" name="s1">"Bild speichern"</string>
     <string msgid="4550830452390689489" name="s2">"Der Werbeanzeige erlauben, das Bild in der Bildergalerie zu speichern?"</string>
     <string msgid="2435407834265420668" name="s3">"Zustimmen"</string>
@@ -161,9 +110,5 @@
     <string msgid="7163549807207034258" name="s7">"Testanzeige"</string>
     <string msgid="146198913615257606" name="search_menu_title">"Suchen"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
-    <string name="title_add_a_card">Karte hinzufügen</string>
-    <string name="title_add_an_address">Adresse hinzufügen</string>
-    <string name="title_payment_method">Zahlungsmethode</string>
-    <string name="title_select_shipping_method">Versandmethode auswählen</string>
     <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Über Google kaufen"</string>
 </resources>

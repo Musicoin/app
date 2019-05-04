@@ -17,55 +17,6 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Compartir con"</string>
     <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Contraer"</string>
-    <string name="acc_label_card_number">Número de tarjeta</string>
-    <string name="acc_label_expiry_date">Fecha de vencimiento</string>
-    <string name="acc_label_zip">Código postal</string>
-    <string name="acc_label_zip_short">ZIP</string>
-    <string name="add_card">Añade una tarjeta de crédito o de débito nueva para realizar compras en esta aplicación.</string>
-    <string name="address_city_required">Introduce el nombre de tu localidad</string>
-    <string name="address_county_required">Introduce el nombre de tu condado</string>
-    <string name="address_label_address">Dirección</string>
-    <string name="address_label_address_line1">Dirección línea 1 </string>
-    <string name="address_label_address_line1_optional">Dirección línea 1 (opcional)</string>
-    <string name="address_label_address_line2">Dirección línea 2</string>
-    <string name="address_label_address_line2_optional">Dirección línea 2 (opcional)</string>
-    <string name="address_label_address_optional">Dirección (opcional) </string>
-    <string name="address_label_apt">Apto.  </string>
-    <string name="address_label_apt_optional">Apto. (opcional)</string>
-    <string name="address_label_city">Localidad</string>
-    <string name="address_label_city_optional">Localidad (opcional)</string>
-    <string name="address_label_country">País</string>
-    <string name="address_label_county">Condado</string>
-    <string name="address_label_county_optional">Condado (opcional)</string>
-    <string name="address_label_name">Nombre</string>
-    <string name="address_label_name_optional">Nombre (opcional)</string>
-    <string name="address_label_phone_number">Número de teléfono</string>
-    <string name="address_label_phone_number_optional">Número de teléfono (opcional)</string>
-    <string name="address_label_postal_code">Código postal</string>
-    <string name="address_label_postal_code_optional">Código postal (opcional)</string>
-    <string name="address_label_postcode">Código postal</string>
-    <string name="address_label_postcode_optional">Código postal (opcional)</string>
-    <string name="address_label_province">Provincia</string>
-    <string name="address_label_province_optional">Provincia (opcional)</string>
-    <string name="address_label_region_generic"> Estado/ Provincia / Región</string>
-    <string name="address_label_region_generic_optional">Estado/ Provincia / Región (opcional)</string>
-    <string name="address_label_state">Estado</string>
-    <string name="address_label_state_optional">Estado (opcional)</string>
-    <string name="address_label_zip_code">Código postal</string>
-    <string name="address_label_zip_code_optional">Código postal (opcional)</string>
-    <string name="address_label_zip_postal_code">Código postal</string>
-    <string name="address_label_zip_postal_code_optional">Código postal (opcional)</string>
-    <string name="address_name_required">Introduce tu nombre</string>
-    <string name="address_phone_number_required">Introduce tu número de teléfono</string>
-    <string name="address_postal_code_invalid">El código postal no es válido</string>
-    <string name="address_postcode_invalid">El código postal no es válido</string>
-    <string name="address_province_required">Introduce el nombre de tu provincia</string>
-    <string name="address_region_generic_required">Introduce el nombre de tu estado / provincia / región</string>
-    <string name="address_required">Introduce tu dirección</string>
-    <string name="address_shipping_address">Dirección de envío</string>
-    <string name="address_state_required">Introduce el nombre de tu estado</string>
-    <string name="address_zip_invalid">El código postal no es válido.</string>
-    <string name="address_zip_postal_invalid">El código postal no es válido</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">Ve a &lt;b>facebook.com/device&lt;/b> e ingresa el código que se muestra arriba.</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">Se produjo un error inesperado al descargar una imagen.</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">El inicio de sesión de WebView requiere permisos de INTERNET</string>
@@ -139,19 +90,8 @@
     <string name="exo_track_surround_5_point_1">Sonido envolvente 5.1</string>
     <string name="exo_track_surround_7_point_1">Sonido envolvente 7.1</string>
     <string name="exo_track_unknown">Desconocido</string>
-    <string name="expiry_date_hint">MM/AA</string>
-    <string name="expiry_label_short">Venc.</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Varias"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Varias"</string>
-    <string name="invalid_card_number">El número de tarjeta no es válido.</string>
-    <string name="invalid_cvc">El código de seguridad de la tarjeta no es válido.</string>
-    <string name="invalid_expiry_month">El mes de vencimiento de la tarjeta no es válido.</string>
-    <string name="invalid_expiry_year">El año de vencimiento de la tarjeta no es válido.</string>
-    <string name="invalid_shipping_information">Dirección de envío no válida</string>
-    <string name="invalid_zip">Código postal incompleto.</string>
-    <string name="no_payment_methods">Ningún método de pago.</string>
-    <string name="payment_method_add_new_card">Añadir tarjeta nueva…</string>
-    <string name="price_free">Gratuito</string>
     <string msgid="368094699078615544" name="s1">"Guardar imagen"</string>
     <string msgid="4550830452390689489" name="s2">"¿Permitir que el anuncio almacene imágenes en la galería de imágenes?"</string>
     <string msgid="2435407834265420668" name="s3">"Aceptar"</string>
@@ -161,9 +101,5 @@
     <string msgid="7163549807207034258" name="s7">"Anuncio de prueba"</string>
     <string msgid="146198913615257606" name="search_menu_title">"Buscar"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"+999"</string>
-    <string name="title_add_a_card">Añadir una tarjeta</string>
-    <string name="title_add_an_address">Añade una dirección</string>
-    <string name="title_payment_method">Método de pago</string>
-    <string name="title_select_shipping_method">Selecciona el método de envío</string>
     <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Comprar con Google"</string>
 </resources>

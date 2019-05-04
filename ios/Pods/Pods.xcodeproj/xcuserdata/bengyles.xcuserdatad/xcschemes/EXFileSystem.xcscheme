@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "842F0266239BB1974229D775E78457F3"
+               BlueprintIdentifier = "63463D6114A8F9760A19B839301A44E6"
                BlueprintName = "EXFileSystem"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libEXFileSystem.a">

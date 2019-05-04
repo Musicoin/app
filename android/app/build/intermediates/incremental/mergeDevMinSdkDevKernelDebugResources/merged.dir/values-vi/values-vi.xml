@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Mở trên điện thoại"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Đăng nhập"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Đăng nhập bằng Google"</string>
+    <string name="crop_image_activity_no_permissions">Đang hủy, các quyền đã yêu cầu không được cấp</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Cắt</string>
+    <string name="crop_image_menu_flip">Lật</string>
+    <string name="crop_image_menu_flip_horizontally">Lật theo chiều ngang</string>
+    <string name="crop_image_menu_flip_vertically">Lật theo chiều dọc</string>
+    <string name="crop_image_menu_rotate_left">Xoay theo chiều kim đồng hồ</string>
+    <string name="crop_image_menu_rotate_right">Xoay</string>
     <string name="exo_controls_fastforward_description">Tua đi</string>
     <string name="exo_controls_fullscreen_description">Chế độ toàn màn hình</string>
     <string name="exo_controls_next_description">Bản nhạc tiếp theo</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">Không xác định</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Khác"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Khác"</string>
+    <string name="pick_image_intent_chooser_title">Chọn nguồn</string>
     <string msgid="368094699078615544" name="s1">"Lưu hình ảnh"</string>
     <string msgid="4550830452390689489" name="s2">"Cho phép Quảng cáo lưu trữ hình ảnh trong thư viện Ảnh?"</string>
     <string msgid="2435407834265420668" name="s3">"Chấp nhận"</string>

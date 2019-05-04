@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"在手机上打开"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"登录"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"使用 Google 帐号登录"</string>
+    <string name="crop_image_activity_no_permissions">取消中，未授予所需权限</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">裁切</string>
+    <string name="crop_image_menu_flip">翻转</string>
+    <string name="crop_image_menu_flip_horizontally">水平翻转</string>
+    <string name="crop_image_menu_flip_vertically">垂直翻转</string>
+    <string name="crop_image_menu_rotate_left">逆时针旋转</string>
+    <string name="crop_image_menu_rotate_right">旋转</string>
     <string name="exo_controls_fastforward_description">快进</string>
     <string name="exo_controls_fullscreen_description">全屏模式</string>
     <string name="exo_controls_next_description">下一曲</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">未知</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"其他"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"其他"</string>
+    <string name="pick_image_intent_chooser_title">选择来源</string>
     <string msgid="368094699078615544" name="s1">"保存图片"</string>
     <string msgid="4550830452390689489" name="s2">"允许广告将图片存储在图库中吗？"</string>
     <string msgid="2435407834265420668" name="s3">"接受"</string>

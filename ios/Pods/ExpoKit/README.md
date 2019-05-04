@@ -1,8 +1,8 @@
 # Expo Client [![CircleCI](https://circleci.com/gh/expo/expo.svg?style=svg)](https://circleci.com/gh/expo/expo) [![Forums](https://img.shields.io/badge/expo-forum-blue.svg)](https://forums.expo.io)
 
-The Expo client app for Android and iOS.
+Expo is a set of tools, libraries, and services that let you build native iOS and Android apps by writing JavaScript. This repository is where the Expo client software is developed, and includes the client apps, modules, apps, and more.
 
-[Click here to view our documentation](https://docs.expo.io) for developing on Expo.
+[Click here to view our documentation](https://docs.expo.io) for developing on Expo. If you're new to the Expo community, [click here to view the Expo Community Guidelines](https://expo.io/guidelines). Thank you for helping keep the Expo community open and welcoming!
 
 ## Introduction
 
@@ -20,26 +20,23 @@ If you need to make native code changes to your Expo project, such as adding cus
 
 ## Set Up
 
-Please use Node 8+ and npm 4. We recommend installing Node using [nvm](https://github.com/creationix/nvm). We support building the clients only on macOS.
+Note: We support building the clients only on macOS.
 
-- Install the [`git-lfs`](https://git-lfs.github.com/) command line extension for `git`.
-- Install [the Gulp CLI](http://gulpjs.com/) globally: `npm install gulp-cli -g`.
+- Install [nix](https://nixos.org/nix) (currently `curl https://nixos.org/nix/install | sh`)
+- Install [direnv](http://direnv.net/) (to do this with nix, run `nix-env -iA nixpkgs.direnv`)
 - Clone this repo; we recommend cloning it to a directory whose full path does not include any spaces.
 - Run `yarn` in the `tools-public` directory.
 
 #### iOS
 - Make sure you have latest non-beta Xcode installed.
-- Install [Cocoapods](https://cocoapods.org/): `gem install cocoapods --no-ri --no-rdoc`
 - Run `git lfs pull`.
-- Run `./generate-files-ios.sh` in the `tools-public` directory.
+- Run `./generate-files-ios.js` in the `tools-public` directory.
 - Open and run `ios/Exponent.xcworkspace` in Xcode.
 
 #### Android
-- Make sure you have Android Studio 3 and the [Android NDK](https://facebook.github.io/react-native/docs/building-from-source.html#download-links-for-android-ndk) version `r10e` installed.
-- Run `./generate-dynamic-macros-android.sh` in the `tools-public` directory.
-- Build and install Android with `cd android; ./run.sh; cd ..`. It might fail the first time. If so just run `./run.sh` again.
-
-If you are running on an phone with Android 5 you might have to use `./run.sh installDev19Debug`. There is a bug running multidex applications in debug mode on Android 5 devices: https://code.google.com/p/android/issues/detail?id=79826.
+- Make sure you have Android Studio 3 installed
+- Run `android/install-ndk-17c.sh` to get the required version of the Android NDK.
+- See "Running on a Device"
 
 ## Running on a Device
 
@@ -55,7 +52,7 @@ If you are running on an phone with Android 5 you might have to use `./run.sh in
 ### Android
 - If the Play Store version of the Expo Client App is installed on your test device, uninstall it.
 - Connect your test device to your computer with a USB cable.
-- Run `cd android; ./run.sh`, or alternately open the `android` directory in Android Studio, start it, and in the **Select Deployment Target** dialog, select your device.
+- Run `fastlane android start`, or alternately open the `android` directory in Android Studio, start it, and in the **Select Deployment Target** dialog, select your device.
 
 ## Standalone Apps
 
@@ -67,7 +64,7 @@ If you're still here, make sure to follow the [Configure app.json](https://docs.
 The Android standalone app script creates a new directory `android-shell-app` with the modified Android project in it. It then compiles that new directory giving you a signed or unsigned `.apk` depending on whether you provide a keystore and the necessary passwords. If there are issues with the app you can open the `android-shell-app` project in Android Studio to debug.
 
 Here are the steps to build a standalone Android app:
-- Publish your experience from `XDE` or `exp`. Note the published url.
+- Publish your experience with Expo CLI. Note the published URL.
 - `cd tools-public`.
 - If you want a signed `.apk`, run `gulp android-shell-app --url [the published experience url] --sdkVersion [sdk version of your experience] --keystore [path to keystore] --alias [keystore alias] --keystorePassword [keystore password] --keyPassword [key password] --workingDir=../`.
 - If you don't want a signed `.apk`, run `gulp android-shell-app --url [the published experience url] --sdkVersion [sdk version of your experience] --workingDir=../`.
@@ -79,7 +76,7 @@ Here are the steps to build a standalone Android app:
 The iOS standalone app script has two actions, `build` and `configure`. `build` creates an archive or a simulator build of the Expo iOS workspace. `configure` accepts a path to an existing archive and modifies all its configuration files so that it will run as a standalone Expo experience rather than as the Expo client app.
 
 Here are the steps to build a standalone iOS app:
-- Publish your experience from `XDE` or `exp`. Note the published url.
+- Publish your experience with Expo CLI. Note the published URL.
 - `cd tools-public`.
 - `gulp ios-shell-app --action build --type [simulator or archive] --configuration [Debug or Release]`
 - The resulting archive will be created at `../shellAppBase-[type]`.

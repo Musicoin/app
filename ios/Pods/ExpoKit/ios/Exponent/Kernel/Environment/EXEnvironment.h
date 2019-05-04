@@ -48,7 +48,7 @@ FOUNDATION_EXPORT NSString * const kEXEmbeddedManifestResourceName;
 @property (nonatomic, readonly, nonnull) NSArray *allManifestUrls;
 
 /**
- *  True by default in ExpoKit apps created with `exp detach`, because the owner of the app needs to
+ *  True by default in ExpoKit apps created with `expo eject`, because the owner of the app needs to
  *  manually modify their App Id to enable keychain sharing.
  */
 @property (nonatomic, readonly) BOOL isManifestVerificationBypassed;
@@ -57,11 +57,6 @@ FOUNDATION_EXPORT NSString * const kEXEmbeddedManifestResourceName;
  *  Whether remote updates are allowed at all for this standalone app.
  */
 @property (nonatomic, readonly) BOOL areRemoteUpdatesEnabled;
-
-/**
- *  The session secret for the signed in user in the Expo Client
- */
-@property (nonatomic, strong, nullable) NSString *sessionSecret;
 
 /**
  *  Whether the app is running in a test environment (local Xcode test target, CI, or not at all).

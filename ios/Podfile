@@ -4,7 +4,7 @@ platform :ios, '10.0'
 target 'musicoin' do
   pod 'ExpoKit',
     :git => "http://github.com/expo/expo.git",
-    :tag => "ios/2.9.0",
+    :tag => "ios/2.10.6",
     :subspecs => [
       "Core"
     ],
@@ -86,6 +86,12 @@ target 'musicoin' do
       "DevSupport",
       "CxxBridge"
     ]
+   pod 'EXTaskManager',
+    :path => "../node_modules/expo-task-manager/ios"
+   pod 'EXTaskManagerInterface',
+    :path => "../node_modules/expo-task-manager-interface/ios"
+   pod 'EXAppLoaderProvider',
+    :path => "../node_modules/expo-app-loader-provider/ios"
   pod 'yoga',
     :path => "../node_modules/react-native/ReactCommon/yoga",
     :inhibit_warnings => true

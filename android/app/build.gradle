@@ -22,7 +22,7 @@ android {
   defaultConfig {
     applicationId 'org.musicoin.musicoin'
     targetSdkVersion 26
-    versionName '2.1.0'
+    versionName '3.0.0'
     ndk {
       abiFilters 'armeabi-v7a', 'x86'
     }
@@ -32,7 +32,7 @@ android {
     manifestPlaceholders = [
             'appAuthRedirectScheme': 'host.exp.exponent'
     ]
-    versionCode 9
+    versionCode 10
     signingConfig signingConfigs.debug
   }
   compileOptions {
@@ -109,7 +109,7 @@ dependencies {
   implementation project(':react-native-iap')
   implementation project(':react-native-track-player')
   implementation fileTree(include: ['*.jar'], dir: 'libs')
-  implementation('host.exp.exponent:expoview:31.0.0@aar') {
+  implementation('host.exp.exponent:expoview:32.0.0@aar') {
     transitive = true
     exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     exclude group: 'com.squareup.okhttp3', module: 'okhttp-urlconnection'
@@ -182,6 +182,46 @@ dependencies {
   testImplementation 'org.robolectric:robolectric:3.8'
   testImplementation 'com.android.support.test:runner:1.0.2-alpha1'
   testImplementation 'com.android.support.test:rules:1.0.2-alpha1'
+
+  api 'host.exp.exponent:expo-app-loader-provider:1.0.0'
+  api 'host.exp.exponent:expo-core:2.0.0'
+  api 'host.exp.exponent:expo-constants-interface:2.0.0'
+  api 'host.exp.exponent:expo-constants:2.0.0'
+  api 'host.exp.exponent:expo-errors:1.0.0'
+  api 'host.exp.exponent:expo-file-system-interface:2.0.0'
+  api 'host.exp.exponent:expo-file-system:2.0.0'
+  api 'host.exp.exponent:expo-image-loader-interface:2.0.0'
+  api 'host.exp.exponent:expo-permissions:2.0.0'
+  api 'host.exp.exponent:expo-permissions-interface:2.0.0'
+  api 'host.exp.exponent:expo-sensors-interface:2.0.0'
+  api 'host.exp.exponent:expo-react-native-adapter:2.0.0'
+  api 'host.exp.exponent:expo-task-manager:1.0.0'
+  api 'host.exp.exponent:expo-task-manager-interface:1.0.0'
+
+// Optional universal modules, could be removed
+// along with references in MainActivity
+  api 'host.exp.exponent:expo-ads-admob:2.0.0'
+  api 'host.exp.exponent:expo-app-auth:2.0.0'
+  api 'host.exp.exponent:expo-analytics-segment:2.0.0'
+  api 'host.exp.exponent:expo-barcode-scanner-interface:2.0.0'
+  api 'host.exp.exponent:expo-barcode-scanner:2.0.0'
+  api 'host.exp.exponent:expo-camera-interface:2.0.0'
+  api 'host.exp.exponent:expo-camera:2.0.0'
+  api 'host.exp.exponent:expo-contacts:2.0.0'
+  api 'host.exp.exponent:expo-face-detector:2.0.0'
+  api 'host.exp.exponent:expo-face-detector-interface:2.0.0'
+  api 'host.exp.exponent:expo-font:2.0.0'
+  api 'host.exp.exponent:expo-gl-cpp:2.0.0'
+  api 'host.exp.exponent:expo-gl:2.0.0'
+  api 'host.exp.exponent:expo-google-sign-in:2.0.0'
+  api 'host.exp.exponent:expo-local-authentication:2.0.0'
+  api 'host.exp.exponent:expo-localization:2.0.0'
+  api 'host.exp.exponent:expo-location:2.0.1'
+  api 'host.exp.exponent:expo-media-library:2.0.0'
+  api 'host.exp.exponent:expo-print:2.0.0'
+  api 'host.exp.exponent:expo-sensors:2.0.0'
+  api 'host.exp.exponent:expo-sms:2.0.0'
+  api 'host.exp.exponent:expo-background-fetch:1.0.0'
 }
 
 // This has to be down here for some reason

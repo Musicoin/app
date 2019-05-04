@@ -56,8 +56,8 @@
     <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> tidak akan berjalan tanpa layanan Google Play, yang saat ini sedang diperbarui."</string>
     <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Perlu versi baru layanan Google Play. Akan segera memperbarui sendiri."</string>
     <string msgid="5201977337835724196" name="common_open_on_phone">"Buka di ponsel"</string>
-    <string msgid="3441753203274453993" name="common_signin_button_text">"Masuk"</string>
-    <string msgid="669893613918351210" name="common_signin_button_text_long">"Masuk dengan Google"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"Login"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Login dengan Google"</string>
     <string name="exo_controls_fastforward_description">Maju cepat</string>
     <string name="exo_controls_fullscreen_description">Mode layar penuh</string>
     <string name="exo_controls_next_description">Lagu berikutnya</string>

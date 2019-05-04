@@ -58,6 +58,14 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Otevřít v telefonu"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Přihlásit se"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Přihlásit se k účtu Google"</string>
+    <string name="crop_image_activity_no_permissions">Probíhá storno, požadovaná povolení nejsou udělena</string>
+    <string name="crop_image_activity_title"/>
+    <string name="crop_image_menu_crop">Oříznout</string>
+    <string name="crop_image_menu_flip">Překlopit</string>
+    <string name="crop_image_menu_flip_horizontally">Překlopit vodorovně</string>
+    <string name="crop_image_menu_flip_vertically">Překlopit svisle</string>
+    <string name="crop_image_menu_rotate_left">Otočit proti směru hodinových ručiček</string>
+    <string name="crop_image_menu_rotate_right">Otočit</string>
     <string name="exo_controls_fastforward_description">Rychle vpřed</string>
     <string name="exo_controls_fullscreen_description">Režim celé obrazovky</string>
     <string name="exo_controls_next_description">Další skladba</string>
@@ -92,6 +100,7 @@
     <string name="exo_track_unknown">Neznámé</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Různé"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"Různé"</string>
+    <string name="pick_image_intent_chooser_title">Vybrat zdroj</string>
     <string msgid="368094699078615544" name="s1">"Uložení obrázku"</string>
     <string msgid="4550830452390689489" name="s2">"Povolit reklamě, aby uložila obrázek do galerie fotek?"</string>
     <string msgid="2435407834265420668" name="s3">"Přijmout"</string>

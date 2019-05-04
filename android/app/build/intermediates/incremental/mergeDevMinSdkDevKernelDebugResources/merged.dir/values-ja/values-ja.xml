@@ -17,55 +17,6 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"共有"</string>
     <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>と共有"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"折りたたむ"</string>
-    <string name="acc_label_card_number">カード番号</string>
-    <string name="acc_label_expiry_date">有効期限</string>
-    <string name="acc_label_zip">郵便番号</string>
-    <string name="acc_label_zip_short">ZIP</string>
-    <string name="add_card">このアプリで購入するには、別のデビットカードまたはクレジットカードの登録が必要です。</string>
-    <string name="address_city_required">市区町村を入力してください</string>
-    <string name="address_county_required">国を入力してください</string>
-    <string name="address_label_address">住所</string>
-    <string name="address_label_address_line1">住所 (1 行目)</string>
-    <string name="address_label_address_line1_optional">住所 (1 行目、省略可)</string>
-    <string name="address_label_address_line2">住所 (2 行目)</string>
-    <string name="address_label_address_line2_optional">住所 (2 行目、省略可)</string>
-    <string name="address_label_address_optional">住所 (省略可)</string>
-    <string name="address_label_apt">アパート / マンション名など</string>
-    <string name="address_label_apt_optional">アパート / マンション名など (省略可)</string>
-    <string name="address_label_city">市区町村</string>
-    <string name="address_label_city_optional">市区町村 (省略可)</string>
-    <string name="address_label_country">国</string>
-    <string name="address_label_county">群</string>
-    <string name="address_label_county_optional">群 (省略可)</string>
-    <string name="address_label_name">名称</string>
-    <string name="address_label_name_optional">名称 (省略可)</string>
-    <string name="address_label_phone_number">電話番号</string>
-    <string name="address_label_phone_number_optional">電話番号 (省略可)</string>
-    <string name="address_label_postal_code">郵便番号</string>
-    <string name="address_label_postal_code_optional">郵便番号 (省略可)</string>
-    <string name="address_label_postcode">郵便番号</string>
-    <string name="address_label_postcode_optional">郵便番号 (省略可)</string>
-    <string name="address_label_province">都道府県</string>
-    <string name="address_label_province_optional">都道府県 (省略可)</string>
-    <string name="address_label_region_generic">都道府県</string>
-    <string name="address_label_region_generic_optional">都道府県 (省略可)</string>
-    <string name="address_label_state">都道府県</string>
-    <string name="address_label_state_optional">都道府県 (省略可)</string>
-    <string name="address_label_zip_code">郵便番号</string>
-    <string name="address_label_zip_code_optional">郵便番号 (省略可)</string>
-    <string name="address_label_zip_postal_code">郵便番号</string>
-    <string name="address_label_zip_postal_code_optional">郵便番号 (省略可)</string>
-    <string name="address_name_required">名前を入力してください</string>
-    <string name="address_phone_number_required">電話番号を入力してください</string>
-    <string name="address_postal_code_invalid">郵便番号が無効です</string>
-    <string name="address_postcode_invalid">郵便番号が無効です</string>
-    <string name="address_province_required">都道府県を入力してください</string>
-    <string name="address_region_generic_required">都道府県を入力してください</string>
-    <string name="address_required">住所を入力してください</string>
-    <string name="address_shipping_address">配送先住所</string>
-    <string name="address_state_required">都道府県を入力してください</string>
-    <string name="address_zip_invalid">郵便番号が無効です。</string>
-    <string name="address_zip_postal_invalid">郵便番号が無効です</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">&lt;b>facebook.com/device&lt;/b>にアクセスして、上のコードを入力してください。</string>
     <string gender="unknown" name="com_facebook_image_download_unknown_error">画像のダウンロードで何らかのエラーが発生しました。</string>
     <string gender="unknown" name="com_facebook_internet_permission_error_message">WebViewにログインするには、インターネットへのアクセスが必要です</string>
@@ -82,7 +33,7 @@
     <string gender="unknown" name="com_facebook_loginview_logged_in_as">%1$sとしてログイン中</string>
     <string gender="unknown" name="com_facebook_loginview_logged_in_using_facebook">Facebookでログイン中</string>
     <string gender="unknown" name="com_facebook_send_button_text">送信</string>
-    <string gender="unknown" name="com_facebook_share_button_text">シェアする</string>
+    <string gender="unknown" name="com_facebook_share_button_text">シェア</string>
     <string gender="unknown" name="com_facebook_smart_device_instructions">アカウントをリンクするには、モバイル機器でFacebookアプリを開いて、お知らせをご確認ください。</string>
     <string gender="unknown" name="com_facebook_smart_device_instructions_or">- または -</string>
     <string gender="unknown" name="com_facebook_smart_login_confirmation_cancel">別のアカウントでログイン</string>
@@ -107,6 +58,13 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"スマートフォンで開く"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"ログイン"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Googleにログイン"</string>
+    <string name="crop_image_activity_no_permissions">必要な権限がありません、キャンセルしています。</string>
+    <string name="crop_image_menu_crop">切り取り</string>
+    <string name="crop_image_menu_flip">反転</string>
+    <string name="crop_image_menu_flip_horizontally">左右反転</string>
+    <string name="crop_image_menu_flip_vertically">上下反転</string>
+    <string name="crop_image_menu_rotate_left">左回転</string>
+    <string name="crop_image_menu_rotate_right">右回転</string>
     <string name="exo_controls_fastforward_description">早送り</string>
     <string name="exo_controls_fullscreen_description">全画面モード</string>
     <string name="exo_controls_next_description">次のトラック</string>
@@ -139,19 +97,9 @@
     <string name="exo_track_surround_5_point_1">5.1 サラウンド サウンド</string>
     <string name="exo_track_surround_7_point_1">7.1 サラウンド サウンド</string>
     <string name="exo_track_unknown">不明</string>
-    <string name="expiry_date_hint">MM/YY</string>
-    <string name="expiry_label_short">有効期限</string>
     <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"その他"</string>
     <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"その他"</string>
-    <string name="invalid_card_number">カードの番号が無効です。</string>
-    <string name="invalid_cvc">指定したカードのセキュリティコードが無効です。</string>
-    <string name="invalid_expiry_month">カードの有効期限として指定した月が無効です。</string>
-    <string name="invalid_expiry_year">カードの有効期限として指定した年が無効です。</string>
-    <string name="invalid_shipping_information">配送先住所エラー</string>
-    <string name="invalid_zip">指定した郵便番号が未入力です。</string>
-    <string name="no_payment_methods">支払い方法が指定されていません。</string>
-    <string name="payment_method_add_new_card">新しいカードを追加…</string>
-    <string name="price_free">無料</string>
+    <string name="pick_image_intent_chooser_title">画像を選択</string>
     <string msgid="368094699078615544" name="s1">"画像の保存"</string>
     <string msgid="4550830452390689489" name="s2">"広告が画像ギャラリーに画像を保存することを許可しますか？"</string>
     <string msgid="2435407834265420668" name="s3">"許可する"</string>
@@ -161,9 +109,5 @@
     <string msgid="7163549807207034258" name="s7">"テスト広告"</string>
     <string msgid="146198913615257606" name="search_menu_title">"検索"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
-    <string name="title_add_a_card">カードを追加</string>
-    <string name="title_add_an_address">住所を設定してください</string>
-    <string name="title_payment_method">お支払い方法</string>
-    <string name="title_select_shipping_method">配送方法を選択してください</string>
     <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Googleで購入"</string>
 </resources>
