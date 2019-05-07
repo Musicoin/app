@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2948901D90964CEC81583B80 /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1FD3965084EA1A2B0D0BA /* RNPlaceholder.swift */; };
 		62BA4FFD578249B2A1FFF23A /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 410C9C007A0E4544A1112668 /* libRNTrackPlayer.a */; };
 		A1CB5A3CE10B4B42812CC935 /* libPods-musicoin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-musicoin.a */; };
 		B035E0CF21EF2D82008BD247 /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035E0CE21EF2D82008BD247 /* dummy.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		2C1548D9E4CB1AEFA5CCAE6D /* Pods-musicoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-musicoin/Pods-musicoin.debug.xcconfig"; sourceTree = "<group>"; };
+		2EB1FD3965084EA1A2B0D0BA /* RNPlaceholder.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; path = RNPlaceholder.swift; sourceTree = "<group>"; };
 		410C9C007A0E4544A1112668 /* libRNTrackPlayer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNTrackPlayer.a; sourceTree = "<group>"; };
 		44237B4D23CC4B5DB62E0B0B /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNTrackPlayer.xcodeproj; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; };
 		A47FE4D7F70906B7DC8CE39B /* Pods-musicoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-musicoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-musicoin/Pods-musicoin.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				410C9C007A0E4544A1112668 /* libRNTrackPlayer.a */,
+				2EB1FD3965084EA1A2B0D0BA /* RNPlaceholder.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				B56386611DB96A5E00A0598C /* main.m in Sources */,
 				B035E0CF21EF2D82008BD247 /* dummy.swift in Sources */,
 				B56386491DB9693800A0598C /* AppDelegate.m in Sources */,
+				2948901D90964CEC81583B80 /* RNPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +451,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -495,6 +500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -106,8 +106,8 @@ apply from: 'expo.gradle'
 
 
 dependencies {
-  implementation project(':react-native-iap')
   implementation project(':react-native-track-player')
+  implementation project(':react-native-iap')
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation('host.exp.exponent:expoview:32.0.0@aar') {
     transitive = true

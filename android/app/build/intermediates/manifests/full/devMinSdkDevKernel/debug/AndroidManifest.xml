@@ -84,7 +84,9 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.bluetooth"
-        android:required="false" /> <!-- for android -->
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- for android -->
     <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
