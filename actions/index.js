@@ -12,3 +12,4 @@ export * from './artistOfTheWeek';
 export * from './artist';
 export * from './profile';
 export * from './product';
+export * from './like';

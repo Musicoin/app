@@ -1,4 +1,4 @@
-import {RECEIVE_NEW_RELEASES_SUCCESS, TIP_TRACK} from '../constants/Actions';
+import {LIKE_TRACK, RECEIVE_NEW_RELEASES_SUCCESS, TIP_TRACK} from '../constants/Actions';
 
 export default function releases(state = [], action) {
   switch (action.type) {
@@ -33,6 +33,25 @@ export default function releases(state = [], action) {
           };
         });
       } else {
+        return state;
+      }
+    }
+    case LIKE_TRACK: {
+      //update like in store
+      if (action.success) {
+        return state.map((item, index) => {
+          if (item.trackAddress !== action.trackAddress) {
+            // This isn't the item we care about - keep it as-is
+            return item;
+          }
+
+          // Otherwise, this is the one we want - return an updated value
+          return {
+            ...item,
+            liked: action.like,
+          };
+        });
+      }else{
         return state;
       }
     }

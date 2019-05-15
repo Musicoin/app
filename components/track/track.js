@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Platform, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Icon} from 'expo';
 import {connect} from 'react-redux';
-import {playTrack, addToQueue, removeFromQueue, tipTrack} from '../../actions';
+import {playTrack, addToQueue, removeFromQueue, tipTrack, likeTrack} from '../../actions';
 import Colors from '../../constants/Colors';
 import Modal from 'react-native-modal';
 import TextTicker from 'react-native-text-ticker';
@@ -79,16 +79,28 @@ class Track extends Component {
               </View>
             </View>
             <View style={{backgroundColor: '#2E343A'}}>
+              <TouchableOpacity style={styles.modalButton} onPress={() => {
+                this._toggleModal();
+                this.props.likeTrack(item, !item.liked);
+              }}>
+                <Icon.Ionicons
+                    name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                    size={24}
+                    color={item.liked ? Colors.tintColor : '#8897A2'}
+                    style={{marginRight: 16, width: 20}}
+                />
+                <Text style={{color: Colors.fontColor, fontSize: 14}}>{item.liked ? 'Remove favorite' : 'Add favorite'}</Text>
+              </TouchableOpacity>
               {origin !== 'queue' ?
                   <TouchableOpacity style={styles.modalButton} onPress={() => {
                     this._toggleModal();
                     this.props.addToQueue(item);
                   }}>
                     <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-                        size={24}
+                        name={Platform.OS === 'ios' ? 'md-add' : 'md-add'}
+                        size={28}
                         color={'#8897A2'}
-                        style={{marginRight: 16}}
+                        style={{marginRight: 16, width: 20}}
                     />
                     <Text style={{color: Colors.fontColor, fontSize: 14}}>Add to queue</Text>
                   </TouchableOpacity>
@@ -98,10 +110,10 @@ class Track extends Component {
                     this.props.removeFromQueue(item.queueId);
                   }}>
                     <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'ios-remove' : 'md-remove'}
-                        size={24}
+                        name={Platform.OS === 'ios' ? 'md-remove' : 'md-remove'}
+                        size={28}
                         color={'#8897A2'}
-                        style={{marginRight: 16}}
+                        style={{marginRight: 16, width: 20}}
                     />
                     <Text style={{color: Colors.fontColor, fontSize: 14}}>Remove from queue</Text>
                   </TouchableOpacity>}
@@ -114,7 +126,7 @@ class Track extends Component {
                     name={Platform.OS === 'ios' ? 'ios-eye' : 'md-eye'}
                     size={24}
                     color={'#8897A2'}
-                    style={{marginRight: 16}}
+                    style={{marginRight: 16, width: 20}}
                 />
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
               </TouchableOpacity>
@@ -138,7 +150,7 @@ class Track extends Component {
                 <Image
                     source={require('../../assets/icons/clap-grey.png')}
                     fadeDuration={0}
-                    style={{width: 16, height: 16, marginRight: 16}}
+                    style={{width: 20, height: 20, marginRight: 16}}
                 />
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
               </TouchableOpacity>
@@ -153,7 +165,7 @@ class Track extends Component {
                     name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
                     size={24}
                     color={'#8897A2'}
-                    style={{marginRight: 16}}
+                    style={{marginRight: 16, width: 20}}
                 />
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Go to artist</Text>
               </TouchableOpacity>
@@ -165,7 +177,7 @@ class Track extends Component {
                     name={Platform.OS === 'ios' ? 'ios-share-alt' : 'ios-share-alt'}
                     size={24}
                     color={'#8897A2'}
-                    style={{marginRight: 16}}
+                    style={{marginRight: 16, width: 20}}
                 />
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Share</Text>
               </TouchableOpacity>
@@ -197,11 +209,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modalButton: {
-    margin: 16,
+    marginHorizontal: 16,
+    paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
   },
   playerButton: {},
 });
 
-export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue, tipTrack})(Track);
+export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue, tipTrack, likeTrack})(Track);

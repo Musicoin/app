@@ -6,7 +6,7 @@ import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
 import Modal from 'react-native-modal';
-import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode} from '../actions';
+import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode, likeTrack} from '../actions';
 import {Icon} from 'expo';
 import connectAlert from '../components/alert/connectAlert.component';
 import TrackSlider from '../components/TrackSlider';
@@ -261,16 +261,6 @@ class PlayerComponent extends React.Component {
                     </TouchableOpacity>
                   </View>
                   <View style={{flex: 1, flexDirection: 'row', paddingTop: 10, justifyContent: 'flex-end', paddingRight: 16}}>
-                    <TouchableOpacity style={{paddingLeft: 40}} onPress={() => {
-                      this.props.togglePlayerMode();
-                      NavigationService.navigate('Library', {redirectToPlayer: true});
-                    }}>
-                      <Icon.MaterialIcons
-                          name={'playlist-play'}
-                          size={26}
-                          color={Colors.fontColor}
-                      />
-                    </TouchableOpacity>
                     <TouchableOpacity style={{paddingLeft: 40}} onPress={() => shareTrack(this.props.currentTrack)}>
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? `ios-share-alt` : 'ios-share-alt'}
@@ -289,8 +279,53 @@ class PlayerComponent extends React.Component {
 
                 </View>
                 <View style={{flex: 1, alignItems: 'center', marginVertical: 5, paddingTop: Layout.isSmallDevice ? 10 : 100}}>
-                  <Image style={{width: Layout.window.width / 2, height: Layout.window.width / 2}} source={{uri: this.props.currentTrack.trackImg}}/>
-                  <View style={{marginTop: 50, marginHorizontal: 16}}>
+                  <Image style={{width: Layout.window.width * 0.75, height: Layout.window.width * 0.75}} source={{uri: this.props.currentTrack.trackImg}}/>
+                  <View style={{flexDirection: 'row', alignItems: 'flex-end', marginHorizontal: 32, marginTop: 8}}>
+                    <TouchableOpacity
+                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
+                        onPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                          }
+                          if (!this.props.currentTrack.liked) {
+                            this.props.likeTrack(this.props.currentTrack, true);
+                          } else {
+                            this.props.likeTrack(this.props.currentTrack, false);
+                          }
+                        }}>
+                      <Icon.Ionicons
+                          name={'md-heart'}
+                          size={24}
+                          color={this.props.currentTrack.liked ? Colors.tintColor : Colors.disabled}
+                      />
+                    </TouchableOpacity>
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+
+                    </View>
+                    <TouchableOpacity
+                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                        onPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                          }
+                          this.props.tipTrack(this.props.currentTrack);
+                        }}
+                        onLongPress={() => {
+                          if (!this.props.auth.loggedIn) {
+                            this.props.togglePlayerMode();
+                            NavigationService.navigate('Profile');
+                          } else {
+                            this._toggleTippingModal();
+                          }
+                        }}>
+                      <Image
+                          source={require('../assets/icons/clap-grey.png')}
+                          fadeDuration={0}
+                          style={{width: 20, height: 20}}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  <View style={{marginTop: 8, marginHorizontal: 16}}>
                     <View style={styles.centerText}>
                       <TextTicker
                           style={{color: Colors.tintColor, fontSize: 18, alignSelf: 'center'}}
@@ -336,15 +371,15 @@ class PlayerComponent extends React.Component {
                         <TouchableOpacity style={{marginHorizontal: 5}} onPress={() => this.pauseTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-pause` : 'md-pause'}
-                              size={Layout.isSmallDevice ? 60 : 120}
+                              size={Layout.isSmallDevice ? 50 : 100}
                               color={Colors.fontColor}
-                              style={styles.bigPlayerButtonn}
+                              style={styles.bigPlayerButton}
                           />
                         </TouchableOpacity> :
                         <TouchableOpacity disabled={this.state.playerState === TrackPlayer.STATE_BUFFERING} style={{marginHorizontal: 5}} onPress={() => this.resumeTrack()}>
                           <Icon.Ionicons
                               name={Platform.OS === 'ios' ? `ios-play` : 'md-play'}
-                              size={Layout.isSmallDevice ? 60 : 120}
+                              size={Layout.isSmallDevice ? 50 : 100}
                               color={this.state.playerState !== TrackPlayer.STATE_BUFFERING ? Colors.fontColor : Colors.disabled}
                               style={styles.bigPlayerButton}
                           />
@@ -368,9 +403,9 @@ class PlayerComponent extends React.Component {
                       />
                     </TouchableOpacity>
                   </View>
-                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'flex-end', marginBottom: 16}}>
+                  <View style={{flex: 1, flexDirection: 'row', alignItems: 'flex-end', marginBottom: 16, marginHorizontal: 48}}>
                     <TouchableOpacity
-                        style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
+                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}
                         onPress={() => {
                           this.props.togglePlayerMode();
                           NavigationService.navigate('ReleaseDetail', {trackAddress: this.props.currentTrack.trackAddress, origin: 'currentTrack'});
@@ -384,30 +419,26 @@ class PlayerComponent extends React.Component {
                       <Text style={{color: Colors.fontColor, fontSize: 12}}>Info</Text>
                     </TouchableOpacity>
                     <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-
+                      <View
+                          style={{
+                            height: 18,
+                            width: 1,
+                            backgroundColor: Colors.fontColor,
+                          }}
+                      />
                     </View>
                     <TouchableOpacity
-                        style={{flex: 0.2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end'}}
                         onPress={() => {
-                          if (!this.props.auth.loggedIn) {
-                            this.props.togglePlayerMode();
-                          }
-                          this.props.tipTrack(this.props.currentTrack);
-                        }}
-                        onLongPress={() => {
-                          if (!this.props.auth.loggedIn) {
-                            this.props.togglePlayerMode();
-                            NavigationService.navigate('Profile');
-                          } else {
-                            this._toggleTippingModal();
-                          }
+                          this.props.togglePlayerMode();
+                          NavigationService.navigate('Library', {redirectToPlayer: true});
                         }}>
-                      <Image
-                          source={require('../assets/icons/clap-white.png')}
-                          fadeDuration={0}
-                          style={{width: 16, height: 16, marginRight: 5}}
+                      <Icon.MaterialIcons
+                          name={'playlist-play'}
+                          size={20}
+                          color={Colors.fontColor}
                       />
-                      <Text style={{color: Colors.fontColor, fontSize: 12}}>Tip</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 12}}>Queue</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -437,16 +468,28 @@ class PlayerComponent extends React.Component {
                       </View>
                     </View>
                   </View>
-                  <View style={{backgroundColor: '#2E343A'}}>
+                  <View style={{backgroundColor: '#2E343A', paddingVertical: 8}}>
+                    <TouchableOpacity style={styles.modalButton} onPress={() => {
+                      this._toggleModal();
+                      this.props.likeTrack(this.props.currentTrack, !this.props.currentTrack.liked);
+                    }}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                          size={24}
+                          color={this.props.currentTrack.liked?Colors.tintColor:'#8897A2'}
+                          style={{marginRight: 16, width: 20}}
+                      />
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>{this.props.currentTrack.liked?"Remove favorite":"Add favorite"}</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.modalButton} onPress={() => {
                       this._toggleModal();
                       this.props.addToQueue(this.props.currentTrack);
                     }}>
                       <Icon.Ionicons
-                          name={Platform.OS === 'ios' ? 'ios-add' : 'md-add'}
-                          size={24}
+                          name={Platform.OS === 'ios' ? 'md-add' : 'md-add'}
+                          size={28}
                           color={'#8897A2'}
-                          style={{marginRight: 16}}
+                          style={{marginRight: 16, width: 20, alignSelf: 'center'}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Add to queue</Text>
                     </TouchableOpacity>
@@ -460,7 +503,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? 'ios-eye' : 'md-eye'}
                           size={24}
                           color={'#8897A2'}
-                          style={{marginRight: 16}}
+                          style={{marginRight: 16, width: 20}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Track details</Text>
                     </TouchableOpacity>
@@ -485,7 +528,7 @@ class PlayerComponent extends React.Component {
                       <Image
                           source={require('../assets/icons/clap-grey.png')}
                           fadeDuration={0}
-                          style={{width: 16, height: 16, marginRight: 16}}
+                          style={{width: 20, height: 20, marginRight: 16}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Tip track</Text>
                     </TouchableOpacity>
@@ -499,7 +542,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
                           size={24}
                           color={'#8897A2'}
-                          style={{marginRight: 16}}
+                          style={{marginRight: 16, width: 20}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Go to artist</Text>
                     </TouchableOpacity>
@@ -511,7 +554,7 @@ class PlayerComponent extends React.Component {
                           name={Platform.OS === 'ios' ? 'ios-share-alt' : 'ios-share-alt'}
                           size={24}
                           color={'#8897A2'}
-                          style={{marginRight: 16}}
+                          style={{marginRight: 16, width: 20}}
                       />
                       <Text style={{color: Colors.fontColor, fontSize: 14}}>Share</Text>
                     </TouchableOpacity>
@@ -549,7 +592,7 @@ class PlayerComponent extends React.Component {
     console.log(this.state.retries);
     if (this.state.retries < 3) {
       this.playNextTrack(true);
-    }else{
+    } else {
       TrackPlayer.stop();
     }
     this.setState({retries: this.state.retries + 1});
@@ -696,7 +739,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   modalButton: {
-    margin: 16,
+    marginHorizontal: 16,
+    paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -706,4 +750,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode})(PlayerComponent));
+export default connectAlert(connect(mapStateToProps, {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode, likeTrack})(PlayerComponent));
