@@ -1,6 +1,6 @@
 {
   "name": "ExpoKit",
-  "version": "32.0.0",
+  "version": "33.0.0",
   "summary": "ExpoKit",
   "description": "ExpoKit allows native projects to integrate with the Expo SDK.",
   "homepage": "http://docs.expo.io",
@@ -43,16 +43,13 @@
           "~> 3.8"
         ],
         "FBAudienceNetwork": [
-          "4.99.0"
+          "5.1.1"
         ],
         "FBSDKCoreKit": [
-          "4.39.1"
+          "4.40.0"
         ],
         "FBSDKLoginKit": [
-          "4.39.1"
-        ],
-        "FBSDKShareKit": [
-          "4.39.1"
+          "4.40.0"
         ],
         "Fabric": [
           "~> 1.6"
@@ -81,25 +78,25 @@
         "React": [
 
         ],
-        "EXCore": [
+        "UMCore": [
 
         ],
-        "EXReactNativeAdapter": [
+        "UMReactNativeAdapter": [
 
         ],
-        "EXSensorsInterface": [
+        "UMSensorsInterface": [
 
         ],
-        "EXFileSystemInterface": [
+        "UMFileSystemInterface": [
 
         ],
-        "EXPermissionsInterface": [
+        "UMPermissionsInterface": [
 
         ],
-        "EXCameraInterface": [
+        "UMCameraInterface": [
 
         ],
-        "EXConstantsInterface": [
+        "UMConstantsInterface": [
 
         ]
       }

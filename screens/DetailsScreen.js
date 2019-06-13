@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, View, Text, Button, Image, Platform, TouchableOpacity, ImageBackground, Dimensions, StyleSheet, StatusBar} from 'react-native';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
 import Layout from '../constants/Layout';

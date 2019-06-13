@@ -2,7 +2,10 @@ import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {setCustomText} from 'react-native-global-props';
 
-import {AppLoading, Asset, Font, Icon, SplashScreen, registerRootComponent} from 'expo';
+import { AppLoading, SplashScreen, registerRootComponent } from 'expo';
+import * as Icon from '@expo/vector-icons';
+import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 

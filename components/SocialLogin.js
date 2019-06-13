@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {AuthSession, Icon} from 'expo';
+import { AuthSession } from 'expo';
+import * as Icon from '@expo/vector-icons';
 import {connect} from 'react-redux';
 import Colors from '../constants/Colors';
 import {socialLogin, fetchTwitterOauthToken} from '../actions';

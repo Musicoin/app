@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7DB39BBA172554D7068C3B79F4DA515"
+               BlueprintIdentifier = "56824BCA54F1E912F20007B583925C9F"
+               BuildableName = "libAmplitude-iOS.a"
                BlueprintName = "Amplitude-iOS"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libAmplitude-iOS.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

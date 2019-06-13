@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C551C99FEC7A6D56538023C887200C8E"
+               BlueprintIdentifier = "A8D5A69CA4B25DD73DC4C3801D7DA2DD"
+               BuildableName = "libEXLocation.a"
                BlueprintName = "EXLocation"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libEXLocation.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

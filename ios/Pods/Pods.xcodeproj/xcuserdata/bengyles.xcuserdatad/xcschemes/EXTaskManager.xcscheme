@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "869CB1B3D3DE8A48A977EACF73DB857C"
+               BlueprintIdentifier = "81B06878213841BF3B96EE5D08B5A89B"
+               BuildableName = "libEXTaskManager.a"
                BlueprintName = "EXTaskManager"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libEXTaskManager.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

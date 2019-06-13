@@ -4,7 +4,7 @@ import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
 import Colors from '../constants/Colors';
 import {SearchBar} from 'react-native-elements';
 import GenreList from '../components/GenreList';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import {connect} from 'react-redux';
 import {getSearchResults} from '../actions';
 import Layout from '../constants/Layout';

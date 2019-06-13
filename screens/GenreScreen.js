@@ -16,7 +16,7 @@ import connectAlert from '../components/alert/connectAlert.component';
 import Track from '../components/track/track';
 import {getSearchByGenreResults} from '../actions';
 import Layout from '../constants/Layout';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {GENERAL_API_LIMIT} from '../constants/App';
 

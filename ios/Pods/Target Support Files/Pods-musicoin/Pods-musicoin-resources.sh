@@ -98,6 +98,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaDomainValidationCA.der"
   install_resource "${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle"
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLjoy_100.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLlefteyeclosed_200.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLrighteyeclosed_200.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/LMprec_600.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/MFTprec_202.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/PFFprec_702.emd"
   install_resource "${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -107,6 +113,12 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaDomainValidationCA.der"
   install_resource "${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle"
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLjoy_100.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLlefteyeclosed_200.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/BCLrighteyeclosed_200.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/LMprec_600.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/MFTprec_202.emd"
+  install_resource "${PODS_ROOT}/GoogleMobileVision/FaceDetector/Resources/PFFprec_702.emd"
   install_resource "${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle"
 fi
 

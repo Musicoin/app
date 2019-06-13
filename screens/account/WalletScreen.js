@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Platform, Dimensions, Clipboard} from 'react-native';
 import Colors from '../../constants/Colors';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
 import {connect} from 'react-redux';
 import {addAlert} from '../../actions/index';

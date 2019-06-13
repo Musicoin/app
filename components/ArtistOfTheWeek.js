@@ -2,10 +2,10 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, Platform, TouchableWithoutFeedback} from 'react-native';
 import {connect} from 'react-redux';
 import {playTrack} from '../actions';
-import {LinearGradient} from 'expo';
+import * as Icon from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 import {Button} from 'react-native-elements';
-import {Icon} from 'expo';
 import NavigationService from '../services/NavigationService';
 import Layout from '../constants/Layout';
 

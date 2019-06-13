@@ -7,7 +7,7 @@ import Layout from '../constants/Layout';
 import TextTicker from 'react-native-text-ticker';
 import Modal from 'react-native-modal';
 import {tipTrack, removeFromQueue, addToQueue, playTrack, toggleRepeat, toggleShuffle, togglePlayerMode, likeTrack} from '../actions';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import connectAlert from '../components/alert/connectAlert.component';
 import TrackSlider from '../components/TrackSlider';
 import NavigationService from '../services/NavigationService';

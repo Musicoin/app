@@ -5,9 +5,9 @@
 	<key>detachedNativeVersions</key>
 	<dict>
 		<key>kernel</key>
-		<string>32.0.0</string>
+		<string>33.0.0</string>
 		<key>shell</key>
-		<string>32.0.0</string>
+		<string>33.0.0</string>
 	</dict>
 	<key>sdkVersions</key>
 	<array>

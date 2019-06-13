@@ -1,0 +1,1 @@
+../../../../../node_modules/expo-image-manipulator/ios/EXImageManipulator/EXImageManipulatorModule.h

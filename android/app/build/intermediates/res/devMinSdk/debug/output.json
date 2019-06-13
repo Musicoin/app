@@ -1,0 +1,1 @@
+[{"outputType":{"type":"PROCESSED_RES"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":10,"versionName":"3.0.0","enabled":true,"outputFile":"app-devMinSdk-debug.apk","fullName":"devMinSdkDebug","baseName":"devMinSdk-debug"},"path":"resources-devMinSdkDebug.ap_","properties":{"packageId":"org.musicoin.musicoin","split":"","minSdkVersion":"21"}}]

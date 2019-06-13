@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Platform, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import {connect} from 'react-redux';
 import {playTrack, addToQueue, removeFromQueue, addAlert} from '../actions';
 import Colors from '../constants/Colors';

@@ -1,0 +1,1 @@
+../../../../../node_modules/expo-analytics-amplitude/ios/EXAmplitude/EXAmplitude.h

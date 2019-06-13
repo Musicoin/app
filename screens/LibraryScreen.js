@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, Touc
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
-import {Icon} from 'expo';
+import * as Icon from '@expo/vector-icons';
 import Track from '../components/track/track';
 import {playTrack, togglePlayerMode} from '../actions';
 import connectAlert from '../components/alert/connectAlert.component';
