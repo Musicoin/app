@@ -5,24 +5,14 @@ INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManif
 INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:2:1-351:12
 MERGED from [:unimodules-react-native-adapter] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/react-native-adapter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-ads-admob] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-admob/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:expo-ads-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-analytics-amplitude] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-amplitude/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-analytics-segment] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-segment/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-app-auth] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-auth/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-19:12
 MERGED from [:expo-task-manager] /Users/bengyles/dev/Musicoin/app/node_modules/expo-task-manager/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-28:12
 MERGED from [:expo-app-loader-provider] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-loader-provider/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-av] /Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-background-fetch] /Users/bengyles/dev/Musicoin/app/node_modules/expo-background-fetch/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-14:12
-MERGED from [:expo-barcode-scanner] /Users/bengyles/dev/Musicoin/app/node_modules/expo-barcode-scanner/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-brightness] /Users/bengyles/dev/Musicoin/app/node_modules/expo-brightness/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-calendar] /Users/bengyles/dev/Musicoin/app/node_modules/expo-calendar/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-camera] /Users/bengyles/dev/Musicoin/app/node_modules/expo-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-constants] /Users/bengyles/dev/Musicoin/app/node_modules/expo-constants/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-contacts] /Users/bengyles/dev/Musicoin/app/node_modules/expo-contacts/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-crypto] /Users/bengyles/dev/Musicoin/app/node_modules/expo-crypto/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-document-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-face-detector] /Users/bengyles/dev/Musicoin/app/node_modules/expo-face-detector/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-file-system] /Users/bengyles/dev/Musicoin/app/node_modules/expo-file-system/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-font] /Users/bengyles/dev/Musicoin/app/node_modules/expo-font/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
@@ -30,33 +20,26 @@ MERGED from [:expo-gl] /Users/bengyles/dev/Musicoin/app/node_modules/expo-gl/and
 MERGED from [:expo-google-sign-in] /Users/bengyles/dev/Musicoin/app/node_modules/expo-google-sign-in/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-haptics] /Users/bengyles/dev/Musicoin/app/node_modules/expo-haptics/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:expo-image-manipulator] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-manipulator/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-25:12
 MERGED from [:expo-intent-launcher] /Users/bengyles/dev/Musicoin/app/node_modules/expo-intent-launcher/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-keep-awake] /Users/bengyles/dev/Musicoin/app/node_modules/expo-keep-awake/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-linear-gradient] /Users/bengyles/dev/Musicoin/app/node_modules/expo-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-local-authentication] /Users/bengyles/dev/Musicoin/app/node_modules/expo-local-authentication/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:expo-localization] /Users/bengyles/dev/Musicoin/app/node_modules/expo-localization/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-21:12
-MERGED from [:expo-mail-composer] /Users/bengyles/dev/Musicoin/app/node_modules/expo-mail-composer/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-media-library] /Users/bengyles/dev/Musicoin/app/node_modules/expo-media-library/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-permissions] /Users/bengyles/dev/Musicoin/app/node_modules/expo-permissions/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:expo-print] /Users/bengyles/dev/Musicoin/app/node_modules/expo-print/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-random] /Users/bengyles/dev/Musicoin/app/node_modules/expo-random/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-secure-store] /Users/bengyles/dev/Musicoin/app/node_modules/expo-secure-store/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-sensors] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sensors/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-23:12
-MERGED from [:expo-sms] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sms/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-speech] /Users/bengyles/dev/Musicoin/app/node_modules/expo-speech/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-sqlite] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sqlite/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-web-browser] /Users/bengyles/dev/Musicoin/app/node_modules/expo-web-browser/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-barcode-scanner-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-barcode-scanner-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-constants-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-constants-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:unimodules-face-detector-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-face-detector-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-file-system-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-file-system-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-font-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-font-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-permissions-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-permissions-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-task-manager-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-task-manager-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-core] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/core/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:expo-gl-cpp] /Users/bengyles/dev/Musicoin/app/node_modules/expo-gl-cpp/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:unimodules-image-loader-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-image-loader-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
@@ -66,7 +49,6 @@ MERGED from [com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta1] /Users/
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-34:12
 MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-iap/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:multidex:1.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/0e03d17ba29f04bf9e9ab34990609b88/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:14:1-34:12
 MERGED from [com.facebook.react:react-native:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/react-native-33.0.0.aar/a503a77711642fdc3240a40e060bee0d/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:27.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/ab11065a44fafd9537f13084c7f74bca/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.android:facebook-android-sdk:5.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-5.0.1.aar/5cbc78827af136dfe8b7d85e26ae6695/AndroidManifest.xml:21:1-31:12
@@ -88,7 +70,6 @@ MERGED from [com.google.android.gms:play-services-ads:15.0.1] /Users/bengyles/.g
 MERGED from [com.raizlabs.android:DBFlow:2.2.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/DBFlow-2.2.1.aar/67e8424fcc217465d35704dad668691d/AndroidManifest.xml:2:1-13:12
 MERGED from [me.leolin:ShortcutBadger:1.1.4] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/ShortcutBadger-1.1.4.aar/2aea5b4f26a2d5034a7b81c3cca6dcf2/AndroidManifest.xml:2:1-35:12
 MERGED from [com.yqritc:android-scalablevideoview:1.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-scalablevideoview-1.0.1.aar/90cfba5d1e78cdacb7ea6b272e9caf7d/AndroidManifest.xml:2:1-12:12
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:2:1-14:12
 MERGED from [net.openid:appauth:0.7.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.7.1.aar/945b7f74bf75176a46eb4d1e1927ffea/AndroidManifest.xml:15:1-46:12
 MERGED from [com.airbnb.android:lottie:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/lottie-2.5.5.aar/e3445734fcf9530eaa133156cb500a53/AndroidManifest.xml:2:1-13:12
 MERGED from [io.branch.sdk.android:library:2.17.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-2.17.1.aar/55ea47238f7f7fd64340b4ee47ff612d/AndroidManifest.xml:2:1-11:12
@@ -108,7 +89,6 @@ MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] /Users/bengyles/.gra
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/5e38fdcdeec1e8881bb2e9525133d23d/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-2.9.2.aar/224af5233cba3f8eb05556a675c95702/AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/5cc5cbc36c34a03c2aef17f741f62515/AndroidManifest.xml:2:1-12:12
-MERGED from [com.google.android.gms:play-services-vision:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/9b6f6c935b16f1c32c0368af64e2f101/AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:2:1-19:12
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.9.2.aar/d4f2c0be4898084d2b1278a17222a009/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-smoothstreaming-2.9.2.aar/f25edf200b2bde0719d44fd1550ea28f/AndroidManifest.xml:17:1-24:12
@@ -124,40 +104,35 @@ MERGED from [com.android.support:customtabs:28.0.0] /Users/bengyles/.gradle/cach
 MERGED from [com.google.firebase:firebase-messaging:17.4.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.4.0.aar/a12012200f646ead88963254e1ba2f55/AndroidManifest.xml:17:1-37:12
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.android.gms:play-services-gass:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gass-15.0.1.aar/acd20dc3a431499920299bb62ff42d9b/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/a7025de37ae04d76a59bfe4e6b01aa58/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-identity:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-identity-16.0.0.aar/308e8feaf61192cc3ebf847f4cc1d1a4/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/7095c3b4457994c7abe6189daee149d3/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/19e3b89e27101358cd3b4c23a635ca59/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/a51fa7ed35ac99b9ac0ad179c974695c/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:17:1-28:12
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.firebase:firebase-core:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/55fe3e2fb29609f276076d2a5df69fe5/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:17:1-34:12
 MERGED from [com.google.firebase:firebase-analytics:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.3.0.aar/ef6e2292c7da788c5740c1ca3e19be5e/AndroidManifest.xml:17:1-55:12
 MERGED from [com.google.android.gms:play-services-measurement-api:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.3.0.aar/120bfef7471744ccc9a479f74fb01675/AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:17:1-40:12
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:17:1-59:12
-MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-common:16.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/d1d2044f850eeb1130e660b2d9de576c/AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/27077125ec957ebdf2dc024b1ae4e676/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/0aa6ecd2039dbb18efaa14cff1334f74/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/a410e0f77f37ac7316a6824d0bb4d937/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/2010fefd90151af9bbf6152a4dc1c209/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/3736e7c2031be0516e53ea6f3e6e2d31/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/6b25044e9f7cbe9c55f35a55a0d45b74/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/9c2d6d81cfa64cab461530acfe7f61a2/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/6619900785d3ee63a9a2c7c04a0de844/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4d00c9ad00e579ada863ea737c22857e/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:viewpager:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/9bcdb0ff47516b44fba0434792653047/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/67775735b10443190d7e2bb4283757bb/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:drawerlayout:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/bf184867695ba1350f749b82ff36cfb2/AndroidManifest.xml:17:1-22:12
@@ -165,7 +140,8 @@ MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/bengyles/.grad
 MERGED from [com.android.support:customview:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/3a892ccffac7e47c2f4a64a39254148d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/bff83269658e8063ddf17c9bd7ed4c01/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e013574949eba722e0e5ca2a21713451/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5b69924d69c18e94dd219fd30891034b/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/578c877838dbe935c89d9ec1147e201c/AndroidManifest.xml:17:1-25:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/dd2b8c7dd5a7a76b81a43f25b146678c/AndroidManifest.xml:17:1-22:12
@@ -175,12 +151,12 @@ MERGED from [android.arch.core:runtime:1.1.1] /Users/bengyles/.gradle/caches/tra
 MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/2f26a185280a62e4eb7545536c5c29eb/AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/f27a9cff566d5674b2b72fce4f39df68/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f842e266a7c6d267821c780a9897e790/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:17:1-26:12
 MERGED from [com.android.support:documentfile:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b650556588f96b09ec8e1b146c02f12d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/2e6da963aa13e11ac10e4a68b2c67ea8/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/2a3b9978532c5de8f7bfb42b488b8b84/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c2161c4e9fb69e59274769b5674e53c/AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:17:1-26:12
 MERGED from [org.webkit:android-jsc:r241213] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-jsc-r241213.aar/dece4e737101faed67ade56f589dc1ce/AndroidManifest.xml:2:1-11:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/crashlytics-2.5.5.aar/50e7ad1ca29ac4caad9400a797edd97c/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/601d317a73239bebbb2ea9b52d69a0e8/AndroidManifest.xml:2:1-13:12
@@ -224,10 +200,10 @@ uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:13:3-80
 MERGED from [com.google.android.gms:play-services-gcm:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gcm-16.1.0.aar/793bd7dd4c5b4d050e514537341e1086/AndroidManifest.xml:23:5-82
 MERGED from [com.google.android.gms:play-services-gcm:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gcm-16.1.0.aar/793bd7dd4c5b4d050e514537341e1086/AndroidManifest.xml:23:5-82
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:23:5-82
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:23:5-82
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:26:5-82
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:26:5-82
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:23:5-82
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:13:20-77
 uses-permission#android.permission.ACCESS_NETWORK_STATE
@@ -240,14 +216,10 @@ MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengy
 MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.7.aar/616dc3b7d8c4bb5445c6951cac3290bc/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/0987daa0c90306072f554bdc84d9e6da/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/0987daa0c90306072f554bdc84d9e6da/AndroidManifest.xml:23:5-79
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:11:5-79
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:11:5-79
 MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:13:5-79
 MERGED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-analytics:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.3.0.aar/ef6e2292c7da788c5740c1ca3e19be5e/AndroidManifest.xml:24:5-79
@@ -256,14 +228,14 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:24:5-79
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:14:20-74
 uses-permission#android.permission.INTERNET
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:15:3-65
-MERGED from [:expo-ads-admob] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-admob/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-67
-MERGED from [:expo-ads-admob] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-admob/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-67
 MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:21:5-67
 MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:21:5-67
 MERGED from [com.facebook.android:audience-network-sdk:5.1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/audience-network-sdk-5.1.1.aar/199b009098554fe7ec04df52aee54b18/AndroidManifest.xml:11:5-67
@@ -274,16 +246,10 @@ MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengy
 MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.7.aar/616dc3b7d8c4bb5445c6951cac3290bc/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/0987daa0c90306072f554bdc84d9e6da/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-maps-16.1.0.aar/0987daa0c90306072f554bdc84d9e6da/AndroidManifest.xml:24:5-67
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:10:5-67
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:10:5-67
 MERGED from [net.openid:appauth:0.7.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.7.1.aar/945b7f74bf75176a46eb4d1e1927ffea/AndroidManifest.xml:24:5-67
 MERGED from [net.openid:appauth:0.7.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.7.1.aar/945b7f74bf75176a46eb4d1e1927ffea/AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.3.0.aar/ef6e2292c7da788c5740c1ca3e19be5e/AndroidManifest.xml:23:5-67
@@ -292,6 +258,10 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:23:5-67
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/crashlytics-2.5.5.aar/50e7ad1ca29ac4caad9400a797edd97c/AndroidManifest.xml:9:5-67
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/crashlytics-2.5.5.aar/50e7ad1ca29ac4caad9400a797edd97c/AndroidManifest.xml:9:5-67
 MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.3.8] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/crashlytics-core-2.3.8.aar/0fb90079d77f8c91757e58346012e9d1/AndroidManifest.xml:9:5-67
@@ -320,10 +290,6 @@ MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_m
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-68
 MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.7.aar/616dc3b7d8c4bb5445c6951cac3290bc/AndroidManifest.xml:27:5-68
 MERGED from [com.google.android.gms:play-services-analytics:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-16.0.7.aar/616dc3b7d8c4bb5445c6951cac3290bc/AndroidManifest.xml:27:5-68
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:12:5-68
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:12:5-68
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:27:5-68
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:27:5-68
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-analytics:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.3.0.aar/ef6e2292c7da788c5740c1ca3e19be5e/AndroidManifest.xml:25:5-68
@@ -332,6 +298,8 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:25:5-68
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:27:5-68
 	android:name
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:17:20-63
 uses-permission#android.permission.MANAGE_DOCUMENTS
@@ -381,7 +349,6 @@ MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/t
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:27:20-75
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:30:3-98
-REJECTED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-81
 REJECTED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:40:5-81
 REJECTED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:12:5-81
 	tools:node
@@ -390,7 +357,6 @@ REJECTED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/c
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:30:20-76
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:31:3-96
-REJECTED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:5-79
 REJECTED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:41:5-79
 REJECTED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/library-3.2.11.aar/45fed4b4ccb4f725f9db88240f6e69c2/AndroidManifest.xml:14:5-79
 	tools:node
@@ -400,7 +366,6 @@ REJECTED from [io.nlopez.smartlocation:library:3.2.11] /Users/bengyles/.gradle/c
 uses-permission#android.permission.CAMERA
 ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:32:3-82
 REJECTED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:39:5-65
-REJECTED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:23:5-65
 	tools:node
 		ADDED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml:32:61-80
 	android:name
@@ -489,18 +454,12 @@ MERGED from [:expo-app-auth] /Users/bengyles/dev/Musicoin/app/node_modules/expo-
 MERGED from [:expo-app-auth] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-auth/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-17:19
 MERGED from [:expo-task-manager] /Users/bengyles/dev/Musicoin/app/node_modules/expo-task-manager/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-26:19
 MERGED from [:expo-task-manager] /Users/bengyles/dev/Musicoin/app/node_modules/expo-task-manager/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-26:19
-MERGED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-23:19
-MERGED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-23:19
-MERGED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:5-19:19
-MERGED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:5-19:19
 MERGED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-21:19
 MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:71:5-98:19
 MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:71:5-98:19
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:5-32:19
 MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:5-32:19
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:32:5-20
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:32:5-20
 MERGED from [com.facebook.react:react-native:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/react-native-33.0.0.aar/a503a77711642fdc3240a40e060bee0d/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/react-native-33.0.0.aar/a503a77711642fdc3240a40e060bee0d/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:5.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-5.0.1.aar/5cbc78827af136dfe8b7d85e26ae6695/AndroidManifest.xml:28:5-29:19
@@ -537,8 +496,6 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/bengyles/.gradle/cache
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/soloader-0.6.0.aar/5e38fdcdeec1e8881bb2e9525133d23d/AndroidManifest.xml:11:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/5cc5cbc36c34a03c2aef17f741f62515/AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/5cc5cbc36c34a03c2aef17f741f62515/AndroidManifest.xml:10:5-20
-MERGED from [com.google.android.gms:play-services-vision:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/9b6f6c935b16f1c32c0368af64e2f101/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/9b6f6c935b16f1c32c0368af64e2f101/AndroidManifest.xml:7:5-20
 MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:12:5-17:19
 MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:12:5-17:19
 MERGED from [com.facebook.android:facebook-places:5.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-places-5.0.1.aar/c820607a94d06d52b1aed42d894b8ab7/AndroidManifest.xml:28:5-29:19
@@ -555,22 +512,8 @@ MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyl
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:26:5-34:19
 MERGED from [com.google.android.gms:play-services-gass:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gass-15.0.1.aar/acd20dc3a431499920299bb62ff42d9b/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-gass:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gass-15.0.1.aar/acd20dc3a431499920299bb62ff42d9b/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/a7025de37ae04d76a59bfe4e6b01aa58/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/a7025de37ae04d76a59bfe4e6b01aa58/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-identity:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-identity-16.0.0.aar/308e8feaf61192cc3ebf847f4cc1d1a4/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-identity:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-identity-16.0.0.aar/308e8feaf61192cc3ebf847f4cc1d1a4/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/7095c3b4457994c7abe6189daee149d3/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/7095c3b4457994c7abe6189daee149d3/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/a51fa7ed35ac99b9ac0ad179c974695c/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/a51fa7ed35ac99b9ac0ad179c974695c/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:26:5-20
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:26:5-20
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:29:5-20
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:29:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/55fe3e2fb29609f276076d2a5df69fe5/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/55fe3e2fb29609f276076d2a5df69fe5/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:26:5-32:19
@@ -583,20 +526,28 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:28:5-38:19
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:28:5-57:19
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:28:5-57:19
-MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-common:16.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/d1d2044f850eeb1130e660b2d9de576c/AndroidManifest.xml:9:5-15:19
 MERGED from [com.google.firebase:firebase-common:16.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/d1d2044f850eeb1130e660b2d9de576c/AndroidManifest.xml:9:5-15:19
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/27077125ec957ebdf2dc024b1ae4e676/AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/27077125ec957ebdf2dc024b1ae4e676/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:29:5-20
 MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/0aa6ecd2039dbb18efaa14cff1334f74/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/0aa6ecd2039dbb18efaa14cff1334f74/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/a410e0f77f37ac7316a6824d0bb4d937/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/a410e0f77f37ac7316a6824d0bb4d937/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/2010fefd90151af9bbf6152a4dc1c209/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/2010fefd90151af9bbf6152a4dc1c209/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/AndroidManifest.xml:22:5-26:19
@@ -1033,42 +984,22 @@ INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManif
 INJECTED from /Users/bengyles/dev/Musicoin/app/android/app/src/main/AndroidManifest.xml
 MERGED from [:unimodules-react-native-adapter] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/react-native-adapter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-react-native-adapter] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/react-native-adapter/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-ads-admob] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-admob/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-ads-admob] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-admob/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-ads-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-ads-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-ads-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-analytics-amplitude] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-amplitude/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-analytics-amplitude] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-amplitude/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-analytics-segment] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-segment/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-analytics-segment] /Users/bengyles/dev/Musicoin/app/node_modules/expo-analytics-segment/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-app-auth] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-auth/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-app-auth] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-auth/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-task-manager] /Users/bengyles/dev/Musicoin/app/node_modules/expo-task-manager/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-task-manager] /Users/bengyles/dev/Musicoin/app/node_modules/expo-task-manager/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-app-loader-provider] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-loader-provider/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-app-loader-provider] /Users/bengyles/dev/Musicoin/app/node_modules/expo-app-loader-provider/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-av] /Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-av] /Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-background-fetch] /Users/bengyles/dev/Musicoin/app/node_modules/expo-background-fetch/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-background-fetch] /Users/bengyles/dev/Musicoin/app/node_modules/expo-background-fetch/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-barcode-scanner] /Users/bengyles/dev/Musicoin/app/node_modules/expo-barcode-scanner/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-barcode-scanner] /Users/bengyles/dev/Musicoin/app/node_modules/expo-barcode-scanner/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-brightness] /Users/bengyles/dev/Musicoin/app/node_modules/expo-brightness/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-brightness] /Users/bengyles/dev/Musicoin/app/node_modules/expo-brightness/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-calendar] /Users/bengyles/dev/Musicoin/app/node_modules/expo-calendar/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-calendar] /Users/bengyles/dev/Musicoin/app/node_modules/expo-calendar/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-camera] /Users/bengyles/dev/Musicoin/app/node_modules/expo-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-camera] /Users/bengyles/dev/Musicoin/app/node_modules/expo-camera/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-constants] /Users/bengyles/dev/Musicoin/app/node_modules/expo-constants/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-constants] /Users/bengyles/dev/Musicoin/app/node_modules/expo-constants/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-contacts] /Users/bengyles/dev/Musicoin/app/node_modules/expo-contacts/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-contacts] /Users/bengyles/dev/Musicoin/app/node_modules/expo-contacts/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-crypto] /Users/bengyles/dev/Musicoin/app/node_modules/expo-crypto/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-crypto] /Users/bengyles/dev/Musicoin/app/node_modules/expo-crypto/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-document-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-document-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-document-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-face-detector] /Users/bengyles/dev/Musicoin/app/node_modules/expo-face-detector/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-face-detector] /Users/bengyles/dev/Musicoin/app/node_modules/expo-face-detector/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-facebook] /Users/bengyles/dev/Musicoin/app/node_modules/expo-facebook/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-file-system] /Users/bengyles/dev/Musicoin/app/node_modules/expo-file-system/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1083,8 +1014,6 @@ MERGED from [:expo-haptics] /Users/bengyles/dev/Musicoin/app/node_modules/expo-h
 MERGED from [:expo-haptics] /Users/bengyles/dev/Musicoin/app/node_modules/expo-haptics/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-image-manipulator] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-manipulator/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-image-manipulator] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-manipulator/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-intent-launcher] /Users/bengyles/dev/Musicoin/app/node_modules/expo-intent-launcher/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-intent-launcher] /Users/bengyles/dev/Musicoin/app/node_modules/expo-intent-launcher/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-keep-awake] /Users/bengyles/dev/Musicoin/app/node_modules/expo-keep-awake/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1095,16 +1024,8 @@ MERGED from [:expo-local-authentication] /Users/bengyles/dev/Musicoin/app/node_m
 MERGED from [:expo-local-authentication] /Users/bengyles/dev/Musicoin/app/node_modules/expo-local-authentication/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-localization] /Users/bengyles/dev/Musicoin/app/node_modules/expo-localization/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-localization] /Users/bengyles/dev/Musicoin/app/node_modules/expo-localization/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-mail-composer] /Users/bengyles/dev/Musicoin/app/node_modules/expo-mail-composer/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-mail-composer] /Users/bengyles/dev/Musicoin/app/node_modules/expo-mail-composer/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-media-library] /Users/bengyles/dev/Musicoin/app/node_modules/expo-media-library/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-media-library] /Users/bengyles/dev/Musicoin/app/node_modules/expo-media-library/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-permissions] /Users/bengyles/dev/Musicoin/app/node_modules/expo-permissions/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-permissions] /Users/bengyles/dev/Musicoin/app/node_modules/expo-permissions/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-print] /Users/bengyles/dev/Musicoin/app/node_modules/expo-print/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-print] /Users/bengyles/dev/Musicoin/app/node_modules/expo-print/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-random] /Users/bengyles/dev/Musicoin/app/node_modules/expo-random/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-random] /Users/bengyles/dev/Musicoin/app/node_modules/expo-random/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-secure-store] /Users/bengyles/dev/Musicoin/app/node_modules/expo-secure-store/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1113,8 +1034,6 @@ MERGED from [:expo-sensors] /Users/bengyles/dev/Musicoin/app/node_modules/expo-s
 MERGED from [:expo-sensors] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sensors/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-sms] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sms/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:expo-sms] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sms/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-speech] /Users/bengyles/dev/Musicoin/app/node_modules/expo-speech/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-speech] /Users/bengyles/dev/Musicoin/app/node_modules/expo-speech/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-sqlite] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sqlite/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1123,12 +1042,8 @@ MERGED from [:expo-web-browser] /Users/bengyles/dev/Musicoin/app/node_modules/ex
 MERGED from [:expo-web-browser] /Users/bengyles/dev/Musicoin/app/node_modules/expo-web-browser/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-barcode-scanner-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-barcode-scanner-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-barcode-scanner-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-barcode-scanner-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-constants-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-constants-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-constants-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-constants-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-face-detector-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-face-detector-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:unimodules-face-detector-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-face-detector-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-file-system-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-file-system-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-file-system-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-file-system-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-font-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-font-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1137,6 +1052,8 @@ MERGED from [:unimodules-permissions-interface] /Users/bengyles/dev/Musicoin/app
 MERGED from [:unimodules-permissions-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-permissions-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-task-manager-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-task-manager-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-task-manager-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-task-manager-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] /Users/bengyles/dev/Musicoin/app/node_modules/unimodules-camera-interface/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-core] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/core/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:unimodules-core] /Users/bengyles/dev/Musicoin/app/node_modules/@unimodules/core/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:expo-gl-cpp] /Users/bengyles/dev/Musicoin/app/node_modules/expo-gl-cpp/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
@@ -1155,8 +1072,6 @@ MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/re
 MERGED from [:react-native-iap] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-iap/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:multidex:1.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/0e03d17ba29f04bf9e9ab34990609b88/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:multidex:1.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/multidex-1.0.3.aar/0e03d17ba29f04bf9e9ab34990609b88/AndroidManifest.xml:20:5-43
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:19:5-21:41
 MERGED from [com.facebook.react:react-native:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/react-native-33.0.0.aar/a503a77711642fdc3240a40e060bee0d/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/react-native-33.0.0.aar/a503a77711642fdc3240a40e060bee0d/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:design:27.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/ab11065a44fafd9537f13084c7f74bca/AndroidManifest.xml:20:5-44
@@ -1199,8 +1114,6 @@ MERGED from [me.leolin:ShortcutBadger:1.1.4] /Users/bengyles/.gradle/caches/tran
 MERGED from [me.leolin:ShortcutBadger:1.1.4] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/ShortcutBadger-1.1.4.aar/2aea5b4f26a2d5034a7b81c3cca6dcf2/AndroidManifest.xml:7:5-9:41
 MERGED from [com.yqritc:android-scalablevideoview:1.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-scalablevideoview-1.0.1.aar/90cfba5d1e78cdacb7ea6b272e9caf7d/AndroidManifest.xml:8:5-10:41
 MERGED from [com.yqritc:android-scalablevideoview:1.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-scalablevideoview-1.0.1.aar/90cfba5d1e78cdacb7ea6b272e9caf7d/AndroidManifest.xml:8:5-10:41
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:5:5-7:41
-MERGED from [com.segment.analytics.android.integrations:firebase:1.2.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-1.2.0.aar/831906ce4d12b54bab6e3949a2795ce1/AndroidManifest.xml:5:5-7:41
 MERGED from [net.openid:appauth:0.7.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.7.1.aar/945b7f74bf75176a46eb4d1e1927ffea/AndroidManifest.xml:20:5-22:41
 MERGED from [net.openid:appauth:0.7.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/appauth-0.7.1.aar/945b7f74bf75176a46eb4d1e1927ffea/AndroidManifest.xml:20:5-22:41
 MERGED from [com.airbnb.android:lottie:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/lottie-2.5.5.aar/e3445734fcf9530eaa133156cb500a53/AndroidManifest.xml:7:5-9:41
@@ -1239,8 +1152,6 @@ MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.grad
 MERGED from [com.google.android.exoplayer:exoplayer:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-2.9.2.aar/224af5233cba3f8eb05556a675c95702/AndroidManifest.xml:20:5-22:41
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/5cc5cbc36c34a03c2aef17f741f62515/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/5cc5cbc36c34a03c2aef17f741f62515/AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.android.gms:play-services-vision:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/9b6f6c935b16f1c32c0368af64e2f101/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/9b6f6c935b16f1c32c0368af64e2f101/AndroidManifest.xml:5:5-44
 MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:6:5-8:41
 MERGED from [com.android.billingclient:billing:1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/billing-1.1.aar/7736d874c4290ca2b1830ede9018bbea/AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.android.exoplayer:exoplayer-hls:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-hls-2.9.2.aar/d4f2c0be4898084d2b1278a17222a009/AndroidManifest.xml:20:5-22:41
@@ -1271,28 +1182,8 @@ MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyl
 MERGED from [com.google.android.gms:play-services-ads-lite:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/d24f44c2d3b0c2f4ea6e0a61c12b4a76/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-gass:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gass-15.0.1.aar/acd20dc3a431499920299bb62ff42d9b/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-gass:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-gass-15.0.1.aar/acd20dc3a431499920299bb62ff42d9b/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/a7025de37ae04d76a59bfe4e6b01aa58/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:15.0.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/a7025de37ae04d76a59bfe4e6b01aa58/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-identity:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-identity-16.0.0.aar/308e8feaf61192cc3ebf847f4cc1d1a4/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-identity:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-identity-16.0.0.aar/308e8feaf61192cc3ebf847f4cc1d1a4/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/7095c3b4457994c7abe6189daee149d3/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-clearcut:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/7095c3b4457994c7abe6189daee149d3/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/19e3b89e27101358cd3b4c23a635ca59/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/19e3b89e27101358cd3b4c23a635ca59/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/a51fa7ed35ac99b9ac0ad179c974695c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-phenotype:15.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/a51fa7ed35ac99b9ac0ad179c974695c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-core:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/55fe3e2fb29609f276076d2a5df69fe5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-core:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/55fe3e2fb29609f276076d2a5df69fe5/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/2fe465c193b11d8200ca2f5cbf713b04/AndroidManifest.xml:20:5-44
@@ -1305,40 +1196,50 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles
 MERGED from [com.google.firebase:firebase-analytics-impl:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/f9d9597b73ddf747ba15aa02dc9520e1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid:17.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.1.0.aar/aa40edbbff1c170a7aff97fba80a9c2b/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common:16.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/d1d2044f850eeb1130e660b2d9de576c/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-common:16.0.3] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/d1d2044f850eeb1130e660b2d9de576c/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/27077125ec957ebdf2dc024b1ae4e676/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector:17.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/27077125ec957ebdf2dc024b1ae4e676/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/1c7e9fc507330d2d682658cc8de80160/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/e3f273a4548eeafe4b705734ad67e7fa/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-iid-16.0.1.aar/56607e7018406c30ba7b819e30edf103/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tagmanager-v4-impl-16.0.7.aar/cab4b0b6f39d7170e0f260243650c5ff/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics-impl:16.0.7] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-16.0.7.aar/63e5ad5c57737831e4617ba991f33763/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/0aa6ecd2039dbb18efaa14cff1334f74/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-iid-interop:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/0aa6ecd2039dbb18efaa14cff1334f74/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/a410e0f77f37ac7316a6824d0bb4d937/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/a410e0f77f37ac7316a6824d0bb4d937/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/64d75bd8305a7fd533cb14753b986396/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:16.3.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/6de062e44ffa5e21e434491de4453080/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-16.0.0.aar/6875037b78f4575a81229e5dd8cdf6ca/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/2010fefd90151af9bbf6152a4dc1c209/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/2010fefd90151af9bbf6152a4dc1c209/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/b25978e32cd992ae991b58f382db88ed/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/3736e7c2031be0516e53ea6f3e6e2d31/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/3736e7c2031be0516e53ea6f3e6e2d31/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/6b25044e9f7cbe9c55f35a55a0d45b74/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/6b25044e9f7cbe9c55f35a55a0d45b74/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/9c2d6d81cfa64cab461530acfe7f61a2/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/9c2d6d81cfa64cab461530acfe7f61a2/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/6619900785d3ee63a9a2c7c04a0de844/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/6619900785d3ee63a9a2c7c04a0de844/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4f5a6497bd022699ccbe0a6c809d1244/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4d00c9ad00e579ada863ea737c22857e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4d00c9ad00e579ada863ea737c22857e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/9bcdb0ff47516b44fba0434792653047/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/9bcdb0ff47516b44fba0434792653047/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/67775735b10443190d7e2bb4283757bb/AndroidManifest.xml:20:5-44
@@ -1353,8 +1254,10 @@ MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/bengyles/.gra
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/bff83269658e8063ddf17c9bd7ed4c01/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e013574949eba722e0e5ca2a21713451/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e013574949eba722e0e5ca2a21713451/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/5e3b848492049b0ad4de91e971a7c977/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efdd8d217b347d4029d8d9ae9da40690/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/09599d946af11807f87a084d495eba04/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5b69924d69c18e94dd219fd30891034b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/5b69924d69c18e94dd219fd30891034b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/578c877838dbe935c89d9ec1147e201c/AndroidManifest.xml:20:5-44
@@ -1373,6 +1276,10 @@ MERGED from [com.android.support:interpolator:28.0.0] /Users/bengyles/.gradle/ca
 MERGED from [com.android.support:interpolator:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/f27a9cff566d5674b2b72fce4f39df68/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f842e266a7c6d267821c780a9897e790/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/f842e266a7c6d267821c780a9897e790/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:documentfile:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b650556588f96b09ec8e1b146c02f12d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/b650556588f96b09ec8e1b146c02f12d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/2e6da963aa13e11ac10e4a68b2c67ea8/AndroidManifest.xml:20:5-44
@@ -1381,10 +1288,6 @@ MERGED from [com.android.support:print:28.0.0] /Users/bengyles/.gradle/caches/tr
 MERGED from [com.android.support:print:28.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/2a3b9978532c5de8f7bfb42b488b8b84/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c2161c4e9fb69e59274769b5674e53c/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/5c2161c4e9fb69e59274769b5674e53c/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-dash:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-dash-2.9.2.aar/b8a0e38b63861d5650d23cb1b183866b/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.android.exoplayer:exoplayer-core:2.9.2] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/exoplayer-core-2.9.2.aar/d8bf280ba61aa81e939ab7200c2002b6/AndroidManifest.xml:20:5-22:41
 MERGED from [org.webkit:android-jsc:r241213] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-jsc-r241213.aar/dece4e737101faed67ade56f589dc1ce/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r241213] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-jsc-r241213.aar/dece4e737101faed67ade56f589dc1ce/AndroidManifest.xml:7:5-9:41
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.5.5] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/crashlytics-2.5.5.aar/50e7ad1ca29ac4caad9400a797edd97c/AndroidManifest.xml:7:5-43
@@ -1457,36 +1360,6 @@ uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
 ADDED from [:expo-background-fetch] /Users/bengyles/dev/Musicoin/app/node_modules/expo-background-fetch/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-81
 	android:name
 		ADDED from [:expo-background-fetch] /Users/bengyles/dev/Musicoin/app/node_modules/expo-background-fetch/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:22-78
-provider#expo.modules.imagepicker.ImagePickerFileProvider
-ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:14:9-22:20
-	android:grantUriPermissions
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:13-47
-	android:authorities
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:13-75
-	android:exported
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-37
-	android:name
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:13-76
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:13-21:58
-MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:85:13-87:58
-MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:85:13-87:58
-	android:resource
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:21:17-55
-	android:name
-		ADDED from [:expo-image-picker] /Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:17-67
-uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:5-77
-MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:5-77
-MERGED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:5-77
-	android:name
-		ADDED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:22-74
-service#expo.modules.location.services.LocationTaskService
-ADDED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:16:9-18:40
-	android:exported
-		ADDED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:13-37
-	android:name
-		ADDED from [:expo-location] /Users/bengyles/dev/Musicoin/app/node_modules/expo-location/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-78
 provider#android.support.v4.content.FileProvider
 ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:9-20:20
 MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:80:9-88:20
@@ -1499,6 +1372,14 @@ MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/t
 		ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:15:13-37
 	android:name
 		ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:13-19:58
+MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:85:13-87:58
+MERGED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:85:13-87:58
+	android:resource
+		ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:19:17-55
+	android:name
+		ADDED from [:expo-sharing] /Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:18:17-67
 supports-screens
 ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:12:5-18:24
 	android:largeScreens
@@ -1517,16 +1398,12 @@ ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/tr
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:25:22-77
 uses-feature#android.hardware.camera
 ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:43:5-45:36
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:25:5-27:36
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:25:5-27:36
 	android:required
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:45:9-33
 	android:name
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:44:9-47
 uses-feature#android.hardware.camera.autofocus
 ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:46:5-48:36
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:28:5-30:36
-MERGED from [com.google.android:cameraview:1.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/AndroidManifest.xml:28:5-30:36
 	android:required
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:48:9-33
 	android:name
@@ -1589,6 +1466,10 @@ ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/tr
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:92:13-37
 	android:name
 		ADDED from [host.exp.exponent:expoview:33.0.0] /Users/bengyles/.gradle/caches/transforms-1/files-1.1/expoview-33.0.0.aar/778313ee5db2f48612c80409c24ea3f7/AndroidManifest.xml:90:13-109
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:5-77
+	android:name
+		ADDED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:12:22-74
 service#com.guichaguri.trackplayer.service.MusicService
 ADDED from [:react-native-track-player] /Users/bengyles/dev/Musicoin/app/node_modules/react-native-track-player/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:17:9-24:19
 	android:enabled

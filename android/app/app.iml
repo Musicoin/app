@@ -142,6 +142,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/splits-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
@@ -360,64 +361,46 @@
     <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.theartofdev.edmodo:android-image-cropper:2.7.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:16.0.1@aar" level="project" />
+    <orderEntry type="module" module-name="expo-local-authentication" />
     <orderEntry type="module" module-name="expo-secure-store" />
     <orderEntry type="module" module-name="unimodules-file-system-interface" />
+    <orderEntry type="module" module-name="expo-speech" />
+    <orderEntry type="module" module-name="expo-google-sign-in" />
+    <orderEntry type="module" module-name="react-native-iap" />
     <orderEntry type="module" module-name="expo-sharing" />
     <orderEntry type="module" module-name="unimodules-image-loader-interface" />
-    <orderEntry type="module" module-name="unimodules-camera-interface" />
-    <orderEntry type="module" module-name="expo-barcode-scanner" />
-    <orderEntry type="module" module-name="expo-sms" />
     <orderEntry type="module" module-name="expo-background-fetch" />
+    <orderEntry type="module" module-name="unimodules-font-interface" />
+    <orderEntry type="module" module-name="expo-app-auth" />
     <orderEntry type="module" module-name="expo-facebook" />
     <orderEntry type="module" module-name="unimodules-core" />
-    <orderEntry type="module" module-name="expo-mail-composer" />
-    <orderEntry type="module" module-name="expo-document-picker" />
-    <orderEntry type="module" module-name="expo-face-detector" />
+    <orderEntry type="module" module-name="expo-random" />
+    <orderEntry type="module" module-name="expo-web-browser" />
     <orderEntry type="module" module-name="expo-sensors" />
     <orderEntry type="module" module-name="expo-localization" />
-    <orderEntry type="module" module-name="expo-analytics-amplitude" />
+    <orderEntry type="module" module-name="expo-sqlite" />
     <orderEntry type="module" module-name="expo-app-loader-provider" />
     <orderEntry type="module" module-name="unimodules-task-manager-interface" />
     <orderEntry type="module" module-name="expo-keep-awake" />
     <orderEntry type="module" module-name="expo-constants" />
+    <orderEntry type="module" module-name="unimodules-barcode-scanner-interface" />
     <orderEntry type="module" module-name="expo-gl-cpp" />
     <orderEntry type="module" module-name="expo-image-manipulator" />
+    <orderEntry type="module" module-name="unimodules-permissions-interface" />
     <orderEntry type="module" module-name="expo-intent-launcher" />
     <orderEntry type="module" module-name="expo-font" />
     <orderEntry type="module" module-name="expo-task-manager" />
-    <orderEntry type="module" module-name="expo-ads-facebook" />
-    <orderEntry type="module" module-name="expo-file-system" />
-    <orderEntry type="module" module-name="expo-ads-admob" />
-    <orderEntry type="module" module-name="react-native-track-player" />
-    <orderEntry type="module" module-name="expo-analytics-segment" />
-    <orderEntry type="module" module-name="expo-haptics" />
-    <orderEntry type="module" module-name="expo-brightness" />
-    <orderEntry type="module" module-name="expo-permissions" />
-    <orderEntry type="module" module-name="expo-av" />
-    <orderEntry type="module" module-name="expo-local-authentication" />
-    <orderEntry type="module" module-name="expo-speech" />
-    <orderEntry type="module" module-name="expo-print" />
-    <orderEntry type="module" module-name="expo-google-sign-in" />
-    <orderEntry type="module" module-name="react-native-iap" />
-    <orderEntry type="module" module-name="unimodules-font-interface" />
-    <orderEntry type="module" module-name="expo-app-auth" />
-    <orderEntry type="module" module-name="expo-calendar" />
-    <orderEntry type="module" module-name="expo-random" />
-    <orderEntry type="module" module-name="expo-web-browser" />
-    <orderEntry type="module" module-name="expo-image-picker" />
-    <orderEntry type="module" module-name="expo-sqlite" />
-    <orderEntry type="module" module-name="unimodules-face-detector-interface" />
-    <orderEntry type="module" module-name="unimodules-barcode-scanner-interface" />
-    <orderEntry type="module" module-name="unimodules-permissions-interface" />
-    <orderEntry type="module" module-name="expo-camera" />
     <orderEntry type="module" module-name="expo-gl" />
     <orderEntry type="module" module-name="expo-linear-gradient" />
     <orderEntry type="module" module-name="unimodules-react-native-adapter" />
+    <orderEntry type="module" module-name="expo-ads-facebook" />
     <orderEntry type="module" module-name="unimodules-sensors-interface" />
-    <orderEntry type="module" module-name="expo-location" />
+    <orderEntry type="module" module-name="expo-file-system" />
     <orderEntry type="module" module-name="unimodules-constants-interface" />
-    <orderEntry type="module" module-name="expo-media-library" />
-    <orderEntry type="module" module-name="expo-contacts" />
+    <orderEntry type="module" module-name="react-native-track-player" />
+    <orderEntry type="module" module-name="expo-haptics" />
+    <orderEntry type="module" module-name="expo-brightness" />
+    <orderEntry type="module" module-name="expo-permissions" />
     <orderEntry type="module" module-name="expo-crypto" />
   </component>
 </module>

@@ -47,8 +47,7 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- WHEN_VERSIONING_REMOVE_FROM_HERE -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- WHEN_VERSIONING_REMOVE_FROM_HERE -->
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -85,7 +84,9 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.bluetooth"
-        android:required="false" /> <!-- for android -->
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- for android -->
     <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
     <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
@@ -423,20 +424,7 @@
             android:name="expo.modules.taskManager.TaskJobService"
             android:enabled="true"
             android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- https://developer.android.com/guide/topics/manifest/provider-element.html -->
-        <provider
-            android:name="expo.modules.imagepicker.ImagePickerFileProvider"
-            android:authorities="org.musicoin.musicoin.ImagePickerFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
-        </provider>
-
-        <service
-            android:name="expo.modules.location.services.LocationTaskService"
-            android:exported="false" />
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

@@ -3,17 +3,71 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/../node_modules/@unimodules/core/android" />
+            <option value="$PROJECT_DIR$/../node_modules/@unimodules/react-native-adapter/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-ads-admob/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-ads-facebook/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-analytics-amplitude/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-analytics-segment/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-app-auth/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-app-loader-provider/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-av/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-background-fetch/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-barcode-scanner/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-brightness/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-calendar/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-camera/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-constants/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-contacts/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-crypto/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-document-picker/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-face-detector/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-facebook/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-file-system/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-font/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-gl-cpp/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-gl/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-google-sign-in/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-haptics/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-image-manipulator/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-image-picker/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-intent-launcher/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-keep-awake/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-linear-gradient/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-local-authentication/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-localization/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-location/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-mail-composer/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-media-library/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-permissions/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-print/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-random/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-secure-store/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-sensors/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-sharing/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-sms/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-speech/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-sqlite/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-task-manager/android" />
+            <option value="$PROJECT_DIR$/../node_modules/expo-web-browser/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-iap/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-track-player/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-barcode-scanner-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-camera-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-constants-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-face-detector-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-file-system-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-font-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-image-loader-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-permissions-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-sensors-interface/android" />
+            <option value="$PROJECT_DIR$/../node_modules/unimodules-task-manager-interface/android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

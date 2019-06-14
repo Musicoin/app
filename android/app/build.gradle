@@ -193,6 +193,26 @@ dependencies {
                   // 'expo-face-detector'
                   // Adding a name here will also remove the package
                   // from auto-generated BasePackageList.java
+                  'expo-ads-admob',
+                  'expo-analytics-amplitude',
+                  'expo-analytics-segment',
+                  'expo-av',
+                  'expo-barcode-scanner',
+                  'expo-calendar',
+                  'expo-contacts',
+                  'expo-camera',
+                  'expo-document-picker',
+                  'expo-face-detector',
+                  'expo-image-picker',
+                  'expo-location',
+                  'expo-media-library',
+                  'expo-mail-composer',
+                  'expo-print',
+                  'expo-sms',
+                  'unimodules-barcode-scanner',
+                  'unimodules-camera-interface',
+                  'unimodules-face-detector-interface',
+
           ]
   ])
 }

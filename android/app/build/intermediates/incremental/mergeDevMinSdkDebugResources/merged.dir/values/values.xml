@@ -297,23 +297,6 @@
             <enum name="auto" value="-1"/>
         </attr><attr format="boolean" name="behavior_hideable"/><attr format="boolean" name="behavior_skipCollapsed"/></declare-styleable>
     <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
-    <declare-styleable name="CameraView"><attr name="android:adjustViewBounds"/><attr format="enum" name="facing">
-            
-            <enum name="back" value="0"/>
-            
-            <enum name="front" value="1"/>
-        </attr><attr format="string" name="aspectRatio"/><attr format="boolean" name="autoFocus"/><attr format="enum" name="flash">
-            
-            <enum name="off" value="0"/>
-            
-            <enum name="on" value="1"/>
-            
-            <enum name="torch" value="2"/>
-            
-            <enum name="auto" value="3"/>
-            
-            <enum name="redEye" value="4"/>
-        </attr></declare-styleable>
     <declare-styleable name="CardView"><attr format="color" name="cardBackgroundColor"/><attr format="dimension" name="cardCornerRadius"/><attr format="dimension" name="cardElevation"/><attr format="dimension" name="cardMaxElevation"/><attr format="boolean" name="cardUseCompatPadding"/><attr format="boolean" name="cardPreventCornerOverlap"/><attr format="dimension" name="contentPadding"/><attr format="dimension" name="contentPaddingLeft"/><attr format="dimension" name="contentPaddingRight"/><attr format="dimension" name="contentPaddingTop"/><attr format="dimension" name="contentPaddingBottom"/><attr name="android:minWidth"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/><attr format="dimension" name="scrimVisibleHeightTrigger"/><attr format="integer" name="scrimAnimationDuration"/><attr name="collapsedTitleGravity">
             
@@ -1244,17 +1227,14 @@
     <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
     <string name="crop_image_menu_rotate_right">Rotate</string>
     <string name="cvc">CVC</string>
-    <string name="default_media_controller_time">00:00</string>
     <string name="default_notification_channel_group">Default</string>
     <string name="deny_experience_permissions">Deny</string>
     <string name="dev_activity_name">Exponent Dev</string>
-    <string name="enter_fullscreen_mode">Enter fullscreen mode</string>
     <string name="error_default_client">Sorry about that. You can go back to Expo home or try to reload the Experience.</string>
     <string name="error_default_shell">Sorry about that. Press the reload button to try again.</string>
     <string name="error_header">Something went wrong.</string>
     <string name="error_unable_to_load_experience">Unable to load Experience.</string>
     <string name="error_uncaught">Uncaught Error: %s</string>
-    <string name="exit_fullscreen_mode">Exit fullscreen mode</string>
     <string name="exo_controls_fastforward_description">Fast forward</string>
     <string name="exo_controls_fullscreen_description">Fullscreen mode</string>
     <string name="exo_controls_next_description">Next track</string>
@@ -3215,13 +3195,6 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <style name="Widget.CameraView" parent="android:Widget">
-        <item name="android:adjustViewBounds">false</item>
-        <item name="facing">back</item>
-        <item name="aspectRatio">4:3</item>
-        <item name="autoFocus">true</item>
-        <item name="flash">auto</item>
-    </style>
     <style name="Widget.Compat.NotificationActionContainer" parent=""/>
     <style name="Widget.Compat.NotificationActionText" parent=""/>
     <style name="Widget.Design.AppBarLayout" parent="Base.Widget.Design.AppBarLayout">

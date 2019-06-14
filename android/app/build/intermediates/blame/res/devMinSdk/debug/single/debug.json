@@ -36,10 +36,6 @@
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-login-5.0.1.aar/d4ac0d5be84bf41762015c2665e646b8/res/drawable-hdpi-v4/com_facebook_tooltip_black_bottomnub.png"
     },
     {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/layout_surface_view.xml.flat",
-        "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/res/layout/surface_view.xml"
-    },
-    {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxhdpi-v4_messenger_bubble_small_white.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/facebook-messenger-5.0.1.aar/9bcb65e8c9dae0aa289c8ca9188723ec/res/drawable-xxhdpi-v4/messenger_bubble_small_white.png"
     },
@@ -208,10 +204,6 @@
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-xhdpi-v4/abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/layout-v14_texture_view.xml.flat",
-        "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/cameraview-1.0.0.aar/9d24c194ae3990920e475b3479816f12/res/layout-v14/texture_view.xml"
-    },
-    {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxxhdpi-v4_crop_image_menu_flip.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.7.0.aar/3fe784884d25878b43cfb4e9644f3838/res/drawable-xxxhdpi-v4/crop_image_menu_flip.png"
     },
@@ -238,10 +230,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/anim_abc_popup_enter.xml.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/anim/abc_popup_enter.xml"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxhdpi-v4_ic_fullscreen_exit_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_fullscreen_exit_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -872,10 +860,6 @@
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-ldrtl-xxxhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi-v4_ic_fullscreen_exit_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_fullscreen_exit_32dp.png"
-    },
-    {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/39b9e447b7eef0c440caed42f3a2cb83/res/drawable-xhdpi-v4/googleg_standard_color_18.png"
     },
@@ -930,10 +914,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/raw_amu_default_balloon.kml.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-maps-utils-0.5.aar/601d317a73239bebbb2ea9b52d69a0e8/res/raw/amu_default_balloon.kml"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-mdpi-v4_ic_fullscreen_exit_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_fullscreen_exit_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-mdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -1361,7 +1341,7 @@
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/xml_provider_paths.xml.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-image-picker/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
+        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-sharing/android/build/intermediates/packaged_res/debug/xml/provider_paths.xml"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-v21_design_password_eye.xml.flat",
@@ -1394,10 +1374,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-mdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-mdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/layout_expo_media_controller.xml.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/layout/expo_media_controller.xml"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/layout_notification_template_big_media_narrow.xml.flat",
@@ -1478,10 +1454,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-xxhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-mdpi-v4_ic_fullscreen_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-mdpi-v4/ic_fullscreen_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-v21_abc_action_bar_item_background_material.xml.flat",
@@ -1838,10 +1810,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxhdpi-v4_ic_fullscreen_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xxhdpi-v4/ic_fullscreen_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi_ic_home_white_36dp.png.flat",
@@ -2308,10 +2276,6 @@
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/layout/abc_screen_content_include.xml"
     },
     {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi-v4_ic_fullscreen_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-hdpi-v4/ic_fullscreen_32dp.png"
-    },
-    {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -2406,10 +2370,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-xhdpi-v4/abc_ic_star_half_black_16dp.png"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxxhdpi-v4_ic_fullscreen_exit_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xxxhdpi-v4/ic_fullscreen_exit_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable_notification_bg_low.xml.flat",
@@ -2740,10 +2700,6 @@
         "source": "/Users/bengyles/dev/Musicoin/app/android/app/src/main/res/drawable-xxhdpi/ic_refresh_white_36dp.png"
     },
     {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxxhdpi-v4_ic_fullscreen_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xxxhdpi-v4/ic_fullscreen_32dp.png"
-    },
-    {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi-v4_crop_image_menu_flip.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.7.0.aar/3fe784884d25878b43cfb4e9644f3838/res/drawable-hdpi-v4/crop_image_menu_flip.png"
     },
@@ -2810,10 +2766,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/raw_node_modules_expo_vectoricons_fonts_simplelineicons.ttf.flat",
         "source": "/Users/bengyles/dev/Musicoin/app/android/app/src/main/res/raw/node_modules_expo_vectoricons_fonts_simplelineicons.ttf"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xhdpi-v4_ic_fullscreen_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_fullscreen_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xxxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -3122,10 +3074,6 @@
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-mdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "/Users/bengyles/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/b28ce40e04ad6e01ea248d440b2bfd1e/res/drawable-mdpi-v4/abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-xhdpi-v4_ic_fullscreen_exit_32dp.png.flat",
-        "source": "/Users/bengyles/dev/Musicoin/app/node_modules/expo-av/android/build/intermediates/packaged_res/debug/drawable-xhdpi-v4/ic_fullscreen_exit_32dp.png"
     },
     {
         "merged": "/Users/bengyles/dev/Musicoin/app/android/app/build/intermediates/res/merged/devMinSdk/debug/drawable-hdpi_ic_refresh_white_36dp.png.flat",
