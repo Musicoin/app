@@ -61,7 +61,9 @@ class WalletScreen extends React.Component {
                       />
                     </View>
                   </TouchableOpacity>
-                </View> : null}
+                </View> :
+                <Text style={{color: Colors.errorText, fontSize: 14, textAlign: 'center', marginTop: 16}}>No wallet address</Text>
+            }
           </View>
         </View>
     );

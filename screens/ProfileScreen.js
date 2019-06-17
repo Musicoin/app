@@ -65,15 +65,16 @@ class ProfileScreen extends React.Component {
                   {/*<Text style={{fontSize: 14}}>Invite friends</Text>*/}
                   {/*</TouchableOpacity>*/}
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this._toggleProductModal()}>
-                    <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'md-card' : 'md-card'}
-                        size={20}
-                        color={Colors.disabled}
-                        style={{marginRight: 16}}
-                    />
-                    <Text style={{fontSize: 14}}>Buy $MUSIC</Text>
-                  </TouchableOpacity>
+                  {this.props.profile.profileAddress ?
+                      <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this._toggleProductModal()}>
+                        <Icon.Ionicons
+                            name={Platform.OS === 'ios' ? 'md-card' : 'md-card'}
+                            size={20}
+                            color={Colors.disabled}
+                            style={{marginRight: 16}}
+                        />
+                        <Text style={{fontSize: 14}}>Buy $MUSIC</Text>
+                      </TouchableOpacity> : null}
 
                   <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.logout()}>
                     <Icon.Ionicons

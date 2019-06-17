@@ -99,23 +99,27 @@ class ProductModal extends React.Component {
   );
 
   async buyProduct(product) {
-    try {
-      // Will return a purchase object with a receipt which can be used to validate on your server.
-      const purchase = await RNIap.buyProduct(product.productId);
-      console.log(purchase);
-      this.setState({
-        receipt: purchase, // save the receipt if you need it, whether locally, or to your server.
-      });
-      await this.consumePurchases();
+    if (this.props.profile.profileAddress) {
+      try {
+        // Will return a purchase object with a receipt which can be used to validate on your server.
+        const purchase = await RNIap.buyProduct(product.productId);
+        console.log(purchase);
+        this.setState({
+          receipt: purchase, // save the receipt if you need it, whether locally, or to your server.
+        });
+        await this.consumePurchases();
 
-    } catch (err) {
-      // standardized err.code and err.message available
-      console.log(err.code, err.message);
-      this.props.addAlert('error', '', 'Failed to buy product');
-      const subscription = RNIap.addAdditionalSuccessPurchaseListenerIOS(async (purchase) => {
-        this.setState({receipt: purchase}, async () => await this.consumePurchases());
-        subscription.remove();
-      });
+      } catch (err) {
+        // standardized err.code and err.message available
+        console.log(err.code, err.message);
+        this.props.addAlert('error', '', 'Failed to buy product');
+        const subscription = RNIap.addAdditionalSuccessPurchaseListenerIOS(async (purchase) => {
+          this.setState({receipt: purchase}, async () => await this.consumePurchases());
+          subscription.remove();
+        });
+      }
+    } else {
+      this.props.addAlert('error', '', 'No wallet address available');
     }
   }
 
