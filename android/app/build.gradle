@@ -23,9 +23,7 @@ android {
     applicationId 'org.musicoin.musicoin'
     targetSdkVersion 26
     versionName '3.0.0'
-    ndk {
-      abiFilters 'armeabi-v7a', 'x86'
-    }
+    ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
     multiDexEnabled true
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     // Deprecated. Used by net.openid:appauth
