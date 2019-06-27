@@ -39,7 +39,7 @@ class WalletScreen extends React.Component {
 
             <View style={{backgroundColor: '#0B0C0D', marginTop: 8, paddingVertical: 24}}>
               <Text style={{color: Colors.tintColor, fontSize: 16, textAlign: 'center'}}>$MUSIC</Text>
-              <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{this.props.profile.balance}</Text>
+              <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{parseFloat(this.props.profile.balance).toFixed(2)}</Text>
             </View>
 
             {this.props.profile.profileAddress ?
