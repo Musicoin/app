@@ -84,11 +84,9 @@ class SocialLogin extends React.Component {
     let tokenRequest = await fetchTwitterOauthToken();
     console.log(tokenRequest.oauthToken);
     if (tokenRequest.oauthToken) {
-      let redirectUrl = AuthSession.getRedirectUrl();
       let result = await AuthSession.startAsync({
         authUrl:
-        `https://api.twitter.com/oauth/authenticate?oauth_token=${tokenRequest.oauthToken}` +
-        `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
+        `https://api.twitter.com/oauth/authenticate?oauth_token=${tokenRequest.oauthToken}`
       });
       this.setState({result});
       console.log(result);
