@@ -1,4 +1,4 @@
-import {ARTIST_OF_THE_WEEK_SUCCESS, LIKE_TRACK, TIP_TRACK} from '../constants/Actions';
+import {ARTIST_OF_THE_WEEK_SUCCESS, LIKE_TRACK, TIP_TRACK, FOLLOW_ARTIST} from '../constants/Actions';
 
 export default function artistOfTheWeek(state = null, action) {
   switch (action.type) {
@@ -31,6 +31,23 @@ export default function artistOfTheWeek(state = null, action) {
             track: {
               ...item,
               liked: action.like,
+            },
+          };
+        }
+      } else {
+        return state;
+      }
+    }
+    case TIP_TRACK: {
+      //update followed property in store
+      if (action.success) {
+        let item = state.artist;
+        if (item.artistAddress === action.artist.artistAddress) {
+          return {
+            ...state,
+            artist: {
+              ...item,
+              followed: action.follow,
             },
           };
         }

@@ -1,4 +1,4 @@
-import {SEARCH_REQUEST, SEARCH_FAILURE, SEARCH_SUCCESS, TIP_TRACK, LIKE_TRACK} from '../constants/Actions';
+import {SEARCH_REQUEST, SEARCH_FAILURE, SEARCH_SUCCESS, TIP_TRACK, LIKE_TRACK, FOLLOW_ARTIST} from '../constants/Actions';
 
 export default function releases(state = {artists: [], releases: []}, action) {
   switch (action.type) {
@@ -6,7 +6,7 @@ export default function releases(state = {artists: [], releases: []}, action) {
       let {releases, artists} = action.searchResults;
       return releases || artists ? {releases, artists} : state;
     case (SEARCH_FAILURE, SEARCH_REQUEST):
-      return {artists:[], releases: []};
+      return {artists: [], releases: []};
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {
@@ -44,6 +44,28 @@ export default function releases(state = {artists: [], releases: []}, action) {
             return {
               ...item,
               directTipCount: action.like,
+            };
+          }),
+        };
+      } else {
+        return state;
+      }
+    }
+    case FOLLOW_ARTIST: {
+      //update like in store
+      if (action.success) {
+        return {
+          ...state,
+          artists: state.artists.map((item, index) => {
+            if (item.profileAddress !== action.artist.profileAddress) {
+              // This isn't the item we care about - keep it as-is
+              return item;
+            }
+
+            // Otherwise, this is the one we want - return an updated value
+            return {
+              ...item,
+              followed: action.follow,
             };
           }),
         };

@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, Platform, TouchableWithoutFeedback} from 'react-native';
 import {connect} from 'react-redux';
-import {playTrack} from '../actions';
+import {playTrack, followArtist} from '../actions';
 import * as Icon from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+import {LinearGradient} from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 import {Button} from 'react-native-elements';
 import NavigationService from '../services/NavigationService';
@@ -33,27 +33,45 @@ class ArtistOfTheWeek extends React.Component {
                       <Text numberOfLines={1} style={{fontSize: 14, fontWeight: 'bold'}}>Artist of the week</Text>
                       <Text numberOfLines={1} style={{fontSize: 12, fontFamily: 'robotoMedium', marginTop: 8}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
                       <Text numberOfLines={1} style={{fontSize: 12}}>{this.props.artistOfTheWeek.track.title}</Text>
-                      <Button
-                          icon={
-                            <Icon.Ionicons
-                                name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                                size={14}
-                                color={Colors.fontColor}
-                            />
-                          }
-                          title='PLAY'
-                          buttonStyle={{
-                            backgroundColor: Colors.tintColor,
-                            borderColor: 'transparent',
-                            borderWidth: 0,
-                            borderRadius: Platform.OS === 'ios' ? 20 : 0,
-                            paddingHorizontal: 24,
-                            maxWidth: 100,
-                          }}
-                          titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
-                          containerStyle={{marginTop: 20}}
-                          onPress={() => this.props.playTrack(this.props.artistOfTheWeek.track, true)}
-                      />
+                      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                        <Button
+                            icon={
+                              <Icon.Ionicons
+                                  name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
+                                  size={14}
+                                  color={Colors.fontColor}
+                              />
+                            }
+                            title='PLAY'
+                            buttonStyle={{
+                              backgroundColor: Colors.tintColor,
+                              borderColor: 'transparent',
+                              borderWidth: 0,
+                              paddingHorizontal: 12,
+                              paddingVertical: 0,
+                              maxWidth: 100,
+                              marginRight: 4,
+                            }}
+                            titleStyle={{fontSize: 10, color: Colors.fontColor, fontWeight: 'bold'}}
+                            containerStyle={{marginTop: 20}}
+                            onPress={() => this.props.playTrack(this.props.artistOfTheWeek.track, true)}
+                        />
+                        <Button
+                            title={this.props.artistOfTheWeek.artist.followed ? 'Following' : 'Follow'}
+                            buttonStyle={{
+                              backgroundColor: 'transparent',
+                              borderColor: Colors.tintColor,
+                              borderWidth: 1,
+                              paddingHorizontal: 12,
+                              paddingVertical: 0,
+                              maxWidth: 100,
+                              marginHorizontal: 4,
+                            }}
+                            titleStyle={{fontSize: 10, color: Colors.tintColor, fontWeight: 'bold'}}
+                            containerStyle={{marginTop: 20}}
+                            onPress={() => this.props.followArtist(this.props.artistOfTheWeek.artist, this.props.artistOfTheWeek.artist.followed ? false : true)}
+                        />
+                      </View>
                     </View>
                   </View>
                 </LinearGradient>
@@ -75,4 +93,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, {playTrack})(ArtistOfTheWeek);
+export default connect(mapStateToProps, {playTrack, followArtist})(ArtistOfTheWeek);

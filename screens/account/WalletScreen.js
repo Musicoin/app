@@ -53,47 +53,47 @@ class WalletScreen extends React.Component {
                 });
               }}>
                 <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{parseFloat(this.props.profile.balance).toFixed(2)}</Text>
-                </TouchableOpacity>
-                </View>
+              </TouchableOpacity>
+            </View>
 
-                {this.props.profile.profileAddress ?
+            {this.props.profile.profileAddress ?
                 <View>
-                <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
+                  <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
 
-                <TouchableOpacity
-                onPress={() => {
-                Clipboard.setString(this.props.profile.profileAddress);
-                this.props.addAlert('info', '', 'Wallet address copied!');
-                }}
-                style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B0C0D', marginTop: 16, padding: 16}}>
-                <Text style={{color: Colors.tintColor, fontSize: 10, textAlign: 'center'}}>{this.props.profile.profileAddress}</Text>
-                <View style={{justifyContent: 'center', marginHorizontal: 8}}>
-                <Icon.Ionicons
-                name={Platform.OS === 'ios' ? `md-albums` : 'md-albums'}
-                size={12}
-                color={Colors.fontColor}
-                />
-                </View>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                      onPress={() => {
+                        Clipboard.setString(this.props.profile.profileAddress);
+                        this.props.addAlert('info', '', 'Wallet address copied!');
+                      }}
+                      style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B0C0D', marginTop: 16, padding: 16}}>
+                    <Text style={{color: Colors.tintColor, fontSize: 10, textAlign: 'center'}}>{this.props.profile.profileAddress}</Text>
+                    <View style={{justifyContent: 'center', marginHorizontal: 8}}>
+                      <Icon.Ionicons
+                          name={Platform.OS === 'ios' ? `md-albums` : 'md-albums'}
+                          size={12}
+                          color={Colors.fontColor}
+                      />
+                    </View>
+                  </TouchableOpacity>
                 </View> :
                 <Text style={{color: Colors.errorText, fontSize: 14, textAlign: 'center', marginTop: 16}}>No wallet address</Text>
-                }
-                </View>
-                </View>
-                );
-                }
-                }
+            }
+          </View>
+        </View>
+    );
+  }
+}
 
-                function mapStateToProps(state) {
-                return state;
-                }
+function mapStateToProps(state) {
+  return state;
+}
 
-                const styles = StyleSheet.create({
-                container: {
-                paddingTop: getStatusBarHeight(true),
-                flex: 1,
-                backgroundColor: Colors.backgroundColor,
-                },
-                });
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: getStatusBarHeight(true),
+    flex: 1,
+    backgroundColor: Colors.backgroundColor,
+  },
+});
 
-                export default connect(mapStateToProps, {addAlert})(WalletScreen);
+export default connect(mapStateToProps, {addAlert})(WalletScreen);
