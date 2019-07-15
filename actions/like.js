@@ -9,11 +9,20 @@ function addLike(track, json, like) {
     json = {tx: true};
 
     let success = false;
-    if (json.tx) {
-      // dispatch(addAlert('success', 'Your tip has been sent successfully!', 'Thanks for supporting your favorite artists.'));
-      success = true;
+    if (like) {
+      if (json && json.success) {
+        dispatch(addAlert('success', 'Your like has been sent successfully!', 'Thanks for supporting your favorite artists.'));
+        success = true;
+      } else {
+        dispatch(addAlert('error', 'Something went wrong', 'Please retry at a later time.'));
+      }
     } else {
-      dispatch(addAlert('error', 'Something went wrong', 'Please retry your tip at a later time.'));
+      if (json && json.success) {
+        dispatch(addAlert('success', '', 'Your unlike has been sent successfully!'));
+        success = true;
+      } else {
+        dispatch(addAlert('error', 'Something went wrong', 'Please retry at a later time.'));
+      }
     }
 
     return dispatch({
@@ -30,17 +39,15 @@ async function likeTrackJson(trackAddress, token, email, like) {
     trackAddress,
   };
 
-  //ToDo: add like api's
-  console.log(`like: ${like}`);
-  return;
-
-  // let likeTrack;
-  // if(like){
-  // await fetchPostFormDataJson(`v2/release/tip?email=${email}&accessToken=${token}`, params);
-  // }else{
-
-  // }
-  // return likeTrack;
+  if (like) {
+    let likeTrack = await fetchPostFormDataJson(`v1/user/like?email=${email}&accessToken=${token}`, params);
+    console.log(likeTrack);
+    return likeTrack;
+  } else {
+    let likeTrack = await fetchPostFormDataJson(`v1/user/unlike?email=${email}&accessToken=${token}`, params);
+    console.log(likeTrack);
+    return likeTrack;
+  }
 }
 
 export function likeTrack(track, like) {
