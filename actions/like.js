@@ -7,8 +7,6 @@ import Layout from '../constants/Layout';
 
 function addLike(track, json, like) {
   return function(dispatch, getState) {
-    //ToDo: remove this after testing
-    json = {tx: true};
 
     let success = false;
     if (like) {
