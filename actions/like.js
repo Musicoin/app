@@ -1,7 +1,9 @@
-import {LIKE_TRACK} from '../constants/Actions';
-import {fetchPostFormDataJson} from '../tools/util';
+import {LIKE_TRACK, RECEIVE_LIKED_TRACKS_FAILURE, RECEIVE_LIKED_TRACKS_REQUEST, RECEIVE_LIKED_TRACKS_SUCCESS} from '../constants/Actions';
+import {fetchGetData, fetchPostFormDataJson} from '../tools/util';
 import {addAlert} from './alert';
 import NavigationService from '../services/NavigationService';
+import {GENERAL_API_LIMIT} from '../constants/App';
+import Layout from '../constants/Layout';
 
 function addLike(track, json, like) {
   return function(dispatch, getState) {
@@ -63,5 +65,64 @@ export function likeTrack(track, like) {
     } else {
       NavigationService.navigate('Profile');
     }
+  };
+}
+
+function receiveLikedReleases(json, skip) {
+  let releases = [];
+  if (json.success) {
+    releases = json.data;
+  }
+
+  return {
+    type: releases ? RECEIVE_LIKED_TRACKS_SUCCESS : RECEIVE_LIKED_TRACKS_FAILURE,
+    releases,
+    skip,
+  };
+}
+
+async function fetchLikedReleasesJson(token, email, skip) {
+  var params = {
+    'accessToken': token,
+    'email': email,
+    'limit': GENERAL_API_LIMIT,
+    skip
+  };
+
+  let results = await fetchGetData(`v1/user/liking?`, params);
+
+  if (results.success && results.data != []) {
+
+    for (let i = 0; i < results.data.length; i++) {
+
+      if (!results.data[i].genres) {
+        results.data[i].genres = [];
+      }
+
+      if (!results.data[i].directTipCount) {
+        results.data[i].directTipCount = 0;
+      }
+
+      if (!results.data[i].directPlayCount) {
+        results.data[i].directPlayCount = 0;
+      }
+
+      if (!results.data[i].trackImg) {
+        results.data[i].trackImg = Layout.defaultTrackImage;
+      }
+
+      results.data[i].origin = 'liked';
+    }
+    return results;
+  } else {
+    return false;
+  }
+}
+
+export function fetchLikedReleases(skip = 0) {
+  return function(dispatch, getState) {
+    dispatch({type: RECEIVE_LIKED_TRACKS_REQUEST});
+    let {accessToken, email} = getState().auth;
+    return fetchLikedReleasesJson(accessToken, email, skip).then(json => dispatch(receiveLikedReleases(json, skip)));
   };
 }

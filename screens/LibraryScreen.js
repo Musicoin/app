@@ -7,7 +7,7 @@ import * as Icon from '@expo/vector-icons';
 import Track from '../components/track/track';
 import {playTrack, togglePlayerMode} from '../actions';
 import connectAlert from '../components/alert/connectAlert.component';
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 let redirectToPlayer = false;
 
@@ -18,13 +18,13 @@ class LibraryScreen extends React.Component {
   constructor(props) {
     super(props);
     this._didFocusSubscription = props.navigation.addListener('didFocus', payload =>
-        BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+        BackHandler.addEventListener('hardwareBackPress', this.onBackButtonPressAndroid),
     );
   }
 
   componentDidMount() {
     this._willBlurSubscription = this.props.navigation.addListener('willBlur', payload =>
-        BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid)
+        BackHandler.removeEventListener('hardwareBackPress', this.onBackButtonPressAndroid),
     );
   }
 
@@ -51,16 +51,26 @@ class LibraryScreen extends React.Component {
             <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18}}>Library</Text>
           </View>
           <View style={{marginHorizontal: 16}}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Recent')}>
-            <Icon.Ionicons
-                name={Platform.OS === 'ios' ? 'ios-time' : 'md-time'}
-                size={20}
-                color={Colors.disabled}
-                style={{marginRight: 16}}
-            />
+            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Recent')}>
+              <Icon.Ionicons
+                  name={Platform.OS === 'ios' ? 'ios-time' : 'md-time'}
+                  size={20}
+                  color={Colors.disabled}
+                  style={{marginRight: 16}}
+              />
 
-            <Text style={{fontSize: 14}}>Recently played</Text>
-          </TouchableOpacity>
+              <Text style={{fontSize: 14}}>Recently played</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Liked')}>
+              <Icon.Ionicons
+                  name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                  size={20}
+                  color={Colors.disabled}
+                  style={{marginRight: 16}}
+              />
+
+              <Text style={{fontSize: 14}}>Favorite tracks</Text>
+            </TouchableOpacity>
             <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
               <Image
                   source={require('../assets/icons/clap-grey.png')}

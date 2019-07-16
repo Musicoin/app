@@ -38,6 +38,9 @@ class DetailsScreen extends React.Component {
       case 'tip':
         track = this.props.lastTipped.find(obj => obj.trackAddress === trackAddress);
         break;
+      case 'liked':
+        track = this.props.liked.find(obj => obj.trackAddress === trackAddress);
+        break;
       default:
         track = this.props.currentTrack;
         break;
