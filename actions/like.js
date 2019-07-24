@@ -9,20 +9,15 @@ function addLike(track, json, like) {
   return function(dispatch, getState) {
 
     let success = false;
-    if (like) {
-      if (json && json.success) {
-        dispatch(addAlert('success', 'Your like has been sent successfully!', 'Thanks for supporting your favorite artists.'));
-        success = true;
+    if (json && json.success) {
+      success = true;
+      if (like) {
+        dispatch(addAlert('info', '', `You favorited ${track.title}`));
       } else {
-        dispatch(addAlert('error', 'Something went wrong', 'Please retry at a later time.'));
+        dispatch(addAlert('info', '', `You unfavorited ${track.title}`));
       }
     } else {
-      if (json && json.success) {
-        dispatch(addAlert('success', '', 'Your unlike has been sent successfully!'));
-        success = true;
-      } else {
-        dispatch(addAlert('error', 'Something went wrong', 'Please retry at a later time.'));
-      }
+      dispatch(addAlert('error', 'Something went wrong', 'Please retry at a later time.'));
     }
 
     return dispatch({
@@ -59,7 +54,7 @@ export function likeTrack(track, like) {
       if (like && balance < 1) {
         return dispatch(addAlert('error', 'Insufficient funds', 'You don\'t have enough coins to like this track'));
       }
-      return likeTrackJson(track.trackAddress, accessToken, email, like).then(json => dispatch(addLike(track, json, like)));
+      return likeTrackJson(track.trackAddress, accessToken, email, like).then(json => dispatch(addLike(track, json, like))).then(() => dispatch(fetchLikedReleases(0)));
     } else {
       NavigationService.navigate('Profile');
     }
@@ -84,7 +79,7 @@ async function fetchLikedReleasesJson(token, email, skip) {
     'accessToken': token,
     'email': email,
     'limit': GENERAL_API_LIMIT,
-    skip
+    skip,
   };
 
   let results = await fetchGetData(`v1/user/liking?`, params);
@@ -108,6 +103,8 @@ async function fetchLikedReleasesJson(token, email, skip) {
       if (!results.data[i].trackImg) {
         results.data[i].trackImg = Layout.defaultTrackImage;
       }
+
+      results.data[i].liked = true;
 
       results.data[i].origin = 'liked';
     }

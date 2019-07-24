@@ -33,12 +33,14 @@ export default function artistOfTheWeek(state = null, action) {
               liked: action.like,
             },
           };
+        } else {
+          return state;
         }
       } else {
         return state;
       }
     }
-    case TIP_TRACK: {
+    case FOLLOW_ARTIST: {
       //update followed property in store
       if (action.success) {
         let item = state.artist;
@@ -50,6 +52,8 @@ export default function artistOfTheWeek(state = null, action) {
               followed: action.follow,
             },
           };
+        } else {
+          return state;
         }
       } else {
         return state;

@@ -14,7 +14,7 @@ var {width} = Dimensions.get('window');
 
 let redirectToPlayer = false;
 
-class RecentlyPlayedScreen extends React.Component {
+class LikedReleasesScreen extends React.Component {
   _didFocusSubscription;
   _willBlurSubscription;
 
@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connectAlert(connect(mapStateToProps, {togglePlayerMode, fetchLikedReleases})(RecentlyPlayedScreen));
+export default connectAlert(connect(mapStateToProps, {togglePlayerMode, fetchLikedReleases})(LikedReleasesScreen));

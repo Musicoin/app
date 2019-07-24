@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, Platform, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import * as Icon from '@expo/vector-icons';
 import {connect} from 'react-redux';
-import {playTrack, addToQueue, removeFromQueue, addAlert} from '../actions';
+import {playTrack, addToQueue, removeFromQueue, addAlert, followArtist} from '../actions';
 import Colors from '../constants/Colors';
 
 import Modal from 'react-native-modal';
@@ -91,6 +91,19 @@ class Artist extends Component {
                 <Text style={{color: Colors.fontColor, fontSize: 14}}>Artist details</Text>
               </TouchableOpacity>
 
+              <TouchableOpacity style={styles.modalButton} onPress={() => {
+                this._toggleModal();
+                this.props.followArtist(item, !item.followed);
+              }}>
+                <Icon.Ionicons
+                    name={Platform.OS === 'ios' ? 'ios-person-add' : 'md-person-add'}
+                    size={24}
+                    color={item.followed ? Colors.tintColor :'#8897A2'}
+                    style={{marginRight: 16}}
+                />
+                <Text style={{color: Colors.fontColor, fontSize: 14}}>{item.followed?"Unfollow":"Follow"}</Text>
+              </TouchableOpacity>
+
 
               <TouchableOpacity style={styles.modalButton} onPress={() => {
                 shareArtist(item).then(console.log('shared'));
@@ -137,4 +150,4 @@ const styles = StyleSheet.create({
   playerButton: {},
 });
 
-export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue, addAlert})(Artist);
+export default connect(mapStateToProps, {playTrack, addToQueue, removeFromQueue, addAlert, followArtist})(Artist);

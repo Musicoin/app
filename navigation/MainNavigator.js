@@ -10,7 +10,7 @@ import SearchScreen from '../screens/SearchScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 import RecentlyPlayedScreen from '../screens/library/RecentlyPlayedScreen';
 import RecentlyTippedScreen from '../screens/library/RecentlyTippedScreen';
-import likedReleasesScreen from '../screens/library/likedReleasesScreen';
+import likedReleasesScreen from '../screens/library/LikedReleasesScreen';
 import GenreScreen from '../screens/GenreScreen';
 import ArtistScreen from '../screens/ArtistScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -18,6 +18,7 @@ import LoginScreen from '../screens/account/LoginScreen';
 import SignupScreen from '../screens/account/SignupScreen';
 import WalletScreen from '../screens/account/WalletScreen';
 import InviteScreen from '../screens/account/InviteScreen';
+import FollowingScreen from '../screens/account/FollowingScreen';
 
 import Colors from '../constants/Colors';
 import {FULLSCREEN_VIEWS} from '../constants/App';
@@ -182,6 +183,9 @@ const ProfileStack = createStackNavigator(
       },
       Invite: {
         screen: InviteScreen,
+      },
+      Following: {
+        screen: FollowingScreen,
       },
     },
     {
