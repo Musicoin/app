@@ -2,10 +2,10 @@ import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {setCustomText} from 'react-native-global-props';
 
-import { AppLoading, SplashScreen, registerRootComponent } from 'expo';
+import {AppLoading, SplashScreen, registerRootComponent} from 'expo';
 import * as Icon from '@expo/vector-icons';
 import * as Font from 'expo-font';
-import { Asset } from 'expo-asset';
+import {Asset} from 'expo-asset';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 
@@ -122,8 +122,6 @@ export default class App extends React.Component {
         require('./assets/icons/clap-white.png'),
         require('./assets/icons/library-grey.png'),
         require('./assets/icons/library-white.png'),
-        require('./assets/images/logo.png'),
-        require('./assets/images/invite.png'),
         require('./assets/images/guitar.png'),
       ]),
       Font.loadAsync({
@@ -132,11 +130,7 @@ export default class App extends React.Component {
         'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
         'robotoBold': require('./assets/fonts/Roboto-Bold.ttf'),
       }),
-      store.dispatch(validateAccessToken()).then(() => {
-        return Promise.all([
-          store.dispatch(fetchArtistOfTheWeek()),
-          store.dispatch(fetchReleases())]);
-      }),
+      store.dispatch(validateAccessToken()),
     ]);
   };
 

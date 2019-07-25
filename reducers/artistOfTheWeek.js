@@ -1,9 +1,11 @@
-import {ARTIST_OF_THE_WEEK_SUCCESS, LIKE_TRACK, TIP_TRACK, FOLLOW_ARTIST} from '../constants/Actions';
+import {ARTIST_OF_THE_WEEK_SUCCESS, ARTIST_OF_THE_WEEK_FAILURE, LIKE_TRACK, TIP_TRACK, FOLLOW_ARTIST} from '../constants/Actions';
 
 export default function artistOfTheWeek(state = null, action) {
   switch (action.type) {
     case ARTIST_OF_THE_WEEK_SUCCESS:
       return action.data.track && action.data.artist ? action.data : state;
+    case ARTIST_OF_THE_WEEK_FAILURE:
+      return state;
     case TIP_TRACK: {
       //update tip count in store
       if (action.success) {

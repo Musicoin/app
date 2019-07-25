@@ -30,6 +30,8 @@ class HomeScreen extends React.Component {
     if (auth.shouldLogin && !auth.loggedIn) {
       this.props.navigation.navigate('Login');
     }
+    this.props.fetchArtistOfTheWeek();
+    this.props.fetchReleases();
   }
 
   render() {
@@ -62,7 +64,7 @@ class HomeScreen extends React.Component {
               onEndReached={() => {
                 !this.props.loading.RECEIVE_NEW_RELEASES && this.props.releases.length >= GENERAL_API_LIMIT ?
                     this.props.fetchReleases(this.props.releases.length) :
-                    null
+                    null;
               }}
               initialNumToRender={5}
               onEndReachedThreshold={1.5}
