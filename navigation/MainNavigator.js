@@ -11,6 +11,7 @@ import LibraryScreen from '../screens/LibraryScreen';
 import RecentlyPlayedScreen from '../screens/library/RecentlyPlayedScreen';
 import RecentlyTippedScreen from '../screens/library/RecentlyTippedScreen';
 import likedReleasesScreen from '../screens/library/LikedReleasesScreen';
+import QueueScreen from '../screens/library/QueueScreen';
 import GenreScreen from '../screens/GenreScreen';
 import ArtistScreen from '../screens/ArtistScreen';
 import ProfileScreen from '../screens/ProfileScreen';
@@ -135,6 +136,9 @@ const LibraryStack = createStackNavigator(
       Liked: {
         screen: likedReleasesScreen,
       },
+      Queue: {
+        screen: QueueScreen,
+      }
     },
     {
       mode: 'modal',

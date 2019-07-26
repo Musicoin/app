@@ -431,7 +431,7 @@ class PlayerComponent extends React.Component {
                         style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end'}}
                         onPress={() => {
                           this.props.togglePlayerMode();
-                          NavigationService.navigate('Library', {redirectToPlayer: true});
+                          NavigationService.navigate('Queue', {redirectToPlayer: true});
                         }}>
                       <Icon.MaterialIcons
                           name={'playlist-play'}

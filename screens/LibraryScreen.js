@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, Platform, FlatList, BackHandler, TouchableOpacity, Image} from 'react-native';
+import {View, Text, StyleSheet, Platform, BackHandler, TouchableOpacity, Image} from 'react-native';
 import Colors from '../constants/Colors';
-import Layout from '../constants/Layout';
 import {connect} from 'react-redux';
 import * as Icon from '@expo/vector-icons';
 import Track from '../components/track/track';
@@ -80,24 +79,16 @@ class LibraryScreen extends React.Component {
 
               <Text style={{fontSize: 14}}>Tipped tracks</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Queue')}>
+              <Icon.Ionicons
+                  name={'md-timer'}
+                  size={20}
+                  color={Colors.disabled}
+                  style={{marginRight: 16}}
+              />
+              <Text style={{fontSize: 14}}>Queue</Text>
+            </TouchableOpacity>
           </View>
-          <Text style={{color: Colors.fontColor, alignSelf: 'center', fontSize: 18, marginTop: 32}}>Queue</Text>
-          <FlatList
-              data={this.props.queue}
-              keyExtractor={this._keyExtractor}
-              renderItem={this._renderItem}
-              style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-              ListEmptyComponent={<View style={{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
-                <Icon.Ionicons
-                    name={'md-timer'}
-                    size={50}
-                    color={Colors.tabIconDefault}
-                    style={{opacity: 0.5}}
-                />
-                <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Hmm, your queue is empty!</Text>
-                <Text style={{color: Colors.tabIconDefault, fontSize: 14, marginTop: 5}}>Add your favorite tracks on-the-go.</Text>
-              </View>}
-          />
         </View>
     );
   }
