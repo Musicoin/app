@@ -1,17 +1,17 @@
 import React from 'react';
-import {ScrollView, View, Text, Image, Platform, TouchableOpacity, Dimensions, StyleSheet, FlatList, RefreshControl, ActivityIndicator} from 'react-native';
+import {ScrollView, View, Text, Image, Platform, TouchableOpacity, Dimensions, StyleSheet, FlatList, RefreshControl, ActivityIndicator, ImageBackground} from 'react-native';
 import * as Icon from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import {connect} from 'react-redux';
 import Layout from '../constants/Layout';
-import {getSearchByArtistResults, playTrack} from '../actions';
+import {getSearchByArtistResults, playTrack, followArtist} from '../actions';
 import Track from '../components/track/track';
 import {Button} from 'react-native-elements';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {fetchArtistDetailsJson} from '../actions/artist';
 import {GENERAL_API_LIMIT} from '../constants/App';
 
-var {width} = Dimensions.get('window');
+const bannerHeight= 125;
 
 class ArtistScreen extends React.Component {
   constructor(props) {
@@ -46,64 +46,85 @@ class ArtistScreen extends React.Component {
             <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0}}>
               <View style={{marginBottom: 5, backgroundColor: '#272D33'}}>
                 {this.state.artist ?
-                    <View>
-                      <View style={{paddingHorizontal: 10, paddingTop: 24}}>
-                        <TouchableOpacity style={{marginHorizontal: 16, marginTop: 16}} onPress={() => this.props.navigation.goBack()}>
-                          <Icon.Ionicons
-                              name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
-                              size={26}
-                              color={Colors.fontColor}
-                          />
-                        </TouchableOpacity>
-                        <View style={{alignItems: 'center', marginBottom: 20, paddingVertical: 5, paddingTop: 10}}>
-                          <Image style={{width: Layout.isSmallDevice ? 104 : 208, height: Layout.isSmallDevice ? 104 : 208, borderRadius: Layout.isSmallDevice ? 52 : 104}} source={{uri: this.state.artist.imageUrl}}/>
-                          <Text style={{fontSize: 16, color: Colors.fontColor, paddingTop: 8}}>{this.state.artist.artistName}</Text>
-                          <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                            <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
-                              <Icon.Ionicons
-                                  name={Platform.OS === 'ios' ? 'md-people' : 'md-people'}
-                                  size={12}
-                                  color={Colors.fontColor}
-                                  style={{margin: 5}}
-                              />
-                              <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.followers ? this.state.artist.followers : 0}</Text>
-                            </View>
-                            <View style={{flexDirection: 'row', marginHorizontal: 10, marginTop: 5, justifyContent: 'center', alignItems: 'center'}}>
-                              <Image
-                                  source={require('../assets/icons/clap-white.png')}
-                                  fadeDuration={0}
-                                  style={{width: 10, height: 10, marginRight: 5}}
-                              />
-                              <Text numberOfLines={1} style={{color: '#8897A2', fontSize: 10}}>{this.state.artist.tipTotal ? this.state.artist.tipTotal : 0}</Text>
-                            </View>
-                          </View>
-                          <View>
-                            <Button
-                                icon={
-                                  <Icon.Ionicons
-                                      name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
-                                      size={20}
-                                      color={Colors.fontColor}
-                                  />
-                                }
-                                title='PLAY'
-                                disabled={this.props.searchResultsByArtist.length == 0}
-                                disabledStyle={{backgroundColor: Colors.disabled}}
-                                buttonStyle={{
-                                  backgroundColor: Colors.tintColor,
-                                  borderColor: 'transparent',
-                                  borderWidth: 0,
-                                  borderRadius: Platform.OS === 'ios' ? 20 : 0,
-                                  paddingHorizontal: 24,
-                                }}
-                                titleStyle={{fontSize: 16, color: Colors.fontColor}}
-                                containerStyle={{marginTop: 20}}
-                                onPress={() => this.props.searchResultsByArtist.length > 0 ? this.props.playTrack(this.props.searchResultsByArtist[0], true) : console.log('no tracks')}
+                    <ImageBackground source={{uri: this.state.artist.imageUrl}} style={{width: '100%', height: bannerHeight}} imageStyle={{resizeMode: "cover"}}>
+                      <View style={[{paddingHorizontal: 10, paddingTop: 24, height: bannerHeight}, styles.overlay]}>
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                          <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
+                            <Icon.Ionicons
+                                name={Platform.OS === 'ios' ? `md-arrow-back` : 'md-arrow-back'}
+                                size={20}
+                                color={Colors.fontColor}
                             />
+                          </TouchableOpacity>
+                          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', marginHorizontal: 10}}>
+                            <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 18}}>{this.state.artist.artistName}</Text>
+                          </View>
+                        </View>
+                        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16, paddingTop: 10}}>
+                          {/*<Image style={{width: 60, height: 60, paddingHorizontal: 16}} source={{uri: this.state.artist.imageUrl}}/>*/}
+                          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                            <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginBottom: 8}}>
+                              <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                                <Icon.Ionicons
+                                    name={Platform.OS === 'ios' ? 'md-people' : 'md-people'}
+                                    size={14}
+                                    color={Colors.fontColor}
+                                    style={{margin: 5}}
+                                />
+                                <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 12}}>{this.state.artist.followers ? this.state.artist.followers : 0}</Text>
+                              </View>
+                              <View style={{flexDirection: 'row', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
+                                <Image
+                                    source={require('../assets/icons/clap-white.png')}
+                                    fadeDuration={0}
+                                    style={{width: 8, height: 8, marginRight: 5}}
+                                />
+                                <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 12}}>{this.state.artist.tipCount ? this.state.artist.tipCount : 0}</Text>
+                              </View>
+                            </View>
+                            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                              <Button
+                                  icon={
+                                    <Icon.Ionicons
+                                        name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
+                                        size={14}
+                                        color={Colors.fontColor}
+                                    />
+                                  }
+                                  title='PLAY'
+                                  disabled={this.props.searchResultsByArtist.length == 0}
+                                  disabledStyle={{backgroundColor: Colors.disabled}}
+                                  buttonStyle={{
+                                    backgroundColor: Colors.tintColor,
+                                    borderColor: 'transparent',
+                                    borderWidth: 0,
+                                    paddingHorizontal: 12,
+                                    paddingVertical: 0,
+                                    maxWidth: 100,
+                                    marginRight: 4,
+                                  }}
+                                  titleStyle={{fontSize: 12, color: Colors.fontColor, fontWeight: 'bold'}}
+                                  onPress={() => this.props.searchResultsByArtist.length > 0 ? this.props.playTrack(this.props.searchResultsByArtist[0], true) : console.log('no tracks')}
+                              />
+                              <Button
+                                  title={this.state.artist.followed ? 'Following' : 'Follow'}
+                                  buttonStyle={{
+                                    backgroundColor: 'transparent',
+                                    borderColor: Colors.tintColor,
+                                    borderWidth: 1,
+                                    paddingHorizontal: 12,
+                                    paddingVertical: 0,
+                                    maxWidth: 100,
+                                    marginHorizontal: 4,
+                                  }}
+                                  titleStyle={{fontSize: 12, color: Colors.tintColor, fontWeight: 'bold'}}
+                                  onPress={() => this.props.followArtist(this.state.artist, this.state.artist.followed ? false : true)}
+                              />
+                            </View>
                           </View>
                         </View>
                       </View>
-                    </View>
+                    </ImageBackground>
                     :
                     <View style={{paddingHorizontal: 10, paddingTop: 24, paddingBottom: 5, backgroundColor: '#272D33'}}>
                       <Icon.Ionicons
@@ -139,7 +160,7 @@ class ArtistScreen extends React.Component {
                     onEndReached={() => {
                       !this.props.loading.SEARCH_BY_ARTIST && this.props.searchResultsByArtist.length >= GENERAL_API_LIMIT ?
                           this.props.getSearchByArtistResults(this.state.artist.artistAddress, this.props.searchResultsByArtist.length) :
-                          null
+                          null;
                     }}
                     initialNumToRender={5}
                     onEndReachedThreshold={1.5}
@@ -167,12 +188,12 @@ function mapStateToProps(state) {
 
 const styles = StyleSheet.create({
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0,0.3)',
+    backgroundColor: 'rgba(0, 0, 0,0.5)',
   },
   trackContainer: {
     flex: 1,
   },
 });
 
-export default connect(mapStateToProps, {getSearchByArtistResults, playTrack})(ArtistScreen);
+export default connect(mapStateToProps, {getSearchByArtistResults, playTrack, followArtist})(ArtistScreen);
 
