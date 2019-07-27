@@ -84,7 +84,7 @@ async function fetchLikedReleasesJson(token, email, skip) {
 
   let results = await fetchGetData(`v1/user/liking?`, params);
 
-  if (results.success && results.data != []) {
+  if (results.success && results.data) {
 
     for (let i = 0; i < results.data.length; i++) {
 
