@@ -64,7 +64,7 @@ export function likeTrack(track, like) {
 function receiveLikedReleases(json, skip) {
   let releases = [];
   if (json.success) {
-    releases = json.data;
+    releases = json.tracks;
   }
 
   return {
@@ -84,29 +84,13 @@ async function fetchLikedReleasesJson(token, email, skip) {
 
   let results = await fetchGetData(`v1/user/liking?`, params);
 
-  if (results.success && results.data) {
+  if (results.success && results.tracks) {
 
-    for (let i = 0; i < results.data.length; i++) {
+    for (let i = 0; i < results.tracks.length; i++) {
 
-      if (!results.data[i].genres) {
-        results.data[i].genres = [];
-      }
+      results.tracks[i].liked = true;
 
-      if (!results.data[i].directTipCount) {
-        results.data[i].directTipCount = 0;
-      }
-
-      if (!results.data[i].directPlayCount) {
-        results.data[i].directPlayCount = 0;
-      }
-
-      if (!results.data[i].trackImg) {
-        results.data[i].trackImg = Layout.defaultTrackImage;
-      }
-
-      results.data[i].liked = true;
-
-      results.data[i].origin = 'liked';
+      results.tracks[i].origin = 'liked';
     }
     return results;
   } else {

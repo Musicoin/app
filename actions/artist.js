@@ -74,8 +74,8 @@ export function followArtist(artist, follow) {
 function receiveFollowingArtists(json, skip) {
   let artists;
 
-  if (json.success && json.data) {
-    artists = json.data;
+  if (json.success && json.artists) {
+    artists = json.artists;
   }
 
   return {
@@ -95,30 +95,10 @@ async function fetchFollowingArtistsJson(token, email) {
 
   let results = await fetchGetData(`v1/user/following?`, params);
 
-  if (results.data) {
-    for (let i = 0; i < results.data.length; i++) {
+  if (results.artists) {
+    for (let i = 0; i < results.artists.length; i++) {
 
-      if (!results.data[i].artistAddress) {
-        results.data[i].artistAddress = results.data[i].profileAddress;
-      }
-
-      if (!results.data[i].imageUrl) {
-        results.data[i].imageUrl = results.data[i].avatar;
-      }
-
-      if (!results.data[i].artistName) {
-        results.data[i].artistName = results.data[i].username;
-      }
-
-      if (!results.data[i].followers) {
-        results.data[i].followers = 0;
-      }
-
-      if (!results.data[i].tipCount) {
-        results.data[i].tipCount = 0;
-      }
-
-      results.data[i].followed = true;
+      results.artists[i].followed = true;
     }
   }
 
