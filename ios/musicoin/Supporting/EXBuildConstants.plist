@@ -4,10 +4,10 @@
 <dict>
 	<key>DEFAULT_API_KEYS</key>
 	<dict>
-		<key>GOOGLE_MAPS_IOS_API_KEY</key>
-		<string/>
 		<key>AMPLITUDE_KEY</key>
 		<string>1e246ef3dacaabe8648768d7c35fceb1</string>
+		<key>GOOGLE_MAPS_IOS_API_KEY</key>
+		<string></string>
 	</dict>
 	<key>EXPO_RUNTIME_VERSION</key>
 	<string>33.0.0</string>
