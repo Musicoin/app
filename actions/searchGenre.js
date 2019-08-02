@@ -28,7 +28,7 @@ async function fetchSearchResultsJson(token, genre, email, skip) {
 
   let results = await fetchGetData(`v1/release/bygenre?`, params);
 
-  if (results.tracks != []) {
+  if (results.tracks) {
 
     for (let i = 0; i < results.tracks.length; i++) {
 

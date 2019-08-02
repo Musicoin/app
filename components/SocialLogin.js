@@ -74,7 +74,6 @@ class SocialLogin extends React.Component {
       `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
     });
     this.setState({result});
-    console.log(result.params.access_token);
     if (result.params && result.params.access_token) {
       this.props.socialLogin('facebook', result.params.access_token);
     }

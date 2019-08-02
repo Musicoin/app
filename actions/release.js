@@ -26,7 +26,7 @@ async function fetchReleasesJson(token, email, skip) {
 
   let results = await fetchGetData(`v1/release/recent?`, params);
 
-  if (results && results.tracks != []) {
+  if (results && results.tracks) {
 
     for (let i = 0; i < results.tracks.length; i++) {
 

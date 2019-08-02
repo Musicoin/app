@@ -26,7 +26,7 @@ async function fetchSearchResultsJson(token, keyword, email) {
 
   let results = await fetchGetData(`v2/search?`, params);
 
-  if (results.tracks != []) {
+  if (results.tracks) {
 
     for (let i = 0; i < results.tracks.length; i++) {
 
