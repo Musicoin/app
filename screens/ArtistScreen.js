@@ -11,7 +11,7 @@ import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {fetchArtistDetailsJson} from '../actions/artist';
 import {GENERAL_API_LIMIT} from '../constants/App';
 
-const bannerHeight= 125;
+const bannerHeight = 125;
 
 class ArtistScreen extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class ArtistScreen extends React.Component {
             <View style={{flex: 1, backgroundColor: Colors.backgroundColor, paddingHorizontal: 0}}>
               <View style={{marginBottom: 5, backgroundColor: '#272D33'}}>
                 {this.state.artist ?
-                    <ImageBackground source={{uri: this.state.artist.imageUrl}} style={{width: '100%', height: bannerHeight}} imageStyle={{resizeMode: "cover"}}>
+                    <ImageBackground source={{uri: this.state.artist.imageUrl}} style={{width: '100%', height: bannerHeight}} imageStyle={{resizeMode: 'cover'}}>
                       <View style={[{paddingHorizontal: 10, paddingTop: 24, height: bannerHeight}, styles.overlay]}>
                         <View style={{flexDirection: 'row', alignItems: 'center'}}>
                           <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{justifyContent: 'center'}}>
@@ -116,6 +116,7 @@ class ArtistScreen extends React.Component {
                                     paddingVertical: 0,
                                     maxWidth: 100,
                                     marginHorizontal: 4,
+                                    elevation: 0,
                                   }}
                                   titleStyle={{fontSize: 12, color: Colors.tintColor, fontWeight: 'bold'}}
                                   onPress={() => this.props.followArtist(this.state.artist, this.state.artist.followed ? false : true)}

@@ -66,6 +66,7 @@ class ArtistOfTheWeek extends React.Component {
                               paddingVertical: 0,
                               maxWidth: 100,
                               marginHorizontal: 4,
+                              elevation: 0,
                             }}
                             titleStyle={{fontSize: 10, color: Colors.tintColor, fontWeight: 'bold'}}
                             containerStyle={{marginTop: 20}}
