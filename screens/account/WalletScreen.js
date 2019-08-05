@@ -52,7 +52,7 @@ class WalletScreen extends React.Component {
                   this.props.addAlert('error', '', 'Can\'t open the explorer right now, please try again at a later time.');
                 });
               }}>
-                <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{parseFloat(this.props.profile.balance).toFixed(2)}</Text>
+                <Text style={{color: Colors.fontColor, fontSize: 24, textAlign: 'center', marginVertical: 16}}>{this.props.profile.balance ? parseFloat(this.props.profile.balance).toFixed(2) : '0.00'}</Text>
               </TouchableOpacity>
             </View>
 

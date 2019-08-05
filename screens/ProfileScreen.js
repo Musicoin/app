@@ -51,7 +51,7 @@ class ProfileScreen extends React.Component {
                       />
                       <Text style={{fontSize: 14}}>Wallet</Text>
                     </View>
-                    <Text style={{fontSize: 14, color: Colors.tintColor}}>$MUSIC {parseFloat(this.props.profile.balance).toFixed(2)}</Text>
+                    <Text style={{fontSize: 14, color: Colors.tintColor}}>$MUSIC {this.props.profile.balance?parseFloat(this.props.profile.balance).toFixed(2):"0.00"}</Text>
                   </TouchableOpacity>
 
                   {/*<TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Invite')}>*/}
