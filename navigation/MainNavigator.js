@@ -191,6 +191,9 @@ const ProfileStack = createStackNavigator(
       Following: {
         screen: FollowingScreen,
       },
+      ArtistScreen: {
+        screen: ArtistScreen,
+      },
     },
     {
       mode: 'modal',
