@@ -60,25 +60,27 @@ class LibraryScreen extends React.Component {
 
               <Text style={{fontSize: 14}}>Recently played</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Liked')}>
-              <Icon.Ionicons
-                  name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
-                  size={20}
-                  color={Colors.disabled}
-                  style={{marginRight: 16}}
-              />
+            {this.props.auth.loggedIn ?
+                <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Liked')}>
+                  <Icon.Ionicons
+                      name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+                      size={20}
+                      color={Colors.disabled}
+                      style={{marginRight: 16}}
+                  />
 
-              <Text style={{fontSize: 14}}>Favorite tracks</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
-              <Image
-                  source={require('../assets/icons/clap-grey.png')}
-                  fadeDuration={0}
-                  style={{width: 16, height: 16, marginRight: 16}}
-              />
+                  <Text style={{fontSize: 14}}>Favorite tracks</Text>
+                </TouchableOpacity> : null}
+            {this.props.auth.loggedIn ?
+                <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
+                  <Image
+                      source={require('../assets/icons/clap-grey.png')}
+                      fadeDuration={0}
+                      style={{width: 16, height: 16, marginRight: 16}}
+                  />
 
-              <Text style={{fontSize: 14}}>Tipped tracks</Text>
-            </TouchableOpacity>
+                  <Text style={{fontSize: 14}}>Tipped tracks</Text>
+                </TouchableOpacity> : null}
             <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Queue')}>
               <Icon.Ionicons
                   name={'md-timer'}
