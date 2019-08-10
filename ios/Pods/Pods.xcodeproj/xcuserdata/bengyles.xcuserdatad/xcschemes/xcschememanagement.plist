@@ -53,6 +53,11 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>EXAV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>48</integer>
+		</dict>
 		<key>EXAdsAdMob.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -60,12 +65,52 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>EXAdsFacebook.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>44</integer>
+		</dict>
+		<key>EXAmplitude.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>45</integer>
+		</dict>
+		<key>EXAppAuth.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>46</integer>
+		</dict>
+		<key>EXAppLoaderProvider.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>47</integer>
+		</dict>
+		<key>EXBackgroundFetch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>49</integer>
+		</dict>
 		<key>EXBarCodeScanner.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
+		</dict>
+		<key>EXBlur.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>50</integer>
+		</dict>
+		<key>EXBrightness.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>51</integer>
+		</dict>
+		<key>EXCalendar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>52</integer>
 		</dict>
 		<key>EXCamera.xcscheme</key>
 		<dict>
@@ -95,6 +140,26 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>EXCrypto.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>53</integer>
+		</dict>
+		<key>EXDocumentPicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>54</integer>
+		</dict>
+		<key>EXFaceDetector.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>56</integer>
+		</dict>
+		<key>EXFacebook.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>55</integer>
+		</dict>
 		<key>EXFileSystem.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -123,6 +188,36 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>EXGoogleSignIn.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>57</integer>
+		</dict>
+		<key>EXHaptics.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>58</integer>
+		</dict>
+		<key>EXImageManipulator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>59</integer>
+		</dict>
+		<key>EXImagePicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>60</integer>
+		</dict>
+		<key>EXKeepAwake.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>61</integer>
+		</dict>
+		<key>EXLinearGradient.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>62</integer>
+		</dict>
 		<key>EXLocalAuthentication.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -143,6 +238,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
+		</dict>
+		<key>EXMailComposer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>63</integer>
 		</dict>
 		<key>EXMediaLibrary.xcscheme</key>
 		<dict>
@@ -165,6 +265,11 @@
 			<key>orderHint</key>
 			<integer>24</integer>
 		</dict>
+		<key>EXRandom.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>64</integer>
+		</dict>
 		<key>EXReactNativeAdapter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -179,6 +284,16 @@
 			<key>orderHint</key>
 			<integer>28</integer>
 		</dict>
+		<key>EXSQLite.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>68</integer>
+		</dict>
+		<key>EXSecureStore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>65</integer>
+		</dict>
 		<key>EXSegment.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -192,6 +307,26 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>27</integer>
+		</dict>
+		<key>EXSharing.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>66</integer>
+		</dict>
+		<key>EXSpeech.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>67</integer>
+		</dict>
+		<key>EXTaskManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>69</integer>
+		</dict>
+		<key>EXWebBrowser.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>70</integer>
 		</dict>
 		<key>ExpoKit.xcscheme</key>
 		<dict>
@@ -274,6 +409,16 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>40</integer>
+		</dict>
+		<key>UMCore.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>71</integer>
+		</dict>
+		<key>UMReactNativeAdapter.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>72</integer>
 		</dict>
 		<key>glog.xcscheme</key>
 		<dict>
