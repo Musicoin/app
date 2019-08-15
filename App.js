@@ -2,7 +2,7 @@ import React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {setCustomText} from 'react-native-global-props';
 
-import {AppLoading, SplashScreen, registerRootComponent} from 'expo';
+import {AppLoading, SplashScreen} from 'expo';
 import * as Icon from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import {Asset} from 'expo-asset';
@@ -18,7 +18,7 @@ import PlayerComponent from './components/Player';
 
 import NavigationService from './services/NavigationService';
 
-import {fetchReleases, validateAccessToken, fetchArtistOfTheWeek, getProfile} from './actions';
+import {validateAccessToken, getProfile} from './actions';
 
 import {API_ENDPOINT, DEV} from 'react-native-dotenv';
 
