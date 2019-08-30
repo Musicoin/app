@@ -43,7 +43,7 @@ export default function releases(state = {artists: [], releases: []}, action) {
             // Otherwise, this is the one we want - return an updated value
             return {
               ...item,
-              directTipCount: action.like,
+              liked: action.like,
             };
           }),
         };
