@@ -57,7 +57,7 @@ export default function releases(state = {artists: [], releases: []}, action) {
         return {
           ...state,
           artists: state.artists.map((item, index) => {
-            if (item.profileAddress !== action.artist.profileAddress) {
+            if (item.artistAddress !== action.artist.artistAddress) {
               // This isn't the item we care about - keep it as-is
               return item;
             }

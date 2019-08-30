@@ -15,6 +15,128 @@ import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 let numArtists = 3;
 let numTracks = 3;
 
+const _renderItem = ({item}) => (
+    <Track track={item} origin="search"/>
+);
+
+const _renderArtistItem = ({item}) => (
+    <Artist artist={item}/>
+);
+
+const _keyExtractor = (item, index) => index.toString();
+
+const AllResults = (props) => (
+    <SectionList
+        initialNumToRender={5}
+        keyExtractor={_keyExtractor}
+        stickySectionHeadersEnabled={false}
+        style={{flex: 1, marginBottom: props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+        renderSectionHeader={({section}) => {
+          if (!props.loading) {
+            if ((section.title === 'Artists' && props.searchResults.artists.length > 0) || (section.title === 'Tracks' && props.searchResults.releases.length > 0)) {
+              return (
+                  <View style={{marginHorizontal: 16, marginTop: 40, marginBottom: 16}}>
+                    <Text style={{fontSize: 16, color: '#F4F7FB'}}>{section.title}</Text>
+                  </View>
+              );
+            }
+          }
+        }}
+        renderSectionFooter={({section}) => {
+          if (!props.loading) {
+            if (section.title === 'Artists') {
+              if (props.searchResults.artists.length > numArtists) {
+                return (
+                    <View style={{marginHorizontal: 16, height: 32, alignItems: 'center', justifyContent: 'center'}}>
+                      <TouchableOpacity onPress={() => this.seeMore(section.title)}>
+                        <Text style={{fontSize: 12, color: '#707070'}}>{'see more artists'}</Text>
+                      </TouchableOpacity>
+                    </View>
+                );
+              }
+            }
+            if (section.title === 'Tracks') {
+              if (props.searchResults.releases.length > numTracks) {
+                return (
+                    <View style={{marginHorizontal: 16, height: 32, alignItems: 'center', justifyContent: 'center'}}>
+                      <TouchableOpacity onPress={() => this.seeMore(section.title)}>
+                        <Text style={{fontSize: 12, color: '#707070'}}>{'see more tracks'}</Text>
+                      </TouchableOpacity>
+                    </View>
+                );
+              }
+            }
+          }
+        }}
+        sections={[
+          {
+            title: 'Artists', data: props.searchResults.artists.slice(0, numArtists),
+            renderItem: _renderArtistItem,
+          },
+          {
+            title: 'Tracks', data: props.searchResults.releases.slice(0, numTracks),
+            renderItem: _renderItem,
+          },
+        ]}
+        refreshControl={
+          <RefreshControl
+              refreshing={props.loading}
+              onRefresh={() => this.search()}
+              tintColor={Colors.tintColor}
+          />}
+    />
+);
+
+ const Artists = (props) => (
+    <FlatList
+        data={props.artists}
+        keyExtractor={_keyExtractor}
+        renderItem={_renderArtistItem}
+        style={{flex: 1, marginBottom: props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+        refreshControl={
+          <RefreshControl
+              refreshing={props.loading}
+              onRefresh={() => this.search()}
+              tintColor={Colors.tintColor}
+          />
+        }
+        ListEmptyComponent={!props.loading ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <Icon.Ionicons
+              name={'ios-search'}
+              size={50}
+              color={Colors.tabIconDefault}
+              style={{opacity: 0.5}}
+          />
+          <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
+        </View> : null}
+    />
+);
+
+ const Tracks = (props) => (
+    <FlatList
+        data={props.releases}
+        keyExtractor={_keyExtractor}
+        renderItem={_renderItem}
+        style={{flex: 1, marginBottom: props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
+        refreshControl={
+          <RefreshControl
+              refreshing={props.loading}
+              onRefresh={() => this.search()}
+              tintColor={Colors.tintColor}
+          />
+        }
+        ListEmptyComponent={!props.loading ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <Icon.Ionicons
+              name={'ios-search'}
+              size={50}
+              color={Colors.tabIconDefault}
+              style={{opacity: 0.5}}
+          />
+          <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
+        </View> : null}
+    />
+);
+
 class SearchScreen extends React.Component {
 
   constructor(props) {
@@ -31,117 +153,7 @@ class SearchScreen extends React.Component {
     };
   }
 
-  _renderAllResults = () => (
-      <SectionList
-          initialNumToRender={5}
-          keyExtractor={this._keyExtractor}
-          stickySectionHeadersEnabled={false}
-          style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-          renderSectionHeader={({section}) => {
-            if (!this.props.loading.SEARCH) {
-              if ((section.title === 'Artists' && this.props.searchResults.artists.length > 0) || (section.title === 'Tracks' && this.props.searchResults.releases.length > 0)) {
-                return (
-                    <View style={{marginHorizontal: 16, marginTop: 40, marginBottom: 16}}>
-                      <Text style={{fontSize: 16, color: '#F4F7FB'}}>{section.title}</Text>
-                    </View>
-                );
-              }
-            }
-          }}
-          renderSectionFooter={({section}) => {
-            if (!this.props.loading.SEARCH) {
-              if (section.title === 'Artists') {
-                if (this.props.searchResults.artists.length > numArtists) {
-                  return (
-                      <View style={{marginHorizontal: 16, height: 32, alignItems: 'center', justifyContent: 'center'}}>
-                        <TouchableOpacity onPress={() => this.seeMore(section.title)}>
-                          <Text style={{fontSize: 12, color: '#707070'}}>{'see more artists'}</Text>
-                        </TouchableOpacity>
-                      </View>
-                  );
-                }
-              }
-              if (section.title === 'Tracks') {
-                if (this.props.searchResults.releases.length > numTracks) {
-                  return (
-                      <View style={{marginHorizontal: 16, height: 32, alignItems: 'center', justifyContent: 'center'}}>
-                        <TouchableOpacity onPress={() => this.seeMore(section.title)}>
-                          <Text style={{fontSize: 12, color: '#707070'}}>{'see more tracks'}</Text>
-                        </TouchableOpacity>
-                      </View>
-                  );
-                }
-              }
-            }
-          }}
-          sections={[
-            {
-              title: 'Artists', data: this.props.searchResults.artists.slice(0, numArtists),
-              renderItem: this._renderArtistItem,
-            },
-            {
-              title: 'Tracks', data: this.props.searchResults.releases.slice(0, numTracks),
-              renderItem: this._renderItem,
-            },
-          ]}
-          refreshControl={
-            <RefreshControl
-                refreshing={this.props.loading.SEARCH}
-                onRefresh={() => this.search()}
-                tintColor={Colors.tintColor}
-            />}
-      />
-  );
 
-  _renderArtists = () => (
-      <FlatList
-          data={this.props.searchResults.artists}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderArtistItem}
-          style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-          refreshControl={
-            <RefreshControl
-                refreshing={this.props.loading.SEARCH}
-                onRefresh={() => this.search()}
-                tintColor={Colors.tintColor}
-            />
-          }
-          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
-            <Icon.Ionicons
-                name={'ios-search'}
-                size={50}
-                color={Colors.tabIconDefault}
-                style={{opacity: 0.5}}
-            />
-            <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
-          </View> : null}
-      />
-  );
-
-  _renderTracks = () => (
-      <FlatList
-          data={this.props.searchResults.releases}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-          style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
-          refreshControl={
-            <RefreshControl
-                refreshing={this.props.loading.SEARCH}
-                onRefresh={() => this.search()}
-                tintColor={Colors.tintColor}
-            />
-          }
-          ListEmptyComponent={!this.props.loading.SEARCH ? <View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
-            <Icon.Ionicons
-                name={'ios-search'}
-                size={50}
-                color={Colors.tabIconDefault}
-                style={{opacity: 0.5}}
-            />
-            <Text style={{color: Colors.tabIconDefault, fontFamily: 'robotoMedium', fontSize: 16, marginTop: 24}}>Ooops, we couldn’t find what you’re looking for.</Text>
-          </View> : null}
-      />
-  );
 
   render() {
     return (
@@ -178,11 +190,7 @@ class SearchScreen extends React.Component {
                   this.props.searchResults.releases.length > 0 || this.props.searchResults.artists.length > 0 ?
                       <TabView
                           navigationState={this.state}
-                          renderScene={SceneMap({
-                            all: this._renderAllResults,
-                            artists: this._renderArtists,
-                            tracks: this._renderTracks,
-                          })}
+                          renderScene = {this.renderScene}
                           renderTabBar={this._renderTabBar}
                           onIndexChange={index => this.setState({index, route: this.state.routes[index].key})}
                           initialLayout={{width: Layout.window.width, height: Layout.window.height}}
@@ -215,6 +223,19 @@ class SearchScreen extends React.Component {
     );
   };
 
+  renderScene = ({ route }) => {
+    switch (route.key) {
+      case 'all':
+        return <AllResults searchResults={this.props.searchResults} loading={this.props.loading.SEARCH} currentTrack={this.props.currentTrack}/>;
+      case 'artists':
+        return <Artists artists={this.props.searchResults.artists} loading={this.props.loading.SEARCH} currentTrack={this.props.currentTrack}/>;
+      case 'tracks':
+        return <Tracks releases={this.props.searchResults.releases} loading={this.props.loading.SEARCH} currentTrack={this.props.currentTrack}/>;
+      default:
+        return null;
+    }
+  };
+
   _renderLabel = scene => {
     const label = scene.route.title;
     return <Text style={{color: scene.route.key === this.state.route ? Colors.tintColor : Colors.tabIconDefault, fontSize: 14}}>{label}</Text>;
@@ -237,16 +258,6 @@ class SearchScreen extends React.Component {
     this.searchBox.cancel();
     this.setState({searching: false});
   }
-
-  _keyExtractor = (item, index) => index.toString();
-
-  _renderItem = ({item}) => (
-      <Track track={item} origin="search"/>
-  );
-
-  _renderArtistItem = ({item}) => (
-      <Artist artist={item}/>
-  );
 
   seeMore(sectionTitle) {
     if (sectionTitle === 'Artists') {
