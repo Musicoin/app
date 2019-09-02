@@ -119,7 +119,12 @@ class ArtistScreen extends React.Component {
                                     elevation: 0,
                                   }}
                                   titleStyle={{fontSize: 12, color: Colors.tintColor, fontWeight: 'bold'}}
-                                  onPress={() => this.props.followArtist(this.state.artist, this.state.artist.followed ? false : true)}
+                                  onPress={() => {
+                                    this.props.followArtist(this.state.artist, this.state.artist.followed ? false : true);
+                                    if (this.props.auth.loggedIn) {
+                                      this.setState({artist: {...this.state.artist, followed: !this.state.artist.followed}});
+                                    }
+                                  }}
                               />
                             </View>
                           </View>
