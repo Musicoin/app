@@ -25,6 +25,7 @@ target 'musicoin' do
     'RCTWebSocket',
     'RCTAnimation',
     'RCTImage',
+    'RCTActionSheet',
     ]
   pod 'yoga',
     :path => "../node_modules/react-native/ReactCommon/yoga",
