@@ -56,10 +56,10 @@ class WalletScreen extends React.Component {
               </TouchableOpacity>
             </View>
 
-            {this.props.profile.profileAddress ?
-                <View>
-                  <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
 
+            <View>
+              <Text style={{color: Colors.disabled, fontSize: 14, textAlign: 'center', marginTop: 16}}>Your wallet address</Text>
+              {this.props.profile.profileAddress ?
                   <TouchableOpacity
                       onPress={() => {
                         Clipboard.setString(this.props.profile.profileAddress);
@@ -74,10 +74,12 @@ class WalletScreen extends React.Component {
                           color={Colors.fontColor}
                       />
                     </View>
-                  </TouchableOpacity>
-                </View> :
-                <Text style={{color: Colors.errorText, fontSize: 14, textAlign: 'center', marginTop: 16}}>No wallet address</Text>
-            }
+                  </TouchableOpacity> :
+                  <Text style={{color: Colors.tintColor, fontSize: 14, textAlign: 'center', marginTop: 32}}>
+                    Creating wallet...
+                  </Text>}
+            </View>
+
           </View>
         </View>
     );
