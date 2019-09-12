@@ -19,7 +19,7 @@ import LoginScreen from '../screens/account/LoginScreen';
 import SignupScreen from '../screens/account/SignupScreen';
 import WalletScreen from '../screens/account/WalletScreen';
 import InviteScreen from '../screens/account/InviteScreen';
-import FollowingScreen from '../screens/account/FollowingScreen';
+import FollowingScreen from '../screens/library/FollowingScreen';
 
 import Colors from '../constants/Colors';
 import {FULLSCREEN_VIEWS} from '../constants/App';

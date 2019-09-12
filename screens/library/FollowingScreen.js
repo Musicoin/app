@@ -7,7 +7,7 @@ import * as Icon from '@expo/vector-icons';
 import Artist from '../../components/Artist';
 import {getFollowingArtists, togglePlayerMode} from '../../actions';
 import connectAlert from '../../components/alert/connectAlert.component';
-import {getStatusBarHeight} from 'react-native-iphone-x-helper';
+import {getStatusBarHeight} from 'react-native-iphone-x-helper/index';
 import {GENERAL_API_LIMIT} from '../../constants/App';
 
 var {width} = Dimensions.get('window');
