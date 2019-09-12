@@ -71,7 +71,7 @@ class RecentlyTippedScreen extends React.Component {
               style={{flex: 1, marginBottom: this.props.currentTrack ? Layout.playerHeight : 0}} contentContainerStyle={styles.contentContainer}
               ListEmptyComponent={<View style={{marginTop: 100, alignItems: 'center', justifyContent: 'center'}}>
                 <Image
-                    source={require('../../assets/icons/clap-grey.png')}
+                    source={require('../../assets/icons/tip-grey.png')}
                     fadeDuration={0}
                     style={{width: 50, height: 50}}
                 />

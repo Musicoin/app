@@ -148,7 +148,7 @@ class Track extends Component {
                     }
                   }}>
                 <Image
-                    source={require('../../assets/icons/clap-grey.png')}
+                    source={require('../../assets/icons/tip-grey.png')}
                     fadeDuration={0}
                     style={{width: 20, height: 20, marginRight: 16}}
                 />

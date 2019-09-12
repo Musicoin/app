@@ -75,9 +75,9 @@ class ArtistScreen extends React.Component {
                               </View>
                               <View style={{flexDirection: 'row', marginHorizontal: 10, justifyContent: 'center', alignItems: 'center'}}>
                                 <Image
-                                    source={require('../assets/icons/clap-white.png')}
+                                    source={require('../assets/icons/tip-white.png')}
                                     fadeDuration={0}
-                                    style={{width: 8, height: 8, marginRight: 5}}
+                                    style={{width: 10, height: 10, marginRight: 5}}
                                 />
                                 <Text numberOfLines={1} style={{color: Colors.fontColor, fontSize: 12}}>{this.state.artist.tipCount ? this.state.artist.tipCount : 0}</Text>
                               </View>

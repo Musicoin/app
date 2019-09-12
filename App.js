@@ -118,8 +118,8 @@ export default class App extends React.Component {
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./assets/icons/clap-grey.png'),
-        require('./assets/icons/clap-white.png'),
+        require('./assets/icons/tip-grey.png'),
+        require('./assets/icons/tip-white.png'),
         require('./assets/icons/library-grey.png'),
         require('./assets/icons/library-white.png'),
         require('./assets/images/guitar.png'),

@@ -74,7 +74,7 @@ class LibraryScreen extends React.Component {
             {this.props.auth.loggedIn ?
                 <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Tipped')}>
                   <Image
-                      source={require('../assets/icons/clap-grey.png')}
+                      source={require('../assets/icons/tip-grey.png')}
                       fadeDuration={0}
                       style={{width: 16, height: 16, marginRight: 16}}
                   />

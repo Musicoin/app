@@ -220,7 +220,7 @@ class PlayerComponent extends React.Component {
                         }}
                         onPress={() => this.props.tipTrack(this.props.currentTrack)}>
                       <Image
-                          source={require('../assets/icons/clap-white.png')}
+                          source={require('../assets/icons/tip-white.png')}
                           fadeDuration={0}
                           style={[{width: 20, height: 20}, styles.playerButton]}
                       />
@@ -282,7 +282,7 @@ class PlayerComponent extends React.Component {
                   <Image style={{width: Layout.window.width * 0.75, height: Layout.window.width * 0.75}} source={{uri: this.props.currentTrack.trackImg}}/>
                   <View style={{flexDirection: 'row', alignItems: 'flex-end', marginHorizontal: 32, marginTop: 8}}>
                     <TouchableOpacity
-                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', marginLeft: 15}}
+                        style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginLeft: 15}}
                         onPress={() => {
                           if (!this.props.auth.loggedIn) {
                             this.props.togglePlayerMode();
@@ -303,7 +303,7 @@ class PlayerComponent extends React.Component {
 
                     </View>
                     <TouchableOpacity
-                        style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', marginRight: 15}}
+                        style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginRight: 15, height: 27}}
                         onPress={() => {
                           if (!this.props.auth.loggedIn) {
                             this.props.togglePlayerMode();
@@ -319,9 +319,9 @@ class PlayerComponent extends React.Component {
                           }
                         }}>
                       <Image
-                          source={require('../assets/icons/clap-grey.png')}
+                          source={require('../assets/icons/tip-grey.png')}
                           fadeDuration={0}
-                          style={{width: 20, height: 20}}
+                          style={{width: 20, height: 20, alignSelf: 'center', justifyContent: 'center'}}
                       />
                     </TouchableOpacity>
                   </View>
@@ -526,7 +526,7 @@ class PlayerComponent extends React.Component {
                           }
                         }}>
                       <Image
-                          source={require('../assets/icons/clap-grey.png')}
+                          source={require('../assets/icons/tip-grey.png')}
                           fadeDuration={0}
                           style={{width: 20, height: 20, marginRight: 16}}
                       />
