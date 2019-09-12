@@ -65,16 +65,6 @@ class ProfileScreen extends React.Component {
                   {/*<Text style={{fontSize: 14}}>Invite friends</Text>*/}
                   {/*</TouchableOpacity>*/}
 
-                  <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this.props.navigation.navigate('Following')}>
-                    <Icon.Ionicons
-                        name={Platform.OS === 'ios' ? 'md-person-add' : 'md-person-add'}
-                        size={20}
-                        color={Colors.disabled}
-                        style={{marginRight: 16}}
-                    />
-                    <Text style={{fontSize: 14}}>Following</Text>
-                  </TouchableOpacity>
-
                   {this.props.profile.profileAddress ?
                       <TouchableOpacity style={{flexDirection: 'row', alignItems: 'center', marginTop: 16}} onPress={() => this._toggleProductModal()}>
                         <Icon.Ionicons

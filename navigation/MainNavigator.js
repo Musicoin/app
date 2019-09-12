@@ -136,9 +136,12 @@ const LibraryStack = createStackNavigator(
       Liked: {
         screen: likedReleasesScreen,
       },
+      Following: {
+        screen: FollowingScreen,
+      },
       Queue: {
         screen: QueueScreen,
-      }
+      },
     },
     {
       mode: 'modal',
@@ -187,9 +190,6 @@ const ProfileStack = createStackNavigator(
       },
       Invite: {
         screen: InviteScreen,
-      },
-      Following: {
-        screen: FollowingScreen,
       },
       ArtistScreen: {
         screen: ArtistScreen,
