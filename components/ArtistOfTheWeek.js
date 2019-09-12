@@ -60,7 +60,7 @@ class ArtistOfTheWeek extends React.Component {
                             title={this.props.artistOfTheWeek.artist.followed ? 'Following' : 'Follow'}
                             buttonStyle={{
                               backgroundColor: 'transparent',
-                              borderColor: Colors.tintColor,
+                              borderColor: this.props.artistOfTheWeek.artist.followed ? Colors.disabled : Colors.tintColor,
                               borderWidth: 1,
                               paddingHorizontal: 12,
                               paddingVertical: 0,
@@ -68,7 +68,7 @@ class ArtistOfTheWeek extends React.Component {
                               marginHorizontal: 4,
                               elevation: 0,
                             }}
-                            titleStyle={{fontSize: 10, color: Colors.tintColor, fontWeight: 'bold'}}
+                            titleStyle={{fontSize: 10, color: this.props.artistOfTheWeek.artist.followed ? Colors.disabled : Colors.tintColor, fontWeight: 'bold'}}
                             containerStyle={{marginTop: 20}}
                             onPress={() => this.props.followArtist(this.props.artistOfTheWeek.artist, this.props.artistOfTheWeek.artist.followed ? false : true)}
                         />

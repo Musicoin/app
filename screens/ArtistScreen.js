@@ -110,7 +110,7 @@ class ArtistScreen extends React.Component {
                                   title={this.state.artist.followed ? 'Following' : 'Follow'}
                                   buttonStyle={{
                                     backgroundColor: 'transparent',
-                                    borderColor: Colors.tintColor,
+                                    borderColor: this.state.artist.followed ? Colors.disabled : Colors.tintColor,
                                     borderWidth: 1,
                                     paddingHorizontal: 12,
                                     paddingVertical: 0,
@@ -118,7 +118,7 @@ class ArtistScreen extends React.Component {
                                     marginHorizontal: 4,
                                     elevation: 0,
                                   }}
-                                  titleStyle={{fontSize: 12, color: Colors.tintColor, fontWeight: 'bold'}}
+                                  titleStyle={{fontSize: 10, color: this.state.artist.followed ? Colors.disabled : Colors.tintColor, fontWeight: 'bold'}}
                                   onPress={() => {
                                     this.props.followArtist(this.state.artist, this.state.artist.followed ? false : true);
                                     if (this.props.auth.loggedIn) {
