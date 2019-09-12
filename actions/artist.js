@@ -85,12 +85,12 @@ function receiveFollowingArtists(json, skip) {
   };
 }
 
-async function fetchFollowingArtistsJson(token, email) {
+async function fetchFollowingArtistsJson(token, email, skip) {
   var params = {
     'email': email,
     'accessToken': token,
     'limit': 20,
-    'skip': 0,
+    skip,
   };
 
   let results = await fetchGetData(`v1/user/following?`, params);
