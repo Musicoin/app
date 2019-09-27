@@ -125,7 +125,6 @@ export default class App extends React.Component {
         require('./assets/images/guitar.png'),
       ]),
       Font.loadAsync({
-        ...Icon.Ionicons.font,
         'robotoRegular': require('./assets/fonts/Roboto-Regular.ttf'),
         'robotoMedium': require('./assets/fonts/Roboto-Medium.ttf'),
         'robotoBold': require('./assets/fonts/Roboto-Bold.ttf'),
