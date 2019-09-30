@@ -33,13 +33,14 @@ class ArtistOfTheWeek extends React.Component {
                       <Text numberOfLines={1} style={{fontSize: 14, fontWeight: 'bold'}}>Artist of the week</Text>
                       <Text numberOfLines={1} style={{fontSize: 12, fontFamily: 'robotoMedium', marginTop: 8}}>{this.props.artistOfTheWeek.artist.artistName}</Text>
                       <Text numberOfLines={1} style={{fontSize: 12}}>{this.props.artistOfTheWeek.track.title}</Text>
-                      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}}>
                         <Button
                             icon={
                               <Icon.Ionicons
                                   name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
                                   size={14}
                                   color={Colors.fontColor}
+                                  style={{marginRight: 5}}
                               />
                             }
                             title='PLAY'
@@ -48,7 +49,7 @@ class ArtistOfTheWeek extends React.Component {
                               borderColor: 'transparent',
                               borderWidth: 0,
                               paddingHorizontal: 12,
-                              paddingVertical: 0,
+                              paddingVertical: 5,
                               maxWidth: 100,
                               marginRight: 4,
                             }}
@@ -63,7 +64,7 @@ class ArtistOfTheWeek extends React.Component {
                               borderColor: this.props.artistOfTheWeek.artist.followed ? Colors.disabled : Colors.tintColor,
                               borderWidth: 1,
                               paddingHorizontal: 12,
-                              paddingVertical: 0,
+                              paddingVertical: 5,
                               maxWidth: 100,
                               marginHorizontal: 4,
                               elevation: 0,

@@ -143,6 +143,7 @@ class SearchScreen extends React.Component {
     super(props);
     this.state = {
       searching: false,
+      text: '',
       index: 0,
       route: 'all',
       routes: [
@@ -166,7 +167,7 @@ class SearchScreen extends React.Component {
               searchIcon={{color: Colors.fontColor}}
               cancelIcon={null}
               onChangeText={(text) => {
-                this.text = text;
+                this.setState({text: text});
                 if (this.timeout) {
                   clearTimeout(this.timeout); // clears the old timer
                 }
@@ -184,6 +185,7 @@ class SearchScreen extends React.Component {
                 borderTopWidth: 0,
                 borderBottomWidth: 0,
               }}
+              value={this.state.text}
           />
           {this.state.searching ?
               !this.props.loading.SEARCH ?
@@ -248,9 +250,9 @@ class SearchScreen extends React.Component {
   }
 
   search() {
-    if (this.text !== '') {
+    if (this.state.text !== '') {
       this.setState({searching: true});
-      this.props.getSearchResults(this.text);
+      this.props.getSearchResults(this.state.text);
     }
   }
 

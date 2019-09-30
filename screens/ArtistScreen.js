@@ -89,6 +89,7 @@ class ArtistScreen extends React.Component {
                                         name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'}
                                         size={14}
                                         color={Colors.fontColor}
+                                        style={{marginRight: 5}}
                                     />
                                   }
                                   title='PLAY'
@@ -99,7 +100,7 @@ class ArtistScreen extends React.Component {
                                     borderColor: 'transparent',
                                     borderWidth: 0,
                                     paddingHorizontal: 12,
-                                    paddingVertical: 0,
+                                    paddingVertical: 5,
                                     maxWidth: 100,
                                     marginRight: 4,
                                   }}
@@ -113,7 +114,7 @@ class ArtistScreen extends React.Component {
                                     borderColor: this.state.artist.followed ? Colors.disabled : Colors.tintColor,
                                     borderWidth: 1,
                                     paddingHorizontal: 12,
-                                    paddingVertical: 0,
+                                    paddingVertical: 5,
                                     maxWidth: 100,
                                     marginHorizontal: 4,
                                     elevation: 0,
