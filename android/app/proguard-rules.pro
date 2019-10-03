@@ -30,19 +30,24 @@
 
 ##### Expo Universal Modules #####
 
--keepclassmembers class * {
-  @expo.core.interfaces.ExpoProp *;
-}
--keepclassmembers class * {
-  @expo.core.interfaces.ExpoMethod *;
-}
+ -keepclassmembers class * {
+   @org.unimodules.core.interfaces.ExpoProp *;
+ }
+ -keepclassmembers class * {
+   @org.unimodules.core.interfaces.ExpoMethod *;
+ }
 
--keepclassmembers class * {
-  @**.expo.core.interfaces.ExpoProp *;
-}
--keepclassmembers class * {
-  @**.expo.core.interfaces.ExpoMethod *;
-}
+ -keepclassmembers class * {
+   @**.expo.core.interfaces.ExpoProp *;
+ }
+ -keepclassmembers class * {
+   @**.expo.core.interfaces.ExpoMethod *;
+ }
+
+ -keep @**.expo.core.interfaces.DoNotStrip class *
+ -keepclassmembers class * {
+   @**.expo.core.interfaces.DoNotStrip *;
+ }
 
 ##### React Native #####
 -keep,allowobfuscation @interface **.facebook.proguard.annotations.DoNotStrip

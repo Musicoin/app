@@ -1,6 +1,5 @@
 package host.exp.exponent;
 
-
 import com.facebook.react.ReactApplication;
 import com.guichaguri.trackplayer.TrackPlayer;
 import com.dooboolab.RNIap.RNIapPackage;

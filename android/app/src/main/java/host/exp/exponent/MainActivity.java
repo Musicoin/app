@@ -31,7 +31,7 @@ public class MainActivity extends DetachActivity {
   }
 
   @Override
-  public List expoPackages() {
+  public List<Package> expoPackages() {
     return ((MainApplication) getApplication()).getExpoPackages();
   }
 

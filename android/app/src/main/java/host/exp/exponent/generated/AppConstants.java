@@ -11,7 +11,7 @@ import host.exp.exponent.Constants;
 @DoNotStrip
 public class AppConstants {
 
-  public static final String VERSION_NAME = "2.9.2";
+  public static final String VERSION_NAME = "2.11.4";
   public static String INITIAL_URL = "exp://exp.host/@musicoin/Musicoin";
   public static final boolean IS_DETACHED = true;
   public static final String SHELL_APP_SCHEME = "musicoin";
@@ -55,10 +55,21 @@ public class AppConstants {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // ADD EMBEDDED RESPONSES HERE
         // START EMBEDDED RESPONSES
         embeddedResponses.add(new Constants.EmbeddedResponse("https://exp.host/@musicoin/Musicoin", "assets://shell-app-manifest.json", "application/json"));
-        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40musicoin%2FMusicoin%2F3.0.0%2F6522cefc8688a1aa7a4cd56b1feebfa2-33.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
+        embeddedResponses.add(new Constants.EmbeddedResponse("https://d1wp6m56sqw74a.cloudfront.net/%40musicoin%2FMusicoin%2F3.0.0%2F72538eb78e6cf7bcd4a0fa9d82d848df-33.0.0-android.js", "assets://shell-app.bundle", "application/javascript"));
         // END EMBEDDED RESPONSES
     EMBEDDED_RESPONSES = embeddedResponses;
   }
