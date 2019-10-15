@@ -249,7 +249,7 @@ export async function shareArtist(artist) {
     const result = await Share.share({
       title: `${artist.artistName}`,
       dialogTitle: `${artist.artistName}`,
-      message: `Listen to ${artist.artistName} on Musicoin: https://musicoin.org/nav/artist/${artist.profileAddress}`,
+      message: `Listen to ${artist.artistName} on Musicoin: https://musicoin.org/nav/artist/${artist.artistAddress}`,
       url: `https://musicoin.org/nav/artist/${artist.profileAddress}`,
     });
 
