@@ -476,10 +476,10 @@ class PlayerComponent extends React.Component {
                       <Icon.Ionicons
                           name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
                           size={24}
-                          color={this.props.currentTrack.liked?Colors.tintColor:'#8897A2'}
+                          color={this.props.currentTrack.liked ? Colors.tintColor : '#8897A2'}
                           style={{marginRight: 16, width: 20}}
                       />
-                      <Text style={{color: Colors.fontColor, fontSize: 14}}>{this.props.currentTrack.liked?"Remove favorite":"Add favorite"}</Text>
+                      <Text style={{color: Colors.fontColor, fontSize: 14}}>{this.props.currentTrack.liked ? 'Remove favorite' : 'Add favorite'}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.modalButton} onPress={() => {
                       this._toggleModal();
@@ -568,13 +568,24 @@ class PlayerComponent extends React.Component {
   async loadAndPlayTrack(track) {
     let newTrack = {id: track.trackAddress, url: track.trackUrl, title: track.title, artist: track.artistName, artwork: track.trackImg};
     try {
-      TrackPlayer.reset().then(function() {
-        TrackPlayer.add(newTrack, null).then(function() {
-          TrackPlayer.play().then(() => {
-            updateOptions();
+      if (Platform.OS === 'android') {
+        TrackPlayer.reset().then(function() {
+          TrackPlayer.add(newTrack, null).then(function() {
+            TrackPlayer.play().then(() => {
+              updateOptions();
+            });
           });
         });
-      });
+      } else {
+        let currentTrack = await TrackPlayer.getCurrentTrack();
+        await TrackPlayer.add(newTrack, null);
+        if (currentTrack) {
+          await TrackPlayer.skipToNext();
+          await TrackPlayer.remove(currentTrack);
+        } else {
+          await TrackPlayer.play();
+        }
+      }
     } catch (e) {
       console.log('audio failed to play');
       console.log(e);

@@ -34,6 +34,13 @@
 			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
 			remoteInfo = RNTrackPlayer;
 		};
+		B09A4AF323574CEF0096565F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 070744702296C0EF00B1DC9D;
+			remoteInfo = "RNIap-tvOS";
+		};
 		B0BD5B9E2241627D00E7C25F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0BD5B9A2241627D00E7C25F /* RNIap.xcodeproj */;
@@ -134,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				B0BD5B9F2241627D00E7C25F /* libRNIap.a */,
+				B09A4AF423574CEF0096565F /* libRNIap.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +254,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -275,6 +284,13 @@
 			fileType = archive.ar;
 			path = libRNTrackPlayer.a;
 			remoteRef = B078DCA421EDFD550074203F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B09A4AF423574CEF0096565F /* libRNIap.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNIap.a;
+			remoteRef = B09A4AF323574CEF0096565F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B0BD5B9F2241627D00E7C25F /* libRNIap.a */ = {
@@ -545,7 +561,7 @@
 					"\"${PODS_ROOT}/Headers/Public/lottie-ios\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -685,7 +701,7 @@
 					"\"${PODS_ROOT}/Headers/Public/lottie-ios\"",
 					"\"${PODS_ROOT}/Headers/Public/yoga\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.0;
@@ -708,7 +724,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/musicoin/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -739,7 +755,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/musicoin/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
